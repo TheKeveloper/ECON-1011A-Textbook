@@ -239,4 +239,47 @@ Since these are all functions of the exogenous variables, we can take comparativ
 \end{align*}
 Where the last equality holds by plugging in the value of $\frac{d\ell^*}{dp}$ that we obtained previously. 
 
-We could do the same for the profit function, but there is a useful shortcut that we can take using what is known as the \vocab{envelope theorem}. 
+Now we can do the same for the optimized profit function. This optimized version of the profit function, which we can denote as $\pi^*(w, p)$, is referred to as the value function. In general, the \vocab{value function} refers to the value of the objective function when making the optimal choice. The value function is always a function of the exogenous variables. 
+
+To find the comparative statics for the value function, in this case profit, we can use a result known as the \vocab{envelope theorem}. Informally, the envelope theorem says that when calcualting how the value function is affected by a change in an exogenous variable, we only need to look at the direct effect of the exogenous variable, and can treat our choices as fixed. We can write this more formally for the case of a single variable (although note that it generalizes to multiple variables),
+
+\begin{theorem*}
+    (Envelope Theorem) Let $F(x; z)$ be an objective function with choice variable $x$ and exogenous variable $z$. Let $V(z) = \max_x F(x; z)$ be the value function and $x^* = \argmax_x F(x;, z)$ be the optimizing choice of $x$. Then,
+    \begin{align*}
+        \frac{dV}{dz} = \partials{F}{z}(x^*, z)
+    \end{align*}
+\end{theorem*}
+Notice that in the last line, we are taking the partial derivative of $F$ with respect to the argument $x$, and then evaluating that derivative at the point $(x^*, z)$. 
+
+We will apply this to examine how profit changes with respect to price. Let $\pi^*$ be the value function. First, we compute the partial derivative of profit $\pi$ with respect to the price,
+\begin{align*}
+    \frac{d\pi(\ell; p, w)}{dp} = \frac{d(p f(\ell) - w \ell)}{dp} = f(\ell)
+\end{align*}
+The envelope theorem tells us that the comparative static on the value function is equal to the above evaluated at $\ell^*$, 
+\begin{align*}
+    \frac{d \pi^*}{dp} = f(\ell^*)
+\end{align*}
+In other words, if prices increase by a small amount, the additional profit that we earn will be equal to how much we are producing. 
+
+We will now prove the envelope theorem in the single variable case.
+
+\begin{proof}
+    First, observe that we can write $V(z) = F(x^*(z), z)$ because $x^*$ is the maximizing choice. We can use the multivariate chain rule to totally differentiate $V$ with respect to $z$
+    \begin{align*}
+        \frac{dV}{dz} = F_x(x^*(z), z) \frac{d x^*}{dz} + F_z(x^*(z), z)
+    \end{align*}
+    However, note that the first order condition for optimization is
+    \begin{align*}
+        F_x(x^*(z), z) = 0
+    \end{align*}
+    So, plugging into above yields,
+    \begin{align*}
+        \frac{dV}{dz} = 0 \frac{d x^*}{dz} + F_z(x^*(z), z) = F_z(x^*(z), z) = \partials{F}{z}(x^*(z), z)
+    \end{align*}
+    Where the last equality is merely a rewriting of notation. 
+\end{proof}
+
+Essentially the envelope theorem says that because we are at an optimum, a small change in our choice variable does not change the value of the overall objective function because of the first order condition. In the context of profit, this tells us that the effect of a change in price is purely the increase in price from the units that we are already producing, $f(\ell^*)$. Note that this does \emph{not} say that our choice of labor or that our production amount is not changing. Rather, it says that becuase we are at an optimum, the derivative of the profit with respect to $\ell$ must be 0. This means that a small change in $\ell$ will not affect the overall profit, so the only effect is the mechanical effect of increasing the price of the current units sold.
+
+\section{Recap}
+We can now calculate how profit-maximizing firms will choose how many workers to hire, and we have also examined how the firm's labor demand, production, and profit will change in response to variations in price and wages. We have observed these changes not only with specific production functions, but also obtained more general results for how firms should respond to changes. These are already some very powerful economic modeling tools that can formalize existing economic intutions and suggest how we might capture more complex results. In the next chapter, we will develop the model slightly by considering firms who not only choose labor, but multiple inputs. 
