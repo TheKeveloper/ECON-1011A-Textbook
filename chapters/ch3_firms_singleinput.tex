@@ -10,7 +10,7 @@ Notice that our profit function has inputs. $\ell$, the units of labor hired, is
 
 While this seems like a fairly simple model, there are some pretty important assumptions underlying it.
 
-\subsection{Assumptions}
+\subsection*{Assumptions}
 \begin{description}
     \item[Perfectly competitive market for output] Notice that the firm treats the price $p$ as exogenous. That is, no matter how much the firm produces, they can always sell goods at price $p$, and \emph{only} at price $p$. This means, first, that the firm is a \vocab{price-taker}, which means that they cannot set a price $p$ that differs from the market price $p$. The underlying assumption here is that there are enough other firms that if this firm were to raise its price, all of the customers would buy from other firms and our firm would sell 0. This assumption also entails that the amount our firm produces does not affect the market price, which can be taken to mean that there are many other firms producing a lot of the same good, so our firm's decisions do not have a noticeable effect on $p$. 
     \item[Perfectly competitive labor market] Similar to the above market for goods, we also assume that the market for labor is perfectly competitive. That is, the firm can only hire at the wage $w$, and that no matter how much labor the firm hires, the wage will not change. 
@@ -26,7 +26,7 @@ Now that we have setup the model and established the underlying assumptions, we 
     \max_{\ell} \pi(\ell; p, w) = \max_{\ell} p f(\ell) - w \ell
 \end{align}
 
-\subsection{First order conditions}
+\subsection*{First order conditions}
 Our first order condition is that the derivative of the objective function with respect to our choice variable is 0, which is
 \begin{align}
     \partials{\pi}{\ell} = 0 \label{eq:profit_foc}
@@ -47,7 +47,7 @@ Notice further that this implicitly defines our optimal choice of labor, which w
 \end{align}
 Observe further that the value of $\ell^*$ depends on the values of $p$ and $w$, so we can express it as a function of the exogenous variables, $\ell^*(p, w)$. 
 
-\subsection{Second order conditions}
+\subsection*{Second order conditions}
 In order to verify that $\ell^*$ is indeed a global maximum, and not a local maximum or even a minimum, we need to verify the second order conditions. Namely, that
 \begin{align*}
     \partials{^2\pi}{\ell^2} < 0
@@ -60,7 +60,7 @@ We need the above derivative to hold with respect to any $\ell$. However, we ass
 
 This tells us that $\ell^*$ defines a global maximum, which means that the firm is indeed profit maximizing! 
 
-\subsection{Some intuition}
+\subsection*{Some intuition}
 While the above provides the mathematical technique for how to maximize, it is useful to get some intuition about what is actually happening here. To do so, we can think about the firm's decision process.
 
 Suppose that you are running the firm but do not know any calculus. However, you do know how much you will produce for a given amount of labor and how much money you will make. One way you might decide how much labor to hire is to think what will happen if you hire one additional worker. At each point, you ask yourself whether you will make more money by hiring an additional worker or less money by hiring an additional worker. What determines this? Whether the contribution of that additional worker is greater than the additional cost of hiring that worker. Mathematically, you would hire an additional worker so long as, $p f'(\ell) > w$. 
@@ -72,7 +72,7 @@ At some level, all economic optimization methods boil down to this process. Thin
 \section{Specific production functions}
 In the above section we showed how to set up and solve for a general production function, $f$. However, because of this generality, we were unable to obtain an explicit formulation of $\ell^*$. To do so, we need to specify the functional form of $f$, and we offer some examples here of specific functional forms that $f$ could take.
 
-\subsection{Single-variable Cobb-Douglas}
+\subsection*{Single-variable Cobb-Douglas}
 One of the most common production functions used in economics is the Cobb-Douglas production function. Although typically the production function is in multiple variables, we present a single variable version of that production function here. 
 \begin{align}
     f(\ell) = \ell^\alpha, \, 0 < \alpha < 1 
@@ -99,7 +99,7 @@ We will now solve for the optimum.
     Now we can determine the sign of the above expression by examining each of the terms. $p > 0$ and $\alpha > 0$ by assumption. $\ell^{\alpha - 2} > 0$ if we assume that we hire at least some labor. And $\alpha - 1 < 0$ by assumption that $\alpha < 1$. So, we multiply three positive terms and a negative term, which means that the entire expression is negative. This satisfies our second order conditions. 
 \end{description}
 
-\subsection{Log production}
+\subsection*{Log production}
 Another relatively simple production function is the log production function, which takes the form,
 \begin{align}
     f(\ell) = \log(\ell)
@@ -128,7 +128,7 @@ We will solve this optimization problem in a slightly different way than we did 
 \section{Comparative statics}
 Now that we have solved for the optimal quantity of labor used for a given price and wage, we can see how that optimal quantity changes for a given change in exogenous variables. That is, we will take a \vocab{comparative static}. We will first do so in the specific case of a Cobb-Douglas production function, and then we will see how we can do so for a general production function. 
 
-\subsection{Cobb-Douglas}
+\subsection*{Cobb-Douglas}
 Because we can solve for the optimal quantity of labor explicitly as a function of price and wage, we can consider what happens with a small change in either. Before we start, it will be useful for us to rewrite \ref{eq:cobb_douglas_optimized} by writing each of the terms as a product of individual exponents,
 \begin{align}
     \ell^* = \left(\frac{p \alpha}{w}\right)^{\frac{1}{1 - \alpha}} = \left(p^{\frac{1}{1 - \alpha}}\right) \left(\alpha^{\frac{1}{1 - \alpha}}\right) \left(w^{\frac{1}{\alpha - 1}}\right) \label{eq:cobb_douglas_optimized_simple}
@@ -147,7 +147,7 @@ This will make it easier for us to take derivatives with respect to each of the 
     Notice that once again, every term is positive with the exception of $\alpha - 1$, which is negative. So, multiplying a series of positive terms with a single negative term means that the entire expression is negative.
 \end{description}
 
-\subsection{Implicit Function Theorem}
+\subsection*{Implicit Function Theorem}
 While the above example tells us how price and wages affect the quantity of labor demanded in the specific case of the Cobb-Douglas production function, it seems that the specific form of the production function should not matter. After all, it would be very strange if there were a production function where prices increased and the quantity of labor decreased. But how can we determine this change if we do not know the form of $f$?
 
 To gain some intuition for how we might approach this problem, let's look back at the first order condition,
