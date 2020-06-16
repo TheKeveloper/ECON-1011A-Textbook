@@ -1,0 +1,51 @@
+\chapter{Components of a model}
+
+\section{Agents making decisions}
+Almost all economic models boil down to one component: agents making decisions. The question that we try to answer is how agents make those decisions, and what are the consequences when many agents are making decisions at the same time. Some canonical examples of questions we can ask include the following:
+\begin{itemize}
+    \item How do workers decide how many hours to work?
+    \item How do households decide what goods they consume, and how much?
+    \item How do firms decide how much to produce? How do they decide how much labor to employ and capital to use?
+\end{itemize}
+
+In economics, it is usually assumed that the agents are trying to achieve the best possible outcome in some form. However, the term ``best'' can be unclear, so to formalize the concept, economists assume that agents are trying to maximize (or minimize) an \vocab{objective function}, which is a function $f: X \to \R$ from the set of possible choices $X$ and the real numbers, $\R$. Examples of objective functions might include:
+\begin{itemize}
+    \item A firm choosing how many people to hire ($X$) to maximize profits
+    \item A politician choosing which ads to buy to maximize votes
+    \item A shopper choosing what food to buy to maximize health
+\end{itemize}
+
+The inputs of the objective function, from the perspective of the agent, are the choices that the agent makes. We refer to these variables as \vocab{choice variables} -- the choices that the agent gets to make. An example of a choice variable might be how many workers to hire. Choice variables are a part of a broader class of variables called \vocab{endogenous variables}, which is any variable where the value of the variable is determined by the choices the agent makes. The difference between endogenous variables and choice variables is subtle. An example of an endogenous variable that might not be considered a choice variable would be the profits that a firm makes. While the firm might not directly choose the profits, the choices they make clearly affect the profits.
+
+Endogenous variables are in contrast to \vocab{exogenous variables}, which are variables that are determined outside of the model and are not affected by the agent's decisions. Some examples of exogenous variables might include:
+\begin{itemize}
+    \item The amount of land available
+    \item The tax rate
+    \item The productivity of workers
+\end{itemize}
+One important point is that exogenous variables are not exogenous in all models. A firm might interpret the government's tax rate as exogenous in one model, but if our agent is the government, then the tax rate would be endogenous. Throughout this book, we will refer to agents \textit{perceiving} certain quantities as exogenous, which means that the agents optimize by assuming that their actions do not affect said quantities, even if they might in the full model. 
+
+In this book, we distinguish endogenous and exogenous variables in a function's arguments by writing the endogenous variables to the left of a semicolon (;), and the exogenous variables to the right:
+\begin{align*}
+    f(x_1, x_2, \dots, x_n ; y_1, y_2, \dots, y_m)
+\end{align*}
+In the example above, $x_1, \dots, x_n$ would be the endogenous variables, while $y_1, \dots, y_n$ would be the exogenous variables. 
+
+In many cases, agents are not able to make any choice that they want to maximize their objective function. For example, an individual who goes shopping cannot buy unlimited goods, because they cannot spend more than their budgets. Such restrictions on the choices that an agent can make are called \vocab{constraints}. Constraints can either be equality or inequality constraints. Some examples include:
+\begin{itemize}
+    \item The amount of spending $s$ must be less than or equal to the budget $b$, $s \leq b$.
+    \item The farm must produce exactly $x$ bushels of corn $c$, $c = x$.
+    \item The number of hours spent working $h$ can be at most the number of hours in a day $24$, $h \leq 24$
+\end{itemize}
+For the most part in economics, we deal with inequality constraints because we are mostly considering how agents behave when resources are scarce. A problem with constraints is called a \vocab{constrained maximization} problem, and conversely, a problem without constraints is called an \vocab{unconstrained maxizmization} problem.
+
+\section{General optimization setup}
+Now that we have defined the vocabulary of optimization, we can proceed to setting up a general optimization problem. For the purposes of concision, we use vector notation. Let $\vec{x} = (x_1, \dots, x_n) \in X$ be the choice variables, and let $\vec{y} = (y_1, \dots, y_m) \in Y$ be exogenous variables. Let $f: X \times Y \to \R$ be the objective function. If we do not have constraints, then we can write the unconstrained maximization problem as
+\begin{align*}
+    \max_{\vec{x}} f(\vec{x}; \vec{y})
+\end{align*}
+The above is mathematical for ``maximize $f$ from choices of $\vec{x}$. Now suppose we have constraints, $g_1(\vec{x}; \vec{y}) \leq c_1, \dots, g_k(\vec{x}; \vec{y}) \leq c_k$. Then we can write the maximization problem as,
+\begin{align*}
+    \max_{\vec{x}} f(\vec{x}, \vec{y}) \text{ s.t. } g_1(\vec{x}; \vec{y}) \leq c_1, \dots, g_k(\vec{x}; \vec{y}) \leq c_k
+\end{align*}
+The above is mathematical notation for ``maximize $f$ with choice of $\vec{x}$ subject to (s.t.) the constraints.''

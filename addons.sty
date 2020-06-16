@@ -1,0 +1,10 @@
+\newcommand\blfootnote[1]{%
+  \begingroup
+  \renewcommand\thefootnote{}\footnote{#1}%
+  \addtocounter{footnote}{-1}%
+  \endgroup
+}
+
+\providecommand{\R}{\mathbb{R}}
+% bold notation is so much better for vectors
+\renewcommand{\vec}[1]{\mathbf{#1}}
