@@ -146,3 +146,97 @@ This will make it easier for us to take derivatives with respect to each of the 
     \end{align*}
     Notice that once again, every term is positive with the exception of $\alpha - 1$, which is negative. So, multiplying a series of positive terms with a single negative term means that the entire expression is negative.
 \end{description}
+
+\subsection{Implicit Function Theorem}
+While the above example tells us how price and wages affect the quantity of labor demanded in the specific case of the Cobb-Douglas production function, it seems that the specific form of the production function should not matter. After all, it would be very strange if there were a production function where prices increased and the quantity of labor decreased. But how can we determine this change if we do not know the form of $f$?
+
+To gain some intuition for how we might approach this problem, let's look back at the first order condition,
+\begin{align*}
+    p f'(\ell^*) = w
+\end{align*}
+Now consider what happens if we increase $w$ by a little bit. The right hand side has increased, so the left hand side must also increase by a small amount to ensure the equality holds. However, $p$ is fixed, so it must be that the value of $\ell^*$ has changed. This makes sense because recall that with the optimized choice of $\ell$, $\ell^*$ is an implicitly function of $p$ and $w$, so the value of $\ell^*$ changes.  In particular, it must have decreased, because we know that $f'' < 0$, which means that $f'$ decreases as $\ell$ increases, so to make $f'$ smaller, the value of $\ell^*$ must decrease. Notice that we were able determine how $\ell^*$ would change without having to know anything about the actual value of $\ell^*$ or the form of $f$. This is the idea behind using implicit differentiation to calculate the change. 
+
+While this is an informal argument, we can formalize it with the \vocab{implicit function theorem}. While we do not offer a formal state of the theorem, it essentially states that if we have an equality of the form $f(x) = c$ for some constant $c$, and $f$ is sufficiently ``well-behaved'', then we can express the value of $x$ as a function of $c$. This also means that we can use implicit differentiation to solve for the relatioship between the two variables.
+
+In the context of our problem, it tells us that by implicity differentiating both sides of the first order condition, we can determine how $\ell^*$ changes with respect to wage and price, without even knowing the actual value of $\ell^*$!
+
+\begin{description}
+    \item[Wage] We will first formalize the above example of the wage change. To do so, we implicitly differentiate both sides of the FOC with respect to $w$. We can start by doing both sides separately. The derivative on the right hand side is simple, 
+    \begin{align*}
+        \frac{d}{dw}(w) = 1
+    \end{align*} 
+    The left hand side requires us to use the chain rule. We eplicitly write $\ell^*$ as a function of $w$ in this case to make things clear.
+    \begin{align*}
+        \frac{d}{dw} p f'(\ell^*(w)) = p f''(\ell^*(w)) \frac{d\ell^*(w)}{dw}
+    \end{align*}
+    Because the FOC must hold with equality, a small change in $w$ must lead to both sides staying the same. So, we can set the above expressions equal to each other,
+    \begin{align*}
+        p f''(\ell^*(w)) \frac{d\ell^*}{dw} = 1
+    \end{align*}
+    Now, we can solve for $\frac{d\ell^*}{dw}$. Rearranging yields,
+    \begin{align*}
+        \frac{d\ell^*}{dw} = \frac{1}{pf''(\ell^*)}
+    \end{align*}
+    We can also determine the sign of $\frac{d\ell^*}{dw}$. Observe that $f''(\ell^*) < 0$ by assumption on our production function, and $p > 0$, so we have that overall the expression must be negative. That is,
+    \begin{align*}
+        \frac{d\ell^*}{dw} < 0
+    \end{align*}
+    This tells us that holding everything else constant, a small increase in the wage decreases the amount of labor that the firm demands. 
+
+    \item[Price] We can perform a similar calculation with the price of the output good. Differentiate both sides of the FOC with respect to $p$,
+    \begin{align*}
+        \frac{d}{dp} \left(p f'(\ell^*)\right) &= \frac{d}{dp} w \\
+        p f''(\ell^*) \frac{d \ell^*}{dp} + f'(\ell^*) &= 0
+    \end{align*} 
+    Since $w$ is an exogenous variable, it does not depend on $p$ so the right hand side is clearly 0. The left hand side has a product, so we use the product role to implicitly differentiate. So we can solve for, $\frac{d\ell^*}{dp}$,
+    \begin{align*}
+        \frac{d\ell^*}{dp} = -\frac{f'(\ell^*)}{p f''(\ell^*)}
+    \end{align*}
+    Before reading further, try figuring out the sign of $\frac{d\ell^*}{dp}$ yourself. It should be a fairly straightforward exercise in examining the assumptions we made about $f$ and your result should match with your intuitions.
+
+    Signing the expression is pretty simple. By assumption, we have that $f'(\ell^*) > 0, p > 0$ and we know that $f''(\ell^*) < 0$, so the entire term must be positive. To check that this accords with our intutions, if the price of the good increases, the firm should produce more of that good because the marginal revenue has increased. 
+\end{description}
+
+If you observe both of our comparative statics above, you may notice some similarities between them. For instance, the denominator in both is the same. It turns out that we can say generally how to take a comparative static for a given objective function. We show this below.
+
+\begin{proposition*}
+    Given a twice-differentiable increasing and concave objective function $F(x; z)$, with choice variable $x$ and exogenous variable $z$, and $x^*(z) = \argmax_{x} F(x; z)$, then $\frac{dx^*}{dz} = - \frac{F_{xz}}{F_{xx}}(x^*(z); z)$. 
+\end{proposition*}
+
+The above yields a general way of finding the comparative static of an optimized choice variable $x^*$ with respect to an exogenous variable $z$ for any given single variable optimization problem. We will prove the above result.
+
+\begin{proof}
+    This proof follows straightforwardly from taking first order conditions and then using the multivariate chain rule to implicitly differentiate. 
+
+    The first order condition for an optimal $x$ is
+    \begin{align*}
+        F_x(x^*, z) = 0
+    \end{align*}
+    Now, we totally differentiate both sides with respect to $z$. The right hand side is clearly 0. The left hand side uses the multivariate chain rule.
+    \begin{align*}
+        F_{xx}(x^*, z) \frac{dx^*}{dz} + F_{xz}(x^*, z) = 0
+    \end{align*}
+    Rearranging for $\frac{dx^*}{dz}$ completes the proof,
+    \begin{align*}
+        \frac{dx^*}{dz} = -\frac{F_{xz}(x^*, z)}{F_{xx}(x^*, z)}
+    \end{align*}
+\end{proof}
+
+One useful component to notice is that because we have assumed the second order conditions to hold, $F_{xx} < 0$, then the sign of the comparative static is the same as the sign of $F_{xz}$. This is a fairly powerful result that tells us how to very straightforwardly find the comparative statics for a single variable optimization problem. One important thing to note however, is that above, $F$ would be akin to profit, $\pi$, in the firm's problem because it is the objective function. This does \emph{not} hold for the production function $f$. 
+
+\section{Value function}
+In all of the above, we find that we can write the optimal amount of labor demanded as a function of the exogenous variables. However, we could do the same for all of the other functions. For example, we could define the optimal production function in terms of the exogenous variables as well,
+\begin{align*}
+    f^*(w, p) = f(\ell^*(w, p))
+\end{align*}
+And we can do the same for the profit function to determine how much profit the firm makes in terms of the exogenous parameters,
+\begin{align*}
+    \pi^*(w, p) = p f(\ell^*(w, p)) - w \ell^*(w, p)
+\end{align*}
+Since these are all functions of the exogenous variables, we can take comparative statics of each of them by straightforward differentiation and the chain rule. For example, to see how the quantity produced changes for an increase in price, we have
+\begin{align*}
+    \frac{df^*}{dp} = \frac{d f(\ell^*)}{dp} = f'(\ell^*) \frac{d\ell^*}{dp} = -\frac{f'(\ell^*)^2}{p f''(\ell^*)}
+\end{align*}
+Where the last equality holds by plugging in the value of $\frac{d\ell^*}{dp}$ that we obtained previously. 
+
+We could do the same for the profit function, but there is a useful shortcut that we can take using what is known as the \vocab{envelope theorem}. 
