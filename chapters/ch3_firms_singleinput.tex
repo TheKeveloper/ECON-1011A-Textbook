@@ -70,3 +70,31 @@ However, you also know that because each additional worker's contribution is les
 At some level, all economic optimization methods boil down to this process. Thinking about what will happen if increase some quantity by an infinitesimal amount, and requiring that doing so makes no difference. 
 
 \section{Specific production functions}
+In the above section we showed how to set up and solve for a general production function, $f$. However, because of this generality, we were unable to obtain an explicit formulation of $\ell^*$. To do so, we need to specify the functional form of $f$, and we offer some examples here of specific functional forms that $f$ could take.
+
+\subsection{Single-variable Cobb-Douglas}
+One of the most common production functions used in economics is the Cobb-Douglas production function. Although typically the production function is in multiple variables, we present a single variable version of that production function here. 
+\begin{align}
+    f(\ell) = \ell^\alpha, \, 0 < \alpha < 1 
+\end{align}
+This yields the profit function,
+\begin{align}
+    \pi(\ell) = p \ell^\alpha - w \ell
+\end{align}
+We will now solve for the optimum.
+\begin{description}
+    \item[First order condition] The first order condition for a maximum is
+    \begin{align}
+        \partials{\pi}{\ell} = p \alpha \ell^{\alpha - 1} - w = 0
+    \end{align} 
+    Rearranging to solve yields
+    \begin{align}
+        \ell^* = \left(\frac{w}{p \alpha}\right)^{\frac{1}{\alpha - 1}} = \left(\frac{p \alpha}{w}\right)^{\frac{1}{1 - \alpha}}
+    \end{align}
+    Where the second equality holds by taking the reciprocal of the inside term and negating the exponent. 
+    \item[Second order conditions] We should verify that $\ell^*$ is indeed a maximum by checking the second order conditions. We can take the second derivative of $\pi$ with respect to $\ell$ to obtain,
+    \begin{align}
+        \partials{^2 \pi}{\ell^2} = p \alpha (\alpha - 1) \ell^{\alpha - 2}
+    \end{align}
+    Now we can determine the sign of the above expression by examining each of the terms. $p > 0$ and $\alpha > 0$ by assumption. $\ell^{\alpha - 2} > 0$ if we assume that we hire at least some labor. And $\alpha - 1 < 0$ by assumption that $\alpha < 1$. So, we multiply three positive terms and a negative term, which means that the entire expression is negative. This satisfies our second order conditions. 
+\end{description}
