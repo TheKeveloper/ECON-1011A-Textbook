@@ -89,7 +89,7 @@ We will now solve for the optimum.
     \end{align} 
     Rearranging to solve yields
     \begin{align}
-        \ell^* = \left(\frac{w}{p \alpha}\right)^{\frac{1}{\alpha - 1}} = \left(\frac{p \alpha}{w}\right)^{\frac{1}{1 - \alpha}}
+        \ell^* = \left(\frac{w}{p \alpha}\right)^{\frac{1}{\alpha - 1}} = \left(\frac{p \alpha}{w}\right)^{\frac{1}{1 - \alpha}} \label{eq:cobb_douglas_optimized}
     \end{align}
     Where the second equality holds by taking the reciprocal of the inside term and negating the exponent. 
     \item[Second order conditions] We should verify that $\ell^*$ is indeed a maximum by checking the second order conditions. We can take the second derivative of $\pi$ with respect to $\ell$ to obtain,
@@ -123,4 +123,26 @@ We will solve this optimization problem in a slightly different way than we did 
         \partials{^2 \pi}{\ell^2} = - \frac{p}{\ell^2}
     \end{align}
     Since $\ell^2 > 0, p > 0$, this must be negative, which satisfies the second order conditions. 
+\end{description}
+
+\section{Comparative statics}
+Now that we have solved for the optimal quantity of labor used for a given price and wage, we can see how that optimal quantity changes for a given change in exogenous variables. That is, we will take a \vocab{comparative static}. We will first do so in the specific case of a Cobb-Douglas production function, and then we will see how we can do so for a general production function. 
+
+\subsection{Cobb-Douglas}
+Because we can solve for the optimal quantity of labor explicitly as a function of price and wage, we can consider what happens with a small change in either. Before we start, it will be useful for us to rewrite \ref{eq:cobb_douglas_optimized} by writing each of the terms as a product of individual exponents,
+\begin{align}
+    \ell^* = \left(\frac{p \alpha}{w}\right)^{\frac{1}{1 - \alpha}} = \left(p^{\frac{1}{1 - \alpha}}\right) \left(\alpha^{\frac{1}{1 - \alpha}}\right) \left(w^{\frac{1}{\alpha - 1}}\right) \label{eq:cobb_douglas_optimized_simple}
+\end{align}
+This will make it easier for us to take derivatives with respect to each of the variables. 
+\begin{description}
+    \item[Price] To determine the effect of a small change in the price of the good, we can take the derivative of $\ell^*$ with respect to $p$. This yields,
+    \begin{align*}
+        \frac{d\ell^*}{dp} = \left(\frac{p^{\frac{\alpha}{1 - \alpha}}}{1 - \alpha}\right)\left(\alpha^{\frac{1}{1 - \alpha}}\right) \left(w^{\frac{1}{\alpha - 1}}\right)
+    \end{align*}
+    You can check that each of the terms above is positive to obtain that the entire expression is positive. So, all else equal, an increase in price will lead to the firm using more labor. This makes sense because with a higher price, the marginal revenue for the good increases, which means that the firm should hire more labor to produce more output. 
+    \item[Wage] We can follow a similar procedure as above, differentiating $\ell^*$ with respect to the wage, $w$,
+    \begin{align*}
+        \frac{d\ell^*}{dw} = \left(\frac{p \alpha}{w}\right)^{\frac{1}{1 - \alpha}} = \left(p^{\frac{1}{1 - \alpha}}\right) \left(\alpha^{\frac{1}{1 - \alpha}}\right) \left(\frac{w^{\frac{2 - \alpha}{\alpha - 1}}}{\alpha - 1}\right)
+    \end{align*}
+    Notice that once again, every term is positive with the exception of $\alpha - 1$, which is negative. So, multiplying a series of positive terms with a single negative term means that the entire expression is negative.
 \end{description}
