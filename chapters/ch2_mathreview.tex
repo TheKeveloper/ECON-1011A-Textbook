@@ -1,0 +1,143 @@
+\chapter{Math Review}
+Throughout economics, we use mathematics to formalize our thinking and to make sure that our chain of reasoning makes sense. In this chapter, we provide a review of the mathematics that will be necessary for this course.
+
+Because economics focuses primarily on optimizing agents on the margin, we extensively use multivariable calculus, for both constrained and unconstrained optimization. In this chapter, we review the basic concepts of differentiation, constrained and unconstrained optimization, as well as some notation that will be used throughout the course. 
+
+\section{Differentiation}
+\subsection*{Single variable differentiation}
+Perhaps the most important mathematical concept for this course is that of the derivative. Suppose we have some function, $f: \R \to \R$, where $\R$ is the set of real numbers and the above notation tells us that the function $f$ takes a real number as an input and returns a real number. Formally, the \vocab{derivative} of $f$ at a point $x$ is defined as,
+\begin{align*}
+    f'(x) = \lim_{h \to 0} \frac{f(x + h) - f(x)}{dh}
+\end{align*}
+Informally, the derivative $f'(x)$ represents how much the value of $f$ changes for a very small increase in the value of $x$. Graphically, the derivative is the slope of the line tangent to $f$ at $x$. 
+
+Notice that the definition of the derivative assumes that the limit exists. For the most part in this course, we assume that $f$ is \vocab{smooth}, which means that we can differentiate $f$ infinitely many times. $f'(x)$ is also called the \vocab{first derivative} of $f$, because it is the result of differentiating $f$ once. To get a higher order derivative, we simply differentiate the derivative. $f''(x)$ is the \vocab{second derivative} of $f$, and is found by taking the derivative of $f'(x)$, and higher order derivatives are found similarly. The notation for the $n$th derivative of $f$ is given by $f^{(n)}(x)$. The second derivative, $f''(x)$ is of particular importance in economics because it represents the concavity/convexity of a function. If $f''(x) > 0$, then we say that $f$ is \vocab{convex} at $x$, and if $f''(x) < 0$, then we say that $f$ is \vocab{concave} at $x$. If $f''(x) < 0$ for all $x$, then $f$ is \vocab{globally concave}, and if $f''(x) > 0$ for all $x$, then $f$ is \vocab{globally convex}. We will very rarely need to deal with cases where the derivative is of an order higher than 2.
+
+We also use another piece of notation for a derivative in this course, which is Leibnitz notation, which highlights the notion of the derivative as a rate of change, and treats differentiation as an operator. In \vocab{Leibnitz notation}, the derivative of $f$ is written as
+\begin{align*}
+    f'(x) = \frac{d}{dx}\left(f(x)\right) = \frac{df(x)}{dx} = \frac{df}{dx}(x)
+\end{align*}
+Here, we treat $\frac{d}{dx}$ as an operator on the function $f$, and higher order derivatives simply involve repeatedly applying the differentiation operator, so the second derivative of $f$ would be written as,
+\begin{align*}
+    \frac{d^2}{dx^2}(f(x)) = \frac{d^2 f}{dx}(x)
+\end{align*}
+Similar notation proceeds for higher order derivatives. 
+
+Commonly throughout this course, we will omit the parameters to the derivative, and just write the derivative as,
+\begin{align*}
+    \frac{df}{dx} \text{ or } f'
+\end{align*}
+This is for convenience, and because often we assume that the sign of the derivative is the same regardless of the input. However, it is important to remember that the derivative is always evaluated at some point, and that you cannot in general cancel derivatives that are evaluated at different points. 
+
+\subsubsection*{Differentiation rules}
+We assume knowledge of some basic rules and properties of differentation. We list some of the most important ones here:
+\begin{description}
+    \item[Power rule] For a constant $\alpha$, 
+    \begin{align*}
+        \frac{d}{dx}(x^\alpha) = \alpha x^{\alpha - 1}
+    \end{align*}
+    \item[Linearity] For $\alpha, \beta \in \R$, and functions $f, g$, we have
+    \begin{align*}
+        \frac{d}{dx} (\alpha f(x) + \beta g(x)) = \alpha \frac{df}{dx}(x) + \beta \frac{dg}{dx}(x) = \alpha f'(x) + \beta g'(x)
+    \end{align*} 
+    \item[Product Rule] For functions $f, g$,
+    \begin{align*}
+        \frac{d}{dx} (f(x) \cdot g(x)) = \frac{dg}{dx}(x)f(x) + \frac{df}{dx}(x) g(x) = g'(x) f(x) + f'(x) g(x)
+    \end{align*}
+    \item[Chain Rule] For functions $f, g$, 
+    \begin{align*}
+        \frac{d}{dx}(f(g(x))) = \frac{df}{dx}(g(x))  \cdot \frac{dg}{dx}(x) = f'(g(x)) g'(x)
+    \end{align*}
+    \item[Log] In this course we use $\log$ to refer to the natural logarithm (also commonly written as $\ln$),
+    \begin{align*}
+        \frac{d}{dx}(\log(x)) = \frac{1}{x}
+    \end{align*}  
+    \item[Expoential]
+    \begin{align*}
+        \frac{d}{dx}(e^x) = e^x
+    \end{align*}
+    We can generalize this using the chain rule, so that for any constant $a$, we have
+    \begin{align*}
+        \frac{d}{dx} a^{x} = \log(a) a^x
+    \end{align*}
+    \item[Inverse differentiation] While the derivative answers how $f$ changes for a small change in $x$, we can similarly ask how much does $x$ change for a small change in $f$, which is the inverse derivative,
+    \begin{align*}
+        \frac{dx}{df}(x) = \frac{1}{\frac{df}{dx}(x)}
+    \end{align*}  
+    \item[Differentiation with respect to a function] We can more generally ask, how does a function $f(x)$ change if we increase one component of $f$, say $g(x)$ by a small amount, this yields the derivative of $f(x)$ with respect to $g(x)$,
+    \begin{align*}
+        \frac{df}{dg}(x) = \frac{df(x)}{dx} \frac{dx}{dg(x)} = \frac{df}{dx}(x) \frac{1}{\frac{dg}{dx}(x)} = \frac{f'(x)}{g'(x)}
+    \end{align*}
+\end{description}
+
+\subsection*{Multivariable differentiation}
+While single variable differentiation tells us how a function changes when there is a single input, we often have functions of multiple variables. Suppose we have a function $f(x_1, x_2, \dots, x_n)$, where $x_1, x_2, \dots, x_n$, are the different arguments that are taken as inputs to the function $f$. We can also write the input to $f$ in \vocab{vector notation}, $\vec{x} = (x_1, x_2, \dots, x_n)$, and the function as $f(\vec{x})$. Formally then, a multivariable function is a function $f: \R^n \to \R$ which takes an $n$ dimensional vector as input, and returns a number as output. 
+
+Now, we can ask how to differentiate such a multivariable function. 
+
+\subsubsection*{Partial Differentiation}
+While in the single variable case, the derivative tells us how $f$ changes for small change in the input, $x$, in the multivariable, we consider how $f$ changes for a small change to one of the inputs, say $x_k$, while holding all other inputs fixed. Formally, the \vocab{partial derivative} of $f$ with respect to an input $x_k$ at a point $\vec{x} = (x_1, \dots, x_k, \dots, x_n)$,
+\begin{align*}
+    \frac{\partial f}{\partial x_k}(\vec{x}) = f_{x_k}(\vec{x}) = f_k(x) = \lim_{dx_k \to 0} \frac{f(x_1, \dots, x_k + h, \dots, x_n) - f(x_1, \dots, x_k, \dots, x_n)}{h}
+\end{align*}
+You may notice that this is very similar to the single variable cases, and indeed partial differentiation is very similar to single variable differentiation, except you treat all other components as fixed. This means that all of the above single differentiation rules also hold for the multivariable case, except replacing the derivative with the partial derivative. 
+
+We have also introduced some new notation for the derivative. $\partials{f}{x_k}, f_{x_k}$ are both notation for the partial derivatives with respect to the input $x_k$. One important piece to note however, is that $x_k$ is just the \emph{name} of the $k$th input to the function, so we can also write $f_k$ to indicate the derivative of $f$ with respect to the $k$th argument. 
+
+We can also take higher order derivatives. Similar to the single variable case, we can differentiate with respect to the same variable twice, which would be $\partials{^2 f}{x_k^2}, f_{x_k x_k}, f_{kk}$, we could also first differentiate with respect to $x_k$ first, and then differentiate that result with respect to another variable, say $x_j$. This is known as the \vocab{cross-partial} of $f$ with respect to $x_k$ and $x_j$, and is written,
+\begin{align*}
+    \frac{\partial^2 f}{\partial x_k \partial x_j} = f_{x_k x_j} = f_{kj}
+\end{align*}
+One important result on cross-partials is \vocab{Young's Theorem}, which states the following:
+\begin{theorem*}
+    (Young's theorem). Let $f: \R^n \to \R$ be a smooth function with inputs $x_1, \dots, x_n$, then $f_{x_k x_j} = f_{x_j x_k}$. 
+\end{theorem*}
+This tells us that for a well-behaved function (in this case we assume smooth with respect to all inputs), then the order we take derivatives in does not matter. 
+
+\todo{I don't know if we should address gradients or anything like that?}
+
+\subsubsection*{Total differentiation}
+While partial differentiation tells us how a function changes for a single input, keeping all other inputs fixed, it is important to remember that with a partial derivatives, all the inputs are really the \emph{names} of inputs that will eventually take on values. In that case, we can consider the following scenario. Suppose we have some multivariable function, $f: \R^n \to \R$, but then we define the single variable function $g: \R \to \R$ as follows:
+\begin{align*}
+    g(t) = f(t, t, t, \dots, t)
+\end{align*}
+That is, we are defining $g$ to be the value of $f$ when $x_1 = x_2 = \dots x_n = t$, where $t$ is some value. While we can take partial derivatives of $f$ to see how $f$ changes in response to a single input, in this case, we want to see how $g$ changes in response to all inputs. One way to do this would be to find out the explicit form of $f$ and just plug in $t$ in all the appropropriate places, and then differentiate, but this would require us to know exactly what $f$ is. However, it would be nice if we could see how $g$ changes with respect to $t$ without needing to know how $t$ enters into $f$ explicitly. 
+
+This is the value of the \vocab{total derivative}, which tells us how $g(t) = f(x_1(t), \dots, x_n(t))$ changes with respect to $t$. In this case, we treat each $x_k$ as a single variable function of $t$ which then feeds into the $k$th input of $f$. To find how this changes with respect to $t$, we use the \vocab{multivariable chain rule}, which states,
+\begin{align*}
+    \frac{dg(t)}{dt} = \frac{df(x_1(t), \dots, x_n(t))}{dt} = \frac{\partial f}{\partial x_1} \frac{d x_1(t)}{dt} + \dots + \frac{\partial f}{\partial x_n} \frac{d x_n(t)}{dt}
+\end{align*}
+Intuitively, you can think of each term of the sum as how much a small change in $x_k$ affects $f$, multiplied by how a small change in $t$ affects $x_k$. The total affect of a small change to $t$ is all of those individual changes added together. 
+
+\TODO[Add examples]
+
+\subsubsection*{Total vs Partial Derivative}
+One common point of confusion is the difference between the total derivative and the partial derivative. After all, the difference between $\frac{\partial f}{\partial x}$ and $\frac{d f}{d x}$ seems to be just one of notation, but they are not in general the same for a multivariable function. 
+
+The partial derivative, $\frac{\partial f}{\partial x}$ tells you how $f$ changes with respect to the variable \emph{named} $x$, while $\frac{df}{dx}$ tells you how $f$ changes with respect to the \emph{value} $x$. This can be particularly confusing if the name of the input is the same as the input value. To see the difference, let's consider the example of the two variable function, 
+\begin{align*}
+    f(x, y) = x \cdot y^2
+\end{align*}
+Where the name of the first input is $x$, and the name of the second input is $y$. Now we can consider evaluating $f$ at some value $x$, so $f(x, x)$. What is the partial derivative with respect to $x$ and what is the total derivative?
+
+In this case, the partial derivative with respect to $x$ at the point $x$, $\frac{\partial f}{\partial x}$, is given by differenatiating with respect to the first variable, and then plugging in the values of $x$. To see this, we can first treat it as $f(x, y)$, and differentiate with respect to $x$ holding $y$ fixed, so in general,
+\begin{align*}
+    \frac{\partial f}{\partial x}(x, y) = y^2
+\end{align*}
+Next, we plug in the \emph{value} x for both the first and second inputs, so that
+\begin{align*}
+    \frac{\partial f}{\partial x}(x, x) = x^2
+\end{align*}
+
+Compare that to how we take the total derivative. In this case, we first plug in the value of $x$ for both the first and second inputs, so that $f(x, x) = x \cdot x^2 = x^3$, and then differentiate this totally with respect to $x$, so
+\begin{align*}
+    \frac{df}{dx} = 3x^2
+\end{align*}
+We can also use the multivariable chain rule.
+\begin{align*}
+    \frac{df(x, x)}{dx} &= \partials{f}{x} \frac{dx}{dx} + \partials{f}{y} \frac{dy}{dx} \\
+    &= (x^2) (1)+ (x) (2x) \\
+    &= 3x^2
+\end{align*}
+
+In general, you can think of the partial derivative, $\partials{f}{x}$ as differentiating with respect to the variable named $x$ first, and then plugging in a specific value of $x$, while the total derivative is first plugging in a specific value of $x$, and then differentiating with respect to that value. 
