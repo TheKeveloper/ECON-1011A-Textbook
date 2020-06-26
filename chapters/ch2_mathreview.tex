@@ -141,3 +141,63 @@ We can also use the multivariable chain rule.
 \end{align*}
 
 In general, you can think of the partial derivative, $\partials{f}{x}$ as differentiating with respect to the variable named $x$ first, and then plugging in a specific value of $x$, while the total derivative is first plugging in a specific value of $x$, and then differentiating with respect to that value. 
+
+\section{Optimization}
+Agents in economics are generally assumed to be optimizing an objective function, and derivatives offer us a convenient mathematical tool for optimization of differentiable functions. There are generally two types of optimization functions: unconstrained optimization and constrained optimization, both of which can be solved with differentiation given the approproriate conditions.
+
+\subsection*{Unconstrained Optimization}
+The most basic type of optimization is \vocab{unconstrained optimization}, which seeks to optimize some objective function $f$ without any restrictions on what values its arguments can take. We will assume that $f$ is a function of $n$ variables, $x_1, \dots, x_n$, which in vector notation is $\vec{x}$ and that it returns a real number. We will also assume that $f$ is twice continuously differentiable (has two continuous derivatives). 
+
+We want to find some way of characterizing the value $\vec{x}^*$ that maximizes $f$. The problem we want to solve is therefore,
+\begin{align*}
+    \max_{\vec{x} \in \R^n} f(\vec{x})
+\end{align*}
+In order for $\vec{x}^*$ to characterize an optimum, there are two conditions that must be satisfied: the first and second order conditions. 
+
+\subsubsection*{First order conditions}
+The \vocab{first order conditions} state that in order for $\vec{x}^* = (x_1^*, \dots, x_n^*)$ to be a local optimum, we require that the partial derivative of $f$ with respect to each input $x_k$ to be equal to 0, 
+\begin{align*}
+    \partials{f}{x_1}(\vec{x}^*) &= 0 \\
+    \vdots \\
+    \partials{f}{x_k}(\vec{x}^*) &= 0 \\
+    \vdots \\
+    \partials{f}{x_n}(\vec{x}^*) &= 0
+\end{align*}
+This is also often known as the \vocab{first derivative test}.
+
+To see why this must be the cast, consider the alternatives. Suppose that $\partials{f}{x_k}(\vec{x}^*) > 0$ for some $x_k$. In that case, we could ``nudge'' $x_k^*$ to be slightly larger, and because the partial derivative is positive, the value of the function $f$ will slightly increase, which means that $f(\vec{x}^*)$ is not an optimum. Similarly, if $\partials{f}{x_k}(\vec{x}^*) < 0$, we could decrease $x_k^*$ by a small amount and increase the value of $f$. So, in order for $\vec{x}^*$ to achieve the optimal value of $f$, it must be that the partial derivatives are 0. 
+
+Note that this is a necessary condition, but not a sufficient condition. For example, in the single variable case, the function $f(x) = x^3$ has 0 derivative at $x = 0$, but it is clearly not an optimum 
+\todo{Add an image of the graph here}
+
+Moreover, the first order conditions do not distinguish between a maximum and a minimum, and are not sufficient to show that the optimum is global rather than local. In order to verify that $f(\vec{x}^*)$ is a global maximum, an additional condition must be satisfied. 
+
+\todo{Add some examples here}
+
+\subsubsection*{Second order conditions}
+The \vocab{second order conditions} (SOC) for a maximum are conditions on the second derivative of $f$. We will focus on the single variable and two-variable case, as higher dimensional second order conditions are beyond the scope of this course.
+
+The \vocab{single variable second order conditions} for a global maximum are given by
+\begin{align*}
+    f''(x) < 0 \text{ for all $x$}
+\end{align*}
+In other words, the $f$ must be a globally concave function. To see why 
+this is the case, we can think about what it means for $f''(x) < 0$. 
+\todo{Add some image here of a concave function}
+Since $f''$ is the derivative of $f'$, it means that $f'(x)$ is decreasing at this point. However, the first order conditions tell us that $f'(x) = 0$ at the maximum. Since $f'$ is decreasing at this point, the derivative at a slightly greater value of $x$ must be negative, so the value would be lower. Similarly, the derivative at a slightly lower value of $x$ must be positive, which menas that the value can increase. Moreover, because the $f''(x) < 0$ globally, then it must be that once $f'(x) < 0$, it must be negative for all greater values of $x$. 
+
+Similarly, if we are searching for a global minimum, then we require that $f''(x) > 0$ for all $x$. 
+
+However, the conditions are slightly more complicated for functions of more than one variable. The \vocab{two variable second order conditions} for a global maximum of a function $f(x, y)$ are given by
+\begin{align*}
+    f_{xx}(x, y) &< 0 \\ 
+    f_{xx}(x, y) f_{yy}(x, y) - f_{xy}(x, y)^2 &> 0 \text{ for all $x, y$}
+\end{align*}
+One thing to notice is that the above inequalities also imply that $f_{yy} < 0$, so the function must be concave in both variables. However, $f_{yy} < 0$ and $f_{xx} < 0$ alone are not sufficient to achieve a local maximum. For a global minimum, we replace the first inequality with $f_{xx} > 0$. 
+\todo{Show an example of SOC being satisfied}
+
+For functions of more than 2 variables, we require that the \vocab{Hessian} matrix of $f$ is negative-semidefinite. We generally will not need to deal with functions of more than 2 variables in this course, and so will not address these conditions here. 
+
+The first and second order conditions are sufficient and necessary conditions for the characterization of a global maximum in an unconstrained maximization problem. However, our problem will often have additional constraints that must be satisfied, and so we can not maximize using any set of inputs.
+
+\subsection*{Constrained Maximization}
