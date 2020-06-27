@@ -142,6 +142,28 @@ We can also use the multivariable chain rule.
 
 In general, you can think of the partial derivative, $\partials{f}{x}$ as differentiating with respect to the variable named $x$ first, and then plugging in a specific value of $x$, while the total derivative is first plugging in a specific value of $x$, and then differentiating with respect to that value. 
 
+\subsection*{Implicit Differentiation}
+So far, we have covered how to differentiate functions when we know their explicit form, but one reasonable question is whether or not we can differentiate functions without needing to solve for the function explicitly. This leads us to \vocab{implicit differentiation}, which allows us to differentiate a function while only knowing equality conditions that it satisfies. In some calculus classes, this may have come in the context of solving a related rates problem. 
+
+Consider the area of a circle: $A = \pi r^2$. Suppose we want to find out how the radius must change for a small change in the area of the circle. That is, we want to find $\frac{dr}{dA}$. One way to do this would be to rearrange and solve for $r$ in terms of $A$, and then differentiate,
+\begin{align*}
+    r &= \sqrt{\frac{A}{\pi}} \\
+    \frac{dr}{dA} &= \frac{1}{2\sqrt{\pi A}}
+\end{align*}
+However, another approach we might take is to differentiate both sides of the equation $A = \pi r^2$ with respect to $A$, treating $r$ as a function of $A$, and then solving for $\frac{dr}{dA}$ when it appears as a result of the chain rule,
+\begin{align*}
+    \frac{d}{dA} (A) &= \frac{d}{dA} (\pi r^2) \\
+    1 &= \pi 2r \frac{dr}{dA} \\
+    \frac{1}{2\pi r} &= \frac{dr}{dA}
+\end{align*}
+This admits an easier solution, and more important, tells us how $r$ changes with respect to $A$ as a function of $r$, without as ever needing to solve for $r$ in terms of $A$ explicitly. Of course, you can verify that if we plug in our above expression of $r$ in terms of $A$ for the derivative, then we obtain the same result. 
+
+However, importantly in this case, only $r$ was a function of the area $A$. Consider a similar problem of finding the volume of a cylinder, $V = \pi r^2 h$. In this case, we would not know how $r$ changes with respect to $V$ because $h$ is also a function of $V$ and we do not know how $h$ changes with respect to $V$. Essentially, the problem is that we have two unknowns but only one equation. To solve explicitly, we would need another equation. However, using implicit differentiation, we can still obtain some useful information. Once again differentiating both sides with respect to $V$ yields and solving for $\frac{dV}{dr}$ yields
+\begin{align*}
+    \frac{dr}{dV} = \frac{\pi^{-1} - r^2 \frac{dh}{dV}}{h2r}
+\end{align*}
+Notice here that we can tell how $\frac{dr}{dV}$ is related to each of the other terms. For example, if $\frac{dh}{dV}$ is large, then $\frac{dr}{dV}$ is smaller because the change in volume is mostly accounted for in the height. Similar analyses on economic variables can help us obtain useful insights in terms of how two variables must be related to each other, even when we cannot solve explicitly for the functions or the derivatives. 
+
 \section{Optimization}
 Agents in economics are generally assumed to be optimizing an objective function, and derivatives offer us a convenient mathematical tool for optimization of differentiable functions. There are generally two types of optimization functions: unconstrained optimization and constrained optimization, both of which can be solved with differentiation given the approproriate conditions.
 
@@ -163,7 +185,7 @@ The \vocab{first order conditions} state that in order for $\vec{x}^* = (x_1^*, 
     \vdots \\
     \partials{f}{x_n}(\vec{x}^*) &= 0
 \end{align*}
-This is also often known as the \vocab{first derivative test}.
+This is also often known as the \vocab{first derivative test}. This is often written in terms of the \vocab{gradient} of $f$, $\nabla f = (\partials{f}{x_1}, \dots, \partials{f}{x_k}, \dots, \partials{f}{x_n}) = 0$.
 
 To see why this must be the cast, consider the alternatives. Suppose that $\partials{f}{x_k}(\vec{x}^*) > 0$ for some $x_k$. In that case, we could ``nudge'' $x_k^*$ to be slightly larger, and because the partial derivative is positive, the value of the function $f$ will slightly increase, which means that $f(\vec{x}^*)$ is not an optimum. Similarly, if $\partials{f}{x_k}(\vec{x}^*) < 0$, we could decrease $x_k^*$ by a small amount and increase the value of $f$. So, in order for $\vec{x}^*$ to achieve the optimal value of $f$, it must be that the partial derivatives are 0. 
 
@@ -201,3 +223,75 @@ For functions of more than 2 variables, we require that the \vocab{Hessian} matr
 The first and second order conditions are sufficient and necessary conditions for the characterization of a global maximum in an unconstrained maximization problem. However, our problem will often have additional constraints that must be satisfied, and so we can not maximize using any set of inputs.
 
 \subsection*{Constrained Maximization}
+Many optimization problems require that you optimize an objective function $f$ while satisfying some constraint, $g(\vec{x}) = c$, where $g$ is a function with the same inputs as $f$ and $c$ is some constant. In economics, this is might be a consumer who has to spend $c$ dollars or a firm that is required to produce $c$ units of good. Formally, we write a constrained optimization as
+\begin{align*}
+    \max_{\vec{x} \in \R^n} f(\vec{x}) \text{ s.t. } g(\vec{x}) = c
+\end{align*}
+
+Notice that in this case we only have a single constraint $g(\vec{x}) = c$. In general there are problems with multiple constraints, but we will not address those cases as in this course we only handle cases with a single constraint. 
+
+To solve the constrained optimization problem, we use the \vocab{Lagrangian}, which is defined as,
+\begin{align*}
+    \Lagr(\vec{x}, \lambda) = f(\vec{x}) - \lambda(g(\vec{x}) - c)
+\end{align*}
+$\lambda$ is known as the Lagrange Multiplier, and is an added variable to help us handle the constraint. 
+
+To find the constrained maximum, we must satisfy the \vocab{constrained first order conditions}, which require that the partial derivatives of $\Lagr$ with respect to each input is 0,
+\begin{align*}
+    \partials{\Lagr}{x_1}(\vec{x}^*, \lambda^*) &= 0 \\
+    \vdots \\
+    \partials{\Lagr}{x_n}(\vec{x}^*, \lambda^*) &= 0 \\
+    \partials{\Lagr}{\lambda}(\vec{x}^*, \lambda^*) &= 0
+\end{align*}
+Notice that we treat the Lagrangian almost as its own objetive function. We can compute the partial derivatives and obtain more direct first order conditions:
+\begin{align*}
+    \partials{\Lagr}{x_k} = \partials{f}{x_k} - \lambda \partials{g}{x_k} = 0 &\iff \partials{f}{x_k} = \lambda \partials{g}{x_k} \text{ for each $k$}\\
+    \partials{\Lagr}{\lambda} = g(x) - c = 0 &\iff g(x) = c
+\end{align*}
+For students who took a multivariable calculus course that did not use the Lagrangian, this may be a more familiar set of conditions. Namely, $\partials{\Lagr}{\lambda} = 0$ ensures that the constrain is satisfied, while the Lagrange multiplier ensures that $\nabla f = \lambda \nabla g$, which says that the partial derivatives of $f$ and $g$ are a constant proportion of each other.
+
+While this is the first order condition, the full second order conditions for constrained optimization are beyond the scope of this course \todo{Not sure if this is actually true or not}. Instead, it is sufficient to note that if $f$ is a strictly increasing function and $f$ is concave, then it is a sufficient condition (although not necessary) to find a global optimum. 
+
+\todo{Add examples}
+
+\subsubsection*{Corner solutions} 
+\todo{Jimmy, do you want to handle this part?}
+
+\section{Important Properties and Notation}
+The differentiation and optimization techniques above will be the foundation of mathematics necessary for this course, there are also some important mathematical properties and notations that we will use throughout this course and will be important to know. We list them here:
+\begin{description}
+    \item[Convex functions] Convex functions are often known as functions $f$ where the second derivative is negative. However, the real defining property of a convex function is that for any $0 < \alpha < 1$ and any $\vec{x}, \vec{y}$,
+    \begin{align*}
+        f(\alpha \vec{x} + (1 - \alpha) \vec{y}) \leq \alpha f(\vec{x})) + (1 - \alpha) f(\vec{y})
+    \end{align*} 
+    
+    It can be show that if $f$ is twice differentiable, then $f$ is convex if and only if $f''(x) < 0$ for any $x$. Graphically, this says that for a convex function, a line segment connecting two points on the function is greater at every point than the function itself. The inequality is reversed for concave functions. A function that is both concave and convex is linear.
+    \todo{add image?}
+    \item[Monotonic] A monotonic function is any order preserving function. That is, $f$ is a monotonically increasing function if $f(x) < f(y)$ for any $x < y$. 
+    \item[Sets] A set is simply a collection (possibly infinite) of mathematical objects. For a set $X$, we write that an element $x$ is in $X$ by $x \in X$. We say that $Y$ is a subset of $X$ if every element of $Y$ is also in $X$, and we write $Y \subset X$.  
+    \item[Summation] Suppose we have a sum $x_1 + x_2 + \dots + x_n$. We often write this as $\sum_{i = 1}^n x_i$. For any sequences $x_1, \dots, x_n$ and $y_1, \dots, y_n$ and constants $\alpha, \beta$, we have
+    \begin{align*}
+        \sum_{i = 1}^n (\alpha x_i + \beta y_i) = \alpha \sum_{i = 1}^n x_i + \beta \sum_{i = 1}^n y_i
+    \end{align*} 
+    \item[Exponents] Here are some common properties of exponents that should be known,
+    \begin{itemize}
+        \item $a^{x + y} = a^x a^y$
+        \item $(a^x)^y = a^{xy}$
+        \item $a^{-x} = \frac{1}{a^{x}}$
+        \item $(ab)^x = a^x b^x$
+        \item $a^{x/y} = \sqrt[y]{a^x}$
+    \end{itemize}
+    
+    \item[Logarithm] We use $\log$ to refer to the natural logarithm, and here are some important properties:
+    \begin{itemize}
+        \item $e^{\log x} = x$
+        \item $\log(e^x) = x$
+        \item $\log(1) = 0$
+        \item If $0 < x < 1$, $\log x < 0$ 
+        \item If $x > 1$, $\log x > 0$
+        \item If $x < 0$, $\log x$ is undefined
+        \item $\log(xy) = \log(x) + \log(y)$
+        \item $\log(x/y) = \log(x) - \log(y)$. 
+        \item $\log(x^y) = y \log(x)$
+    \end{itemize} 
+\end{description}
