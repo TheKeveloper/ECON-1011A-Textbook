@@ -22,6 +22,7 @@ Here, we treat $\frac{d}{dx}$ as an operator on the function $f$, and higher ord
     \frac{d^2}{dx^2}(f(x)) = \frac{d^2 f}{dx}(x)
 \end{align*}
 Similar notation proceeds for higher order derivatives. 
+\todo{At some point, we should standardize what notation we are going to use for this}
 
 Commonly throughout this course, we will omit the parameters to the derivative, and just write the derivative as,
 \begin{align*}
@@ -71,9 +72,9 @@ We assume knowledge of some basic rules and properties of differentation. We lis
 \end{description}
 
 \subsection*{Multivariable differentiation}
-While single variable differentiation tells us how a function changes when there is a single input, we often have functions of multiple variables. Suppose we have a function $f(x_1, x_2, \dots, x_n)$, where $x_1, x_2, \dots, x_n$, are the different arguments that are taken as inputs to the function $f$. We can also write the input to $f$ in \vocab{vector notation}, $\vec{x} = (x_1, x_2, \dots, x_n)$, and the function as $f(\vec{x})$. Formally then, a multivariable function is a function $f: \R^n \to \R$ which takes an $n$ dimensional vector as input, and returns a number as output. 
+While single variable differentiation tells us how a function changes when there is a single input, we often have functions of multiple variables. Suppose we have a function $f(x_1, x_2, \dots, x_n)$, where $x_1, x_2, \dots, x_n$, are the different arguments that are taken as inputs to the function $f$. We can also write the input to $f$ in \vocab{vector notation}, $\vec{x} = (x_1, x_2, \dots, x_n)$, and the function as $f(\vec{x})$. Throughout this course, we use a bolded letter to denote a vector of values. Formally then, a multivariable function is a function $f: \R^n \to \R$ which takes an $n$ dimensional vector as input, and returns a number as output.
 
-Now, we can ask how to differentiate such a multivariable function. 
+Now, we can examine how to differentiate such a multivariate function. 
 
 \subsubsection*{Partial Differentiation}
 While in the single variable case, the derivative tells us how $f$ changes for small change in the input, $x$, in the multivariable, we consider how $f$ changes for a small change to one of the inputs, say $x_k$, while holding all other inputs fixed. Formally, the \vocab{partial derivative} of $f$ with respect to an input $x_k$ at a point $\vec{x} = (x_1, \dots, x_k, \dots, x_n)$,
@@ -250,7 +251,7 @@ Notice that we treat the Lagrangian almost as its own objetive function. We can 
 \end{align*}
 For students who took a multivariable calculus course that did not use the Lagrangian, this may be a more familiar set of conditions. Namely, $\partials{\Lagr}{\lambda} = 0$ ensures that the constrain is satisfied, while the Lagrange multiplier ensures that $\nabla f = \lambda \nabla g$, which says that the partial derivatives of $f$ and $g$ are a constant proportion of each other.
 
-While this is the first order condition, the full second order conditions for constrained optimization are beyond the scope of this course \todo{Not sure if this is actually true or not}. Instead, it is sufficient to note that if $f$ is a strictly increasing function and $f$ is concave, then it is a sufficient condition (although not necessary) to find a global optimum. 
+While this is the first order condition, the full second order conditions for constrained optimization are beyond the scope of this course\todo{Not sure if this is actually true or not}. Instead, it is sufficient to note that if $f$ is a strictly increasing function and $f$ is concave, then it is a sufficient condition (although not necessary) to find a global optimum. 
 
 \todo{Add examples}
 
@@ -280,6 +281,7 @@ The differentiation and optimization techniques above will be the foundation of 
         \item $a^{-x} = \frac{1}{a^{x}}$
         \item $(ab)^x = a^x b^x$
         \item $a^{x/y} = \sqrt[y]{a^x}$
+        \item $e^x$ is a monotonically increasing function
     \end{itemize}
     
     \item[Logarithm] We use $\log$ to refer to the natural logarithm, and here are some important properties:
@@ -287,11 +289,12 @@ The differentiation and optimization techniques above will be the foundation of 
         \item $e^{\log x} = x$
         \item $\log(e^x) = x$
         \item $\log(1) = 0$
-        \item If $0 < x < 1$, $\log x < 0$ 
+        \item If $0 < x < 1$, $\log x < 0$
         \item If $x > 1$, $\log x > 0$
         \item If $x < 0$, $\log x$ is undefined
         \item $\log(xy) = \log(x) + \log(y)$
-        \item $\log(x/y) = \log(x) - \log(y)$. 
+        \item $\log(x/y) = \log(x) - \log(y)$
         \item $\log(x^y) = y \log(x)$
+        \item $\log(x)$ is a monotonically increasing function
     \end{itemize} 
 \end{description}
