@@ -1,5 +1,4 @@
 \chapter{Economic Modeling Overview}
-\TODO[Jimmy]
 
 \section{What is economic modeling?}
 The goal of an economic model is to take some real world phenomena and represent it in a way that we can analyze it rigorously and tractably. At the most fundamental level, a \vocab{model} is just a set of assumptions that we make. Models can take many forms and you are likely already familiar with some models of real world phenomena. For example, you might construct a model of dining preferences by assuming that the number of people who eat in the dining halls is greater on days where the food is good. Or you might have seen toy models of molecules where the atoms are represented by marshmallows and the bonds between them as toothpicks. With the COVID-19 pandemic, models of infectious disease were used to predict the future number of infectious by assuming how often people interacted with each other,  
@@ -16,9 +15,12 @@ A model can take many forms, but in this class, we focus on mathematical models 
 
 \subsection*{What makes a good economic model?}
 As you will learn throughout this course, economic models can take many forms and there is almost no limit to the models that you can create. However, just because you can write down a certain model, does not mean that model is a good one. Most good economic models share a few key characteristics:
-\begin{description}
-    \item 
-\end{description}
+\begin{itemize}
+    \item A model should make clear what assumptions are being included, how these assumptions affect the model's conclusions, and the potential limitations of these assumptions.
+    \item A model should be general enough to be a realistic representation of the real world but also simple enough to be easy to manipulate and interpret mathematically. Striking this balance will be a key theme of this course and will be important for doing well in each of the modeling projects.
+    \item The conclusions of a model should tie back to the problem being asked. Deriving a mathematical expression that quantifies a particular behavior or result is often the majority of the battle, but it is important to understand how these results answer our initial question and whether our interpretation makes sense intuitively.
+\end{itemize}
+The rest of this chapter will build up a foundation of the different components of many economic models and introduce the mathematical tools relevant for analyzing them. Future chapters will apply and extend this foundation to various economic settings, which will help us characterize the way different pieces of the economy behave.
 
 \section{Optimization problems}
 Almost all economic models boil down to one component: agents making decisions. The question that we try to answer is how agents make those decisions, and what are the consequences when many agents are making decisions at the same time. Some canonical examples of questions we can ask include the following:
@@ -28,7 +30,7 @@ Almost all economic models boil down to one component: agents making decisions. 
     \item How do firms decide how much to produce? How do they decide how much labor to employ and capital to use?
 \end{itemize}
 
-In economics, it is usually assumed that the agents are trying to achieve the best possible outcome in some form. However, the term ``best'' can be unclear, so to formalize the concept, economists assume that agents are trying to maximize (or minimize) an \vocab{objective function}, which is a function $f: X \to \R$ from the set of possible choices $X$ to the real numbers, $\R$. Examples of objective functions might include:
+In economics, it is usually assumed that the agents are trying to achieve the best possible outcome in some form. However, the term ``best'' can be unclear, so to formalize the concept, economists assume that agents are trying to maximize (or minimize) an \vocab{objective function}, which is a function $f: X \to \R$ from the set of possible choices $X$ to the real numbers $\R$. Examples of objective functions might include:
 \begin{itemize}
     \item A firm choosing how many people to hire to maximize profits
     \item A politician choosing which ads to buy to maximize votes
@@ -59,11 +61,11 @@ In many cases, agents are not able to make any choice that they want to maximize
 \end{itemize}
 For the most part in economics, we deal with inequality constraints because we are mostly considering how agents behave when resources are scarce. A problem with constraints is called a \vocab{constrained maximization} problem, and conversely, a problem without constraints is called an \vocab{unconstrained maxizmization} problem.
 
-Now that we have defined the vocabulary of optimization, we can proceed to setting up a general optimization problem. For the purposes of concision, we use vector notation. Let $\vec{x} = (x_1, \dots, x_n) \in X$ be the choice variables, and let $\vec{y} = (y_1, \dots, y_m) \in Y$ be exogenous variables. Let $f: X \times Y \to \R$ be the objective function. If we do not have constraints, then we can write the unconstrained maximization problem as
+Now that we have defined the vocabulary of optimization, we can proceed to setting up a general optimization problem. For the purposes of concision, we use vector notation. Let $\vec{x} = (x_1, \dots, x_n) \in X$ be the choice variables, and let $\vec{y} = (y_1, \dots, y_m) \in Y$ be exogenous variables. Let $f: X \times Y \to \R$ be the objective function.\footnote{As a review of notation, $X\times Y$ refers to the Cartesian product between sets $X$ and $Y$. That is, if $X = \{x_1, x_2\}$ and $Y = \{y_1, y_2, y_3\}$, then $X\times Y$ is the set of ordered pairs with the first element from $X$ and the second element from $Y$, so $X\times Y = \{(x_1, y_1), (x_1, y_2), (x_1, y_3), (x_2, y_1), (x_2, y_2), (x_2, y_3)\}.$ Do not worry if this notation (and other instances of mathematical notation) is new for you; it is much more important that you are able to grasp the meaning of the underlying concepts.} If we do not have constraints, then we can write the unconstrained maximization problem as
 \begin{align*}
     \max_{\vec{x}} f(\vec{x}; \vec{y})
 \end{align*}
-The above is mathematical for ``maximize $f$ from choices of $\vec{x}$. Now suppose we have constraints, $g_1(\vec{x}; \vec{y}) \leq c_1, \dots, g_k(\vec{x}; \vec{y}) \leq c_k$. Then we can write the maximization problem as,
+The above is mathematical for ``maximize $f$ from choices of $\vec{x}$''. Now suppose we have constraints, $g_1(\vec{x}; \vec{y}) \leq c_1, \dots, g_k(\vec{x}; \vec{y}) \leq c_k$. Then we can write the maximization problem as,
 \begin{align*}
     \max_{\vec{x}} f(\vec{x}, \vec{y}) \text{ s.t. } g_1(\vec{x}; \vec{y}) \leq c_1, \dots, g_k(\vec{x}; \vec{y}) \leq c_k
 \end{align*}
@@ -78,14 +80,18 @@ Now that we have set up the problem, we can consider the choice of $\vec{x}$ tha
 If we assume that the value of $\vec{x}^*$ is unique, then notice that $\vec{x}^*$ is a \emph{function} of the exogenous variables, $\vec{y}$. That is, once we have specified the objective function $f$, as well as the exogenous quantities, the value of $\vec{x}^*$ is entirely determined by $\vec{y}$. This means that we can ask questions like, if the value of $\vec{y}$ changes, how would our optimal choice, $\vec{x}^*$ change? For example, if you decide to buy apples in order to maximize your happiness, you might ask how does a change in the price of apples affect the amount of apples that you buy. This is known as a \vocab{comparative static}, how some optimal choice or equilibrium quantity changes in response to a change in an exogenous variable. Taking comparative statics is one of the central goals of economic modeling. Questions related to comparative statics might include:
 
 \begin{itemize}
-    \item How does the amount of workers hired depend on the minimum wage?
-    \item How does the amount people choose to save depend on the interest rate?
-    \item How does the amount of goods consumed depend on the tax rate? 
+    \item If a firm chooses an optimal number of workers to maximize profits, how does this quantity depend on the minimum wage set by the government?
+    \item If households choose an amount to save to maximize their long-term utility, how does this amount depend on the economy's interest rate?
+    \item If a consumer chooses a quantity of goods to purchase based on their personal preferences and the goods' prices, how do consumption quantities depend on the sales tax rate? 
 \end{itemize}
-\todo{this could be improved}
+As we see in the examples above, modeling comparative statics is often useful for studying the effects of different policy interventions. At a high level, solving an agent's optimization problem describes how individual agents behave, while solving for comparative statics describes how environmental changes affect these behaviors.
 
-A common point of confusion among students is the distinction between $\vec{x}$, which is the name that we give to the choice variable, and $\vec{x}^*$, which is the value that optimizes the objective function. $\vec{x}$ can in principle be any value. For example, lets say that $\vec{x} = (a, b)$, where $a$ is the number of apples you buy and $b$ is the number of bananas. You could in principle buy $a = 2$ apples and $b = 3$ bananas, even though you would be happier with $a = 4$ and $b = 4$. Importantly, it would not make sense to take comparative statics with respect to $a$ or $b$. That is, it would not make sense to ask how the number of apples you buy will depend on price if you can freely choose how many apples to buy and have not defined a relationship with price. 
+A common point of confusion among students is the distinction between $\vec{x}$, which is the name that we give to the choice variable, and $\vec{x}^*$, which is the value that optimizes the objective function. In principle, $\vec{x}$ can be any value. For example, let's say that $\vec{x} = (a, b)$, where $a$ is the number of apples you buy and $b$ is the number of bananas. You could in principle buy $a = 2$ apples and $b = 3$ bananas, even though you would be happier with $a = 4$ and $b = 4$. If we do not know your optimization function and how your choice of $a$ and $b$ depend on exogenous variables like prices, then we cannot study the comparative statics for $a$ or $b$.
+
+% Importantly, it would not make sense to take comparative statics with respect to $a$ or $b$. That is, it would not make sense to ask how the number of apples you buy will depend on price if you can freely choose how many apples to buy and have not defined a relationship with price. 
 
 However, if you say that you are going to buy the number of apples and bananas that makes you the most happy, then this is $\vec{x}^*$ and will depend on the price as well as many other outside factors. In this case, it makes sense to ask how the number of apples you buy depends on price. Optimization is a bit like telling a robot, ``go and make the choices that will make me most happy.'' Once you have done that, the choice is fully determined by the outside world, and so we say that the optimal choice, $\vec{x}^*$ is a function of the exogenous variables $\vec{y}$. Technically, we should write $\vec{x}^*(\vec{y})$, but often we will treat this as implicit and just write $\vec{x}^*$.
 
 A common mistake when solving optimization problems is to write $\vec{x}^*$ as a function of one or more of the choice variables. This is a category error. It essentially says that our optimal choice depends on our choices. However, you can say that the optimal choice of one quantity depends on the optimal choice of another quantity. That is, you might have that $x_1^*$ depends on $x_2^*$ in some way. However, because $x_2^*$ is a function of the exogenous variables, $\vec{y}$, then $x_1^*(x_2^*(\vec{y}))$ is also a function of only exogenous variables. 
+
+\todo{Jimmy: add examples}

@@ -73,7 +73,7 @@ We assume knowledge of some basic rules and properties of differentation. We lis
 \end{description}
 
 \subsection*{Multivariable differentiation}
-While single variable differentiation tells us how a function changes when there is a single input, we often have functions of multiple variables. Suppose we have a function $f(x_1, x_2, \dots, x_n)$, where $x_1, x_2, \dots, x_n$, are the different arguments that are taken as inputs to the function $f$. We can also write the input to $f$ in \vocab{vector notation}, $\vec{x} = (x_1, x_2, \dots, x_n)$, and the function as $f(\vec{x})$. Throughout this course, we use a bolded letter to denote a vector of values. Formally then, a multivariable function is a function $f: \R^n \to \R$ which takes an $n$ dimensional vector as input, and returns a number as output.
+While single variable differentiation tells us how a function changes when there is a single input, we often have functions of multiple variables. Suppose we have a function $f(x_1, x_2, \dots, x_n)$, where $x_1, x_2, \dots, x_n$, are the different arguments that are taken as inputs to the function $f$. We can also write the input to $f$ in \vocab{vector notation}, $\vec{x} = (x_1, x_2, \dots, x_n)$, and the function as $f(\vec{x})$. Throughout this course, we use a bolded letter to denote a vector of values. Formally then, a multivariable function is a function $f: \R^n \to \R$ which takes an $n$ dimensional vector as input, and returns a number as output.\footnote{As a review of notation, recall that $\R \times \R$ is the Cartesian product of $\R$ with itself, which is the set of ordered pairs of real numbers. We denote $\R^n := \R \times \R \times \cdots \times \R$ ($n$ times); that is, $\R^n$ is the set of ordered $n$-tuples of real numbers, or equivalently the set of real vectors in $n$-dimensional space.}
 
 Now, we can examine how to differentiate such a multivariate function. 
 
@@ -84,15 +84,17 @@ While in the single variable case, the derivative tells us how $f$ changes for s
 \end{align*}
 You may notice that this is very similar to the single variable cases, and indeed partial differentiation is very similar to single variable differentiation, except you treat all other components as fixed. This means that all of the above single differentiation rules also hold for the multivariable case, except replacing the derivative with the partial derivative. 
 
-We have also introduced some new notation for the derivative. $\partials{f}{x_k}, f_{x_k}$ are both notation for the partial derivatives with respect to the input $x_k$. One important piece to note however, is that $x_k$ is just the \emph{name} of the $k$th input to the function, so we can also write $f_k$ to indicate the derivative of $f$ with respect to the $k$th argument. 
+We have also introduced some new notation for the derivative. $\partials{f}{x_k}$ and $f_{x_k}$ are both notation for the partial derivatives with respect to the input $x_k$. One important piece to note however, is that $x_k$ is just the \emph{name} of the $k$th input to the function, so we can also write $f_k$ to indicate the derivative of $f$ with respect to the $k$th argument. 
 
-We can also take higher order derivatives. Similar to the single variable case, we can differentiate with respect to the same variable twice, which would be $\partials{^2 f}{x_k^2}, f_{x_k x_k}, f_{kk}$, we could also first differentiate with respect to $x_k$ first, and then differentiate that result with respect to another variable, say $x_j$. This is known as the \vocab{cross-partial} of $f$ with respect to $x_k$ and $x_j$, and is written,
+We can also take higher order derivatives. Similar to the single variable case, we can differentiate with respect to the same variable twice, which we denote as either $\partials{^2 f}{x_k^2}$, $f_{x_k x_k}$, or $f_{kk}$. We could also first differentiate with respect to $x_k$ first, and then differentiate that result with respect to another variable, say $x_j$. This is known as the \vocab{cross-partial} of $f$ with respect to $x_k$ and $x_j$, and is written,
 \begin{align*}
-    \frac{\partial^2 f}{\partial x_k \partial x_j} = f_{x_k x_j} = f_{kj}
+    \frac{\partial^2 f}{\partial x_k \partial x_j} = f_{x_k x_j} = f_{kj}.
 \end{align*}
+Intuitively, the quantity $f_{x_k x_j}$ represents how an increase in $x_j$ changes the marginal effect that $x_k$ has on $f$.
+
 One important result on cross-partials is \vocab{Young's Theorem}, which states the following:
-\begin{theorem*}
-    (Young's theorem). Let $f: \R^n \to \R$ be a smooth function with inputs $x_1, \dots, x_n$, then $\frac{\partial^2 f}{\partial x_k \partial x_j} = \frac{\partial^2 f}{\partial x_j \partial x_k}$. 
+\begin{theorem*}[Young] % Personal preference for naming theorems; feel free to change this.
+    Let $f: \R^n \to \R$ be a smooth function with inputs $x_1, \dots, x_n$, then $\frac{\partial^2 f}{\partial x_k \partial x_j} = \frac{\partial^2 f}{\partial x_j \partial x_k}$. 
 \end{theorem*}
 This tells us that for a well-behaved function (in this case we assume smooth with respect to all inputs), then the order we take derivatives in does not matter. 
 
@@ -169,7 +171,7 @@ Notice here that we can tell how $\frac{dr}{dV}$ is related to each of the other
 Agents in economics are generally assumed to be optimizing an objective function, and derivatives offer us a convenient mathematical tool for optimization of differentiable functions. There are generally two types of optimization functions: unconstrained optimization and constrained optimization, both of which can be solved with differentiation given the approproriate conditions.
 
 \subsection*{Unconstrained Optimization}
-The most basic type of optimization is \vocab{unconstrained optimization}, which seeks to optimize some objective function $f$ without any restrictions on what values its arguments can take. We will assume that $f$ is a function of $n$ variables, $x_1, \dots, x_n$, which in vector notation is $\vec{x}$ and that it returns a real number. We will also assume that $f$ is twice continuously differentiable (has two continuous derivatives). 
+The most basic type of optimization is \vocab{unconstrained optimization}, which seeks to optimize some objective function $f$ without any restrictions on what values its arguments can take. We will assume that $f$ is a function of $n$ variables, $x_1, \dots, x_n$, which in vector notation is $\vec{x}$, and that it returns a real number. We will also assume that $f$ is twice continuously differentiable (has two continuous derivatives). 
 
 We want to find some way of characterizing the value $\vec{x}^*$ that maximizes $f$. The problem we want to solve is therefore,
 \begin{align*}
@@ -224,7 +226,7 @@ For functions of more than 2 variables, we require that the \vocab{Hessian} matr
 The first and second order conditions are sufficient and necessary conditions for the characterization of a global maximum in an unconstrained maximization problem. However, our problem will often have additional constraints that must be satisfied, and so we can not maximize using any set of inputs.
 
 \subsection*{Constrained Maximization}
-Many optimization problems require that you optimize an objective function $f$ while satisfying some constraint, $g(\vec{x}) = c$, where $g$ is a function with the same inputs as $f$ and $c$ is some constant. In economics, this is might be a consumer who has to spend $c$ dollars or a firm that is required to produce $c$ units of good. Formally, we write a constrained optimization as
+Many optimization problems require that you optimize an objective function $f$ while satisfying some constraint, $g(\vec{x}) = c$, where $g$ is a function with the same inputs as $f$ and $c$ is some constant. In economics, this might be a consumer who has to spend $c$ dollars or a firm that is required to produce $c$ units of good. Formally, we write a constrained optimization as
 \begin{align*}
     \max_{\vec{x} \in \R^n} f(\vec{x}) \text{ s.t. } g(\vec{x}) = c
 \end{align*}
