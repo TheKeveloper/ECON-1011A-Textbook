@@ -49,4 +49,25 @@ The above is mathematical for ``maximize $f$ from choices of $\vec{x}$. Now supp
 \begin{align*}
     \max_{\vec{x}} f(\vec{x}, \vec{y}) \text{ s.t. } g_1(\vec{x}; \vec{y}) \leq c_1, \dots, g_k(\vec{x}; \vec{y}) \leq c_k
 \end{align*}
-The above is mathematical notation for ``maximize $f$ with choice of $\vec{x}$ subject to (s.t.) the constraints.''
+The above is mathematical notation for ``maximize $f$ with choice of $\vec{x}$ subject to (s.t.) the constraints.'' 
+
+\subsection*{Optimized quantities as functions}
+Now that we have set up the problem, we can consider the choice of $\vec{x}$ that maximizes our objective function. We use the argument maximum to refer to this maximized quantity, and we normally denote the maximized quantity with an asterisk:
+\begin{align*}
+    \vec{x}^* = \argmax_{\vec{x}} f(\vec{x}; \vec{y})
+\end{align*}
+
+If we assume that the value of $\vec{x}^*$ is unique, then notice that $\vec{x}^*$ is a \emph{function} of the exogenous variables, $\vec{y}$. That is, once we have specified the objective function $f$, as well as the exogenous quantities, the value of $\vec{x}^*$ is entirely determined by $\vec{y}$. This means that we can ask questions like, if the value of $\vec{y}$ changes, how would our optimal choice, $\vec{x}^*$ change? For example, if you decide to buy apples in order to maximize your happiness, you might ask how does a change in the price of apples affect the amount of apples that you buy. This is known as a \vocab{comparative static}, how some optimal choice or equilibrium quantity changes in response to a change in an exogenous variable. Taking comparative statics is one of the central goals of economic modeling. Questions related to comparative statics might include:
+
+\begin{itemize}
+    \item How does the amount of workers hired depend on the minimum wage?
+    \item How does the amount people choose to save depend on the interest rate?
+    \item How does the amount of goods consumed depend on the tax rate? 
+\end{itemize}
+\todo{this could be improved}
+
+A common point of confusion among students is the distinction between $\vec{x}$, which is the name that we give to the choice variable, and $\vec{x}^*$, which is the value that optimizes the objective function. $\vec{x}$ can in principle be any value. For example, lets say that $\vec{x} = (a, b)$, where $a$ is the number of apples you buy and $b$ is the number of bananas. You could in principle buy $a = 2$ apples and $b = 3$ bananas, even though you would be happier with $a = 4$ and $b = 4$. Importantly, it would not make sense to take comparative statics with respect to $a$ or $b$. That is, it would not make sense to ask how the number of apples you buy will depend on price if you can freely choose how many apples to buy and have not defined a relationship with price. 
+
+However, if you say that you are going to buy the number of apples and bananas that makes you the most happy, then this is $\vec{x}^*$ and will depend on the price as well as many other outside factors. In this case, it makes sense to ask how the number of apples you buy depends on price. Optimization is a bit like telling a robot, ``go and make the choices that will make me most happy.'' Once you have done that, the choice is fully determined by the outside world, and so we say that the optimal choice, $\vec{x}^*$ is a function of the exogenous variables $\vec{y}$. Technically, we should write $\vec{x}^*(\vec{y})$, but often we will treat this as implicit and just write $\vec{x}^*$.
+
+A common mistake when solving optimization problems is to write $\vec{x}^*$ as a function of one or more of the choice variables. This is a category error. It essentially says that our optimal choice depends on our choices. However, you can say that the optimal choice of one quantity depends on the optimal choice of another quantity. That is, you might have that $x_1^*$ depends on $x_2^*$ in some way. However, because $x_2^*$ is a function of the exogenous variables, $\vec{y}$, then $x_1^*(x_2^*(\vec{y}))$ is also a function of only exogenous variables. 
