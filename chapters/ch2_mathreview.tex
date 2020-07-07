@@ -257,8 +257,6 @@ While this is the first order condition, the full second order conditions for co
 
 \todo{Add examples}
 
-\subsubsection*{Corner solutions} 
-\todo{Jimmy, do you want to handle this part?}
 
 \section{Important Properties and Notation}
 The differentiation and optimization techniques above will be the foundation of mathematics necessary for this course, there are also some important mathematical properties and notations that we will use throughout this course and will be important to know. We list them here:
@@ -300,3 +298,87 @@ The differentiation and optimization techniques above will be the foundation of 
         \item $\log(x)$ is a monotonically increasing function
     \end{itemize} 
 \end{description}
+
+\section{A Guided Example}
+
+We can finally use the concepts and ideas developed in these first two chapters to work through an example of an economic model. 
+
+\begin{example}
+Model how a member of the workforce chooses how many hours to work. What factors influence this choice?
+\end{example}
+
+It should not be surprising that this question is one that real economists are often interested in. Understanding this problem might help governments think about policies like tax structures or minimum wages, or it might help firms decide how much to pay their workers. We will present a simple model of this problem and highlight the key modeling steps that apply to a much broader set of modeling problems.
+
+\paragraph{1. Write down the optimization problem.}
+
+The first step is to determine who the decision-making agent is, and what their optimization function is. In this case, the agent is the worker, and we will say their goal is to maximize their utility.\footnote{We will discuss this concept more later, but for now, think of utility as a quantification of someone's level of satisfaction.} 
+
+Next, in order to write down the optimization problem, we need to be able to represent utility as a function of some arguments. It is impossible to write down a model that encapsulates everything a worker might consider in this decision, but also a model that is too simple prevents meaningful insights (e.g. if workers only care about income, they would spend all their time working). 
+
+We will assume that utility is only a function of income ($Y$) and leisure ($L$), so utility is a function $U(Y, L)$. We could assign a functional form like $U(Y, L) = Y + L$, but for the sake of generality, it often helps to start with a general function, think about the characteristics it should have, and only introduce additional structure when it is reasonable and needed.\footnote{Exercise: What functional forms might make sense? We will discuss a few common examples later in this course.} In this case, we can assume that $U$ is increasing in $Y$ and $L$ everywhere, so $\partials{U}{Y}, \partials{U}{L} > 0$ everywhere. This has the interpretation that, all else equal, you would always prefer more income or more leisure over what you currently have. We also assume that $\partials{^2 U}{Y^2}, \partials{^2 U}{L^2} < 0$; this has the interpretation that the marginal utility of income and leisure are both diminishing.
+
+We now need to consider what the choice variables are in this optimization problem. A worker probably does not choose their income directly; rather, we can assume that they choose the number of hours they work per day ($H$), and the rest of the day is devoted to leisure. One approach is to say that $H$ and $L$ are our choice variables. If we assume that $Y = wH$ for some hourly wage $w$ (which is exogenous), we could write down our utility function as $U(wH, L)$. Since we are constrained by the number of hours in a day, we can now write down our constrained optimization problem as 
+$$\max_{H, L \geq 0} U(wH, L) \quad \text{s.t.} \quad H + L = 24.$$
+
+It is a useful exercise to solve this maximization problem using the Lagrangian, but a useful trick that will often come in handy in this class is to substitute the constraint directly into the optimization function. That is, we note that $L = 24 - H$, so we can write our utility function as $U(wH, 24 - H)$. Now, we only have one choice variable, $H$, and our constrained optimization problem is now the unconstrained optimization problem
+$$\max_{H \in [0, 24]} U(wH, 24 - H).$$
+
+\paragraph{2. Solve the optimization problem.}
+
+We initially wrote our optimization function as $U(Y, L)$, but we can equivalently think of this as a function of our choice variable $H$, where $V(H) \equiv U(wH, 24 - H)$.\footnote{Notation: the $\equiv$ sign means `is equivalent to' and is used when two names refer to the same fundamental quantity by definition, which we might want to differentiate from the cases where the $=$ sign simply refers to two different fundamental quantities that are equal.} We assume that $U(Y, L)$ is twice continuously differentiable, which implies $V(H)$ is twice continuously differentiable as well. 
+
+We want to solve for the optimal solution $H^*$ for the choice variable (as a function of the exogenous variable $w$). If there is an \vocab{internal solution} $H^* \in (0, 24)$ that maximizes the optimization function (as opposed to the solution being $H^* = 0$ or $H^* = 24$, then it must satisfy the first-order condition
+$$\frac{d}{dH}V(H^*) = 0.$$
+To solve, we substitute our definition of $V(H)$ to get
+$$\frac{d}{dH} U(wH^*, 24 - H^*) = 0.$$
+We now apply the multivariate chain rule to get
+$$w \partials{U}{Y} - \partials{U}{L} = 0,$$
+or if you prefer,
+$$\boxed{w\partials{U}{Y} = \partials{U}{L}.}\footnote{We suppress the arguments of $\partials{U}{Y}$ and $\partials{U}{L}$ for clarity, but remember that they are functions of $H$.}$$
+
+This is our solution! You might have been expecting something of the form
+$$H^* = \text{stuff}.$$
+This type of solution would be called an \vocab{explicit solution} for $H^*$. The solution we gave instead is called an \vocab{implicit solution.} It is very important to note that this solution is just as acceptable. Recall that $\partials{U}{Y}$ and $\partials{U}{L}$ are functions of $H$; thus, the equation we gave pins down the value of $H^*$ that gives us our optimum. Intuitively, this equation tells us that you should work until your marginal utility of leisure and income are equal; this is the point where if you had an extra second in your day, you would be indifferent between spending it on work and spending it on leisure.
+
+\paragraph{3. Check your solution.}
+
+There is some value of $H^*$ that satisfies the implicit solution we gave, but how do we know that it actually maximizes the optimization problem we initially gave? There are two important checks we need to perform.
+
+First, how do we know that the solution for the FOC is a maximum and not a minimum? We need to check the second-order condition (SOC)
+$$\frac{d^2}{dH^2}V(H^*) < 0.$$
+If we assume that $V$ is concave in $H$, then this condition is automatically satisfied. If instead we needed to compute this, we would write down what we had before
+\begin{align*}
+V'(H) &=\frac{d}{d H} U(w H, 24-H) \\
+&=w \frac{\partial U}{\partial Y}(w H, 24-H)-\frac{\partial U}{\partial L}(w H, 24-H) \\
+&=w U_{Y}(w H, 24-H)-U_{L}(w H, 24-H).\footnote{Notation: U_{Y} \equiv \frac{\partial U}{\partial Y}, U_{L} \equiv \frac{\partial U}{\partial L}, U_{Y L} \equiv \frac{\partial^{2} U}{\partial Y \partial L}.}
+\end{align*}
+We would then differentiate again to get
+\begin{align*}
+V''(H) &=w \frac{d}{d H} U_{Y}(w H, 24-H)-\frac{d}{d H} U_{L}(w H, 24-H) \\
+&=w^{2} U_{Y Y}-w U_{Y L}-w U_{L Y}+U_{L L} \\
+&=w^{2} U_{Y Y}-2 w U_{Y L}+U_{L L}.
+\end{align*}
+Our SOC is satisfied when this value is negative at $H^*$.
+
+Second, we need to check for \vocab{corner solutions}. These are potential solutions where the optimal value of the choice variable is on the boundary of the constraints we set for it. In our example, our implicit solution pins down some real value for $H^*$, but what if it were negative or greater than 24? Alternatively, what if our solution for $H^*$ was only a local maximum, but the global maximum in our interval were actually on the boundaries of the interval? Thus, we should check that $H^* \in [0, 24]$, and we should plug in $H = 0$ and $H = 24$ into our optimization function $V(H)$ to check that their values are less than $V(H^*)$. 
+
+\paragraph{4. Take comparative statics.}
+
+Recall that comparative statics describe how the optimal values of the choice variables change when the exogenous variables change; at the end of the day, this quantity is what we are really interested in and is useful in policy discussions. Our only exogenous variable is $w$, and we are interested in finding $\partials{H^*}{w}$ (recall that $H^*$ is a function of the exogenous variables). Our solution for $H^*$, which we can think of as $H^*(w)$, from our FOCs was 
+$$w\partials{U}{Y} = \partials{U}{L}.$$
+If we include the arguments of $\partials{U}{Y}$ and $\partials{U}{L}$, we can write this as
+$$w U_{Y}\left(w H^{*}(w), 24-H^{*}(w)\right)=U_{L}\left(w H^{*}(w), 24-H^{*}(w)\right).$$
+
+In order to get $\partials{H^*}{w}$ out of this, we use the \vocab{Implicit Function Theorem} to take the derivative of both sides of the equation, yielding 
+$$\frac{d}{d w}\left[w U_{Y}\left(w H^{*}(w), 24-H^{*}(w)\right)\right]=\frac{d}{d w} U_{L}\left(w H^{*}(w), 24-H^{*}(w)\right).$$
+We use the chain rule and the product rule to get (note that we suppress arguments of functions again for clarity)
+$$U_{Y}+w U_{Y Y} H^{*}+w\left(U_{Y Y} w-U_{Y L}\right) \frac{\partial H^{*}}{\partial w} = U_{L Y} H^{*}+\left(U_{L Y} w-U_{L L}\right) \frac{\partial H^{*}}{\partial w}.$$
+We can rearrange to solve for 
+$$\boxed{\frac{\partial H^{*}}{\partial w}=\frac{U_{Y}+w H^{*} U_{Y Y}-H^{*} U_{Y L}}{-\left(w^{2} U_{Y Y}-2 w U_{Y L}+U_{L L}\right)}.}$$
+
+Note that we got this without solving for $H^*(w)$ explicitly! The naive approach would have been to find the explicit solution and then manually take its derivative. Here, we see that using an implicit solution and applying the Implicit Function Theorem leads to a much faster solution.
+
+\paragraph{5. Interpret your results.}
+
+What we really care about is the sign of $\partials{H^*}{w}$. If wages increase, do people work more or less? The denominator of our solution must be positive, since it is exactly the expression from our SOC. The sign of the numerator depends on the magnitudes of the different terms. We said in our initial assumptions that $U_Y$ is positive and that $U_{YY}$ is negative. What about the sign of $U_{YL}$? Maybe it's positive: if you are richer, then maybe the marginal utility of leisure is higher, since you can afford more expensive hobbies. Maybe it's negative: if you are richer, maybe you lose appreciation for the everyday moments in life, so the marginal utility of leisure is actually lower. How might we resolve this question with data?
+
