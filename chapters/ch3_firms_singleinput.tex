@@ -2,11 +2,11 @@
 We start with one of the simplest economic models: a firm in a perfectly competitive market with a single input. Firms are one of the most basic components of the economy. Firms purchase inputs, convert those inputs into outputs via a production function, and then sell those goods to make a profit. This also gives firms a clear objective function: profit. To make things simple, we assume that the firm only requires one input to produce their good, so the only choice that the firm makes is how much input to purchase. 
 
 \section{Model setup}
-We will formalize a mathematical model of the firm. We assume that the firm can choose to hire $\ell$ units of labor at a wage $w$, which is the price per unit of labor. The firm has a production function, $f(\ell)$, which takes the units of labor as an input, and returns some unit of product. We assume that the production function is continuous and twice differentiable, increasing, $f'(\ell) > 0$, and concave $f''(\ell) < 0$, for any of $\ell$. We will first establish this production function as The firm can then sell each unit of product at a price $p$. The firm takes both $p$ and $w$ as exogenous variables. We can then define the firm's profit, $\pi$, as follows:
+We will formalize a mathematical model of the firm. We assume that the firm can choose to hire $L$ units of labor at a wage $w$, which is the price per unit of labor. The firm has a production function, $f(L)$, which takes the units of labor as an input, and returns some unit of product. We assume that the production function is continuous and twice differentiable, increasing, $f'(L) > 0$, and concave $f''(L) < 0$, for any of $L$. We will first establish this production function as The firm can then sell each unit of product at a price $p$. The firm takes both $p$ and $w$ as exogenous variables. We can then define the firm's profit, $\pi$, as follows:
 \begin{align}
-    \pi(\ell; p, w) = p f(\ell) - w \ell \label{eq:profit_def}
+    \pi(L; p, w) = p f(L) - w L \label{eq:profit_def}
 \end{align}
-Notice that our profit function has one endogenous input and two exogenous inputs. $\ell$, the units of labor hired, is the choice variable for the firm. $p$, the price of the product, and $w$, the wage cost of labor, are both exogenous variables. While we write them explicitly here, we will often only write $\pi$ and the arguments to it are implicit. 
+Notice that our profit function has one endogenous input and two exogenous inputs. $L$, the units of labor hired, is the choice variable for the firm. $p$, the price of the product, and $w$, the wage cost of labor, are both exogenous variables. While we write them explicitly here, we will often only write $\pi$ and the arguments to it are implicit. 
 
 While this seems like a fairly simple model, there are some pretty important assumptions underlying it.
 
@@ -15,114 +15,114 @@ While this seems like a fairly simple model, there are some pretty important ass
     \item[Perfectly competitive market for output] Notice that the firm treats the price $p$ as exogenous. That is, no matter how much the firm produces, they can always sell goods at price $p$, and \emph{only} at price $p$. This means, first, that the firm is a \vocab{price-taker}, which means that they cannot set a price $p$ that differs from the market price $p$. The underlying assumption here is that there are enough other firms that if this firm were to raise its price, all of the customers would buy from other firms and our firm would sell 0. This assumption also entails that the amount our firm produces does not affect the market price, which can be taken to mean that there are many other firms producing a lot of the same good, so our firm's decisions do not have a noticeable effect on $p$. 
     \item[Perfectly competitive labor market] Similar to the above market for goods, we also assume that the market for labor is perfectly competitive. That is, the firm can only hire at the wage $w$, and that no matter how much labor the firm hires, the wage will not change. 
     \item[No liquidity constraints] We assume that the firm has the ability to hire as much labor as they want, and all that matters is the final profit. That is, the firm does not have some fixed budget for labor at the beginning. This can be thought of as a firm's ability to borrow at zero interest to finance labor so long as the loan is paid back. This assumption is key to the firm problem, as it allows us to deal with an unconstrained maximization problem rather than requiring a budget constraint for the firm. 
-    \item[Diminishing marginal returns to consumption] This was expressed mathematically as $\frac{d^2f}{d\ell^2}(\ell) < 0$. In real terms, this says that each additional unit of labor contributes less additional production than the previous unit of labor did, and represents a sort of ``too many cooks in the kitchen'' effect. Notice however that we will assume $\frac{df}{d\ell}(\ell) > 0$, so even if each additional unit of labor contributes less additional output than the previous unit, adding more units of labor can never make us produce less output. 
+    \item[Diminishing marginal returns to consumption] This was expressed mathematically as $\frac{d^2f}{dL^2}(L) < 0$. In real terms, this says that each additional unit of labor contributes less additional production than the previous unit of labor did, and represents a sort of ``too many cooks in the kitchen'' effect. Notice however that we will assume $\frac{df}{dL}(L) > 0$, so even if each additional unit of labor contributes less additional output than the previous unit, adding more units of labor can never make us produce less output. 
 \end{description}
 
 One reasonable question to ask with all of these assumptions in place is whether they are realistic assumptions. The answer is that they probably are not all perfectly realistic. However, there are cases where these assumptions might be close enough. Consider the market for corn, for example. Each individual farmer's corn production has a negligible effect on the market as a whole, and they have enough money every year to grow as much corn as is profitable. However, we will see that even if these assumptions are not all realistic, they help simplify the model so that we can solve it and gain some useful insights about the mechanics of this economy. 
 
 \section{Solving the model} \label{sec:solving_model}
-Now that we have setup the model and established the underlying assumptions, we can begin to solve the model. Our objective function is $\pi$, and our choice variable is $\ell$, so we can write our maximization problem as follows:
+Now that we have setup the model and established the underlying assumptions, we can begin to solve the model. Our objective function is $\pi$, and our choice variable is $L$, so we can write our maximization problem as follows:
 \begin{align}
-    \max_{\ell} \pi(\ell; p, w) = \max_{\ell} p f(\ell) - w \ell
+    \max_{L} \pi(L; p, w) = \max_{L} p f(L) - w L
 \end{align}
 
 \subsection*{First order conditions}
 Our first order condition is that the derivative of the objective function with respect to our choice variable is 0, which is
 \begin{align}
-    \partials{\pi}{\ell} = 0 \label{eq:profit_foc}
+    \partials{\pi}{L} = 0 \label{eq:profit_foc}
 \end{align}
-We can plug in our function for $\pi$ using our definition in \ref{eq:profit_def} and differentiate with respect to $\ell$ to obtain,
+We can plug in our function for $\pi$ using our definition in \ref{eq:profit_def} and differentiate with respect to $L$ to obtain,
 \begin{align}
-    \partials{\pi}{\ell} = p \frac{df}{d\ell}(\ell) - w = 0
+    \partials{\pi}{L} = p \frac{df}{dL}(L) - w = 0
 \end{align}
 This is our first order condition for an optimal profit. With some rearranging, we obtain that
 \begin{align}
-    p \frac{df}{d\ell}(\ell) = w 
+    p \frac{df}{dL}(L) = w 
 \end{align}
-Notice that this yields a very useful interpretation. The left hand side is the marginal revenue from an additional unit of labor. That is, for a small amount more labor, we produce $\frac{df}{d\ell}(\ell)$ more goods, which are sold at a price $p$. On the right hand side is the marginal cost for an additional unit of labor, because for a small amount more labor, we pay that labor a wage $w$. What this tells us is that when a firm is profit maximizing, \textbf{marginal revenue equals marginal cost}. 
+Notice that this yields a very useful interpretation. The left hand side is the marginal revenue from an additional unit of labor. That is, for a small amount more labor, we produce $\frac{df}{dL}(L)$ more goods, which are sold at a price $p$. On the right hand side is the marginal cost for an additional unit of labor, because for a small amount more labor, we pay that labor a wage $w$. What this tells us is that when a firm is profit maximizing, \textbf{marginal revenue equals marginal cost}. 
 
-Notice further that this implicitly defines our optimal choice of labor, which we will denote $\ell^*$. Because we do not know the functional form of $f$, we cannot yet write an explicit definition of $\ell^*$, but it is implicitly defined by the first order condition,
+Notice further that this implicitly defines our optimal choice of labor, which we will denote $L^*$. Because we do not know the functional form of $f$, we cannot yet write an explicit definition of $L^*$, but it is implicitly defined by the first order condition,
 \begin{align}
-    p \frac{df}{d\ell}(\ell^*) = w \label{eq:general_foc}
+    p \frac{df}{dL}(L^*) = w \label{eq:general_foc}
 \end{align}
-Observe further that the value of $\ell^*$ depends on the values of $p$ and $w$, so we can express it as a function of the exogenous variables, $\ell^*(p, w)$. 
+Observe further that the value of $L^*$ depends on the values of $p$ and $w$, so we can express it as a function of the exogenous variables, $L^*(p, w)$. 
 
 \subsection*{Second order conditions}
-In order to verify that $\ell^*$ is indeed a global maximum, and not a local maximum or even a minimum, we need to verify the second order conditions. Namely, that
+In order to verify that $L^*$ is indeed a global maximum, and not a local maximum or even a minimum, we need to verify the second order conditions. Namely, that
 \begin{align*}
-    \partials{^2\pi}{\ell^2} < 0
+    \partials{^2\pi}{L^2} < 0
 \end{align*}
-To do so, we can just differentiate the first derivative from \ref{eq:profit_foc} with respect to $\ell$ again to obtain, 
+To do so, we can just differentiate the first derivative from \ref{eq:profit_foc} with respect to $L$ again to obtain, 
 \begin{align}
-    \partials{^2\pi}{\ell^2} = p\frac{d^2f}{d\ell^2}(\ell) \label{eq:generalized_soc}
+    \partials{^2\pi}{L^2} = p\frac{d^2f}{dL^2}(L) \label{eq:generalized_soc}
 \end{align}
-We need the above derivative to hold with respect to any $\ell$. However, we assumed that $\frac{d^2f}{d\ell^2}(\ell) < 0$, and since $p > 0$, then we have that $p\frac{d^2f}{d\ell^2}(\ell) < 0$, which satisfies our second order conditions.
+We need the above derivative to hold with respect to any $L$. However, we assumed that $\frac{d^2f}{dL^2}(L) < 0$, and since $p > 0$, then we have that $p\frac{d^2f}{dL^2}(L) < 0$, which satisfies our second order conditions.
 
-This tells us that $\ell^*$ defines a global maximum, which means that the firm is indeed profit maximizing! 
+This tells us that $L^*$ defines a global maximum, which means that the firm is indeed profit maximizing! 
 
 \subsection*{Some intuition}
 While the above provides the mathematical technique for how to maximize, it is useful to get some intuition about what is actually happening here. To do so, we can think about the firm's decision process.
 
-Suppose that you are running the firm but do not know any calculus. However, you do know how much you will produce for a given amount of labor and how much money you will make. One way you might decide how much labor to hire is to think what will happen if you hire one additional worker. At each point, you ask yourself whether you will make more money by hiring an additional worker or less money by hiring an additional worker. What determines this? Whether the contribution of that additional worker is greater than the additional cost of hiring that worker. Mathematically, you would hire an additional worker so long as, $p \frac{df}{d\ell}(\ell) > w$. 
+Suppose that you are running the firm but do not know any calculus. However, you do know how much you will produce for a given amount of labor and how much money you will make. One way you might decide how much labor to hire is to think what will happen if you hire one additional worker. At each point, you ask yourself whether you will make more money by hiring an additional worker or less money by hiring an additional worker. What determines this? Whether the contribution of that additional worker is greater than the additional cost of hiring that worker. Mathematically, you would hire an additional worker so long as, $p \frac{df}{dL}(L) > w$. 
 
-However, you also know that because each additional worker's contribution is less than the last worker hired, at some point you will stop hiring workers. This is the second order condition at work. So, if the increments are small enough, you will eventually reach a point where hiring an additional worker makes no difference. That is, that $p \frac{df}{d\ell}(\ell) = w$, which is the first order condition. At this point, you should stop hiring workers because any more workers that you hire will cost more than they produce. 
+However, you also know that because each additional worker's contribution is less than the last worker hired, at some point you will stop hiring workers. This is the second order condition at work. So, if the increments are small enough, you will eventually reach a point where hiring an additional worker makes no difference. That is, that $p \frac{df}{dL}(L) = w$, which is the first order condition. At this point, you should stop hiring workers because any more workers that you hire will cost more than they produce. 
 
 At some level, all economic optimization methods boil down to this process. Thinking about what will happen if increase some quantity by an infinitesimal amount, and requiring that doing so makes no difference. 
 
 \section{Specific production functions}
-In the above section we showed how to set up and solve for a general production function, $f$. However, because of this generality, we were unable to obtain an explicit formulation of $\ell^*$. To do so, we need to specify the functional form of $f$, and we offer some examples here of specific functional forms that $f$ could take.
+In the above section we showed how to set up and solve for a general production function, $f$. However, because of this generality, we were unable to obtain an explicit formulation of $L^*$. To do so, we need to specify the functional form of $f$, and we offer some examples here of specific functional forms that $f$ could take.
 
 \subsection*{Single-variable Cobb-Douglas}
 One of the most common production functions used in economics is the Cobb-Douglas production function. Although typically the production function is in multiple variables, we present a single variable version of that production function here. 
 \begin{align}
-    f(\ell) = \ell^\alpha, \, 0 < \alpha < 1 
+    f(L) = L^\alpha, \, 0 < \alpha < 1 
 \end{align}
 In this expression, we can interpret $\alpha$ as a constant measuring the productivity of labor. We will see that $0 < \alpha < 1$ is necessary to ensure that the first and second order conditions hold. We can write the profit function,
 \begin{align}
-    \pi(\ell) = p \ell^\alpha - w \ell
+    \pi(L) = p L^\alpha - w L
 \end{align}
 We will now solve for the optimum.
 \begin{description}
     \item[First order condition] The first order condition for a maximum is
     \begin{align}
-        \partials{\pi}{\ell} = p \alpha \ell^{\alpha - 1} - w = 0
+        \partials{\pi}{L} = p \alpha L^{\alpha - 1} - w = 0
     \end{align} 
     Rearranging to solve yields
     \begin{align}
-        \ell^* = \left(\frac{w}{p \alpha}\right)^{\frac{1}{\alpha - 1}} = \left(\frac{p \alpha}{w}\right)^{\frac{1}{1 - \alpha}} \label{eq:cobb_douglas_optimized}
+        L^* = \left(\frac{w}{p \alpha}\right)^{\frac{1}{\alpha - 1}} = \left(\frac{p \alpha}{w}\right)^{\frac{1}{1 - \alpha}} \label{eq:cobb_douglas_optimized}
     \end{align}
     Where the second equality holds by taking the reciprocal of the inside term and negating the exponent. 
-    \item[Second order conditions] We should verify that $\ell^*$ is indeed a maximum by checking the second order conditions. We can take the second derivative of $\pi$ with respect to $\ell$ to obtain,
+    \item[Second order conditions] We should verify that $L^*$ is indeed a maximum by checking the second order conditions. We can take the second derivative of $\pi$ with respect to $L$ to obtain,
     \begin{align}
-        \partials{^2 \pi}{\ell^2} = p \alpha (\alpha - 1) \ell^{\alpha - 2}
+        \partials{^2 \pi}{L^2} = p \alpha (\alpha - 1) L^{\alpha - 2}
     \end{align}
-    Now we can determine the sign of the above expression by examining each of the terms. $p > 0$ and $\alpha > 0$ by assumption. $\ell^{\alpha - 2} > 0$ if we assume that we hire at least some labor. And $\alpha - 1 < 0$ by assumption that $\alpha < 1$. So, we multiply three positive terms and a negative term, which means that the entire expression is negative. This satisfies our second order conditions. 
+    Now we can determine the sign of the above expression by examining each of the terms. $p > 0$ and $\alpha > 0$ by assumption. $L^{\alpha - 2} > 0$ if we assume that we hire at least some labor. And $\alpha - 1 < 0$ by assumption that $\alpha < 1$. So, we multiply three positive terms and a negative term, which means that the entire expression is negative. This satisfies our second order conditions. 
 \end{description}
 
 \subsection*{Log production}
 Another relatively simple production function is the log production function, which takes the form,
 \begin{align}
-    f(\ell) = \log(\ell)
+    f(L) = \log(L)
 \end{align}
 We will solve this optimization problem in a slightly different way than we did for the Cobb-Douglas case. Because we have already solved for the general first and second order conditions in \ref{sec:solving_model}, we can just plug in our derivations.
 \begin{description}
-    \item[First order conditions] The only expression we need to plug into the generalized first order condition is $\frac{df}{d \ell}(\ell)$, which is,
+    \item[First order conditions] The only expression we need to plug into the generalized first order condition is $\frac{df}{d L}(L)$, which is,
     \begin{align*}
-        \frac{df(\ell)}{d\ell} = \frac{d \log(\ell)}{d\ell} = \frac{1}{\ell}
+        \frac{df(L)}{dL} = \frac{d \log(L)}{dL} = \frac{1}{L}
     \end{align*} 
     Plugging this into \ref{eq:general_foc} yields,
     \begin{align*}
-        \frac{p}{\ell^*} = w \iff \ell^* = \frac{p}{w}
+        \frac{p}{L^*} = w \iff L^* = \frac{p}{w}
     \end{align*}
-    \item[Second order conditions] To test the second order conditions, all we need is to solve for $\frac{d^2f}{d\ell^2}(\ell)$, which is,
+    \item[Second order conditions] To test the second order conditions, all we need is to solve for $\frac{d^2f}{dL^2}(L)$, which is,
     \begin{align*}
-        \frac{d^2f}{d\ell^2}(\ell) = \frac{d^2 \log(\ell)}{d \ell^2} = - \frac{1}{\ell^2}
+        \frac{d^2f}{dL^2}(L) = \frac{d^2 \log(L)}{d L^2} = - \frac{1}{L^2}
     \end{align*}  
     Then plugging into the generalized second order conditions, \ref{eq:generalized_soc}, yields
     \begin{align}
-        \partials{^2 \pi}{\ell^2} = - \frac{p}{\ell^2}
+        \partials{^2 \pi}{L^2} = - \frac{p}{L^2}
     \end{align}
-    Since $\ell^2 > 0, p > 0$, this must be negative, which satisfies the second order conditions. 
+    Since $L^2 > 0, p > 0$, this must be negative, which satisfies the second order conditions. 
 \end{description}
 
 \section{Comparative statics}
@@ -131,18 +131,18 @@ Now that we have solved for the optimal quantity of labor used for a given price
 \subsection*{Cobb-Douglas}
 Because we can solve for the optimal quantity of labor explicitly as a function of price and wage, we can consider what happens with a small change in either. Before we start, it will be useful for us to rewrite \ref{eq:cobb_douglas_optimized} by writing each of the terms as a product of individual exponents,
 \begin{align}
-    \ell^* = \left(\frac{p \alpha}{w}\right)^{\frac{1}{1 - \alpha}} = \left(p^{\frac{1}{1 - \alpha}}\right) \left(\alpha^{\frac{1}{1 - \alpha}}\right) \left(w^{\frac{1}{\alpha - 1}}\right) \label{eq:cobb_douglas_optimized_simple}
+    L^* = \left(\frac{p \alpha}{w}\right)^{\frac{1}{1 - \alpha}} = \left(p^{\frac{1}{1 - \alpha}}\right) \left(\alpha^{\frac{1}{1 - \alpha}}\right) \left(w^{\frac{1}{\alpha - 1}}\right) \label{eq:cobb_douglas_optimized_simple}
 \end{align}
 This will make it easier for us to take derivatives with respect to each of the variables. 
 \begin{description}
-    \item[Price] To determine the effect of a small change in the price of the good, we can take the derivative of $\ell^*$ with respect to $p$. This yields,
+    \item[Price] To determine the effect of a small change in the price of the good, we can take the derivative of $L^*$ with respect to $p$. This yields,
     \begin{align*}
-        \frac{d\ell^*}{dp} = \left(\frac{p^{\frac{\alpha}{1 - \alpha}}}{1 - \alpha}\right)\left(\alpha^{\frac{1}{1 - \alpha}}\right) \left(w^{\frac{1}{\alpha - 1}}\right)
+        \frac{dL^*}{dp} = \left(\frac{p^{\frac{\alpha}{1 - \alpha}}}{1 - \alpha}\right)\left(\alpha^{\frac{1}{1 - \alpha}}\right) \left(w^{\frac{1}{\alpha - 1}}\right)
     \end{align*}
     You can check that each of the terms above is positive to obtain that the entire expression is positive. So, all else equal, an increase in price will lead to the firm using more labor. This makes sense because with a higher price, the marginal revenue for the good increases, which means that the firm should hire more labor to produce more output. 
-    \item[Wage] We can follow a similar procedure as above, differentiating $\ell^*$ with respect to the wage, $w$,
+    \item[Wage] We can follow a similar procedure as above, differentiating $L^*$ with respect to the wage, $w$,
     \begin{align*}
-        \frac{d\ell^*}{dw} = \left(\frac{p \alpha}{w}\right)^{\frac{1}{1 - \alpha}} = \left(p^{\frac{1}{1 - \alpha}}\right) \left(\alpha^{\frac{1}{1 - \alpha}}\right) \left(\frac{w^{\frac{2 - \alpha}{\alpha - 1}}}{\alpha - 1}\right)
+        \frac{dL^*}{dw} = \left(\frac{p \alpha}{w}\right)^{\frac{1}{1 - \alpha}} = \left(p^{\frac{1}{1 - \alpha}}\right) \left(\alpha^{\frac{1}{1 - \alpha}}\right) \left(\frac{w^{\frac{2 - \alpha}{\alpha - 1}}}{\alpha - 1}\right)
     \end{align*}
     Notice that once again, every term is positive with the exception of $\alpha - 1$, which is negative. So, multiplying a series of positive terms with a single negative term means that the entire expression is negative.
 \end{description}
@@ -152,49 +152,49 @@ While the above example tells us how price and wages affect the quantity of labo
 
 To gain some intuition for how we might approach this problem, let's look back at the first order condition,
 \begin{align*}
-    p \frac{df}{d\ell}(\ell^*) = w
+    p \frac{df}{dL}(L^*) = w
 \end{align*}
-Now consider what happens if we increase $w$ by a little bit. The right hand side has increased, so the left hand side must also increase by a small amount to ensure the equality holds. However, $p$ is fixed, so it must be that the value of $\ell^*$ has changed. This makes sense because recall that with the optimized choice of $\ell$, $\ell^*$ is an implicit function of $p$ and $w$, so the value of $\ell^*$ changes.  In particular, it must have decreased, because we know that $\frac{d^2f}{d\ell^2} < 0$, which means that $\frac{df}{d\ell}$ decreases as $\ell$ increases, so to make $\frac{df}{d\ell}$ smaller, the value of $\ell^*$ must decrease. Notice that we were able determine how $\ell^*$ would change without having to know anything about the actual value of $\ell^*$ or the form of $f$. This is the idea behind using implicit differentiation to calculate the change. 
+Now consider what happens if we increase $w$ by a little bit. The right hand side has increased, so the left hand side must also increase by a small amount to ensure the equality holds. However, $p$ is fixed, so it must be that the value of $L^*$ has changed. This makes sense because recall that with the optimized choice of $L$, $L^*$ is an implicit function of $p$ and $w$, so the value of $L^*$ changes.  In particular, it must have decreased, because we know that $\frac{d^2f}{dL^2} < 0$, which means that $\frac{df}{dL}$ decreases as $L$ increases, so to make $\frac{df}{dL}$ smaller, the value of $L^*$ must decrease. Notice that we were able determine how $L^*$ would change without having to know anything about the actual value of $L^*$ or the form of $f$. This is the idea behind using implicit differentiation to calculate the change. 
 
 While this is an informal argument, we can formalize it with the \vocab{implicit function theorem}. While we do not offer a formal state of the theorem, it essentially states that if we have an equality of the form $f(x) = c$ for some constant $c$, and $f$ is sufficiently ``well-behaved'', then we can express the value of $x$ as a function of $c$. This also means that we can use implicit differentiation to solve for the relatioship between the two variables.
 
-In the context of our problem, it tells us that by implicity differentiating both sides of the first order condition, we can determine how $\ell^*$ changes with respect to wage and price, without even knowing the actual value of $\ell^*$!
+In the context of our problem, it tells us that by implicity differentiating both sides of the first order condition, we can determine how $L^*$ changes with respect to wage and price, without even knowing the actual value of $L^*$!
 
 \begin{description}
     \item[Wage] We will first formalize the above example of the wage change. To do so, we implicitly differentiate both sides of the FOC with respect to $w$. We can start by doing both sides separately. The derivative on the right hand side is simple, 
     \begin{align*}
         \frac{d}{dw}(w) = 1
     \end{align*} 
-    The left hand side requires us to use the chain rule. We eplicitly write $\ell^*$ as a function of $w$ in this case to make things clear.
+    The left hand side requires us to use the chain rule. We eplicitly write $L^*$ as a function of $w$ in this case to make things clear.
     \begin{align*}
-        \frac{d}{dw} \left(p \frac{df(\ell^*(w))}{d\ell}\right) = p \frac{d^2f(\ell^*(w))}{d\ell^2} \frac{d\ell^*(w)}{dw}
+        \frac{d}{dw} \left(p \frac{df(L^*(w))}{dL}\right) = p \frac{d^2f(L^*(w))}{dL^2} \frac{dL^*(w)}{dw}
     \end{align*}
     Because the FOC must hold with equality, a small change in $w$ must lead to both sides staying the same. So, we can set the above expressions equal to each other,
     \begin{align*}
-        p f\frac{d^2f(\ell^*(w))}{d\ell^2} \frac{d\ell^*}{dw} = 1
+        p f\frac{d^2f(L^*(w))}{dL^2} \frac{dL^*}{dw} = 1
     \end{align*}
-    Now, we can solve for $\frac{d\ell^*}{dw}$. Rearranging yields,
+    Now, we can solve for $\frac{dL^*}{dw}$. Rearranging yields,
     \begin{align*}
-        \frac{d\ell^*}{dw} = \frac{1}{p\frac{d^2f(\ell^*(w))}{d\ell^2}}
+        \frac{dL^*}{dw} = \frac{1}{p\frac{d^2f(L^*(w))}{dL^2}}
     \end{align*}
-    We can also determine the sign of $\frac{d\ell^*}{dw}$. Observe that $\frac{d^2}{d\ell^2}(\ell^*) < 0$ by assumption on our production function, and $p > 0$, so we have that overall the expression must be negative. That is,
+    We can also determine the sign of $\frac{dL^*}{dw}$. Observe that $\frac{d^2}{dL^2}(L^*) < 0$ by assumption on our production function, and $p > 0$, so we have that overall the expression must be negative. That is,
     \begin{align*}
-        \frac{d\ell^*}{dw} < 0
+        \frac{dL^*}{dw} < 0
     \end{align*}
     This tells us that holding everything else constant, a small increase in the wage decreases the amount of labor that the firm demands. 
 
     \item[Price] We can perform a similar calculation with the price of the output good. Differentiate both sides of the FOC with respect to $p$,
     \begin{align*}
-        \frac{d}{dp} \left(p \frac{df}{d\ell}(\ell^*)\right) &= \frac{d}{dp} w \\
-        p \frac{d^2f}{d\ell^2}(\ell^*) \frac{d \ell^*}{dp} + \frac{df}{d\ell}(\ell^*) &= 0
+        \frac{d}{dp} \left(p \frac{df}{dL}(L^*)\right) &= \frac{d}{dp} w \\
+        p \frac{d^2f}{dL^2}(L^*) \frac{d L^*}{dp} + \frac{df}{dL}(L^*) &= 0
     \end{align*} 
-    Since $w$ is an exogenous variable, it does not depend on $p$ so the right hand side is clearly 0. The left hand side has a product, so we use the product role to implicitly differentiate. So we can solve for, $\frac{d\ell^*}{dp}$,
+    Since $w$ is an exogenous variable, it does not depend on $p$ so the right hand side is clearly 0. The left hand side has a product, so we use the product role to implicitly differentiate. So we can solve for, $\frac{dL^*}{dp}$,
     \begin{align*}
-        \frac{d\ell^*}{dp} = -\frac{\frac{df}{d\ell}(\ell^*)}{p \frac{d^2 f}{d\ell^2}(\ell^*)}
+        \frac{dL^*}{dp} = -\frac{\frac{df}{dL}(L^*)}{p \frac{d^2 f}{dL^2}(L^*)}
     \end{align*}
-    Before reading further, try figuring out the sign of $\frac{d\ell^*}{dp}$ yourself. It should be a fairly straightforward exercise in examining the assumptions we made about $f$ and your result should match with your intuitions.
+    Before reading further, try figuring out the sign of $\frac{dL^*}{dp}$ yourself. It should be a fairly straightforward exercise in examining the assumptions we made about $f$ and your result should match with your intuitions.
 
-    By assumption, we have that $\frac{df}{d\ell}(\ell^*) > 0, p > 0$ and we know that $\frac{d^2f}{d\ell^2}(\ell^*) < 0$, so the entire term must be positive. To check that this accords with our intutions, if the price of the good increases, the firm should produce more of that good because the marginal revenue has increased. 
+    By assumption, we have that $\frac{df}{dL}(L^*) > 0, p > 0$ and we know that $\frac{d^2f}{dL^2}(L^*) < 0$, so the entire term must be positive. To check that this accords with our intutions, if the price of the good increases, the firm should produce more of that good because the marginal revenue has increased. 
 \end{description}
 
 If you observe both of our comparative statics above, you may notice some similarities between them. For instance, the denominator in both is the same. It turns out that we can say generally how to take a comparative static for a given objective function. We show this below.
@@ -227,17 +227,17 @@ One useful component to notice is that because we have assumed the second order 
 \section{Value function}
 In all of the above, we find that we can write the optimal amount of labor demanded as a function of the exogenous variables. However, we could do the same for all of the other functions. For example, we could define the optimal production function in terms of the exogenous variables as well,
 \begin{align*}
-    f^*(w, p) = f(\ell^*(w, p))
+    f^*(w, p) = f(L^*(w, p))
 \end{align*}
 And we can do the same for the profit function to determine how much profit the firm makes in terms of the exogenous parameters,
 \begin{align*}
-    \pi^*(w, p) = p f(\ell^*(w, p)) - w \ell^*(w, p)
+    \pi^*(w, p) = p f(L^*(w, p)) - w L^*(w, p)
 \end{align*}
 Since these are all functions of the exogenous variables, we can take comparative statics of each of them by straightforward differentiation and the chain rule. For example, to see how the quantity produced changes for an increase in price, we have
 \begin{align*}
-    \frac{df^*}{dp} = \frac{d f(\ell^*)}{dp} = f'(\ell^*) \frac{d\ell^*}{dp} = -\frac{\frac{\partial f}{\partial \ell}(\ell^*)^2}{p \frac{\partial^2 f}{\partial \ell^2}(\ell^*)}
+    \frac{df^*}{dp} = \frac{d f(L^*)}{dp} = f'(L^*) \frac{dL^*}{dp} = -\frac{\frac{\partial f}{\partial L}(L^*)^2}{p \frac{\partial^2 f}{\partial L^2}(L^*)}
 \end{align*}
-Where the last equality holds by plugging in the value of $\frac{d\ell^*}{dp}$ that we obtained previously. 
+Where the last equality holds by plugging in the value of $\frac{dL^*}{dp}$ that we obtained previously. 
 
 Now we can do the same for the optimized profit function. This optimized version of the profit function, which we can denote as $\pi^*(w, p)$, is referred to as the value function. In general, the \vocab{value function} refers to the value of the objective function when making the optimal choice. The value function is always a function of the exogenous variables. 
 
@@ -253,11 +253,11 @@ Notice that in the last line, we are taking the partial derivative of $F$ with r
 
 We will apply this to examine how profit changes with respect to price. Let $\pi^*$ be the value function. First, we compute the partial derivative of profit $\pi$ with respect to the price,
 \begin{align*}
-    \frac{d\pi(\ell; p, w)}{dp} = \frac{d(p f(\ell) - w \ell)}{dp} = f(\ell)
+    \frac{d\pi(L; p, w)}{dp} = \frac{d(p f(L) - w L)}{dp} = f(L)
 \end{align*}
-The envelope theorem tells us that the comparative static on the value function is equal to the above evaluated at $\ell^*$, 
+The envelope theorem tells us that the comparative static on the value function is equal to the above evaluated at $L^*$, 
 \begin{align*}
-    \frac{d \pi^*}{dp} = f(\ell^*)
+    \frac{d \pi^*}{dp} = f(L^*)
 \end{align*}
 In other words, if prices increase by a small amount, the additional profit that we earn will be equal to how much we are producing. 
 
@@ -278,7 +278,7 @@ We will now prove the envelope theorem in the single variable case.
     \end{align*}
 \end{proof}
 
-Essentially the envelope theorem says that because we are at an optimum, a small change in our choice variable does not change the value of the overall objective function because of the first order condition. In the context of profit, this tells us that the effect of a change in price is purely the increase in price from the units that we are already producing, $f(\ell^*)$. Note that this does \emph{not} say that our choice of labor or that our production amount is not changing. Rather, it says that becuase we are at an optimum, the derivative of the profit with respect to $\ell$ must be 0. This means that a small change in $\ell$ will not affect the overall profit, so the only effect is the mechanical effect of increasing the price of the current units sold.
+Essentially the envelope theorem says that because we are at an optimum, a small change in our choice variable does not change the value of the overall objective function because of the first order condition. In the context of profit, this tells us that the effect of a change in price is purely the increase in price from the units that we are already producing, $f(L^*)$. Note that this does \emph{not} say that our choice of labor or that our production amount is not changing. Rather, it says that becuase we are at an optimum, the derivative of the profit with respect to $L$ must be 0. This means that a small change in $L$ will not affect the overall profit, so the only effect is the mechanical effect of increasing the price of the current units sold.
 
 \section*{Recap}
 We can now calculate how profit-maximizing firms will choose how many workers to hire, and we have also examined how the firm's labor demand, production, and profit will change in response to variations in price and wages. We have observed these changes not only with specific production functions, but also obtained more general results for how firms should respond to changes. These are already some very powerful economic modeling tools that can formalize existing economic intutions and suggest how we might capture more complex results. In the next chapter, we will develop the model slightly by considering firms who not only choose labor, but multiple inputs. 
