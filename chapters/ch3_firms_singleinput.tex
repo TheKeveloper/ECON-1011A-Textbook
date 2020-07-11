@@ -243,8 +243,8 @@ Now we can do the same for the optimized profit function. This optimized version
 
 To find the comparative statics for the value function, in this case profit, we can use a result known as the \vocab{envelope theorem}. Informally, the envelope theorem says that when calcualting how the value function is affected by a change in an exogenous variable, we only need to look at the direct effect of the exogenous variable, and can treat our choices as fixed. We can write this more formally for the case of a single variable (although note that it generalizes to multiple variables),
 
-\begin{theorem*}
-    (Envelope Theorem) Let $F(x; z)$ be an objective function with choice variable $x$ and exogenous variable $z$. Let $V(z) = \max_x F(x; z)$ be the value function and $x^* = \argmax_x F(x;, z)$ be the optimizing choice of $x$. Then,
+\begin{theorem*}[Envelope]
+    Let $F(x; z)$ be an objective function with choice variable $x$ and exogenous variable $z$. Let $V(z) = \max_x F(x; z)$ be the value function and $x^* = \argmax_x F(x;, z)$ be the optimizing choice of $x$. Then,
     \begin{align*}
         \frac{dV}{dz} = \partials{F}{z}(x^*, z)
     \end{align*}
@@ -280,5 +280,5 @@ We will now prove the envelope theorem in the single variable case.
 
 Essentially the envelope theorem says that because we are at an optimum, a small change in our choice variable does not change the value of the overall objective function because of the first order condition. In the context of profit, this tells us that the effect of a change in price is purely the increase in price from the units that we are already producing, $f(\ell^*)$. Note that this does \emph{not} say that our choice of labor or that our production amount is not changing. Rather, it says that becuase we are at an optimum, the derivative of the profit with respect to $\ell$ must be 0. This means that a small change in $\ell$ will not affect the overall profit, so the only effect is the mechanical effect of increasing the price of the current units sold.
 
-\section{Recap}
+\section*{Recap}
 We can now calculate how profit-maximizing firms will choose how many workers to hire, and we have also examined how the firm's labor demand, production, and profit will change in response to variations in price and wages. We have observed these changes not only with specific production functions, but also obtained more general results for how firms should respond to changes. These are already some very powerful economic modeling tools that can formalize existing economic intutions and suggest how we might capture more complex results. In the next chapter, we will develop the model slightly by considering firms who not only choose labor, but multiple inputs. 
