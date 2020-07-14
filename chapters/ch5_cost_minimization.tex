@@ -1,0 +1,178 @@
+\chapter{Cost Minimization}
+So far, we have dealt with firms choosing the inputs that will maximize the profit that is earned. There have been no restrictions on how much of the good needs to be produced other than that some quantities will yield higher profits than others. However, often times firms cannot produce as much as they want, and must produce a certain quantity. For example, a farmer may sign a contract to produce $1,000$ bushels of wheat by the end of the year for some fixed price. In these cases, the firm is not solving an unconstrained maximization problem, but instead they face a constraint of producing a fixed amount of good. The way for the firm to maximize profits if they must produce a fixed quantity of product is to minimize the cost of producing that quantity, which is known as a \vocab{cost minimization} problem
+
+In this chapter, we will go over how to perform cost minimization, as well as why cost minimization can be useful in solving general profit maximization problems. 
+
+\section{Problem setup}
+To set up the cost minimization problem, we need to first establish our production function. For simplicity, we will assume that the firm has production function $f(K, L)$ where $K$ is capital and $L$ is labor. We assume that $f$ is increasing and concave with respect to both $K$ and $L$. That is,
+\begin{align*}
+    \partials{f}{K} &> 0 \\
+    \partials{f}{L} &> 0 \\ 
+    \frac{\partial^2 f}{\partial K^2} &< 0 \\
+    \frac{\partial^2 f}{\partial L^2} &< 0
+\end{align*}
+
+The cost of labor is $r$, and the cost of labor is $w$, with both exogenous. We also have an exogenous quantity, $Q$, of goods that must be produced. The total cost of inputs is given by $wL + rK$. So we can write our minimization problem as,
+\begin{align*}
+    \min_{K, L} rK  + wL \text{ s.t. } f(K, L) = Q
+\end{align*}
+This says that we are choose $K$ and $L$ to minimize $rK + wL$ subject to the constraint that the amount we produce, $f(K, L)$, is equal to $Q$. To do so, we use constrained optimization. The Lagrangian is given by
+\begin{align*}
+    \Lagr(K, L, \lambda) = rK + wL - \lambda(f(K, L) - Q)
+\end{align*}
+We can solve this via our standard constrained optimization methods.
+
+\subsection*{First order conditions}
+We take the first order conditions on the Lagrangian, differentiating with respect to each variable, to obtain necessary conditions for a minimum, 
+\begin{align*}
+    \partials{\Lagr}{K} &= r - \lambda \partials{f}{K}(K, L) = 0 \\
+    \partials{\Lagr}{L} &= w - \lambda \partials{f}{L}(K, L) = 0 \\
+    \partials{\Lagr}{\lambda} &= f(K, L) - Q = 0
+\end{align*}
+Let $L^*$, $K^*$, and $\lambda^*$ denote the values that satisfy the above conditions. Note that the third condition is simply the constraint, $f(K^*, L^*) = Q$. However, we can also rearrange and divde the first and second constraints to obtain,
+\begin{align}
+    \frac{r}{w} = \frac{\partials{f}{K}(K^*, L^*)}{\partials{f}{L}(K^*, L^*)} \implies \frac{\partials{f}{K}(K^*, L^*)}{r} = \frac{\partials{f}{L}(K^*, L^*)}{w} \label{eq:marginal_cost_equal}
+\end{align}
+$\partials{f}{K}$ and $\partials{f}{L}$ tell us how much additional good is produced per unit of capital and labor respective, while $r$ and $w$ tell us how much an additional unit of each costs. The above equality tells us that, at an optimum, the additional good produced per dollar spent must be equal for capital and for labor. 
+
+Now, consider $rK^* + wL^*$, where $K^*$ and $L^*$ are both functions of $r$, $w$, and $Q$. This tells us the total cost of producing $Q$ units of good. We can then define 
+\begin{align*}
+    C(Q; r, w) = rK^* + wL*
+\end{align*}
+This is known as the \vocab{cost function}, and it tells us the minimum cost to produce $Q$ units of good. In the next section, we will prove some important properties of the cost function. 
+
+\section{Cost function}
+Now that we have defined the cost function, we can examine some properties that it must exhibit. To do so, it will be useful to use the \vocab{constrained envelope theorem}.
+
+\begin{theorem*}[Constrained Envelope]
+    Let $F(x, y; z)$ be an objective function with choice variables $x, y$ and exogenous variable $z$, and let $g(x, y; z) = c$ be the constraint. Denote the optimal choices of $x$ and $y$ by $x^*(z)$ and $y^*(z)$, respectively. Let $v(z) = F(x^*(z), y^*(z); z)$. Then,
+    \begin{align*}
+        \frac{dv}{dz}(z) = \partials{\Lagr}{z}(x^*, y^*, \lambda^*; z) = \partials{F}{z}(x^*, y^*; z) - \lambda^* \partials{g}{z}(x^*, y^*; z)
+    \end{align*}
+    Where $\lambda^*$ is the value of the Lagrange multiplier that satisfies the first order conditions.  \footnote{This formulation of the theorem is dependent on how you write the Lagrangian. We write the Lagrangian in this text as, $\Lagr(x, y; z) = F(x, y; z) - \lambda(g(x, y; z) - c)$. However, it is also sometimes written as $\Lagr(x, y; z) = F(x, y; z) + \lambda(g(x, y; z) - c)$ (with addition instead of subtraction). These are equivalent except for the fact that the sign of $\lambda^*$ will flipped between them. So, for the latter formulation, we would have, $\frac{dv}{dz}(z) = \partials{F}{z}(x^*, y^*; z) - \lambda^* \partials{g}{z}(x^*, y^*; z)$}
+\end{theorem*}
+
+\begin{proof}
+    First, it will be useful to recall the first order conditions for the Lagrangian,
+    \begin{align*}
+        \partials{\Lagr}{x} = 0 &\implies \partials{F}{x}(x^*, y^*; z) = \lambda^* \partials{g}{x}(x^*, y^*; z) \\
+        \partials{\Lagr}{y} = 0 &\implies \partials{F}{y}(x^*, y^*; z) = \lambda^* \partials{g}{y}(x^*, y^*; z) \\
+        \partials{\Lagr}{\lambda} = 0 &\implies g(x^*, y^*; z) = c
+    \end{align*}
+    Next, the value function is given by
+    \begin{align*}
+        v(z) = F(x^*(z), y^*(z); z) 
+    \end{align*}
+    Totally differentiating $v$ with respect to $z$ yields,
+    \begin{align*}
+        \frac{dv}{dz}(z) = \partials{F}{x}(x^*, y^*; z) \frac{dx^*}{dz} + \partials{F}{y}(x^*, y^*; z) \frac{dy^*}{dz}(z) + \partials{F}{z}(x^*, y^*; z)
+    \end{align*}
+    Now, notice that we can replace $\partials{F}{x}$ and $\partials{F}{y}$ using the first two equations in the FOC,
+    \begin{align*}
+        \frac{dv}{dz}(z) &= \lambda^* \partials{g}{x}(x^*, y^*; z)  \frac{dx^*}{dz} + \lambda^* \partials{g}{y}(x^*, y^*; z) \frac{dy^*}{dz} + \partials{F}{z}(x^*, y^*; z) \\
+        &= \lambda^* \left(\partials{g}{x}(x^*, y^*; z) \frac{dx^*}{dz} + \partials{g}{y}(x^*, y^*; z) \frac{dy^*}{dz}\right) + \partials{F}{z}(x^*, y^*; z)
+    \end{align*}
+    Now, we totally differentiate the third equation in the FOC with respect to $z$ to obtain,
+    \begin{align*}
+        &\partials{g}{x}(x^*, y^*; z) \frac{dx^*}{dz} + \partials{g}{y}(x^*, y^*; z) \frac{dy^*}{dz} + \partials{g}{z}(x^*, y^*; z) = 0 \\
+        \implies& \partials{g}{x}(x^*, y^*; z) \frac{dx^*}{dz} + \partials{g}{y}(x^*, y^*; z) \frac{dy^*}{dz} = - \partials{g}{z}(x^*, y^*; z)
+    \end{align*}
+    Plugging into the expression for $\frac{dv}{dz}$ yields,
+    \begin{align*}
+        \frac{dv}{dz}(z) = \partials{F}{z}(x^*, y^*; z) - \lambda^* \partials{g}{z}(x^*, y^*; z)
+    \end{align*}
+    Which is precisely the statement of the theorem.
+\end{proof}
+
+With the constrained envelope theorem at hand, we can now examine some useful properties of the cost function.
+
+\subsection*{Properties of the cost function}
+First notice that the cost function $C(Q; r, w)$ is a value function, so the equivalent of $v$ in the statement of the constrained envelope theorem. With that in mind, we have the following properties:
+\begin{description}
+    \item[Shephard's Lemma] $\frac{dC}{dr} = K^*(Q, r, w), \frac{dC}{dw} = L^*(Q, r, w)$. This is similar to Hotelling's Lemma, but tells us that as the price of an input increases, the cost increases by the amount that input is used.
+    
+    \begin{proof}
+        Shephard's lemma is a straightforward application of the constrained envelope theorem,
+        \begin{align*}
+            \frac{dC}{dr} &= \frac{d\left(rK^* + wL^*\right)}{dr} - \lambda^* \partials{f}{r} = K^* \\
+            \frac{dC}{dw} &= \frac{d\left(rK^* + wL^*\right)}{dw} - \lambda^* \partials{f}{w} = L^*
+        \end{align*}
+        Where $\partials{f}{r} = \partials{f}{w} = 0$ since the production function does not directly depend on $r$ or $w$.
+    \end{proof} 
+    \item[Homogeneous of degree 1 in input prices] $C(Q; \alpha r, \alpha w) = \alpha C(Q; r, w)$ for $\alpha \geq 0$. The intuition is that we are merely changing the unit of currency with which we are calculating costs. 
+    
+    \begin{proof}
+        The first order conditions from $\ref{eq:marginal_cost_equal}$ requires that,
+        \begin{align*}
+            \frac{\alpha r}{\alpha w} = \frac{r}{w} = \frac{\partials{f}{K}(K^*, L^*)}{\partials{f}{L}(K^*, L^*)}
+        \end{align*}
+        The constraint does not depend on $r$ or $w$, so since the first order conditions are the same, we must have the optimized quantities are the same,
+        \begin{align*}
+            K^*(Q, \alpha r, \alpha w) = K^*(Q, r, w), L^*(Q, \alpha r, \alpha w) = L^*(Q, r, w)
+        \end{align*}
+        Plugging into the cost function yields,
+        \begin{align*}
+            C(Q; \alpha r, \alpha w) &= \alpha rK^*(Q, \alpha r, \alpha w) + \alpha w L^*(Q, \alpha r, \alpha w)\\
+            &= \alpha r K^*(Q, r, w) + \alpha w L^*(Q, r, w) \\
+            &= \alpha (rK^*(Q, r, w) + w L^*(Q, r, w)) \\
+            &= \alpha C(Q; r, w)
+        \end{align*}
+    \end{proof}
+    \item[Concave in input prices] 
+    \begin{align*}
+        C(Q, \alpha r_1 + (1 - \alpha) r_2, \alpha w_1 + (1 - \alpha)w_2) \geq &\alpha C(Q, r_1,  w_1) + (1 - \alpha)C(Q, r_2, w_2)
+    \end{align*}
+    Where $\alpha \in [0, 1]$. This tells us that the cost of the average of two prices is greater than the average of the costs at each price individually. 
+
+    \begin{proof}
+    This is essentially equivalent to the profit function being convex in prices, and the proof is also basically the same. Let $\vec{w}_1 = (r_1, w_1)$ and $\vec{w}_2 = (r_2, w_2)$ be vectors of the input prices and let $\alpha \in [0, 1]$. Denote $\vec{w} = \alpha \vec{w}_1 + (1 - \alpha) \vec{w}_2$. Let $X^*(Q, r, w) = (K^*(Q, r, w), L^*(Q, r, w)$ be the vector of optimal choices. Notice that we can then write the cost function as a dot product, $C(Q, \vec{w}) = X^*(Q, \vec{w}) \cdot \vec{w}$. Then we have,
+    \begin{align*}
+        C(Q, \vec{w}) &= X^*(Q, \alpha \vec{w}_1+ (1 - \alpha) \vec{w}_2) \cdot (\alpha \vec{w}_1+ (1 - \alpha) \vec{w}_2) \\
+        &= X^*(Q, \vec{w}) \cdot \alpha \vec{w}_1 + X^*(Q, \vec{w}) \cdot (1 - \alpha) \vec{w}_2
+    \end{align*}
+    Now, note that $X^*(Q, \alpha \vec{w}_1) \cdot \alpha \vec{w}_1$ is the cost function when we have input prices $\alpha \vec{w}_1$ and must be, by definition of the cost function, the minimum possible amount we spend to produce $Q$ at prices $\alpha \vec{w}_1$. This means that $X^*(Q, \vec{w})$ must not be the best choice of inputs at prices $\alpha \vec{w}_1$, so the cost must be higher. That is, 
+    \begin{align*}
+        X^*(Q, \vec{w}) \cdot \alpha \vec{w}_1 \geq X^*(Q, \alpha \vec{w}_1) \cdot \alpha \vec{w}_1 = C(Q, \alpha \vec{w}_1)
+    \end{align*}
+    The same must also hold for $(1 - \alpha) \vec{w}_2$. So,
+    \begin{align*}
+        C(Q, \vec{w}) &= X^*(Q, \vec{w}) \cdot \alpha \vec{w}_1 + X^*(Q, \vec{w}) \cdot (1 - \alpha) \vec{w}_2 \\
+        &\geq X^*(Q, \alpha \vec{w}_1) \cdot \alpha \vec{w}_1 + X^*(Q, (1 - \alpha)\vec{w}_2) \cdot (1 - \alpha)\vec{w}_2 \\
+        &= C(Q, \alpha \vec{w}_1) + C(Q, (1 - \alpha) \vec{w}_2) \\
+        &= \alpha C(Q, \vec{w}_1) + (1 - \alpha)C(Q, \vec{w}_2) \text{ because homogeneous degree 1}
+    \end{align*}
+    \end{proof}
+    \item[Inputs decrease with price increase] $\frac{dK^*}{dr} \leq 0, \frac{dL^*}{dw} \leq 0$. That is, as the price of an input increases, we must use weakly less of that input.
+    
+    \begin{proof}
+        The easiest way to see this is using the fact that the cost function is concave. Notice that using the envelope theorem, we have that
+        \begin{align*}
+            \frac{dC}{dr} = K^*
+        \end{align*}
+        Then, differentiating again, we get the second derivative as,
+        \begin{align*}
+            \frac{d^2C}{dr^2} = \frac{dK^*}{dr}
+        \end{align*}
+        Because $C$ is concave with respect to $r$, we have that $\frac{d^2C}{dr^2} = \frac{dK^*}{dr} < 0$. And the same logic applies for $\frac{dL^*}{dw}$. 
+    \end{proof}
+
+    \item[Costs increasing in quantity] $\frac{dC}{dQ} > 0$, and in particular, $\frac{dC}{dQ} = \lambda^*$ where $\lambda^*$ is the value of the Lagrange multiplier that satisfies the first order conditions. This is also known as the \vocab{shadow cost} of the constraint, which tells us how much costs increase for a small increase in the constraint $Q$. 
+    \begin{proof}
+        First, we show that $\frac{dC}{dQ} = \lambda^*$. This follows from the constrained envelope theorem,
+        \begin{align*}
+            \frac{dC}{dQ} &= \partials{\Lagr}{Q}(K^*, L^*, \lambda^*)\\
+            &= \partials{(rK + wL - \lambda(f(K, L) - Q))}{Q}(K^*, L^*, \lambda^*) \\
+            &= \lambda^*
+        \end{align*}
+        To show that $\lambda^* > 0$, we can look at the first order conditions of the Lagrangian:
+        \begin{align*}
+            r = \lambda^* \partials{f}{K} \implies \lambda^* = \frac{r}{\partials{f}{K}}
+        \end{align*}
+        By assumption, $r > 0$ and $\partials{f}{K} > 0$, so we know that $\lambda^* > 0$. 
+    \end{proof} 
+
+    \item[Costs convex in quantity] $\frac{d^2C}{dQ^2} > 0$. That is, as the amount of goods we must produce increases, so does the marginal cost.
+    
+\end{description}
+
+
