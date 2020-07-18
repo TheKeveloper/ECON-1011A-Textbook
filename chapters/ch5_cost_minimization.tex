@@ -227,3 +227,44 @@ In fact, the same logic tells us that no matter how much we produce, we would ma
 
 While we will not provide a formal proof of the duality of the problems, the above intuition and reasoning should give you a good idea for why cost minimization and choosing the optimal quantity is the same as profit maximization by choosing precisely which inputs. 
 
+\subsection*{Why use cost minimization?}
+You may ask, if cost minimization and profit maximization solve the same problem, why do we need to cost minimize at all? After all, profit maximization seems simpler. Indeed, for most problems, it is a good bet that profit maximization will be easier to perform. After all, in profit maximization all you have is an unconstrained maximization problem rather than a constrained minimization problem followed by an unconstrained maximization problem.
+
+However, there are still good reasons to care about the fact that these are dual problems. The first is that there are in fact some cases where cost minimization will be easier than profit maximization. This is because cost minimization only depends on the production function itself, not on how the good is sold. While in the perfectly competitive case that we have been dealing with so far this is not an issue, it can become more complicated once we reach a situation where the quantity produced also affects the price. In those cases, it may be easier to choose a quantity for a given cost, rather than having to choose the specific inputs when maximizing. In essence, cost minimization allows us to separate the problems of choosing inputs and choosing quantities.
+
+The second reason that duality is useful is not necessarily as a problem solving mechanism in itself, but for choosing good models. For example, if you are writing a simple model of production, you may not care precisely how a good is produced, only that it has some associated cost. Many economic models will simply assume a cost function. The properties in the previous section tell us what a cost function would have to satisfy in order to represent a concave production function. We can therefore abstract away from the specific production process, and assume merely that each good produced has an associated cost defined by the cost function.
+
+\section{More complex constraints}
+So far, we have dealt with the case of a single equality constraint. However, we could have more complicated constraints, which we will discuss here.
+
+\subsection*{Single inequality constraint}
+So far, we have said that we need to produce \emph{exactly} $Q$ quantity of a good. However, the problem might be reformulated as needing produce \emph{at least} $Q$ of a good, in which case our problem would be
+\begin{align*}
+    \min_{K, L} rK + wL \text{ s.t. } f(K, L) \geq Q
+\end{align*}
+However, this does not in fact change our optimization problem at all. In fact, this is the exact same optimization problem as
+\begin{align*}
+    \min_{K, L} rK + wL \text { s.t. } f(K, L) = Q
+\end{align*}
+Why is this the case? Well suppose that if at the optimum, we produced not exactly $Q$, but some quantity $Q' > Q$. Could this ever be cost minimizing? The answer is no, because the cost function for producing exact quantities is an increasing function in $Q$. That is, we know that $C(Q') > C(Q)$. So, we could lower costs by producing slightly less than $Q'$, but still at a level above $Q$. This means that whatever arrangement we have of producing $Q'$ cannot be cost minimizing. Thus, when cost minimizing subject to an inequality constraint, the optimal choice must produce exactly the amount of quantity required.
+
+\subsection*{Multiple equality constraints}
+We dealt with the case that we had to produce exactly $Q$ of a single good. However, what if we had to produce multiple goods and produce an exact quantity of each? That is, suppose we instead had production functions $f_1, f_2, \dots, f_n$ for each good, and had to produce $Q_1, Q_2, \dots, Q_n$ of each good. An example where this may be the case is a firm needing to produce a fixed amount of good in each period, for $n$ periods. Let $X_1, \dots, X_k$ be the set of inputs, and let $w_1, \dots, w_k$ be the price of each input. 
+
+To solve this problem, we once again use the Lagrangian, which in the multiple constraints case is given by
+\begin{align*}
+    \Lagr = \sum_{i = 1}^k X_i w_i - \sum_{j = 1}^n \lambda_j(f_j(\vec{X}) - Q_j)
+\end{align*}
+All that we have done is add additional Lagrange multipliers, $\lambda_j$, and then you solve by taking first order conditions the same way you would normally, except for each $\lambda_j$.
+
+Notice one concern with the multiple constraint case that is not present in the single constraint case: we are not guaranteed that a solution exists. That is, it is not clear that in general there will be a choice of inputs that produces \emph{exactly} the required amount for each good. We may therefore require some restrictions, such as requiring that the inputs used on good 1 do not affect the production of good 2, and vice versa.
+
+For the most part in this class, we will only deal with single equality constraints, but it may be useful to know how to handle more equality constraints.
+
+\subsection*{Multiple inequality constraints}
+A final complication is the case of multiple inequality constraints. This is considerably more difficult than either the multiple equality constraints or the single inequality constraint, because we may not satisfy the constraints with equality and we do not know how much extra we would produce. The way to solve a problem with multiple constraints is given by the \vocab{Karush-Kuhn-Tucker} (KKT) conditions, which are a set of necessary conditions for an optimum. 
+
+The KKT conditions are far beyond the scope of this course, and so we will not even describe them here. However, it is useful to know the problem that they solve so that you can know where to look in case you may find them helpful when developing your own model or when you read about the KKT conditions in an academic publication. 
+
+\section*{Conclusion}
+In this chapter, we detailed how to setup and solve a cost minimization problem to obtain the cost function $C(Q)$, for producing exactly $Q$ output. We also described and proved some of the key properties that the cost function must satisfy. Finally, we showed how cost minimization is the dual problem of profit maximization. The techniques of constrained optimization that have been introduced in this section will be useful beyond cost minimization, and especially in the upcoming chapters on individual utility maximization. If you do not fully understand constrained optimization, it would be worth re-reading parts of this chapter, the Math Review \todo{link to this}, or to obtain additional practice from other resources. 
