@@ -41,6 +41,8 @@ Now, consider $rK^* + wL^*$, where $K^*$ and $L^*$ are both functions of $r$, $w
 \end{align*}
 This is known as the \vocab{cost function}, and it tells us the minimum cost to produce $Q$ units of good. In the next section, we will prove some important properties of the cost function. 
 
+\todo{Add some examples of cost minimization with specific functional forms}
+
 \section{Cost function}
 Now that we have defined the cost function, we can examine some properties that it must exhibit. To do so, it will be useful to use the \vocab{constrained envelope theorem}.
 
@@ -87,7 +89,7 @@ Now that we have defined the cost function, we can examine some properties that 
 With the constrained envelope theorem at hand, we can now examine some useful properties of the cost function.
 
 \subsection*{Properties of the cost function}
-First notice that the cost function $C(Q; r, w)$ is a value function, so the equivalent of $v$ in the statement of the constrained envelope theorem. With that in mind, we have the following properties:
+First notice that the cost function $C(Q; r, w)$ is a value function, so the equivalent of $v$ in the statement of the constrained envelope theorem. The statement and the intuition of these properties will be the most important to remember, although the proofs may be helpful in better understanding methods of economic reasoning.
 \begin{description}
     \item[Shephard's Lemma] $\frac{dC}{dr} = K^*(Q, r, w), \frac{dC}{dw} = L^*(Q, r, w)$. This is similar to Hotelling's Lemma, but tells us that as the price of an input increases, the cost increases by the amount that input is used.
     
@@ -118,11 +120,11 @@ First notice that the cost function $C(Q; r, w)$ is a value function, so the equ
             &= \alpha C(Q; r, w)
         \end{align*}
     \end{proof}
-    \item[Concave in input prices] 
+    \item[Concave in input prices] Using the more mathematically formal definition of a concave function, this states that
     \begin{align*}
         C(Q, \alpha r_1 + (1 - \alpha) r_2, \alpha w_1 + (1 - \alpha)w_2) \geq &\alpha C(Q, r_1,  w_1) + (1 - \alpha)C(Q, r_2, w_2)
     \end{align*}
-    Where $\alpha \in [0, 1]$. This tells us that the cost of the average of two prices is greater than the average of the costs at each price individually. 
+    Where $\alpha \in [0, 1]$. This tells us that the cost of the average of two prices is greater than the average of the costs at each price individually. The logic here is the exact same as the logic for the convexity of the profit function. Because firms can reoptimize, they have lower costs at any two prices of inputs than if they had any weighted average of the two prices. 
 
     \begin{proof}
     This is essentially equivalent to the profit function being convex in prices, and the proof is also basically the same. Let $\vec{w}_1 = (r_1, w_1)$ and $\vec{w}_2 = (r_2, w_2)$ be vectors of the input prices and let $\alpha \in [0, 1]$. Denote $\vec{w} = \alpha \vec{w}_1 + (1 - \alpha) \vec{w}_2$. Let $X^*(Q, r, w) = (K^*(Q, r, w), L^*(Q, r, w)$ be the vector of optimal choices. Notice that we can then write the cost function as a dot product, $C(Q, \vec{w}) = X^*(Q, \vec{w}) \cdot \vec{w}$. Then we have,
@@ -171,8 +173,57 @@ First notice that the cost function $C(Q; r, w)$ is a value function, so the equ
         By assumption, $r > 0$ and $\partials{f}{K} > 0$, so we know that $\lambda^* > 0$. 
     \end{proof} 
 
-    \item[Costs convex in quantity] $\frac{d^2C}{dQ^2} > 0$. That is, as the amount of goods we must produce increases, so does the marginal cost.
+    \item[Costs convex in quantity] $\frac{d^2C}{dQ^2} > 0$. That is, as the amount of goods we must produce increases, so does the marginal cost, assuming that the production function is concave. Intuitively, a concave production function means that as we need produce more, we need more of the inputs to produce each additional unit of the output. This is the same as the cost of each additional unit increasing.
+    
+    As a warning, the proof for this statement is longer than some of the other proofs and a little more confusing, so it is not important that you fully understand it. It is far more important to understand the intuition behind why convex cost functions and concave production functions are really the same thing. However, the proof may be useful to better understanding this intuition is formalized and common approaches to proving statements in mathematical economics. 
+    \begin{proof}
+        To prove this fact, we will again use the more mathematically formal definition of convexity. Let $Q_1$ and $Q_2$ be two quantities of the good, and let $0 \leq \alpha \leq 1$. To prove convexity, we must show that 
+        \begin{align*}
+            C(\alpha Q_1 + (1 - \alpha) Q_2) \leq \alpha C(Q_1) + (1 - \alpha) C(Q_2)
+        \end{align*}
+        We will use vector notation to make the proof fully general and save some space on notation. Let $\vec{w}$ be the vector of the prices of the inputs, and let $\vec{X}^*$ be the vector of inputs that achieves the minimum cost $C(\alpha Q_1 + (1 - \alpha) Q_2)$. Let $\vec{X}_1^*$ and $\vec{X}_2^*$ be the cost minimizing inputs to produce $Q_1$ and $Q_2$, respectively. 
+
+        We can then write our cost function as,
+        \begin{align*}
+            C(\alpha Q_1 + (1 - \alpha) Q_2) &= \vec{w} \cdot \vec{X}^*
+        \end{align*}
+        First, suppose we knew that if we used $\alpha \vec{X}_1^* + (1 - \alpha) \vec{X}_2^*$ inputs, then we could produce at least $\alpha Q_1 + (1 - \alpha) Q_2$ output. This is not obvious, and we will show it soon. However if we did know this, then we know that using $\alpha \vec{X}_1^* + (1 - \alpha) \vec{X}_2^*$ must have a higher cost than using $\vec{X}^*$, because $\vec{X}^*$ is the minimum quantity to produce at least $\alpha Q_1 + (1 - \alpha) Q_2$ of the good. Mathematically, this says,
+        \begin{align*}
+            C(\alpha Q_1 + (1 - \alpha) Q_2) &= \vec{w} \cdot \vec{X}^* \\
+            &\leq w \cdot (\alpha \vec{X}_1^* + (1 - \alpha) \vec{X}_2^*) \\
+            &= \alpha (w \cdot \vec{X}_1^*) + (1 - \alpha) (w \cdot \vec{X}_2^*)
+        \end{align*}
+        However, notice that $w \cdot \vec{X}_1^*$ is simply the minimum cost to produce $Q_1$, and same for $\vec{X}_2^*$ and $Q_2$. So, we can rewrite the inequality, 
+        \begin{align*}
+            C(\alpha Q_1 + (1 - \alpha) Q_2) &\leq \alpha (w \cdot \vec{X}_1^*) + (1 - \alpha) (w \cdot \vec{X}_2^*) \\
+            &= \alpha C(Q_1) + (1 - \alpha)C(Q_2)
+        \end{align*}
+        Which is precisely the definition of a convex function. Now, we simply need to show that by using inputs $\alpha \vec{X}_1^* + (1 - \alpha) \vec{X}_2^*$, we could produce at least $\alpha Q_1 + (1 - \alpha) Q_2$ output. To do so, we simply use the fact that the profit function is concave (reverse the inequality in the convexity definition), to obtain,
+        \begin{align*}
+            f(\alpha \vec{X}_1^* + (1 - \alpha) \vec{X}_2^*) \geq \alpha f(\vec{X}_1^*) + (1 - \alpha) f(\vec{X}_2^*)
+        \end{align*}
+        However, recall how we defined $\vec{X}_1^*$ and $\vec{X}_2^*$. They are the inputs that would produce $Q_1$ and $Q_2$, respectively. So, plugging in that fact to the above inequality yields 
+        \begin{align*}
+            f(\alpha \vec{X}_1^* + (1 - \alpha) \vec{X}_2^*) &\geq \alpha f(\vec{X}_1^*) + (1 - \alpha) f(\vec{X}_2^*) \\
+            &= \alpha Q_1 + (1 - \alpha) Q_2
+        \end{align*}
+        This is exactly what we wanted to prove, so we are finished.
+    \end{proof}
     
 \end{description}
 
+\section{Duality of Profit Maximization}
+So far, we have dealt with the cost function in a circumstance where the firm may be required to produce some amount $Q$ of the output for outside reasons. However, the cost function is also useful in a general profit maximization problem. In fact, the problem of cost minimization is the \emph{exact same} as the problem of unconstrained profit maximization. This is known as \vocab{duality}, which is when a maximization problem can be converted into an equivalent minimization problem, and vice versa.
+
+\subsection*{How are they dual problems?}
+To understand duality, let's first take a closer look at the problem of profit maximizatoin. Typically when we set up a profit maximization problem, we choose how much of each input to use, say how many workers to hire or how much capital to buy. However, through this choice of inputs, we are also implicitly choosing how much output to produce. This means that there is some profit maximizing quantity. Let's call this quantity $Q^*$.
+
+Now the relationship to cost minimization becomes clearer. Suppose we knew that to maximize profits, we would have to produce $Q^*$ of the good. Then the inputs that we choose must achieve the minimum cost to produce $Q^*$, which is $C(Q^*)$. Why is this the case? Well suppose we chose some other set of inputs to produce $Q^*$. Since we sell $Q^*$ for the same price no matter what, we could strictly increase profits by switching to the cost minimizing set of inputs to produce $Q^*$. 
+
+In fact, the same logic tells us that no matter how much we produce, we would make the most profit by producing with the cost minimizing set of inputs. So, we could instead see the profit maximization problem not as choosing the inputs, but choosing the quantity. We can treat the cost function as a machine that essentially tells us how much it costs to produce some quantity, and we would maximize with the cost minimization as given. That is, we could write the profit maximization problem as,
+\begin{align*}
+    \max_{Q} pQ - C(Q)
+\end{align*}
+
+While we will not provide a formal proof of the duality of the problems, the above intuition and reasoning should give you a good idea for why cost minimization and choosing the optimal quantity is the same as profit maximization by choosing precisely which inputs. 
 
