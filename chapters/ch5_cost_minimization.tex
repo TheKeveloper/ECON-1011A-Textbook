@@ -187,15 +187,15 @@ First notice that the cost function $C(Q; r, w)$ is a value function, so the equ
         \begin{align*}
             C(\alpha Q_1 + (1 - \alpha) Q_2) &= \vec{w} \cdot \vec{X}^*
         \end{align*}
-        First, suppose we knew that if we used $\alpha \vec{X}_1^* + (1 - \alpha) \vec{X}_2^*$ inputs, then we could produce at least $\alpha Q_1 + (1 - \alpha) Q_2$ output. This is not obvious, and we will show it soon. However if we did know this, then we know that using $\alpha \vec{X}_1^* + (1 - \alpha) \vec{X}_2^*$ must have a higher cost than using $\vec{X}^*$, because $\vec{X}^*$ is the minimum quantity to produce at least $\alpha Q_1 + (1 - \alpha) Q_2$ of the good. Mathematically, this says,
+        First, suppose we knew that if we used $\alpha \vec{X}_1^* + (1 - \alpha) \vec{X}_2^*$ inputs, then we could produce at least $\alpha Q_1 + (1 - \alpha) Q_2$ output. This is not obvious, and we will show it soon. However if we did know this, then we know that using $\alpha \vec{X}_1^* + (1 - \alpha) \vec{X}_2^*$ must have a higher cost than using $\vec{X}^*$, because $\vec{X}^*$ is the set of inputs with minimum cost to produce at least $\alpha Q_1 + (1 - \alpha) Q_2$ of the good. Mathematically, this says,
         \begin{align*}
             C(\alpha Q_1 + (1 - \alpha) Q_2) &= \vec{w} \cdot \vec{X}^* \\
-            &\leq w \cdot (\alpha \vec{X}_1^* + (1 - \alpha) \vec{X}_2^*) \\
-            &= \alpha (w \cdot \vec{X}_1^*) + (1 - \alpha) (w \cdot \vec{X}_2^*)
+            &\leq \vec{w} \cdot (\alpha \vec{X}_1^* + (1 - \alpha) \vec{X}_2^*) \\
+            &= \alpha (\vec{w} \cdot \vec{X}_1^*) + (1 - \alpha) (\vec{w} \cdot \vec{X}_2^*)
         \end{align*}
-        However, notice that $w \cdot \vec{X}_1^*$ is simply the minimum cost to produce $Q_1$, and same for $\vec{X}_2^*$ and $Q_2$. So, we can rewrite the inequality, 
+        However, notice that $\vec{w} \cdot \vec{X}_1^*$ is simply the minimum cost to produce $Q_1$, and same for $\vec{X}_2^*$ and $Q_2$. So, we can rewrite the inequality, 
         \begin{align*}
-            C(\alpha Q_1 + (1 - \alpha) Q_2) &\leq \alpha (w \cdot \vec{X}_1^*) + (1 - \alpha) (w \cdot \vec{X}_2^*) \\
+            C(\alpha Q_1 + (1 - \alpha) Q_2) &\leq \alpha (\vec{w} \cdot \vec{X}_1^*) + (1 - \alpha) (\vec{w} \cdot \vec{X}_2^*) \\
             &= \alpha C(Q_1) + (1 - \alpha)C(Q_2)
         \end{align*}
         Which is precisely the definition of a convex function. Now, we simply need to show that by using inputs $\alpha \vec{X}_1^* + (1 - \alpha) \vec{X}_2^*$, we could produce at least $\alpha Q_1 + (1 - \alpha) Q_2$ output. To do so, we simply use the fact that the profit function is concave (reverse the inequality in the convexity definition), to obtain,
