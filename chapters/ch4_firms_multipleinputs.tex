@@ -112,15 +112,40 @@ We discussed the first question in the previous section; we now turn our attenti
 \end{itemize}
 Intuitively, the returns to scale tell us whether a big factory is more or less efficient than a small one. Doubling all of the inputs will always result in more production, but by how much? If doubling all of the inputs doubles output, then there are constant returns to scale. If doubling the inputs creates more than double the output, then there are increasing returns to scale. If doubling the inputs creates less than double the output, then there are decreasing returns to scale.
 
-The returns to scale of a production function 
-
+The returns to scale of a production function are fundamentally important to how the firm maximizes profits. If returns to scale are always increasing, then the firm will always want to produce an infinite quantity. If returns to scale are constant, then it will either (1) want to produce an infinite amount, (2) produce nothing, or (3) be indifferent across all output quantities.
 
 \section{Specific production functions}
-We can now plug in any functional form for our production function $f$; here, we offer two common (and convenient) examples.
+Now that we have the tools to study general production functions, we consider two common and useful examples.
 
-\paragraph{Leontief (fixed-proportion) technology}
+\subsection*{Leontief (fixed-proportion) technology}
 
 Here, we have the functional form
 $$f(K, L)=\min \left\{\frac{K}{a_{K}}, \frac{L}{a_{L}}\right\}.$$
-The interpretation of this form is that the firm needs capital and labor in specific proportions; any additional increase in one without an increase in the other will yield no extra production. For example, if it takes exactly one machine to produce one unit of product, and there must be exactly one worker operating each machine, then we would have $a_K = a_L = 1$. 
+The interpretation of this form is that the firm needs capital and labor in specific proportions; any additional increase in one without an increase in the other will yield no extra production. For example, if it takes exactly one machine to produce one unit of product, and there must be exactly one worker operating each machine, then we would have $a_K = a_L = 1$. Notice that the returns to scale are constant; the firm will produce at infinity if the price of the product is greater than the unit cost, it will produce at 0 if the price is less than the unit cost, and it will be indifferent if the price and the cost are equal.
 
+\subsection*{Cobb-Douglas technology}
+
+In this case, we have the production function
+$$f(K, L) = AK^\alpha L^\beta.$$
+Notice that the returns to scale depend on the value of $\alpha + \beta$. The firm has increasing returns to scale if this value is greater than 1, constant returns to scale if it is equal to 1, and decreasing returns to scale if it is less than 1. We can also see that
+$$\frac{\partial f^2}{\partial K \partial L} = \alpha \beta AK^{\alpha - 1} L^{\beta -1} > 0,$$
+so capital and labor are complements in this model. 
+
+\section{Long run vs. short run}
+
+When we previously computed comparative statics with respect to wage, we assumed that the firm could adjust both capital and labor. However, we can also consider the case where the firm can only adjust labor in the short run, with capital fixed. For example, this might be relevant for a firm that would need a few years to build a new factory but can choose to higher more workers in the meantime to increase production.
+
+Thus, our previous comparative static stays the same in the long run, when both capital and labor are adjustable, That is, we have 
+$$\left.\frac{\partial L^{*}}{\partial w}\right|_{L R}=\frac{1}{p} \frac{f_{K K}}{f_{K K} f_{L L}-f_{K L}^{2}}=\frac{1}{p\left(f_{L L}-f_{K L}^{2} / f_{K K}\right)}$$
+from before.
+
+However, in the case where $K$ is held at a constant $\bar{K}$ in the short term, then our optimization problem becomes
+$$\max_L pf(\bar{K}, L) - r\bar{K} - wL.$$
+Then our first order condition becomes
+$$p\frac{\partial}{\partial L} f(\bar{K}, L^*) - w = 0,$$
+which gives
+$$pf_L(\bar{K}, L^*) = w.$$
+We want the new comparative static with respect to $w$ in the short term, so using the Implicit Function Theorem and differentiating both sides yields
+$$\left.\frac{\partial L^{*}}{\partial w}\right|_{S R}=\frac{1}{p f_{L L}}.$$
+
+Note that both the short run and long run response to a wage increase is negative, but the short run response is smaller in magnitude. 
