@@ -2,3 +2,24 @@
 So far, we have dealt primarily with firms and how they decide what to produce. Now, we address the other side of the market: consumers and how they decide what to buy and consume. However, we need to find a way to convert this to a maximization problem. With firms, we made the very reasonable assumption that they would try to maximize profits. However, with individuals it is less clear what they would be maximizing. In economics, we assume that individuals are maximizing a \vocab{utility function}, which, in a somewhat tautological definition, is simply whatever an individual maximizes when they are making choices. 
 
 \section{What is utility?}
+You may have seen utility in previous economics courses described as a quantification of the ``happiness'' of individuals, and the utility function describes how many ``utils'' that an individual receives from consuming certain goods. This may be a useful way of thinking about the utility function and can add some valuable insights, but we want a more formal treatment of utility functions that does not rely on something as abstract and non-specific as representing ``happiness.'' However, this leaves us with a series of problems. Can this happiness be measured and observed? Is it the same across people? Can different types of happiness be compared? In this section, we will explore the formal treatment of utility in economics that defines utility in a way that handles some of these issues and avoids others. It will not be important for you to understand every aspect in this approach, and we will avoid delving into the fully formal technicalities of utility, but it may be useful for you understand where utility comes from to know what you can and cannot do with utility functions.
+
+\subsection*{Utility as preference relations}
+We start by approaching the problem of quantifying an individual's preferences by considering a simpler problem: determining whether an individual prefers one outcome over another. Suppose we have two outcomes, $A$ and $B$, for a given individual. These could be any set of outcomes. $A$ might represent receiving 4 apples and $B$ might represent receiving 6 bananas, or $A$ might represent going to Harvard while $B$ is going to Yale.
+
+We have a fairly reasonable to judge whether an individual prefers outcome $A$ or outcome $B$, by observing which they choose when presented with a choice. This means that we can denote a \vocab{preference relation} on outcomes, which expresses which outcome an individual prefers between two outcomes. The notation is as follows:
+\begin{itemize}
+    \item $A \prec B$ means that the agent strictly prefers $B$ to $A$. That is, given the choice between $A$ and $B$, the agent would choose $B$.
+    \item $A \succ B$ means that the agent strictly prefers $A$ to $B$.
+    \item $A \sim B$ means that the agent is indifferent between $A$ and $B$.
+    \item $A \precsim B$ means that the agent weakly prefers $B$ to $A$. That is, either $A \prec B$ or $A \sim B$.
+    \item $A \succsim B$ means that the agent weakly prefers $A$ to $B$.
+\end{itemize}
+This allows us to rigorously define an individual's preferences by a preference relation on the possible outcomes. However, this alone leaves us with a bit too much room. In order to have useful preferences, we need to assume that agents have \vocab{rational preference}. However, what economists mean by rational preferences is not a normative description of rationality. An economist makes no judgement, for example, on whether prefering chocolate to vanilla ice cream is ``rational.'' Instead, we define rationality by the following two axioms:
+\begin{description}
+    \item[Completeness] For any two outcomes $A$ and $B$, exactly one of the following holds: $A \prec B$, $A \succ B$, or $A \sim B$. This axiom tells us two things. The first is that the agent always has some preference between any two outcomes, even if that preference is to be indifferent. The second is that an agent cannot simultaneously prefer $A$ to $B$ and prefer $B$ to $A$.
+    \item[Transitivity] For any outcomes $A$, $B$, and $C$, $A \precsim B$ and $B \precsim C$ imply that $A \precsim C$. That is, if we prefer $B$ to $A$ and $C$ to $B$, then we must prefer $C$ to $A$ as well.
+\end{description}
+Whether you think that these axioms are required to be considered rational is up to you, but for the purposes of microeconomics, we impose these requirements and assume our agents to have rational preferences.
+
+
