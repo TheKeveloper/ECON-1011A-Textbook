@@ -148,4 +148,111 @@ $$pf_L(\bar{K}, L^*) = w.$$
 We want the new comparative static with respect to $w$ in the short term, so using the Implicit Function Theorem and differentiating both sides yields
 $$\left.\frac{\partial L^{*}}{\partial w}\right|_{S R}=\frac{1}{p f_{L L}}.$$
 
-Note that both the short run and long run response to a wage increase is negative, but the short run response is smaller in magnitude. 
+Note that both the short run and long run response to a wage increase is negative, but the long run response is larger in magnitude. Intuitively, if capital and labor are substitutes, then in the long run, the increase in wages would increase capital, driving labor down even more than in the short run. If capital and labor are complements, then in the long run, the increase in wages would decrease capital, which would also result in even less labor hired. In either case, when capital is able to adjust to the wage hike, the marginal revenue product of labor goes down, so labor goes down even more than it does in the short term.
+
+\section{Profit function}
+
+Consider again the value function of the firm's optimization problem, which is the profit function $\pi(p, r, w)$. Remember that this function only depends on the exogenous variables $p$, $r$, and $w$, since we assume that $K$ and $L$ are already at their optimal values $K^*(p, r, w)$ and $L^*(p, r, w)$. If we wanted to write out the profit function fully, it would then look like
+$$\pi(p, r, w) = pf(K^*(p, r, w), L^*(p, r, w)) - rK^*(p, r, w) - wL^*(p, r, w).$$
+
+\subsection*{Effects of parameter changes}
+
+What happens to profits when price changes? Taking the partial derivative with respect to $p$ gives
+$$\frac{\partial \pi}{\partial p} = f(K^*, L^*),$$
+which is a results known as \vocab{Hotelling's Lemma.} But wait! Where are all the $\frac{\partial K^*}{\partial p}$ and $\pdv{L^*}{p}$ terms? Recall that by the Envelope Theorem, since we are differentiating the value function with respect to the parameters, we can treat the original choice variables as constants. Intuitively, this is because the choice variables are already optimized with respect to the parameters, which means that their derivatives must be 0. \todo{Provide proof of Envelope Theorem again, except now in multivariate case?}
+
+We can similarly differentiate with respect to $r$ and $w$ to get that 
+$$\pdv{\pi}{r} = -K^*$$
+and
+$$\pdv{\pi}{w} = -L^*.$$
+Intuitively, this means that when input costs suddenly change by a little, the immediate impact on production is small, so the primary effect on profit comes from the additional input cost that must be paid.
+
+\subsection*{Homogeneity}
+We first introduce the concept of homogeneity.
+\begin{definition}
+A function $f(x_1, x_2, \ldots, x_m)$ is \vocab{homogeneous of degree $n$} if for all $\lambda > 0$, we have 
+$$f\left(\lambda x_{1}, \lambda x_{2}, \ldots, \lambda x_{m}\right)=\lambda^{n} f\left(x_{1}, x_{2}, \ldots, x_{m}\right).$$
+\end{definition}
+Notice from our definition that homogeneity of degree 1 is equivalent to constant returns to scale. We also introduce an important theorem.
+
+\begin{theorem}[Euler]
+If $f(x_1, x_2, \ldots, x_m)$ is homogeneous of degree $n$, then 
+$$x_{1} f_{x_{1}}+x_{2} f_{x_{2}}+\ldots+x_{m} f_{x_{m}}=n f\left(x_{1}, x_{2}, \ldots, x_{m}\right).$$
+\end{theorem}
+Notice that this theorem means that when we have constant returns to scale (i.e. $f$ is homogeneous of degree 1), then the production is equal to the sum of all the input amounts multiplied by their marginal product.
+
+We can now introduce an important result:
+\begin{proposition}
+The profit function $\pi(p, r, w)$ is homogeneous of degree 1. That is, for all $\lambda > 0$, 
+$$\pi(\lambda p, \lambda r, \lambda w) = \lambda \pi(p, r, w).$$
+\end{proposition}
+Intuitively, this just means that if we convert all of our price units for $p$, $r$, and $w$, nothing fundamental would change---our profits would simply scale to the same amount in the new units.
+\begin{proof}
+Observe
+$$
+\begin{aligned}
+\pi(\lambda p, \lambda r, \lambda w)&= \max _{K, L}\{\lambda p f(K, L)-\lambda r K-\lambda w L\} \\
+&= \max _{K, L}\{\lambda[p f(K, L)-r K-w L]\} \\
+&=\lambda \max _{K, L}\{p f(K, L)-r K-w L\}\\
+&=\lambda \pi(p, r, w).
+\end{aligned}
+$$
+\end{proof}
+
+\subsection*{Convexity}
+Again, we start with some definitions.
+\begin{definition}
+Given points $x, y \in \R^n$, a \vocab{convex combination} of $x$ and $y$ is 
+$$\lambda x + (1-\lambda)y$$
+for some $\lambda \in (0, 1)$. 
+\end{definition}
+In one dimension, a convex combination is just a weighted average. In multiple dimensions, a convex combination is a point somewhere on the line segment between $x$ and $y$, where $\lambda$ controls how close this point is to either $x$ or $y$.
+
+\begin{definition}
+A function is \vocab{convex} if for all $\lambda \in (0, 1)$, we have
+$$f(\lambda x+(1-\lambda) y) \leq \lambda f(x)+(1-\lambda) f(y).$$
+\end{definition}
+Graphically, this means that if you draw a line segment between two points on the graph of $f$, the resulting line segment will be entirely above or on the graph of $f$. Note that a twice-differentiable function is convex if and only if its second derivative is nonnegative everywhere.
+\todo{Insert graph.}
+
+We now introduce another important result.
+
+\begin{proposition}
+The profit function is convex. That is, for any sets of prices $(p_0, r_0, w_0)$ and $(p_1, r_1, w_1)$ and any $\lambda \in (0, 1)$, let
+$$\left(p_{\lambda}, r_{\lambda}, w_{\lambda}\right)=\left(\lambda p_{0}+(1-\lambda) p_{1}, \lambda r_{0}+(1-\lambda) r_{1}, \lambda w_{0}+(1-\lambda) w_{1}\right)$$
+be their convex combination. Then 
+$$\pi\left(p_{\lambda}, r_{\lambda}, w_{\lambda}\right) \leq \lambda \pi\left(p_{0}, r_{0}, w_{0}\right)+(1-\lambda) \pi\left(p_{1}, r_{1}, w_{1}\right).$$
+\end{proposition}
+
+\begin{proof}
+Let $\vec{w} = (r, w)$ and let $\vec{Z} = (K, L)$. That is, we are pretending there is a single inpute $\vZ$ with price $\vw$. For any $(p_0, \vw_0)$ and $(p_1, \vw_1)$ and $\lambda \in (0, 1)$, let 
+$$\left(p_{\lambda}, \mathbf{w}_{\lambda}\right)=\left(\lambda p_{0}+(1-\lambda) p_{1}, \lambda \mathbf{w}_{0}+(1-\lambda) \mathbf{w}_{1}\right).$$
+We want to show 
+$$\pi\left(p_{\lambda}, \mathbf{w}_{\lambda}\right) \leq \lambda \pi\left(p_{0}, \mathbf{w}_{0}\right)+(1-\lambda) \pi\left(p_{1}, \mathbf{w}_{1}\right).$$
+
+We know that at $(p_\lambda, \vw_\lambda)$, the profits are
+$$\pi\left(p_{\lambda}, \mathbf{w}_{\lambda}\right)=p_{\lambda} f\left(\mathbf{Z}^{*}\left(p_{\lambda}, \mathbf{w}_{\lambda}\right)\right)-\mathbf{w}_{\lambda} \cdot \mathbf{Z}^{*}\left(p_{\lambda}, \mathbf{w}_{\lambda}\right),$$
+where $\mathbf{Z}^{*}(p_\lambda, \vw_\lambda)$ has been optimized by the firm at prices $(p_\lambda, \vw_\lambda)$. If we tried to use the input quantity $\mathbf{Z}^{*}(p_\lambda, \vw_\lambda)$ when prices were at $(p_0, \bw_0)$ or $(p_1, \bw_1)$, the resulting profits would be weakly less than the profits $\pi(p_0, \bw_0)$ and $\pi(p_1, \bw_1)$ that have been optimized at those price points by definition. This gives us 
+$$\begin{array}{l}
+\pi\left(p_{0}, \mathbf{w}_{0}\right) \geq p_{0} f\left(\mathbf{Z}^{*}\left(p_{\lambda}, \mathbf{w}_{\lambda}\right)\right)-\mathbf{w}_{0} \cdot \mathbf{Z}^{*}\left(p_{\lambda}, \mathbf{w}_{\lambda}\right) \\
+\pi\left(p_{1}, \mathbf{w}_{1}\right) \geq p_{1} f\left(\mathbf{Z}^{*}\left(p_{\lambda}, \mathbf{w}_{\lambda}\right)\right)-\mathbf{w}_{1} \cdot \mathbf{Z}^{*}\left(p_{\lambda}, \mathbf{w}_{\lambda}\right).
+\end{array}
+$$
+We can substitute these inequalities into our convex combination expression, yielding
+\begin{align*}
+\lambda \pi\left(p_{0}, \mathbf{w}_{0}\right)+(1-\lambda) \pi\left(p_{1}, \mathbf{w}_{1}\right)
+&\geq \lambda\left[p_{0} f\left(\mathbf{Z}^{*}\left(p_{\lambda}, \mathbf{w}_{\lambda}\right)\right)-\mathbf{w}_{0} \cdot \mathbf{Z}^{*}\left(p_{\lambda}, \mathbf{w}_{\lambda}\right)\right] \\
+& \quad +(1-\lambda)\left[p_{1} f\left(\mathbf{Z}^{*}\left(p_{\lambda}, \mathbf{w}_{\lambda}\right)\right)-\mathbf{w}_{1} \cdot \mathbf{Z}^{*}\left(p_{\lambda}, \mathbf{w}_{\lambda}\right)\right] \\
+&=\left[\lambda p_{0}+(1-\lambda) p_{1}\right] f\left(\mathbf{Z}^{*}\left(p_{\lambda}, \mathbf{w}_{\lambda}\right)\right) \\
+&\quad -\left[\lambda \mathbf{w}_{0}+(1-\lambda) \mathbf{w}_{1}\right] \cdot \mathbf{Z}^{*}\left(p_{\lambda}, \mathbf{w}_{\lambda}\right) \\
+&=p_{\lambda} f\left(\mathbf{Z}^{*}\left(p_{\lambda}, \mathbf{w}_{\lambda}\right)\right)-\mathbf{w}_{\lambda} \cdot \mathbf{Z}^{*}\left(p_{\lambda}, \mathbf{w}_{\lambda}\right) \\
+&=\pi\left(p_{\lambda}, \mathbf{w}_{\lambda}\right).
+\end{align*}
+\end{proof}
+Notice that we did not even need for the profit function to be twice differentiable! The intuitive reasoning behind this proof is that average of the profits of the extreme prices would be the profits at the average prices if we chose the same inputs at the extreme prices as we did at the average price. However, we can always do weakly better at each of the extreme prices by reoptimizing our inputs compared to what we chose at the average, which means that the average profits of these extremes must be weakly greater.
+
+How do we interpret this result? This means that given the options between (1) prices constantly fluctuating between $(p_0, w_0, r_0)$ and $(p_1, w_1, r_1)$ with some probability and (2) prices staying at their expected value always, the firm would prefer scenario (1). This is because under price fluctuations, the firm has more opportunities to reoptimize its input quantities compared to the case where prices are fixed.
+
+\section*{Recap}
+\todo{finish this}
+
