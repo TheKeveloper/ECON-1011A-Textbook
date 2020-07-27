@@ -1,0 +1,126 @@
+\chapter{Firms with Multiple Inputs}
+
+In the previous chapter, we developed the basic concepts for understanding firms' behavior by setting up a model for firms with a single input (labor) and solving for comparative statics as wages and prices change. This chapter will expand the model to include multiple inputs, which will demonstrate more generally the tools used to study models with more than one choice variable.
+
+\section{Model Setup}
+
+As before, firms produce according to some production function $f$, and they seek to maximize their profits $\pi$. Now, we consider the case where the firm optimizes over two inputs, capital ($K$) and labor ($L$), so we can express our production function as $f(K, L)$. In addition to these two choice variables, we have three exogenous variables: price of the product ($p$), wage ($w$), and cost of renting capital ($r$). Making the same assumptions about a perfectly competitive market for labor and the firm, we can express our profit function as 
+$$\pi(K, L; p, r, w) = pf(K, L) - rK - wL.$$
+The firm thus solves the optimization problem
+$$\max_{K, L} \pi(K, L; p, r, w) = \max_{K, L} pf(K, L) - rK - wL.$$
+
+\section{Solving the Model}
+
+We want to solve the optimization problem 
+$$\max_{K, L} pf(K, L) - rK - wL$$
+to find the optimal values of $K^*$ and $L^*$ for the choice variables. We follow the same steps as the single variable case.
+
+\paragraph{First Order Conditions}
+
+Since we have two choice variables, we now have two first order conditions that must be simultaneously satisfied
+$$\begin{cases}
+p \frac{\partial}{\partial K} f\left(K^{*}, L^{*}\right)-r=0 \\
+p \frac{\partial}{\partial L} f\left(K^{*}, L^{*}\right)-w=0.
+\end{cases}$$
+Rearranging gives us an implicit definition for $K^*(p, r, w)$ and $L^*(p, r, w)$:
+$$\boxed{\begin{cases}
+p \frac{\partial}{\partial K} f\left(K^{*}, L^{*}\right) = r \\
+p \frac{\partial}{\partial L} f\left(K^{*}, L^{*}\right) = w.
+\end{cases}}$$
+This result carries the same intuition as the univariate case: firms will purchase an input (e.g. labor, capital) until the point where its marginal revenue product is equal to its marginal cost. 
+
+\paragraph{Second Order Conditions}
+
+We again check second order conditions to verify that our optimum is indeed a maximum. These conditions are trickier when we have multiple inputs: we need to make sure that our function $\pi$ at the point $(K^*, L^*)$ is not increasing in \textit{any} direction, not just the two directions along $K$ and $L$. Formally, the second order condition is satisfied in the multivariate case if and only if the Hessian matrix is negative definite (see Math Review). In the case of two variables, this condition is equivalent to checking that
+$$\begin{cases}
+\frac{\partial^2\pi}{\partial K^2} < 0 \\
+\frac{\partial^2\pi}{\partial L^2} < 0 \\
+\frac{\partial^2\pi}{\partial K^2}\frac{\partial^2\pi}{\partial L^2} - \left(\frac{\partial^2\pi}{\partial K\partial L}\right)^2 > 0.
+\end{cases}$$
+If we were considering a general function $\pi$, then these conditions are automatically true if $\pi$ is concave. We can check these more explicitly for our expression for profit. Like in the previous chapter, the first two conditions give
+$$\begin{cases}
+\frac{\partial^2\pi}{\partial K^2} = p\frac{\partial^2f}{\partial K^2}(K^*, L^*) < 0 \\
+\frac{\partial^2\pi}{\partial L^2} = p\frac{\partial^2f}{\partial L^2}(K^*, L^*) < 0, \\
+\end{cases}$$
+which have the interpretation that the marginal revenue product of capital and labor are diminishing, as assumed. The third condition gives
+$$p^2\frac{\partial^2 f}{\partial K^2}\frac{\partial^2 f}{\partial L^2} > \left(p \frac{\partial f^2}{\partial K \partial L}\right)^2,$$
+or equivalently,
+$$\frac{\partial^2 f}{\partial K^2}\frac{\partial^2 f}{\partial L^2} > \left(\frac{\partial f^2}{\partial K \partial L}\right)^2.$$
+Intuitively, an example where this condition might not hold would be if capital and labor were very strong complements. Then, even though the marginal benefit of capital decreases with more capital and the marginal benefit of labor decreases with more labor, the marginal benefit of capital increases with more labor, enough to an extent that there still exists a direction where the production function is upward sloping. However, if we assume that the production function is concave, then this second order condition is automatically met.
+
+\section{Comparative statics}
+
+Now that we have implicit definitions for $K^*(p, r, w)$ and $L^*(p, r, w)$, we can take the comparative statics with respect to the exogenous variables $p$, $r$, and $w$. Here, we will take the comparative statics with respect to $w$, which means we are interested in finding $\frac{\partial K^*}{\partial w}$ and $\frac{\partial L^*}{\partial w}$ and interpreting their signs. Switching notation for our differentiation, recall that we have the first order conditions
+$$\begin{cases}
+p f_K\left(K^{*}, L^{*}\right) = r \\
+p f_L\left(K^{*}, L^{*}\right) = w.
+\end{cases}$$
+that implicitly define $K^*$ and $L^*$. We can thus apply the Implicit Function Theorem and totally differentiate both of the above conditions, yielding
+
+$$\begin{cases}
+\frac{d}{d w}\left[p f_{K}\left(K^{*}(p, r, w), L^{*}(p, r, w)\right)\right]=\frac{d r}{d w} \\
+\frac{d}{d w}\left[p f_{L}\left(K^{*}(p, r, w), L^{*}(p, r, w)\right)\right]=\frac{d w}{d w}.
+\end{cases}$$
+
+We can suppress the arguments to $K^*$ and $L^*$ (but do not forget that these are functions!) and simplify to get 
+$$\begin{cases}
+p\left(f_{K K} \frac{\partial K^{*}}{\partial w}+f_{K L} \frac{\partial L^{*}}{\partial w}\right)=0 \\
+p\left(f_{L K} \frac{\partial K^{*}}{\partial w}+f_{L L} \frac{\partial L^{*}}{\partial w}\right)=1.
+\end{cases}$$
+We have a system of linear equations and are interested in obtaining $\frac{\partial K^*}{\partial w}$ and $\frac{\partial L^*}{\partial w}$, so we can solve our system with Gaussian elimination, substitution, Cramer's rule, or any method you prefer. Using Gaussian elimination, we can rearrange to get 
+$$\begin{cases}
+f_{L L} p\left(f_{K K} \frac{\partial K^{*}}{\partial w}+f_{K L} \frac{\partial L^{*}}{\partial w}\right)-f_{K L}\left[p\left(f_{L K} \frac{\partial K^{*}}{\partial w}+f_{L L} \frac{\partial L^{*}}{\partial w}\right)-1\right]=0 \\
+g_{K K}\left[p\left(f_{L K} \frac{\partial K^{*}}{\partial w}+f_{L L} \frac{\partial L^{*}}{\partial w}\right)-1\right]-f_{L K} p\left(f_{K K} \frac{\partial K^{*}}{\partial w}+f_{K L} \frac{\partial L^{*}}{\partial w}\right)=0.
+\end{cases}$$
+Simplifying yields 
+$$\begin{cases}
+p f_{K K} f_{L L} \frac{\partial K^{*}}{\partial w}-p f_{K L}^{2} \frac{\partial K^{*}}{\partial w}+g_{K L}=0 \\
+p f_{K K} f_{L L} \frac{\partial L^{*}}{\partial w}-f_{K K}-p f_{K L}^{2} \frac{\partial L^{*}}{\partial w}=0.
+\end{cases}$$
+This allows us to solve for 
+$$\boxed{\begin{cases}
+\frac{\partial K^{*}}{\partial w}=-\frac{1}{p} \frac{f_{K L}}{f_{K K} f_{L L}-f_{K L}^{2}} \\
+\frac{\partial L^{*}}{\partial w}=\frac{1}{p} \frac{f_{K K}}{f_{K K} f_{L L}-f_{K L}^{2}}.
+\end{cases}}$$
+
+Remember that we are ultimately interested in the signs of these two terms. Notice that the $f_{K K} f_{L L}-f_{K L}^{2}$ term in each of the denominators must be positive, since this is exactly the third of our SOCs! We know that $f_{KK} < 0$ from our first SOC, so we know that 
+$$\frac{\partial L^{*}}{\partial w} < 0.$$
+This has the unsurprising interpretation that as wages increases, the amount of labor hired decreases. 
+
+Notice that that the sign of $\frac{\partial K^{*}}{\partial w}$ depends on the sign of $f_{KL}$; the former is positive if and only if the latter is negative. Whether $f_{KL}$ is positive or negative depends on the specific production function $f$. If $f_{KL} > 0$, we say that capital and labor are \vocab{complements}. That is, when labor increases, the marginal product of capital increases. Thus, when wages rise and the firm hires less labor, the marginal product of capital falls, so the optimal quantity of capital rented also falls. Intuitively, when inputs are complements, if we want less of one input, then we also want less of the other.
+
+Alternatively, if $f_{KL} < 0$, we say that capital and labor are \vocab{substitutes}. That is, when labor increases, the marginal product of capital decreases. Then, when wages rise and the firm hires less labor, the marginal product of capital increases, so the optimal quantity of capital rented also increases. This effect explains why we call the inputs substitutes: when we want less of one input, we now want more of the other.
+\todo{Include the approach using the general formula?}
+
+\section{Returns to Scale}
+As we saw in the previous section, the nature of how firms hire labor and rent capital depends a lot on the structure of the actual production function $f(K, L)$. We often care about two key questions.
+\begin{enumerate}
+    \item Are capital and labor substitutes or complements?
+    \item What are the returns to scale? That is, does the per-unit cost of production increase or decrease as production scales up?
+\end{enumerate}
+We discussed the first question in the previous section; we now turn our attention to the second question. Given a production function $f(K, L)$, there are three cases:
+\begin{itemize}
+    \item $f(K, L)$ has \vocab{constant returns to scale} if 
+    $$f(\lambda K, \lambda L) = \lambda f(K, L)$$
+    for all $K, L, \lambda > 0$.
+    \item $f(K, L)$ has \vocab{increasing returns to scale} if 
+    $$f(\lambda K, \lambda L) > \lambda f(K, L)$$
+    for all $K, L, \lambda > 1$.
+    \item $f(K, L)$ has \vocab{decreasing returns to scale} if 
+    $$f(\lambda K, \lambda L) < \lambda f(K, L)$$
+    for all $K, L, \lambda > 1$.
+\end{itemize}
+Intuitively, the returns to scale tell us whether a big factory is more or less efficient than a small one. Doubling all of the inputs will always result in more production, but by how much? If doubling all of the inputs doubles output, then there are constant returns to scale. If doubling the inputs creates more than double the output, then there are increasing returns to scale. If doubling the inputs creates less than double the output, then there are decreasing returns to scale.
+
+The returns to scale of a production function 
+
+
+\section{Specific production functions}
+We can now plug in any functional form for our production function $f$; here, we offer two common (and convenient) examples.
+
+\paragraph{Leontief (fixed-proportion) technology}
+
+Here, we have the functional form
+$$f(K, L)=\min \left\{\frac{K}{a_{K}}, \frac{L}{a_{L}}\right\}.$$
+The interpretation of this form is that the firm needs capital and labor in specific proportions; any additional increase in one without an increase in the other will yield no extra production. For example, if it takes exactly one machine to produce one unit of product, and there must be exactly one worker operating each machine, then we would have $a_K = a_L = 1$. 
+
