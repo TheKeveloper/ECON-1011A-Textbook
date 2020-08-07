@@ -58,3 +58,22 @@ There is one last wrinkle in our construction of the utility function. In the fi
 The above is a bit more mathematically formal than required in this course, and you do not need to know the continuity property. It basically says that our preference relations are preserved under limits. However, the key is that if $\precsim$ is a continuous preference relation, then we have a \emph{continuous} utility function $u: X \to \R$ representing $\precsim$. 
 
 While this guarantees that there is a continuous utility function, it does not say anything about the differentiability or other properties of the utility function. However, now that we have established the formal mathematical foundations of utility, we can impose more structure to handle the consumer problem specifically. We will do so in the following section.
+
+\section{The consumer's problem}
+The consumer's problem is in some sense the foundation of all economics. It has to do with individuals trying to achieve the best outcome that they can. That is, they are maximizing utility. In this section, we describe the basic setup of the model, the assumptions in the model, and some basic properties from solving the model.
+
+\subsection*{Model setup}
+We consider a set of $n$ goods that a consumer can consume, and that the consumer chooses real quantities of each good. We denote the choice for amount of these goods $\vec{x} = (x_1, \dots, x_n)$. This means that our space of ``outcomes'' is $X = \R^n$. We assume our agent has a continuously differentiable utility function $u: \R^n \to \R$. We make a few additional asssumptions on the utility function.
+\begin{description}
+    \item[Increasing in goods] We assume that $u$ is increasing in each good. Mathematically, this is $\partials{u}{x_i} > 0$ for all $i$. A key assumption here is that the consumer wants each good, and that there are no ``bads.'' There will be cases where this assumption no longer holds for a general utility maximization problem (pollution or garbage for example), but in this case we assume the agent can only be happier with there allocation. This also assumes non-satiation, so that agents always want more of the good. 
+    \item[Concavity] We assume that $u(\vec{x})$ is concave in $\vec{x}$. Since $u$ is differentiable, this tells us that $\frac{\partial^2 u}{\partial x_i^2} < 0$ for all $x_i$. The intuition here is that agents tend to have diminishing marginal returns. The 10th chocolate bar adds less additional happiness than the first chocolate bar does.
+\end{description}
+
+However, there is a slight problem here, which is that clearly the optimal action for an agent given these assumptions is just to consume an infinite amount of everything. In the real world this does not occur because we have a limited amount of money. So we assume that agents have an exogenous fixed income $y$ that can be spent on purchasing goods. Each good $i$ also has a positive price $p_i > 0$, which we assume the agent takes as exogenous, yielding the price vector $\vec{p}$. This implicitly assumes that the agent is a price-taker, so that the amount of good that the agent purchases has no effect on the price, which is the case if the agent is a relatively small spender in an economy with many other consumers and firms to buy from. This gives us the agent's \vocab{budget constraint},
+\begin{align*}
+    \vec{p} \cdot \vec{x} = \sum_{i = 1}^n p_i x_i \leq y
+\end{align*}
+So, the consumer's problem can be summarized as follows:
+\begin{align*}
+    \max_{\vec{x} \in \R^n} u(\vec{x}) \text{ s.t. } \vec{p} \cdot \vec{x} \leq y
+\end{align*}
