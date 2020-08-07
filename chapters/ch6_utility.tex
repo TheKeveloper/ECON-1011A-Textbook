@@ -39,5 +39,22 @@ Notice that the utility function for a given set of preferences is not unique. T
     \end{align*}
     Notice that this still represents the preference relation $\precsim$, but has different values than $u$ does. 
 \end{example*}
-The above example illustrates an important point. Utility functions are ordinal, not cardinal. That is, the magnitude of the difference between $u(A)$ and $u(B)$ does not matter, but the sign does. 
+The above example illustrates an important point. Utility functions are ordinal, not cardinal. That is, the magnitude of the difference between $u(A)$ and $u(B)$ does not matter, but the sign does. We can state this more formally:
 
+\begin{proposition*}
+    Let $u : X \to \R$ be a utility function representing a preference relation $\precsim$. Let $f : \R \to \R$ be a monotonically increasing function. Then $f \circ u: X \to \R$ is also a utility function representing $\precsim$. 
+\end{proposition*}
+\begin{proof}
+    Let $A, B \in X$ where $A \precsim B$. Then $u(A) \leq u(B)$. By monotonicity of $f$, we also have that $f(u(A)) \leq f(u(B))$. Since $A$ and $B$ were arbitrary, this holds for all $A \precsim B$. So, $f \circ u$ is a utility function for $\precsim$. 
+\end{proof}
+This tells us that we can add, multiply, apply a positive exponent, take logarithms, or apply any monotonic function to a utility function and keep the same underlying preferences. 
+
+However, this also tells us that you \textbf{cannot compare utilities across individuals}. That is, we can not decide that one person is happier than another because they receive more utility, nor can we say that maximizing utility is in general a desirable goal. Those are cases of normative utility functions, but in our case we only deal with the formally defined utility function. Throughout this text and in the course, we may say that higher utility corresponds to an agent being ``happier,'' but this is merely shorthand and to acheive intuition, and should not be interpreted as a claim on utility actually mapping to happiness. 
+
+There is one last wrinkle in our construction of the utility function. In the finite case, or even in the countably infinite case, the above rationality axioms are sufficient to construct a utility function from a preference relation. However, we might have cases where the set of outcomes is uncountably infinitely large. For example, if you have a utility function over how much money you receive, in which case the outcome space is all real numbers. The rationality axioms alone are insufficient to guarantee the existence of a well-defined utilty function for a preference relation over uncountably infinite axioms in this case. So, we need an additional axiom.
+\begin{description}
+    \item[Contiunity of preferences] For any sequence of outcome pairs, $\{(x^n, y^n)\}_{n = 1}^\infty$ where $x^n \succsim y^n$ for all $n$, and $x = \lim_{n \to \infty} x^n, y = \lim_{n \to \infty} y^n$, then $x \succsim y$. 
+\end{description}
+The above is a bit more mathematically formal than required in this course, and you do not need to know the continuity property. It basically says that our preference relations are preserved under limits. However, the key is that if $\precsim$ is a continuous preference relation, then we have a \emph{continuous} utility function $u: X \to \R$ representing $\precsim$. 
+
+While this guarantees that there is a continuous utility function, it does not say anything about the differentiability or other properties of the utility function. However, now that we have established the formal mathematical foundations of utility, we can impose more structure to handle the consumer problem specifically. We will do so in the following section.
