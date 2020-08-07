@@ -22,4 +22,22 @@ This allows us to rigorously define an individual's preferences by a preference 
 \end{description}
 Whether you think that these axioms are required to be considered rational is up to you, but for the purposes of microeconomics, we impose these requirements and assume our agents to have rational preferences.
 
+\subsection*{From preference relations to utility functions}
+Now that we can define an individual's preferences, we can try to convert them into a utility function. A utility function is simply a way of expressing these preference relationships over outcomes by mapping each outcome to a real number, and outcomes that are more preferred have a higher value. Formally:
+\begin{definition*}[Utility function]
+    A function $u: X \to R$ is a utility function for a preference relation $\precsim$ if for $A, B \in X$, $A \precsim B \iff u(A) \leq u(B)$. 
+\end{definition*}
+Notice that the utility function for a given set of preferences is not unique. To make the idea of a utilty function more concrete, let's consider a simple example with a finite set of outcomes.
+\begin{example*}
+    Let $X = \{A, B, C\}$ be the set of outcomes. Maybe $A$ is getting an apple, $B$ is getting a banana, and $C$ is getting a coconut. Suppose we have a preference relation $\precsim$ where $A \precsim B \precsim C$. We want to construct a utility function $u$ that expresses this preference relation. We might define $u$ as follows:
+    \begin{align*}
+        u(A) = 1, u(B) = 2, u(C) = 3
+    \end{align*}
+    Notice that because $C$ is preferred to $B$, $u(C)$ is greater than $u(B)$, and the same is true for all pairs of preference relations. However, this is not the unique representation of the preference relations. Define $\tilde{u}$ as the same as $u$ except with the output doubled:
+    \begin{align*}
+        \tilde{u}(A) = 2, \tilde{u}(B) = 4, \tilde{u}(C) = 6
+    \end{align*}
+    Notice that this still represents the preference relation $\precsim$, but has different values than $u$ does. 
+\end{example*}
+The above example illustrates an important point. Utility functions are ordinal, not cardinal. That is, the magnitude of the difference between $u(A)$ and $u(B)$ does not matter, but the sign does. 
 
