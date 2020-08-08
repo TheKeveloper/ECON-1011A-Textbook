@@ -77,3 +77,53 @@ So, the consumer's problem can be summarized as follows:
 \begin{align*}
     \max_{\vec{x} \in \R^n} u(\vec{x}) \text{ s.t. } \vec{p} \cdot \vec{x} \leq y
 \end{align*}
+
+Notice that the budget constraint in this case is an inequality constraint. These are typically more difficult to deal with, but we can simplify the problem by replacing it with an equality constraint. To see why this is the case, consider what would happen if the budget constraint held with strict inequality so that $\vec{p} \cdot \vec{x} < y$. Since buying more of each good increases utility, we could buy some very small additional amount of the first good, say $dx_1$, which would increase utility, while still satisfying the budget constraint. This means that when the agent is optimizing, they must spend their entire budget. We can therefore rewrite the problem,
+
+\begin{align*}
+    \max_{\vec{x} \in \R^n} u(\vec{x}) \text{ s.t. } \vec{p} \cdot \vec{x} = y
+\end{align*}
+
+\subsection*{Solving the model}
+Now that we have set up the model, we will solve it to determine the optimal quantities of goods that consumers should consume. For the sake of simplicity and clarity, we will consider the case of only two goods, $a$ and $b$, with prices $p_a, p_b$ and utility function $u(a, b)$. The consumer's budget is still given as $y$. The problem the consumer solves is therefore
+\begin{align*}
+    \max_{a, b} u(a, b) \text{ s.t. } p_a a + p_b b = y
+\end{align*}
+
+\subsubsection*{Lagrangian method}
+Since this is a constrained maximization problem, we can solve it via the standard Lagrangian method. The Lagriangian is
+\begin{align*}
+    \Lagr(a, b, \lambda) = u(a, b) - \lambda(p_a a + p_b b - y)
+\end{align*}
+The first order conditions of an optimum are therefore,
+\begin{align*}
+    \partials{u}{a}(a^*, b^*) &= \lambda p_a \\
+    \partials{u}{b}(a^*, b^*) &= \lambda p_b \\
+    p_a a + p_b b &= y
+\end{align*}
+The third equation is simply the budget constraint. If we divide the first and second equations and rearrange slightly, we obtain,
+\begin{align*}
+    \frac{\partials{u}{a}}{p_a} = \frac{\partials{u}{b}}{p_b} 
+\end{align*}
+This tells us that an optimum, the marginal utility per dollar from consuming $a$ must be the same as the marginal utility per dollar from consuming $b$. 
+
+Since we have assumed that $u$ is concave, these conditions define the optimal quantities $a^*(p_a, p_b, y)$ and $b^*(p_a, p_b, y)$. These are called the \vocab{Marshallian demand functions} for $a$ and $b$, which tells us how much an optimizing consumer will buy of a good for given prices and income. Often when writing Marshallian demand, we omit the asterisk to have $a(p_a, p_b, y)$ and $b(p_a, p_b, y)$. Notice that each Marshallian demand is a function of both of the prices as well as the income.
+
+\subsubsection*{Substituting the constraint}
+Before moving on, it is worth noting that the Lagrangian method is not the only way to solve a constrained optimization problem. An alternative and often easier method is known as ``substituting in the constraint.'' This relies on the fact that we know that at an optimum, we must have $p_a a + p_b b = y$. One thing we can do then is simply solve for $b$ in terms of the other variables:
+\begin{align*}
+b = \frac{y - p_a a}{p_b}
+\end{align*}
+Since this is a constraint, it must always hold even after optimizing. So, we can plug in this constraint into the utility function to obtain $u\left(a, \frac{y - p_a a}{p_b}\right)$. We can then write our new optimization problem as
+\begin{align*}
+    \max_{a} u\left(a, \frac{y - p_a a}{p_b}\right)
+\end{align*}
+This is exactly the same as our original problem, except instead of a constrained maximization problem with two variables, we have an unconstrained maximization problem of a single variable. This can dramatically simplify our computations. As always, we take first order conditions by totally differentiating with respect to $a$, 
+\begin{align*}
+    \partials{u}{a} \left(a^*, \frac{y - p_a a^*}{p_b}\right) - \partials{u}{b}\left(a^*, \frac{y - p_a a^*}{p_b}\right) \frac{p_a}{p_b} = 0
+\end{align*}
+Rearranging slightly yields,
+\begin{align*}
+    \frac{\partials{u}{a} \left(a^*, \frac{y - p_a a^*}{p_b}\right)}{p_a} = \frac{\partials{u}{b} \left(a^*, \frac{y - p_a a^*}{p_b}\right)}{p_b}
+\end{align*}
+Notice that if we were to plug in the fact that $b^* = \frac{y - p_a a^*}{p_b}$, this is the exact same first order condition as we obtained through the Lagrangian method. When solving with an explicit functional form, plugging in the constraint can often make it significantly easier to find the optimal choices.

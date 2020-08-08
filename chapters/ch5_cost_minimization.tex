@@ -46,7 +46,7 @@ This is known as the \vocab{cost function}, and it tells us the minimum cost to 
 \section{Cost function}
 Now that we have defined the cost function, we can examine some properties that it must exhibit. To do so, it will be useful to use the \vocab{constrained envelope theorem}.
 
-\begin{theorem*}[Constrained Envelope]
+\begin{theorem*}[Constrained Envelope] \label{thm_constrained_envelope}
     Let $F(x, y; z)$ be an objective function with choice variables $x, y$ and exogenous variable $z$, and let $g(x, y; z) = c$ be the constraint. Denote the optimal choices of $x$ and $y$ by $x^*(z)$ and $y^*(z)$, respectively. Let $v(z) = F(x^*(z), y^*(z); z)$. Then,
     \begin{align*}
         \frac{dv}{dz}(z) = \partials{\Lagr}{z}(x^*, y^*, \lambda^*; z) = \partials{F}{z}(x^*, y^*; z) - \lambda^* \partials{g}{z}(x^*, y^*; z)
