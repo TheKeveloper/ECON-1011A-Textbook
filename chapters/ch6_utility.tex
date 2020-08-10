@@ -227,5 +227,41 @@ The Cobb-Douglas utility function is a very useful utility function because it t
     \begin{align*}
         \frac{a^* p_a}{y} = \alpha
     \end{align*} 
-    $a^* p_a$ is how much is spent on good $a$, and its ratio with respect to income is $\alpha$. Similar analysis applies for good $b$. This is a key shortcut that can help you with solving problems involving Cobb-Douglas utility much more quickly. 
+    $a^* p_a$ is how much is spent on good $a$, and its ratio with respect to income is $\alpha$. Similar analysis applies for good $b$. Notice this does not say that the quantities of the goods themselves will be a constant proportion, but only that amount spent on each good is a constant proportion of the income. This is a key shortcut that can help you with solving problems involving Cobb-Douglas utility much more quickly. 
+\end{description}
+
+\subsection*{Quasi-linear utility}
+Quasi-linear utility is used when we want utility to be linear in one of our goods and concave in another. In our case, we will take $a$ to be our linear good, and $b$ to be our concave good. The intuition behind quasi-linear utility is that the concave good is an ``essential'' good where the marginal utility is very high when you have very little of it, but that once you have a sufficient amount you would rather buy the linear good.
+\begin{description}
+    \item[Functional form] $u(a, b) = a + \tilde{u}(b)$ where $\tilde{u}$ is a single variable concave function. 
+    \item[Solving] As always, we set up the Lagrangian first,
+    \begin{align*}
+        \Lagr = a + \tilde{u}(b) - \lambda(p_a a + p_b b - y)
+    \end{align*}
+    The first order conditions are then given by,
+    \begin{align*}
+        1 &= \lambda^* p_a \\
+        \partials{\tilde{u}}{b}(b^*) &= \lambda^* p_b \\ 
+        p_a a^* + p_b b^* &= y
+    \end{align*}
+    Using the first equation, we obtain that $\lambda^* = \frac{1}{p_a}$. Plugging into the second equation yields,
+    \begin{align*}
+        \partials{\tilde{u}}{b}(b^*) = \frac{p_b}{p_a}
+    \end{align*}
+    This equation implicitly defines the optimal value of $b^*$ as a function of $p_b$ and $p_a$. Notably however, it does \emph{not} depend on the budget, $y$. Since we have implicitly defined $b^*$, we can define $a^*$ in terms of $b^*$,
+    \begin{align*}
+        a^* = \frac{y - p_b b^*}{p_a}
+    \end{align*}
+    That is, we take whatever money we have leftover from buying $b^*$ and use it all to buy good $a$. Hence the linearity.
+
+    However, there is a slight problem here. Because $b^*$ does not depend on $y$, we could in theory have a situation where $a^*$ is negative. This is a problem because we are not allowing our consumer to sell $a$ without owning it first. Technically then, we have two possible consumption bundles:
+    \begin{enumerate}
+        \item If the implicitly defined $b^*$ is such that $p_b b^* \leq y$, then the above analysis works and we have $a^* = \frac{y - p_b b^*}{p_a}$.
+        \item If $p_b b^* > y$, then we cannot afford $b^*$. This means that we will put all of our budget into buying $b$, which means that we will buy $\frac{y}{p_b}$ of good $b$, and we will have $a^* = 0$.  
+   \end{enumerate}
+   Case 2 captures the case where we are very poor, and we would spend all of our money on essentials like food and water. However, once we have enough for survival, then we are in case 1 where would rather spend money on the linear goods, which are often luxuries.
+
+   Case 2 is also known as a corner solution, where the normal first order conditions are insufficient and we would spend all our budget on a particular good. These types of corners are possible whenever you have an optimal choice that does not depend on income, because it is then possible to overspend your income. 
+   
+   \item[Assumption on budget] Most of the typical analysis we have done depends on having a sufficient budget such that $y > p_b b^*$. If this is the case, then our marginal utility of income is given by $\lambda^* = \frac{1}{p_a}$. That is, with an additional dollar of income, we buy $\frac{1}{p_a}$ of good $a$, which has linear utility. 
 \end{description}
