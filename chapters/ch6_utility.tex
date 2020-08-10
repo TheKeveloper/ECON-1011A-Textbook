@@ -190,3 +190,42 @@ Where $\vec{x}^*$ is the vector of optimal choice of goods. Notice that the valu
         This violates the budget constraint, and so we know that $\vec{x}^*$ is not in fact a feasible allocation, a contradiction. 
     \end{proof}
 \end{description}
+
+\section{Functional forms and properties}
+So far we have tried to find methodologies and conditions that must hold for optimizing consumers with general utility functions. However, in this section we will discuss some common functional forms for utility functions, as well as some of their key properties. For each of these, we will deal with the two variable case, but most can be extended to more choices. 
+
+\subsection*{Cobb-Douglas}
+The Cobb-Douglas utility function is a very useful utility function because it tells us the share of the budget that will be spent on each good.
+\begin{description}
+    \item[Functional form] $u(a, b) = a^\alpha b^\beta$ where $\alpha + \beta = 1$
+    \item[Solving] The easiest way to solve this is by first applying a log transformation, which is monotonic, to obtain $\log(u(a, b)) = \alpha \log(a) + \beta \log(b)$. Next, we set up the Lagrangian,
+    \begin{align*}
+        \Lagr = \alpha \log(a) + \beta \log(b) - \lambda (p_a a + p_b b - y)
+    \end{align*} 
+    The first order conditions then yield,
+    \begin{align*}
+        \frac{\alpha}{a^*} &= \lambda^* p_a \\
+        \frac{\beta}{b^*} &= \lambda^* p_b \\
+        p_a a^* + p_b b^* &= y
+    \end{align*}
+    Rearranging the first two equations yields
+    \begin{align*}
+        a^* = \frac{\alpha}{p_a \lambda^*}, b^* = \frac{\beta}{p_b \lambda^*}
+    \end{align*}
+    Plugging these into the third condition,
+    \begin{align*}
+        \frac{\alpha}{\lambda^*} + \frac{\beta}{\lambda^*} &= \frac{\alpha + \beta}{\lambda^*} \\
+        &= \frac{1}{\lambda^*} \\
+        &= y
+    \end{align*}
+    Rearranging yields $\lambda^* = \frac{1}{y}$. Plugging this fact into the first two conditions,
+    \begin{align*}
+        \frac{\alpha}{a^*} = \frac{p_a}{y} \implies a^* = \frac{\alpha y}{p_a} \\
+        \frac{\beta}{b^*} = \frac{p_b}{y} \implies b^* = \frac{\beta y}{p_b}
+    \end{align*}
+    \item[Constant budget shares] One of the key properties of the Cobb-Douglas model is that the budget share of good $a$ is $\alpha$ and the budget share of good $b$ is $\beta$. This can be seen by rearranging $a^* = \frac{\alpha y}{p_a}$ to obtain,
+    \begin{align*}
+        \frac{a^* p_a}{y} = \alpha
+    \end{align*} 
+    $a^* p_a$ is how much is spent on good $a$, and its ratio with respect to income is $\alpha$. Similar analysis applies for good $b$. This is a key shortcut that can help you with solving problems involving Cobb-Douglas utility much more quickly. 
+\end{description}
