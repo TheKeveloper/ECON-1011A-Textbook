@@ -1,4 +1,4 @@
-\chapter{Cost Minimization}
+\chapter{Cost Minimization} \label{ch:cost_minimization}
 So far, we have dealt with firms choosing the inputs that will maximize the profit that is earned. There have been no restrictions on how much of the good needs to be produced other than that some quantities will yield higher profits than others. However, often times firms cannot produce as much as they want, and must produce a certain quantity. For example, a farmer may sign a contract to produce $1,000$ bushels of wheat by the end of the year for some fixed price. In these cases, the firm is not solving an unconstrained maximization problem, but instead they face a constraint of producing a fixed amount of good. The way for the firm to maximize profits if they must produce a fixed quantity of product is to minimize the cost of producing that quantity, which is known as a \vocab{cost minimization} problem
 
 In this chapter, we will go over how to perform cost minimization, as well as why cost minimization can be useful in solving general profit maximization problems. 
@@ -43,10 +43,10 @@ This is known as the \vocab{cost function}, and it tells us the minimum cost to 
 
 \todo{Add some examples of cost minimization with specific functional forms}
 
-\section{Cost function}
+\section{Cost function} 
 Now that we have defined the cost function, we can examine some properties that it must exhibit. To do so, it will be useful to use the \vocab{constrained envelope theorem}.
 
-\begin{theorem*}[Constrained Envelope] \label{thm_constrained_envelope}
+\begin{theorem*}[Constrained Envelope] \label{thm:constrained_envelope}
     Let $F(x, y; z)$ be an objective function with choice variables $x, y$ and exogenous variable $z$, and let $g(x, y; z) = c$ be the constraint. Denote the optimal choices of $x$ and $y$ by $x^*(z)$ and $y^*(z)$, respectively. Let $v(z) = F(x^*(z), y^*(z); z)$. Then,
     \begin{align*}
         \frac{dv}{dz}(z) = \partials{\Lagr}{z}(x^*, y^*, \lambda^*; z) = \partials{F}{z}(x^*, y^*; z) - \lambda^* \partials{g}{z}(x^*, y^*; z)
@@ -88,7 +88,7 @@ Now that we have defined the cost function, we can examine some properties that 
 
 With the constrained envelope theorem at hand, we can now examine some useful properties of the cost function.
 
-\subsection*{Properties of the cost function}
+\subsection*{Properties of the cost function} \label{sec:cost_properties}
 First notice that the cost function $C(Q; r, w)$ is a value function, so the equivalent of $v$ in the statement of the constrained envelope theorem. The statement and the intuition of these properties will be the most important to remember, although the proofs may be helpful in better understanding methods of economic reasoning.
 \begin{description}
     \item[Shephard's Lemma] $\frac{dC}{dr} = K^*(Q, r, w), \frac{dC}{dw} = L^*(Q, r, w)$. This is similar to Hotelling's Lemma, but tells us that as the price of an input increases, the cost increases by the amount that input is used.

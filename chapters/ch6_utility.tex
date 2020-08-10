@@ -97,8 +97,8 @@ Since this is a constrained maximization problem, we can solve it via the standa
 \end{align*}
 The first order conditions of an optimum are therefore,
 \begin{align*}
-    \partials{u}{a}(a^*, b^*) &= \lambda p_a \\
-    \partials{u}{b}(a^*, b^*) &= \lambda p_b \\
+    \partials{u}{a}(a^*, b^*) &= \lambda^* p_a \\
+    \partials{u}{b}(a^*, b^*) &= \lambda^* p_b \\
     p_a a + p_b b &= y
 \end{align*}
 The third equation is simply the budget constraint. If we divide the first and second equations and rearrange slightly, we obtain,
@@ -127,3 +127,66 @@ Rearranging slightly yields,
     \frac{\partials{u}{a} \left(a^*, \frac{y - p_a a^*}{p_b}\right)}{p_a} = \frac{\partials{u}{b} \left(a^*, \frac{y - p_a a^*}{p_b}\right)}{p_b}
 \end{align*}
 Notice that if we were to plug in the fact that $b^* = \frac{y - p_a a^*}{p_b}$, this is the exact same first order condition as we obtained through the Lagrangian method. When solving with an explicit functional form, plugging in the constraint can often make it significantly easier to find the optimal choices.
+
+\section{Value function}
+Now that we know how to find the demand functions of optimizing consumers, we can the \vocab{value function}, which is the value of the utility function under optimal consumption. Mathematically, the value function is defined as,
+\begin{align*}
+    v(\vec{p}, y) = u(\vec{x}^*(\vec{p}, y))
+\end{align*}
+Where $\vec{x}^*$ is the vector of optimal choice of goods. Notice that the value function is only a function of the exogenous variables, and essentially tells us what is the most utility a consumer can obtain given prices and income. The value function is also known as the \vocab{indirect utility function}. This is analogous to the indirect profit function in the case of firms. Note however that the value function, like the utility function, is ordinal rather than cardinal. 
+
+\subsection*{Properties of indirect utility}
+\begin{description}
+    \item[Marginal benefit of income] The marginal benefit of income is given by the value of the Lagrange multiplier, $\lambda^*$. That is, $\frac{dv}{dy} = \lambda^*$. In particular, $\frac{dv}{dy} > 0$, which tells us that the more income an individual has, the greater their utility.
+    
+    The intuition here should be clear. If you have more money than you did before, you can afford the old consumption bundle, and you will have money left over to consume more and make you better off.
+
+    \begin{proof}
+        The proof of this fact is analogous to that of the cost function increasing with respect to quantity in \ref{sec:cost_properties}. We use the constrained envelope theorem (\ref{thm:constrained_envelope}).
+        \begin{align*}
+            \frac{dv}{dy} = \frac{\partial\Lagr^*}{\partial y} = \partials{}{y} \left(u(\vec{x}^*) - \lambda^* (\vec{p} \cdot \vec{x}^* - y)\right) = \lambda^*
+        \end{align*}
+        That this is positive follows from the first order conditions. Recall that at an optimum, we require 
+        \begin{align*}
+            \partials{u}{x_i} = \lambda^* p_i
+        \end{align*}
+        By assumption, we know that $\partials{u}{x_i}, p_i > 0$. So we must have that $\lambda^* = \partials{u}{x_i} / p_i > 0$.
+    \end{proof}
+
+    \item[Decreasing in item prices] As the price of a good $i$ increases, the value function increases, $\frac{dv}{dp_i} > 0$. In particular, $\frac{dv}{dp_i} = - \lambda^* p_i$. 
+    
+    The intuition here is similar to the intuition about incomes. Suppose you had the same or higher utility with the optimal consumption bundle at new prices. Since prices were lower before, you could have purchased the same bundle at the old prices. But since this bundle is different from the old bundle, and the old bundle was optimizing, the new bundle must be worse.
+
+    \begin{proof}
+        This proof is also a straightforward application of the constrained envelope theorem (\ref{thm:constrained_envelope}),
+        \begin{align*}
+            \frac{dv}{dp_i} = \frac{\partial\Lagr^*}{\partial p_i} = \partials{}{p_i} \left(u(\vec{x}^*) - \lambda^* (\vec{p} \cdot \vec{x}^* - y)\right) = -\lambda^* p_i
+        \end{align*}
+        Since $\lambda^*, p_i > 0$, then $\frac{dv}{dp_i} < 0$. 
+    \end{proof}
+    \item[Continuous] The value function $v$ is continuous in prices and income. We will not provide a formal mathematical proof of this result. However, this follows from the fact that $u$ is continuous, and the Marshallian demand functions $\vec{x}^*$ are also continuous, so $v = u(\vec{x}^*)$ must be continuous. 
+    \item[Quasi-Convexity] At any convex combinations of prices and incomes, the utility obtain must be weakly less than the value function at at least one of the individual prices and incomes. Mathematically, let $\lambda \in [0, 1]$. Fix prices $\vec{p}_0, \vec{p}_1$ and incomes $y_0, y_1$. Define $\vec{p}_\lambda = \lambda p_0 + (1 - \lambda)p_1$ and $y_\lambda = \lambda y_0 + (1 - \lambda) y_1$. Then,
+    \begin{align*}
+        v(\vec{p}_\lambda, y_\lambda) \leq \max\left\{v(\vec{p}_0, y_0), v(\vec{p}_1, y_1)\right\}
+    \end{align*}
+    
+    Intuitively, the reason this holds is the same as the reason convexity holds for the profit function. If prices are varied, you are able to optimize and achieve a better outcome than if you were at the average of the varied prices.
+
+    \begin{proof}
+        The simplest way to prove this is by contradiction. Assume that quasi-convexity does not hold. Then we must have that $v(\vec{p}_\lambda, y_\lambda) > v(\vec{p}_0, y_0)$ and $v(\vec{p}_\lambda, y_\lambda) > v(\vec{p}_1, y_1)$. What must be true for the budget constraints for this to be the case? Because $v(\vec{p}_0, y_0)$ and $v(\vec{p}_1, y_1)$ are optimizing at given prices and incomes, then the allocation chosen with prices $\vec{p}_\lambda$ and income $y_\lambda$, call it $\vec{x}^*_\lambda$, must not satisfy the budget constraints for case 0 or case 1. That is, we must have that $\vec{x}^*_\lambda \cdot \vec{p}_0 > y_0$ and $\vec{x}^*_\lambda \cdot \vec{p}_1 > y_1$. To see why this is the case, if it did satisfy one of the budget constraints, say $\vec{x}^*_\lambda \cdot \vec{p}_0 \leq y_0$, then $v(\vec{p}_0, y_0)$ is optimal, and hence would achieve a weakly greater utility than the utility achieved by $\vec{x}^*_\lambda$.
+        
+        Next, we can consider how much we spend at prices $\vec{p}_\lambda$ to purchase the allocation, $\vec{x}^*_\lambda$,
+        \begin{align*}
+            \vec{p}_\lambda \cdot \vec{x}^*_\lambda &= (\lambda \vec{p}_0 + (1 - \lambda) \vec{p}_1) \cdot \vec{x}^*_\lambda \\
+            &= \lambda (\vec{p}_0 \cdot \vec{x}^*_\lambda) + (1 - \lambda) (\vec{p}_1 \cdot \vec{x}^*_\lambda) \\
+            &> \lambda y_0 + (1 - \lambda) y_1
+        \end{align*}
+        Where the last line is using the fact that the allocation cannot satisfy either of the original budget constraints. 
+
+        However, recall that $y_\lambda = \lambda y_0 + (1 - \lambda)y_1$. But then plugging into the above inequality yields,
+        \begin{align*}
+            \vec{p}_\lambda \cdot \vec{x}^*_\lambda > y_\lambda
+        \end{align*}
+        This violates the budget constraint, and so we know that $\vec{x}^*$ is not in fact a feasible allocation, a contradiction. 
+    \end{proof}
+\end{description}
