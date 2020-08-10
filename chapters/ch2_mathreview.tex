@@ -108,11 +108,33 @@ That is, we are defining $g$ to be the value of $f$ when $x_1 = x_2 = \dots x_n 
 
 This is the value of the \vocab{total derivative}, which tells us how $g(t) = f(x_1(t), \dots, x_n(t))$ changes with respect to $t$. In this case, we treat each $x_k$ as a single variable function of $t$ which then feeds into the $k$th input of $f$. To find how this changes with respect to $t$, we use the \vocab{multivariable chain rule}, which states,
 \begin{align*}
-    \frac{dg(t)}{dt} = \frac{df(x_1(t), \dots, x_n(t))}{dt} = \frac{\partial f}{\partial x_1} \frac{d x_1(t)}{dt} + \dots + \frac{\partial f}{\partial x_n} \frac{d x_n(t)}{dt}
+    \frac{dg(t)}{dt} = \frac{df(x_1(t), \dots, x_n(t))}{dt} = \frac{\partial f(\vec{x}(t))}{\partial x_1} \frac{d x_1(t)}{dt} + \dots + \frac{\partial f(\vec{x}(t))}{\partial x_n} \frac{d x_n(t)}{dt}
 \end{align*}
-Intuitively, you can think of each term of the sum as how much a small change in $x_k$ affects $f$, multiplied by how a small change in $t$ affects $x_k$. The total affect of a small change to $t$ is all of those individual changes added together. 
+Intuitively, you can think of each term of the sum as how much a small change in $x_k$ affects $f$, multiplied by how a small change in $t$ affects $x_k$. The total effect of a small change to $t$ is all of those individual changes added together. 
 
-\TODO[Add examples]
+\begin{example*}
+    Define $f(x, y) = x^{\alpha}y^{\beta}$. Define $g(t) = f(t^2, 3t)$. So we are setting $x(t) = t^2$ and $y(t) = 3t$. The multivariable chain rule tells us,
+    \begin{align*}
+        \frac{dg(t)}{dt} = \partials{f(x(t), y(t))}{x} \frac{dx(t)}{dt} + \partials{f(x(t), y(t))}{y} \frac{dy(t)}{dt}
+    \end{align*}
+    Computing each of the terms, we have
+    \begin{align*}
+        \partials{f}{x} &= \alpha x^{\alpha - 1} y^{\beta} \\
+        \partials{f}{y} &= \beta x^\alpha y^{\beta - 1} \\
+        \frac{dx(t)}{t} &= 2t \\
+        \frac{dy(t)}{t} &= 3
+    \end{align*}
+    Plugging in all of our values yields,
+    \begin{align*}
+        \frac{dg(t)}{dt} &= \alpha x(t)^{\alpha - 1} y(t)^{\beta} \cdot 2t + \beta x(t)^\alpha y(t)^{\beta - 1} \cdot 3 \\
+        &= \alpha 2t (t^2)^{\alpha - 1} (3t)^{\beta} + 3 \beta (t^2)^\alpha (3t)^{\beta - 1}
+    \end{align*}
+    Notice we could have solved this another way. We could have first written $g(t)$ explicitly in terms of $t$,
+    \begin{align*}
+        g(t) = f(x(t), y(t)) = x(t)^\alpha y(t)^\beta = (t^2)^\alpha (3t)^\beta
+    \end{align*}
+    We leave it as an exercise to differentiate this using the power and product rules, and you will obtain the same as the above result.
+\end{example*}
 
 \subsubsection*{Total vs Partial Derivative}
 One common point of confusion is the difference between the total derivative and the partial derivative. After all, the difference between $\frac{\partial f}{\partial x}$ and $\frac{d f}{d x}$ seems to be just one of notation, but they are not in general the same for a multivariable function. 
