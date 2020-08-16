@@ -214,8 +214,9 @@ This is also often known as the \vocab{first derivative test}. This is often wri
 
 To see why this must be the cast, consider the alternatives. Suppose that $\partials{f}{x_k}(\vec{x}^*) > 0$ for some $x_k$. In that case, we could ``nudge'' $x_k^*$ to be slightly larger, and because the partial derivative is positive, the value of the function $f$ will slightly increase, which means that $f(\vec{x}^*)$ is not an optimum. Similarly, if $\partials{f}{x_k}(\vec{x}^*) < 0$, we could decrease $x_k^*$ by a small amount and increase the value of $f$. So, in order for $\vec{x}^*$ to achieve the optimal value of $f$, it must be that the partial derivatives are 0. 
 
-Note that this is a necessary condition, but not a sufficient condition. For example, in the single variable case, the function $f(x) = x^3$ has 0 derivative at $x = 0$, but it is clearly not an optimum 
-\TODO{Add an image of the graph here}
+Note that this is a necessary condition, but not a sufficient condition. For example, in the single variable case, the function $f(x) = x^3$ has 0 derivative at $x = 0$, but it is clearly not an optimum. 
+
+\image[0.5]{plots/ch2_xcubed.png}
 
 Moreover, the first order conditions do not distinguish between a maximum and a minimum, and are not sufficient to show that the optimum is global rather than local. In order to verify that $f(\vec{x}^*)$ is a global maximum, an additional condition must be satisfied. 
 
@@ -228,10 +229,11 @@ The \vocab{single variable second order conditions} for a global maximum are giv
 \begin{align*}
     \frac{d^2f}{dx^2}(x) < 0 \text{ for all $x$}
 \end{align*}
-In other words, the $f$ must be a globally concave function. To see why 
-this is the case, we can think about what it means for $\frac{d^2f}{dx^2}(x) < 0$. 
-\TODO{Add some image here of a concave function}
-Since $\frac{d^2f}{dx^2}$ is the derivative of $\frac{df}{dx}$, it means that $\frac{df}{dx}(x)$ is decreasing at this point. However, the first order conditions tell us that $\frac{df}{dx}(x) = 0$ at the maximum. Since $\frac{df}{dx}$ is decreasing at this point, the derivative at a slightly greater value of $x$ must be negative, so the value would be lower. Similarly, the derivative at a slightly lower value of $x$ must be positive, which menas that the value can increase. Moreover, because the $\frac{d^2f}{dx^2}(x) < 0$ globally, then it must be that once $\frac{df}{dx}(x) < 0$, it must be negative for all greater values of $x$. 
+In other words, the $f$ must be a globally concave function. 
+
+\image[0.5]{plots/ch2_concave.png}
+
+To see why this is the case, we can think about what it means for $\frac{d^2f}{dx^2}(x) < 0$. Since $\frac{d^2f}{dx^2}$ is the derivative of $\frac{df}{dx}$, it means that $\frac{df}{dx}(x)$ is decreasing at this point. However, the first order conditions tell us that $\frac{df}{dx}(x) = 0$ at the maximum. Since $\frac{df}{dx}$ is decreasing at this point, the derivative at a slightly greater value of $x$ must be negative, so the value would be lower. Similarly, the derivative at a slightly lower value of $x$ must be positive, which menas that the value can increase. Moreover, because the $\frac{d^2f}{dx^2}(x) < 0$ globally, then it must be that once $\frac{df}{dx}(x) < 0$, it must be negative for all greater values of $x$. 
 
 Similarly, if we are searching for a global minimum, then we require that $\frac{d^2f}{dx^2}(x) > 0$ for all $x$. 
 
