@@ -59,3 +59,7 @@ In general, an environment without an asterisk will be numbered by default and a
 
 ## Text style
 ### Capitalization
+All chapter names, sections, and subsections should be in "title case." So capitalize all words except for common articles, conjunctions, etc. 
+
+## Plots
+For function plots, use Mathematica to generate the plots. Plots should also be centered in the page if on a line by themselves, and accompanied by a brief caption describing the plot. 
