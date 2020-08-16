@@ -17,6 +17,18 @@ Subsections should delineate individual portions within a given section. For exa
 \subsection*{NAME}
 ```
 
+### Environments
+All environments should be unnumbered by default. So instead of using
+```
+\begin{theorem}
+\end{theorem}
+```
+Prefer instead,
+```
+\begin{theorem*}
+\end{theorem*}
+```
+
 
 ## References
 ### Labels
@@ -43,3 +55,7 @@ In general, an environment without an asterisk will be numbered by default and a
 
 #### Unnumbered
 * Align
+
+
+## Text style
+### Capitalization
