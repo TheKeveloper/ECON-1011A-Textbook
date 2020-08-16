@@ -90,7 +90,7 @@ This has the unsurprising interpretation that as wages increases, the amount of 
 Notice that that the sign of $\frac{\partial K^{*}}{\partial w}$ depends on the sign of $f_{KL}$; the former is positive if and only if the latter is negative. Whether $f_{KL}$ is positive or negative depends on the specific production function $f$. If $f_{KL} > 0$, we say that capital and labor are \vocab{complements}. That is, when labor increases, the marginal product of capital increases. Thus, when wages rise and the firm hires less labor, the marginal product of capital falls, so the optimal quantity of capital rented also falls. Intuitively, when inputs are complements, if we want less of one input, then we also want less of the other.
 
 Alternatively, if $f_{KL} < 0$, we say that capital and labor are \vocab{substitutes}. That is, when labor increases, the marginal product of capital decreases. Then, when wages rise and the firm hires less labor, the marginal product of capital increases, so the optimal quantity of capital rented also increases. This effect explains why we call the inputs substitutes: when we want less of one input, we now want more of the other.
-\todo{Include the approach using the general formula?}
+\TODO{Include the approach using the general formula?}
 
 \section{Returns to Scale}
 As we saw in the previous section, the nature of how firms hire labor and rent capital depends a lot on the structure of the actual production function $f(K, L)$. We often care about two key questions.
@@ -159,7 +159,7 @@ $$\pi(p, r, w) = pf(K^*(p, r, w), L^*(p, r, w)) - rK^*(p, r, w) - wL^*(p, r, w).
 
 What happens to profits when price changes? Taking the partial derivative with respect to $p$ gives
 $$\frac{\partial \pi}{\partial p} = f(K^*, L^*),$$
-which is a results known as \vocab{Hotelling's Lemma.} But wait! Where are all the $\frac{\partial K^*}{\partial p}$ and $\pdv{L^*}{p}$ terms? Recall that by the Envelope Theorem, since we are differentiating the value function with respect to the parameters, we can treat the original choice variables as constants. Intuitively, this is because the choice variables are already optimized with respect to the parameters, which means that their derivatives must be 0. \todo{Provide proof of Envelope Theorem again, except now in multivariate case?}
+which is a results known as \vocab{Hotelling's Lemma.} But wait! Where are all the $\frac{\partial K^*}{\partial p}$ and $\pdv{L^*}{p}$ terms? Recall that by the Envelope Theorem, since we are differentiating the value function with respect to the parameters, we can treat the original choice variables as constants. Intuitively, this is because the choice variables are already optimized with respect to the parameters, which means that their derivatives must be 0. \TODO{Provide proof of Envelope Theorem again, except now in multivariate case?}
 
 We can similarly differentiate with respect to $r$ and $w$ to get that 
 $$\pdv{\pi}{r} = -K^*$$
@@ -213,7 +213,7 @@ A function is \vocab{convex} if for all $\lambda \in (0, 1)$, we have
 $$f(\lambda x+(1-\lambda) y) \leq \lambda f(x)+(1-\lambda) f(y).$$
 \end{definition}
 Graphically, this means that if you draw a line segment between two points on the graph of $f$, the resulting line segment will be entirely above or on the graph of $f$. Note that a twice-differentiable function is convex if and only if its second derivative is nonnegative everywhere.
-\todo{Insert graph.}
+\TODO{Insert graph.}
 
 We now introduce another important result.
 
@@ -254,5 +254,5 @@ Notice that we did not even need for the profit function to be twice differentia
 How do we interpret this result? This means that given the options between (1) prices constantly fluctuating between $(p_0, w_0, r_0)$ and $(p_1, w_1, r_1)$ with some probability and (2) prices staying at their expected value always, the firm would prefer scenario (1). This is because under price fluctuations, the firm has more opportunities to reoptimize its input quantities compared to the case where prices are fixed.
 
 \section*{Recap}
-\todo{finish this}
+\TODO{finish this}
 
