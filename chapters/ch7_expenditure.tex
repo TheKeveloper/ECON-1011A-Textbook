@@ -1,0 +1,71 @@
+\chapter{Expenditure Minimization}
+
+Recall that in our discussion of firm theory, we noted that the firm's problem of profit maximization is the dual problem of cost minimization. That is, if we were to determine the set of inputs that maximized profits, we would get the same result if we knew this maximum profit level and then determined the set of inputs that minimized the costs in order to achieve that level of profit. 
+
+Analogously, in the case of consumer theory, the dual problem of utility maximization is known as \vocab{expenditure minimization.} While utility maximization asks for the set of goods needed to maximize utility under some constraint (e.g. what is the most utility I can achieve with \$20?), expenditure minimization asks for the set of goods that most cheaply attains a given level of utility (e.g. what is the cheapest way to achieve 100 utils of utility?). This chapter will study the expenditure minimization problem and explore how examining the utility maximization and expenditure minimization problems together gives us a fuller picture of how consumer behavior reacts to prices.
+
+\section{Problem Setup}
+
+Formally, suppose we have goods $1, \ldots, n$ with prices $p_1, \ldots, p_n$, respectively, and our choice variables $x_1, \ldots, x_n$ correspond to how much we purchase of each good, respectively. Denote our utility function from these goods as $u(x_1, \ldots, x_n)$. Suppose we must attain a utility level of at least $\bar{u}$, where $\bar{u}$ is some exogenous variable that is given to us. What is the cheapest way to achieve $\bar{u}$? We can write down our expenditure minimization problem as 
+$$\min _{x_{1}, x_{2}, \ldots, x_{n}} \sum_{i=1}^{n} p_{i} x_{i} \text { s.t. } u\left(x_{1}, x_{2}, \ldots, x_{n}\right) \geq \bar{u}.$$
+If we use vector notation and denote $\vec{p}$ as our prices and $\vec{x}$ as our chosen quantities, we can write this more succinctly as
+$$\min _{\vec{x} \geq 0} \vec{p} \cdot \vec{x} \text { s.t. } u(\vec{x}) \geq \bar{u}$$
+
+We can solve this problem similar to how we solved the cost minimization problem from our study of firm theory.
+
+\subsection*{First Order Conditions}
+\TODO{Standardize whether we add or subtract the Lagrangian term}
+
+We can write our Lagrangian in vector form as
+$$\mathcal{L}(\mathbf{x}, \lambda)=\mathbf{p} \cdot \mathbf{x}+\lambda[\bar{u}-u(\mathbf{x})].$$
+Our first order conditions can be written as 
+$$
+\begin{cases}
+\mathcal{L}_{x_{i}}=p_{i}-\lambda^{*} u_{x_{i}}\left(\mathbf{x}^{*}\right)=0 \text { for all } i \\
+\mathcal{L}_{\lambda}=\bar{u}-u\left(\mathbf{x}^{*}\right)=0.
+\end{cases}.$$
+Notice how this looks similar to our conditions from utility maximization. The last condition is simply the requirement that we attain $\bar{u}$. Our first set of conditions regarding each $\mathcal{L}_{x_{i}}$ term is the same as what we had from utility maximization, except since our constraint is different, the values of $\lambda^*$ and $\vec{x}^*$ are different that what they were in the utility maximization case. Note that we could also have written this first set of conditions in vector form as
+$$\mathbf{p}=\lambda^{*} \nabla u\left(\mathbf{x}^{*}\right)$$
+
+Recognize that our first order conditions give us $n+1$ linear equations with $n+1$ unknowns. We thus have a solution for $\lambda^*$ as well as solutions for
+$$x_i^*(\vec{p}, \bar{u})$$
+for $i = 1, 2, \ldots, n$. Notice that in the case of utility maximization, our solutions were of the form $x_i^*(\vec{p}, y)$. The important difference now is that our solution to the expenditure minimization problem is in terms of the required utility level rather than budget. Whereas we commonly denote $x_i^*(\vec{p}, y)$ as Marshallian demand, the solution to the utility maximization problem, we will denote the solution we just derived for the expenditure minimization problem as 
+$$h_i(\vec{p}, \bar{u})$$
+for $i=1, 2, \ldots, n$. This expression is known as the \vocab{Hicksian demand}, also referred to as the \vocab{compensated demand}. Moving forward, we will often drop arguments and simply write $x_i^*$ and $h_i^*$ for Marshallian and Hicksian demand, respectively, but it is important to remember how the arguments of these functions differ.
+
+\section{Expenditure Function}
+
+We now turn to the value function for the expenditure minimization problem, which is called the \vocab{expenditure function}:
+$$e(\mathbf{p}, \bar{u})=\mathbf{p} \cdot \mathbf{h}(\mathbf{p}, \bar{u})=\sum_{i=1}^{n} p_{i} h_{i}(\mathbf{p}, \bar{u}).$$
+
+In the last chapter, we noted that there are some similarities between a consumer's indirect utility function from utility maximization and a firm's profit function from profit maximization. However, the analogy was not exact. First, while the profit function is convex in prices, the indirect utility function is quasi-convex in prices. Second, while the profit function is homogeneous of degree 1, the indirect utility function is not.
+
+With the expenditure function, we will notice that it is an exact analogy to a firm's cost function from cost minimization. We encourage the reader to refer back to Section~\ref{sec:cost_properties} to notice the parallels between properties of the cost function and the expenditure function.
+
+\subsection*{Properties of the Expenditure Function}
+
+\begin{description}
+\item[Shephard's Lemma] $\pdv{e}{p_i}(\vec{p}, \bar{u}) = h_{i}(\mathbf{p}, \bar{u})$. In the case of cost minimization, we saw that the derivative of cost with respect to input prices was equal to the input demand. Analogously, in the case of expenditure minimization, the derivative of expenditure with respect to prices of goods is equal to the Hicksian demand of those goods. The lemma and the proof are the exact same as what we saw before.
+
+\begin{proof}
+Applying the constrained envelope theorem, we have
+$$\pdv{e}{p_i}(\vec{p}, \bar{u}) = \frac{\partial}{\partial p_i}\left\{\mathbf{p} \cdot \mathbf{h}+\lambda^{*}[\bar{u}-u(\mathbf{h})]\right\} = h_{i}(\mathbf{p}, \bar{u}).$$
+\end{proof}
+
+\item[Homogeneous of degree 1 in prices] $e(\alpha\vec{p}, \bar{u}) = \alpha e(\vec{p}, \bar{u})$. The proof is the same as in Section~\ref{sec:cost_properties} and is encouraged as an exercise for the reader. The intuition is also the same: if we changed the units of the prices of all goods, then the units of our expenditure function would scale accordingly.
+
+\item[Concave in prices] For all $\alpha \in [0, 1]$ and any price vectors $\vec{p}_1$ and $\vec{p}_2$, 
+$$e(\alpha \vec{p}_1 + (1-\alpha)\vec{p}_2, \bar{u}) \geq \alpha e(\vec{p}_1, \bar{u}) + (1-\alpha) e(\vec{p}_2, \bar{u}).$$
+Again, the proof is the same as in Section~\ref{sec:cost_properties} and is encouraged as an exercise for the reader. The basic idea of the proof is that at both $(\vec{p}_1, \bar{u})$ and $(\vec{p}_2, \bar{u})$, purchasing $\vec{h}(\alpha \vec{p}_1 + (1-\alpha)\vec{p}_2, \bar{u})$ will achieve the utility constraint, but you can spend weakly less by purchasing $\vec{h}(\vec{p}_1, \bar{u})$ or $\vec{h}(\vec{p}_2, \bar{u})$ at these points, respectively. A similar interpretation follows as well: as a consumer, you would rather have prices fluctuate than have them stay constant at their average value, since you can reoptimize your consumption bundle at each of the fluctuations to achieve a lower expenditure.
+
+\item[Non-decreasing in prices and utility] If $\vec{p}$ of $\bar{u}$ increase, then $e(\vec{p}, \bar{u})$ weakly increases. The proof is straightforward: if prices or required utility fell from a previous value, then the previous bundle would still satisfy the constraint, so minimum expenditure cannot rise.
+
+\item[Continuous] We will not prove this property of the expenditure function, but it is good to remember.
+
+\end{description}
+
+\section{Measuring Price Changes}
+
+\section{Slutsky Equation}
+
+\section*{Recap}
