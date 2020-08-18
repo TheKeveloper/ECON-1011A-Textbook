@@ -64,8 +64,125 @@ Again, the proof is the same as in Section~\ref{sec:cost_properties} and is enco
 
 \end{description}
 
+\TODO{Add example of Cobb Douglas}
+
 \section{Measuring Price Changes}
+
+One important application of our study of the expenditure function is a metric for measuring price changes, or a \vocab{price index}. Prices for goods often change, but what would be a good way to aggregate different price changes across multiple goods into a single metric?
+
+One appealing approach is to use the expenditure function. Suppose we start with utility $u_0$ when prices are at $\vec{p}^0$, and then prices change to $\vec{p}^1$. A natural metric might measure how much expenditure would need to change in order to maintain utility $u_0$ at this new price level $\vec{p}^1$. Mathematically, this definition would look like
+$$\frac{e(\vec{p}^1, u_0)}{e(\vec{p}^0, u_0)}.$$
+As another way to interpret this definition, if we had income $y_0$ when prices were $\vec{p}^0$, and then prices changed to $\vec{p}^1$ and our income changed to $\frac{e(\vec{p}^1, u_0)}{e(\vec{p}^0, u_0)}y_0$, then our utility would be the constant.
+
+The definition above is wonderful in theory but cannot be measured in practice: since we cannot observe consumers' utilities, we also cannot observe their expenditure functions. However, one workaround is to recognize that 
+$$e(\vec{p}, u) = \vec{p}\cdot \vec{h} (\vec{p}, u)$$
+by definition, and that
+$$\mathbf{x}(\mathbf{p}, y)=\mathbf{h}(\mathbf{p}, v(\mathbf{p}, y))$$
+by duality. It is important to understand why the equation above holds: the utility-maximizing consumption given a budget (Marshallian demand) is the same as the expenditure-minimizing consumption to achieve this realized utility level (Hicksian demand). This observation is useful because although we cannot measure the expenditure function, we can measure Marshallian demand, since $\vec{x}, \vec{p}$, and $y$ are all observed.
+
+Using these formulations, we can approximate 
+$$\frac{e\left(\mathbf{p}^{1}, u_{0}\right)}{e\left(\mathbf{p}^{0}, u_{0}\right)} \approx \frac{\sum_{i=1}^{n} p_{i}^{1} x_{i}^{0}}{\sum_{i=1}^{n} p_{i}^{0} x_{i}^{0}},$$
+where the approximation on the right-hand side is known as the \vocab{Laspeyres price index}. Notice where this approximation is not exact. The denominators are equal, since 
+$$e\left(\mathbf{p}^{0}, u_{0}\right) = \sum_{i=1}^{n} p_{i}^{0} x_{i}^{0}$$
+by definition of the expenditure function, but the numerators differ:
+$$e\left(\mathbf{p}^{1}, u_{0}\right) \leq \sum_{i=1}^{n} p_{i}^{1} x_{i}^{0}.$$
+Intuitively, this is because we know $\vec{x}^0$ achieves our minimum utility $u_0$, but purchasing this same bundle might no longer be the minimum expenditure to achieve this utility once prices change. Thus, 
+$$\frac{e\left(\mathbf{p}^{1}, u_{0}\right)}{e\left(\mathbf{p}^{0}, u_{0}\right)} \leq \frac{\sum_{i=1}^{n} p_{i}^{1} x_{i}^{0}}{\sum_{i=1}^{n} p_{i}^{0} x_{i}^{0}},$$
+so the Laspeyres price index is an overestimate of our theoretical ideal. If we had an income $y_0$ initially and multiplied it by the Laspeyres price index after the price change, we would be able to weakly increase our utility, since we can still afford our old consumption bundle, but we may be able to reoptimize and do even better.
+
+A similar approach to the same problem is the \vocab{Paasche price index}
+$$\frac{e\left(\mathbf{p}^{1}, u_{1}\right)}{e\left(\mathbf{p}^{0}, u_{1}\right)} \approx \frac{\sum_{i=1}^{n} p_{i}^{1} x_{i}^{1}}{\sum_{i=1}^{n} p_{i}^{0} x_{i}^{1}},$$
+where we now weight prices by $\vec{x}^1$ instead of $\vec{x}^0$. The theoretical ideal on the left is a similar idea but uses the new utility level as the baseline rather than the old utility level. The Paasche price index on the right is now an underapproximation of the theoretical ideal on the left, since while the numerators are equal, the denominators differ as
+$$e\left(\mathbf{p}^{0}, u_{1}\right) \leq \sum_{i=1}^{n} p_{i}^{0} x_{i}^{1}$$
+by a similar reasoning to before. Intuitively, the Laspeyres price index measures how much a consumption bundle that was optimal in the base year costs now, whereas the Paasche price index measures how much a consumption bundle that is optimal now would have cost in the base year. 
 
 \section{Slutsky Equation}
 
+In addition to measuring price changes, we might also be interested in understanding the effect of price changes on consumption. Intuitively, if the price of a single good increases, we can separate the effect on consumption into two channels. First, that good becomes relatively more expensive and other goods become relatively cheaper; this effect is called the \vocab{substitution effect}. Second, the consumer has effectively become poorer in terms of the options she can afford; this effect is called the \vocab{income effect}. This section will study the \vocab{Slutsky Equation}, which uses our ideas of Marshallian and Hicksian demand to derive an equation that contains both of these pieces together.
+
+\subsection*{Preparation}
+Before starting the derivation, we highlight two important consequences of the duality of the utility-maximization and the expenditure-minimization problems. 
+\begin{description}
+\item[Given prices, the indirect utility function and the expenditure function are inverses.]
+We observe that
+$$v(\vec{p}, e(\vec{p}, \bar{u})) = \bar{u}.$$
+Intuitively, we defined $e(\vec{p}, \bar{u})$ as the minimum cost to achieve $\bar{u}$, so if we have a starting budget of $e(\vec{p}, \bar{u})$, then the maximum utility we can achieve with this budget is $\bar{u}$.
+Similarly, we observe that 
+$$e(\vec{p}, v(\vec{p}, y)) = y.$$
+This time, we defined $v(\vec{p}, y)$ to be the maximum utility we can achieve with budget $y$, so the minimum budget needed achieve utility level $v(\vec{p}, y)$ must be $y$. We conclude that if prices $\vec{p}$ are given, then the value functions $e$ and $v$ are inverses of each other.
+
+\item[At optimality, Marshallian and Hicksian demand coincide.] 
+We observe that 
+$$\mathbf{x}(\mathbf{p}, e(\mathbf{p}, \bar{u}))=\mathbf{h}(\mathbf{p}, \bar{u}).$$
+Intuitively, $\vec{h}(\vec{p}, \bar{u})$ is the cheapest bundle to attain utility $\bar{u}$, and it costs $\e(\vec{p}, \bar{u})$. Thus, if we had a budget of $\e(\vec{p}, \bar{u})$, then most satisfying bundle to buy should also be $\vec{h}(\vec{p}, \bar{u})$.
+Similarly, we observe that
+$$\mathbf{h}(\mathbf{p}, v(\mathbf{p}, y))=\mathbf{x}(\mathbf{p}, y).$$
+Now, $\vec{x}(\vec{p}, y)$ is the most satisfying bundle to buy with a budget $y$, and it gives us utility $v(\mathbf{p}, y)$. Thus, if we must achieve a utility of $v(\mathbf{p}, y)$, then the cheapest bundle that attains this utility should also be $\vec{x}(\vec{p}, y)$. 
+
+To summarize, since utility-maximization and expenditure-minimization both yield optimal consumption bundles, these bundles coincide when our budget from the utility-maximization problem is just enough to attain the required utility from the expenditure-minimization problem. 
+\TODO{I left out the geometric interpretation because I think it's more for the interested reader than it is helpful for understanding, but I might add this back in?}
+\end{description}
+
+\subsection*{Derivation}
+
+Now that we have established these fundamental concepts, we start our derivation with the fact that 
+$$x_{i}(\mathbf{p}, e(\mathbf{p}, \bar{u}))=h_{i}(\mathbf{p}, \bar{u}),$$
+which is our exactly our second fact from above, except now we focus on a single component of demand that corresponds to a single good $i$. By the Implicit Function Theorem, we can differentiate both sides of this equation with respect to $p_i$, yielding 
+$$\frac{d}{d p_{i}} x_{i}(\mathbf{p}, e(\mathbf{p}, \bar{u}))=\frac{d}{d p_{i}} h_{i}(\mathbf{p}, \bar{u}).$$
+Using the multivariate chain rule, this becomes 
+$$\frac{\partial x_{i}}{\partial p_{i}}(\mathbf{p}, e(\mathbf{p}, \bar{u}))+\frac{\partial x_{i}}{\partial y}(\mathbf{p}, e(\mathbf{p}, \bar{u})) \frac{\partial e}{\partial p_{i}}(\mathbf{p}, \bar{u})=\frac{\partial h_{i}}{\partial p_{i}}(\mathbf{p}, \bar{u}).$$
+By Shephard's Lemma, we know $\pdv{e}{p_i}(\mathbf{p}, \bar{u})=h_{i}(\mathbf{p}, \bar{u}),$ so we can simplify our earlier equation to 
+$$\frac{\partial x_{i}}{\partial p_{i}}(\mathbf{p}, e(\mathbf{p}, \bar{u}))+h_{i}(\mathbf{p}, \bar{u}) \frac{\partial x_{i}}{\partial y}(\mathbf{p}, e(\mathbf{p}, \bar{u}))=\frac{\partial h_{i}}{\partial p_{i}}(\mathbf{p}, \bar{u}).$$
+
+We now use the first fact that the expenditure function and the indirect utility function are inverses to rewrite this equation in terms of some budget $y$ instead of $\bar{u}$. Define $y = e(\vec{p}, \bar{u})$. Then $\bar{u} = v(p, y)$ by the first fact, and $h_i(\vec{p}, \bar{u}) = x_i(\vec{p}, y)$ by the second fact. We can substitute these terms into our equation to get 
+$$\frac{\partial x_{i}}{\partial p_{i}}(\mathbf{p}, y)+x_{i}(\mathbf{p}, y) \frac{\partial x_{i}}{\partial y}(\mathbf{p}, y)=\frac{\partial h_{i}}{\partial p_{i}}(\mathbf{p}, v(\mathbf{p}, y)).$$
+Rearranging these terms gives us the famous \vocab{Slutsky Equation}
+$$
+\boxed{\frac{\partial x_{i}}{\partial p_{i}}(\mathbf{p}, y)=\frac{\partial h_{i}}{\partial p_{i}}(\mathbf{p}, v(\mathbf{p}, y))-x_{i}(\mathbf{p}, y) \frac{\partial x_{i}}{\partial y}(\mathbf{p}, y).}
+$$
+Suppressing the arguments, we can write this more succinctly as 
+$$\frac{\partial x_{i}}{\partial p_{i}}=\frac{\partial h_{i}}{\partial p_{i}}-x_{i} \frac{\partial x_{i}}{\partial y}.$$
+
+\subsection*{Interpretation}
+The effect of price changes on consumption is exactly the $\frac{\partial x_{i}}{\partial p_{i}}$ term on the left, while the right hand side of the equation separates the substitution and income effects we were interested in. 
+
+\begin{description}
+
+\item[Substitution effect.] This component is given by the first term
+$$\frac{\partial h_{i}}{\partial p_{i}}(\mathbf{p}, v(\mathbf{p}, y)).$$
+Intuitively, this term represents the first-order change solely from good $i$ becoming more expensive relative to other goods, assuming that we could still afford the original consumption bundle. Another explanation is that this term represents the effect of a price change if real income is kept constant, where real income is defined in terms of the ideal price index discussion from the previous section.
+
+We claim that the substitution effect is always negative; intuitively, if an item becomes relatively more expensive, the substitution effect would cause a shift in spending to the now relatively cheaper items. 
+\begin{proof}
+Recall that the expenditure function is concave in $\vec{p}$, so 
+$$
+\frac{\partial^{2} e}{\partial p_{i}^{2}}(\mathbf{p}, \bar{u})<0.
+$$
+By Shephard's Lemma, this means
+$$
+\frac{\partial}{\partial p_{i}} \frac{\partial e}{\partial p_{i}}(\mathbf{p}, \bar{u})=\frac{\partial h_{i}}{\partial p_{i}}(\mathbf{p}, \bar{u})<0.
+$$
+\end{proof}
+
+\item[Income effect.] This component is given by the second term
+$$-x_{i} \frac{\partial x_{i}}{\partial y}.$$
+Intuitively, if the consumer becomes $\Delta y$ poorer, the consumption of good $i$ decreases by 
+$$
+\Delta x_{i} \approx \frac{\partial x_{i}}{\partial y} \Delta y.
+$$
+If the consumer was originally buying $x_i$ of good $i$, then a price increase of $\Delta p_i$ effectively makes her poorer by
+$$
+\Delta y \approx -x_{i} \Delta p_{i}.
+$$
+Putting these pieces together, the income effect of a small price change $\Delta p_i$ is 
+$$
+\Delta x_{i} \simeq-x_{i} \frac{\partial x_{i}}{\partial y} \Delta p_{i},
+$$
+which matches our result from Slutsky's equation.
+
+What is the sign of the income effect? It depends! If it is negative---that is, if $\frac{\partial x_{i}}{\partial y}>0$---then $\frac{\partial x_{i}}{\partial p_{i}}<0$, since the substitution effect is always negative. This means that the demand function is downward sloping, as we might imagine intuitively. However, this might not always be the case; we might have $\frac{\partial x_{i}}{\partial y}<0$ for some items (e.g. cheap dorm food) that we consume less when we become richer. 
+
+
+
+\end{description} 
 \section*{Recap}
