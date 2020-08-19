@@ -96,4 +96,95 @@ where we now weight prices by $\vec{x}^1$ instead of $\vec{x}^0$. The theoretica
 $$e\left(\mathbf{p}^{0}, u_{1}\right) \leq \sum_{i=1}^{n} p_{i}^{0} x_{i}^{1}$$
 by a similar reasoning to before. Intuitively, the Laspeyres price index measures how much a consumption bundle that was optimal in the base year costs now, whereas the Paasche price index measures how much a consumption bundle that is optimal now would have cost in the base year. 
 
+\section{Consequences of Duality}
+Before starting the derivation, we highlight two important consequences of the duality of the utility-maximization and the expenditure-minimization problems. 
+\begin{description}
+\item[Given prices, the indirect utility function and the expenditure function are inverses.]
+We observe that
+$$v(\vec{p}, e(\vec{p}, \bar{u})) = \bar{u}.$$
+Intuitively, we defined $e(\vec{p}, \bar{u})$ as the minimum cost to achieve $\bar{u}$, so if we have a starting budget of $e(\vec{p}, \bar{u})$, then the maximum utility we can achieve with this budget is $\bar{u}$.
+Similarly, we observe that 
+$$e(\vec{p}, v(\vec{p}, y)) = y.$$
+This time, we defined $v(\vec{p}, y)$ to be the maximum utility we can achieve with budget $y$, so the minimum budget needed achieve utility level $v(\vec{p}, y)$ must be $y$. We conclude that if prices $\vec{p}$ are given, then the value functions $e$ and $v$ are inverses of each other.
+
+\item[At optimality, Marshallian and Hicksian demand coincide.] 
+We observe that 
+$$\mathbf{x}(\mathbf{p}, e(\mathbf{p}, \bar{u}))=\mathbf{h}(\mathbf{p}, \bar{u}).$$
+Intuitively, $\vec{h}(\vec{p}, \bar{u})$ is the cheapest bundle to attain utility $\bar{u}$, and it costs $e(\vec{p}, \bar{u})$. Thus, if we had a budget of $e(\vec{p}, \bar{u})$, then most satisfying bundle to buy should also be $\vec{h}(\vec{p}, \bar{u})$.
+Similarly, we observe that
+$$\mathbf{h}(\mathbf{p}, v(\mathbf{p}, y))=\mathbf{x}(\mathbf{p}, y).$$
+Now, $\vec{x}(\vec{p}, y)$ is the most satisfying bundle to buy with a budget $y$, and it gives us utility $v(\mathbf{p}, y)$. Thus, if we must achieve a utility of $v(\mathbf{p}, y)$, then the cheapest bundle that attains this utility should also be $\vec{x}(\vec{p}, y)$. 
+
+To summarize, since utility-maximization and expenditure-minimization both yield optimal consumption bundles, these bundles coincide when our budget from the utility-maximization problem is just enough to attain the required utility from the expenditure-minimization problem. 
+\TODO{I left out the geometric interpretation because I think it's more for the interested reader than it is helpful for understanding, but I might add this back in?}
+\end{description}
+
+\section{Measuring welfare changes}
+One of the challenges in dealing with utility in economics is that it is not directly observable. However, it would be nice to be able to quantify the change in utility from a change in prices. Fortunately, the expenditure function offers us a nice way to do so.
+
+\subsection*{Money Metric Utility}
+The money metric utility function offers us a way to measure utility changes in dollars, which is observable in the real world. In particular, it allows us a way to map changes in prices to a change in income. Suppose we have some utility function $u$ that we want to be able to measure in dollars. Take two utility levels, $\bar{u}_1, \bar{u}_2$ such that $\bar{u}_1 > \bar{u}_2$. Recall that for any set of prices, $\vec{r}$, we have
+\begin{align*}
+    e(\vec{r}, \bar{u}_1) > e(\vec{r}, \bar{u}_2)
+\end{align*}
+This tells us that $e(\vec{r}, \cdot)$ is a monotonic transformation in its second argument, so it can be applied to any valid utility function to create a new utility function. So, for any allocation $\vec{x}$, we can define the \vocab{money metric utility function} with reference prices $\vec{r}$ as,
+\begin{align*}
+    m(\vec{x}) = e(\vec{r}, u(\vec{x}))
+\end{align*}
+The idea here is that we can measure how much utility we have for a given allocation by examining what is the minimum amount that we would need to spend to achieve the utilty for that allocation. 
+
+This gives us a natural way to compare utilities for two different sets of prices. Consider prices $\vec{p}$ and $\vec{q}$. For a fixed level of income $y$, we can compare their utilities through their respective value functions, $v(\vec{p}, y)$ and $v(\vec{q}, y)$. We can then convert these utility values into a money metric values to measure how much better (or worse) in dollars $\vec{p}$ is compared to $\vec{q}$
+\begin{align*}
+    m(v(\vec{p}, y)) - m(v(\vec{q}, y)) = e(\vec{r}, v(\vec{p}, y) - e(\vec{r}, v(\vec{q}, y))
+\end{align*}
+If the above expression is positive, then $\vec{p}$ is preferred to $\vec{q}$, and if it is negative, then $\vec{q}$ is preferred to $\vec{p}$. Importantly, these quantities are ones that we could in principle measure, by asking or observing how much money an individual requires at prices $\vec{r}$ to be indifferent with having prices $\vec{p}$ and income $y$. 
+
+\subsection*{Equivalent and compensating variation}
+So far, we have used the money metric utility function to measure the differences between two sets of prices, $\vec{p}$ and $\vec{q}$, with respect to some set of reference prices $\vec{r}$. However, there is a question of how we select this reference price $\vec{r}$. Two reasonable prices we might pick are either $\vec{p}$ or $\vec{q}$. For the sake of this analysis, we will refer to $\vec{p}$ as the \emph{old} prices and $\vec{q}$ as the \emph{new} prices.
+
+\subsubsection*{Equivalent Variation}
+The \vocab{equivalent variation (EV)} tells us the welfare effect of a price change from $\vec{p}$ to $\vec{q}$ through an equivalent change in income at \emph{old} prices, $\vec{p}$. Mathematically, we are setting the reference price $\vec{r} = \vec{p}$,
+\begin{align*}
+    EV = e(\vec{p}, v(\vec{q}, y)) - e(\vec{p}, v(\vec{p}, y)) = e(\vec{p}, v(\vec{q}, y)) - y
+\end{align*}
+Intuitively, we can think of EV as how much you would be willing to pay to keep prices at $\vec{p}$ instead of $\vec{q}$. An easy way to remember this is that the equivalent variation tells you what would have been the \emph{equivalent} change in income for a given price change.
+
+\subsubsection*{Compensating Variation}
+The \vocab{compensating variation (CV)} tells us the welfare effect of a price change from $\vec{p}$ to $\vec{q}$ through an equivalent change in income at \emph{new} prices, $\vec{q}$. Mathematically, we are setting the reference price $\vec{r} = \vec{q}$,
+\begin{align*}
+    CV = e(\vec{q}, v(\vec{q}, y)) - e(\vec{q}, v(\vec{p}, y)) = y - e(\vec{q}, v(\vec{p}, y))
+\end{align*}
+Intuitively, we can think of CV as how much you would be willing to pay to change prices from $\vec{p}$ to $\vec{q}$. Or equivalently, it is the negative of how much you would need to be paid after a price change to make you just as happy as you were before. This second interpretation is useful for remembering the definition of compensating variation, as it tells you how much you need to be \emph{compensated} to be just as happy for a given price change. 
+
+\subsubsection*{Hicksian Integral}
+The equivalent and compensating variations have an interesting connection to the Hicksian demand function when we consider the change in only one price.  Suppose that we have a single price change, from $p$ to $q$.
+
+First, we will examine the equivalent variation, which is
+\begin{align*}
+    EV = e(p, v(q, y)) - e(p, v(p, y)) = e(p, v(q, y)) - y
+\end{align*}
+However, we also have that $y = e(q, v(q, y))$. So we can rewrite the equivalent variation as,
+\begin{align*}
+    EV = e(p, v(q, y)) - e(q, v(q, y))
+\end{align*}
+Next, notice that for an arbitrary price $s$, we have by Shephard's Lemma\TODO{Add reference},
+\begin{align*}
+    \frac{\partial e(s, v(q, y))}{\partial s} = h(s, v(q, y))
+\end{align*}
+Where $h$ is the Hicksian demand for the single good. Then, by the fundamental theorem of calculus, we have
+\begin{align*}
+    EV &= e(p, v(q, y)) - e(q, v(q, y)) \\
+    &= \int_q^p \frac{\partial}{\partial s} e(s, v(q, y)) \, ds \\
+    &= \int_q^p h(s, v(q, y)) \, ds
+\end{align*}
+
+We can perform a similar process with the compensating variation to obtain,
+\begin{align*}
+    CV &= e(p, v(p, y)) - e(q, v(p, y)) \\
+    &= \int_q^p \frac{\partial}{\partial s} e(s, v(p, y)) \, ds \\
+    &= \int_q^p h(s, v(p, y)) \, ds
+\end{align*}
+
+Note that while we handled these in the single good case, it generalizes to multiple goods. A simple way to see this is to consider multiple goods, but only changing the price of one good. Then we obtain the same results as above except the integral is with respect to the price of that specific good, and the the Hicksian is the Hicksian demand of that specific good. 
+
 \section*{Recap}

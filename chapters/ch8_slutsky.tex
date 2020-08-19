@@ -2,34 +2,11 @@
 
 In addition to measuring price changes, we might also be interested in understanding the effect of price changes on consumption. Intuitively, if the price of a single good increases, we can separate the effect on consumption into two channels. First, that good becomes relatively more expensive and other goods become relatively cheaper; this effect is called the \vocab{substitution effect}. Second, the consumer has effectively become poorer in terms of the options she can afford; this effect is called the \vocab{income effect}. This section will study the \vocab{Slutsky equation}, which uses our ideas of Marshallian and Hicksian demand to derive an equation that contains both of these pieces together.
 
-\section{Consequences of Duality}
-Before starting the derivation, we highlight two important consequences of the duality of the utility-maximization and the expenditure-minimization problems. 
-\begin{description}
-\item[Given prices, the indirect utility function and the expenditure function are inverses.]
-We observe that
-$$v(\vec{p}, e(\vec{p}, \bar{u})) = \bar{u}.$$
-Intuitively, we defined $e(\vec{p}, \bar{u})$ as the minimum cost to achieve $\bar{u}$, so if we have a starting budget of $e(\vec{p}, \bar{u})$, then the maximum utility we can achieve with this budget is $\bar{u}$.
-Similarly, we observe that 
-$$e(\vec{p}, v(\vec{p}, y)) = y.$$
-This time, we defined $v(\vec{p}, y)$ to be the maximum utility we can achieve with budget $y$, so the minimum budget needed achieve utility level $v(\vec{p}, y)$ must be $y$. We conclude that if prices $\vec{p}$ are given, then the value functions $e$ and $v$ are inverses of each other.
-
-\item[At optimality, Marshallian and Hicksian demand coincide.] 
-We observe that 
-$$\mathbf{x}(\mathbf{p}, e(\mathbf{p}, \bar{u}))=\mathbf{h}(\mathbf{p}, \bar{u}).$$
-Intuitively, $\vec{h}(\vec{p}, \bar{u})$ is the cheapest bundle to attain utility $\bar{u}$, and it costs $e(\vec{p}, \bar{u})$. Thus, if we had a budget of $e(\vec{p}, \bar{u})$, then most satisfying bundle to buy should also be $\vec{h}(\vec{p}, \bar{u})$.
-Similarly, we observe that
-$$\mathbf{h}(\mathbf{p}, v(\mathbf{p}, y))=\mathbf{x}(\mathbf{p}, y).$$
-Now, $\vec{x}(\vec{p}, y)$ is the most satisfying bundle to buy with a budget $y$, and it gives us utility $v(\mathbf{p}, y)$. Thus, if we must achieve a utility of $v(\mathbf{p}, y)$, then the cheapest bundle that attains this utility should also be $\vec{x}(\vec{p}, y)$. 
-
-To summarize, since utility-maximization and expenditure-minimization both yield optimal consumption bundles, these bundles coincide when our budget from the utility-maximization problem is just enough to attain the required utility from the expenditure-minimization problem. 
-\TODO{I left out the geometric interpretation because I think it's more for the interested reader than it is helpful for understanding, but I might add this back in?}
-\end{description}
-
 \section{Derivation}
-
-Now that we have established these fundamental concepts, we start our derivation with the fact that 
+Recall from duality\TODO{Add reference} that at an optimum, the Marshallian and the Hicksian must be equal. Focusing on a single good $i$, this implies that, 
 $$x_{i}(\mathbf{p}, e(\mathbf{p}, \bar{u}))=h_{i}(\mathbf{p}, \bar{u}),$$
-which is our exactly our second fact from above, except now we focus on a single component of demand that corresponds to a single good $i$. By the Implicit Function Theorem, we can differentiate both sides of this equation with respect to $p_i$, yielding 
+
+By the Implicit Function Theorem, we can differentiate both sides of this equation with respect to $p_i$, yielding 
 $$\frac{d}{d p_{i}} x_{i}(\mathbf{p}, e(\mathbf{p}, \bar{u}))=\frac{d}{d p_{i}} h_{i}(\mathbf{p}, \bar{u}).$$
 Using the multivariate chain rule, this becomes 
 $$\frac{\partial x_{i}}{\partial p_{i}}(\mathbf{p}, e(\mathbf{p}, \bar{u}))+\frac{\partial x_{i}}{\partial y}(\mathbf{p}, e(\mathbf{p}, \bar{u})) \frac{\partial e}{\partial p_{i}}(\mathbf{p}, \bar{u})=\frac{\partial h_{i}}{\partial p_{i}}(\mathbf{p}, \bar{u}).$$
