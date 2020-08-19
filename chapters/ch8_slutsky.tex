@@ -210,6 +210,50 @@ $$\pdv{x_i}{p_j} > 0.$$
 That is, good $i$ is a gross substitute for good $j$ if an increase in the price of $j$ results in increased consumption of $i$ under a fixed budget. Notice that this property is not symmetric. For a counterexample, consider two goods $x$ and $y$ with a quasilinear utility function $U(a, b) = a + \log b$. We encourage this counterexample as an exercise to the reader, but in this case, $b$ is a gross substitute for $a$, but not vice versa.
 \TODO{I'm not sure if this is mean}
 
+\section{Slutsky Equation with Two Goods}
 
+If we have only two goods, we can derive Slutsky's equation directly for more intuition. We start with the utility-maximization problem 
+$$
+\max _{a, b \geq 0} u(a, b) \text { s.t. } p_{a} a+p_{b} b \leq y.
+$$
+We substitute the budget constraint to obtain the unconstrained univariate optimization problem 
+$$
+\max _{a \in\left[0, y / p_{a}\right]} u\left(a, \frac{y-p_{a} a}{p_{b}}\right).
+$$
+The first order condition is 
+$$
+u_{a}\left(a^{*}, b^{*}\right)-\frac{p_{a}}{p_{b}} u_{b}\left(a^{*}, b^{*}\right)=0.
+$$
+Together with the budget constraint 
+$$
+b^{*}=\frac{y-p_{a} a^{*}}{p_{b}},
+$$
+these two conditions give implicit solutions for Marshallian demands $a^*(p_a, p_b, y)$ and $b^*(p_a, p_b, y)$.
+We differentiate the first order condition with respect to $p_a$ with the Implicit Function Theorem, yielding 
+$$
+-\frac{u_{b}}{p_{b}}+\left(u_{a a}-\frac{p_{a}}{p_{b}} u_{a b}\right) \frac{\partial a^{*}}{\partial p_{a}}+\left(u_{a b}-\frac{p_{a}}{p_{b}} u_{b b}\right) \frac{\partial b^{*}}{\partial p_{a}}=0.
+$$
+Substituting our expression for $b^*$ from the budget constraint yields 
+$$
+-\frac{u_{b}}{p_{b}}+\left(u_{a a}-\frac{p_{a}}{p_{b}} u_{a b}\right) \frac{\partial a^{*}}{\partial p_{a}}-\left(u_{a b}-\frac{p_{a}}{p_{b}} u_{b b}\right) \frac{1}{p_{b}}\left(a^{*}+p_{a} \frac{\partial a^{*}}{\partial p_{a}}\right)=0.
+$$
+We can rearrange these terms to get
+$$
+-\left[u_{a a}-2 \frac{p_{a}}{p_{b}} u_{a b}+\left(\frac{p_{a}}{p_{b}}\right)^{2} u_{b b}\right] \frac{\partial a^{*}}{\partial p_{a}}=-\frac{u_{b}}{p_{b}}-\frac{1}{p_{b}}\left(u_{a b}-\frac{p_{a}}{p_{b}} u_{b b}\right) a^{*}.
+$$
 
+What does all of this mean? The left hand side is the comparative static $\pdv{a^*}{p_a}$, multiplied by
+$$
+S \equiv -\left[u_{a a}-2 \frac{p_{a}}{p_{b}} u_{a b}+\left(\frac{p_{a}}{p_{b}}\right)^{2} u_{b b}\right],
+$$
+which is the value that must be positive in the second-order condition for a maximum. We see the substitution effect 
+$$
+-\frac{u_{b}}{S p_{b}}<0,
+$$
+which we can verify is the same as $\pdv{h_a}{p_a}$ if we set up the expenditure-minimization problem accordingly. Lastly, we see the income effect 
+$$
+-\frac{1}{S p_{b}}\left(u_{a b}-\frac{p_{a}}{p_{b}} u_{b b}\right) a^{*}
+$$
+which is equal to $-\frac{\partial a^{*}}{\partial y} a^{*}$ if we compute $\frac{\partial a^{*}}{\partial y}$ with the implicit function theorem.
 
+\section*{Recap}
