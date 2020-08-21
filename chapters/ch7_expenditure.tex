@@ -17,14 +17,14 @@ We can solve this problem similar to how we solved the cost minimization problem
 \TODO{Standardize whether we add or subtract the Lagrangian term}
 
 We can write our Lagrangian in vector form as
-$$\mathcal{L}(\mathbf{x}, \lambda)=\mathbf{p} \cdot \mathbf{x}+\lambda[\bar{u}-u(\mathbf{x})].$$
+$$\Lagr(\mathbf{x}, \lambda)=\mathbf{p} \cdot \mathbf{x} - \lambda[u(\mathbf{x}) - \bar{u}].$$
 Our first order conditions can be written as 
 $$
 \begin{cases}
-\mathcal{L}_{x_{i}}=p_{i}-\lambda^{*} u_{x_{i}}\left(\mathbf{x}^{*}\right)=0 \text { for all } i \\
-\mathcal{L}_{\lambda}=\bar{u}-u\left(\mathbf{x}^{*}\right)=0.
+\Lagr_{x_{i}}=p_{i}-\lambda^{*} u_{x_{i}}\left(\mathbf{x}^{*}\right)=0 \text { for all } i \\
+\Lagr_{\lambda}=u\left(\mathbf{x}^{*}\right)=0 - \bar{u}.
 \end{cases}.$$
-Notice how this looks similar to our conditions from utility maximization. The last condition is simply the requirement that we attain $\bar{u}$. Our first set of conditions regarding each $\mathcal{L}_{x_{i}}$ term is the same as what we had from utility maximization, except since our constraint is different, the values of $\lambda^*$ and $\vec{x}^*$ are different that what they were in the utility maximization case. Note that we could also have written this first set of conditions in vector form as
+Notice how this looks similar to our conditions from utility maximization. The last condition is simply the requirement that we attain $\bar{u}$. Our first set of conditions regarding each $\Lagr_{x_{i}}$ term is the same as what we had from utility maximization, except since our constraint is different, the values of $\lambda^*$ and $\vec{x}^*$ are different that what they were in the utility maximization case. Note that we could also have written this first set of conditions in vector form as
 $$\mathbf{p}=\lambda^{*} \nabla u\left(\mathbf{x}^{*}\right)$$
 
 Recognize that our first order conditions give us $n+1$ linear equations with $n+1$ unknowns. We thus have a solution for $\lambda^*$ as well as solutions for
