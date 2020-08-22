@@ -200,7 +200,7 @@ In the context of our problem, it tells us that by implicity differentiating bot
 If you observe both of our comparative statics above, you may notice some similarities between them. For instance, the denominator in both is the same. It turns out that we can say generally how to take a comparative static for a given objective function. We show this below.
 
 \begin{proposition*}
-    Given a twice-differentiable increasing and concave objective function $F(x; z)$, with choice variable $x$ and exogenous variable $z$, and $x^*(z) = \argmax_{x} F(x; z)$, then $\frac{dx^*}{dz} = - \frac{\frac{\partial^2 F}{\partial x \partial z}}{\frac{\partial^2 F}{\partial x^2}}(x^*(z); z)$. 
+    Given a twice-differentiable increasing and concave objective function $F(x; z)$, with choice variable $x$ and exogenous variable $z$, and $x^*(z) = \argmax_{x} F(x; z)$, then $\frac{dx^*}{dz} = - \frac{F_{xz}}{F_xx}(x^*(z); z)$. 
 \end{proposition*}
 
 The above yields a general way of finding the comparative static of an optimized choice variable $x^*$ with respect to an exogenous variable $z$ for any given single variable optimization problem. We will prove the above result.
@@ -210,19 +210,19 @@ The above yields a general way of finding the comparative static of an optimized
 
     The first order condition for an optimal $x$ is
     \begin{align*}
-        \frac{\partial F}{\partial x}(x^*, z) = 0
+        F_x(x^*, z) = 0
     \end{align*}
     Now, we totally differentiate both sides with respect to $z$. The right hand side is clearly 0. The left hand side uses the multivariate chain rule.
     \begin{align*}
-        \frac{\partial^2 F}{\partial x^2}(x^*, z) \frac{dx^*}{dz} + \frac{\partial^2 F}{\partial x \partial z}(x^*, z) = 0
+        F_{xx}(x^*, z) \frac{dx^*}{dz} + F_{xz}(x^*, z) = 0
     \end{align*}
     Rearranging for $\frac{dx^*}{dz}$ completes the proof,
     \begin{align*}
-        \frac{dx^*}{dz} = -\frac{\frac{\partial^2 F}{\partial x \partial z}(x^*, z)}{\frac{\partial^2 F}{\partial x^2}(x^*, z)}
+        \frac{dx^*}{dz} = -\frac{F_{xz}(x^*, z)}{F_xx(x^*, z)}
     \end{align*}
 \end{proof}
 
-One useful component to notice is that because we have assumed the second order conditions to hold, $\frac{\partial^2 F}{\partial x^2}< 0$, then the sign of the comparative static is the same as the sign of $\frac{\partial^2 F}{\partial x \partial z}$. This is a fairly powerful result that tells us how to very straightforwardly find the comparative statics for a single variable optimization problem. One important thing to note however, is that above, $F$ would be akin to profit, $\pi$, in the firm's problem because it is the objective function. This does \emph{not} hold for the production function $f$. 
+One useful component to notice is that because we have assumed the second order conditions to hold, $F_{xx} < 0$, then the sign of the comparative static is the same as the sign of $F_{xz}$. This is a fairly powerful result that tells us how to very straightforwardly find the comparative statics for a single variable optimization problem. One important thing to note however, is that above, $F$ would be akin to profit, $\pi$, in the firm's problem because it is the objective function. This does \emph{not} hold for the production function $f$. 
 
 \section{Value function}
 In all of the above, we find that we can write the optimal amount of labor demanded as a function of the exogenous variables. However, we could do the same for all of the other functions. For example, we could define the optimal production function in terms of the exogenous variables as well,
