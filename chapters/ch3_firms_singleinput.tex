@@ -15,7 +15,7 @@ While this seems like a fairly simple model, there are some pretty important ass
     \item[Perfectly competitive market for output] Notice that the firm treats the price $p$ as exogenous. That is, no matter how much the firm produces, they can always sell goods at price $p$, and \emph{only} at price $p$. This means, first, that the firm is a \vocab{price-taker}, which means that they cannot set a price $p$ that differs from the market price $p$. The underlying assumption here is that there are enough other firms that if this firm were to raise its price, all of the customers would buy from other firms and our firm would sell 0. This assumption also entails that the amount our firm produces does not affect the market price, which can be taken to mean that there are many other firms producing a lot of the same good, so our firm's decisions do not have a noticeable effect on $p$. 
     \item[Perfectly competitive labor market] Similar to the above market for goods, we also assume that the market for labor is perfectly competitive. That is, the firm can only hire at the wage $w$, and that no matter how much labor the firm hires, the wage will not change. 
     \item[No liquidity constraints] We assume that the firm has the ability to hire as much labor as they want, and all that matters is the final profit. That is, the firm does not have some fixed budget for labor at the beginning. This can be thought of as a firm's ability to borrow at zero interest to finance labor so long as the loan is paid back. This assumption is key to the firm problem, as it allows us to deal with an unconstrained maximization problem rather than requiring a budget constraint for the firm. 
-    \item[Diminishing marginal returns to consumption] This was expressed mathematically as $\frac{d^2f}{dL^2}(L) < 0$. In real terms, this says that each additional unit of labor contributes less additional production than the previous unit of labor did, and represents a sort of ``too many cooks in the kitchen'' effect. Notice however that we will assume $\frac{df}{dL}(L) > 0$, so even if each additional unit of labor contributes less additional output than the previous unit, adding more units of labor can never make us produce less output. 
+    \item[Diminishing marginal returns to consumption] This was expressed mathematically as $f''(L) < 0$. In real terms, this says that each additional unit of labor contributes less additional production than the previous unit of labor did, and represents a sort of ``too many cooks in the kitchen'' effect. Notice however that we will assume $f'(L) > 0$, so even if each additional unit of labor contributes less additional output than the previous unit, adding more units of labor can never make us produce less output. 
 \end{description}
 
 One reasonable question to ask with all of these assumptions in place is whether they are realistic assumptions. The answer is that they probably are not all perfectly realistic. However, there are cases where these assumptions might be close enough. Consider the market for corn, for example. Each individual farmer's corn production has a negligible effect on the market as a whole, and they have enough money every year to grow as much corn as is profitable. However, we will see that even if these assumptions are not all realistic, they help simplify the model so that we can solve it and gain some useful insights about the mechanics of this economy. 
@@ -33,17 +33,17 @@ Our first order condition is that the derivative of the objective function with 
 \end{align}
 We can plug in our function for $\pi$ using our definition in \ref{eq:profit_def} and differentiate with respect to $L$ to obtain,
 \begin{align}
-    \partials{\pi}{L} = p \frac{df}{dL}(L) - w = 0
+    \partials{\pi}{L} = p f'(L) - w = 0
 \end{align}
 This is our first order condition for an optimal profit. With some rearranging, we obtain that
 \begin{align}
-    p \frac{df}{dL}(L) = w 
+    p f'(L) = w 
 \end{align}
-Notice that this yields a very useful interpretation. The left hand side is the marginal revenue from an additional unit of labor. That is, for a small amount more labor, we produce $\frac{df}{dL}(L)$ more goods, which are sold at a price $p$. On the right hand side is the marginal cost for an additional unit of labor, because for a small amount more labor, we pay that labor a wage $w$. What this tells us is that when a firm is profit maximizing, \textbf{marginal revenue equals marginal cost}. 
+Notice that this yields a very useful interpretation. The left hand side is the marginal revenue from an additional unit of labor. That is, for a small amount more labor, we produce $f'(L)$ more goods, which are sold at a price $p$. On the right hand side is the marginal cost for an additional unit of labor, because for a small amount more labor, we pay that labor a wage $w$. What this tells us is that when a firm is profit maximizing, \textbf{marginal revenue equals marginal cost}. 
 
 Notice further that this implicitly defines our optimal choice of labor, which we will denote $L^*$. Because we do not know the functional form of $f$, we cannot yet write an explicit definition of $L^*$, but it is implicitly defined by the first order condition,
 \begin{align}
-    p \frac{df}{dL}(L^*) = w \label{eq:general_foc}
+    p f'(L^*) = w \label{eq:general_foc}
 \end{align}
 Observe further that the value of $L^*$ depends on the values of $p$ and $w$, so we can express it as a function of the exogenous variables, $L^*(p, w)$. 
 
@@ -54,18 +54,18 @@ In order to verify that $L^*$ is indeed a global maximum, and not a local maximu
 \end{align*}
 To do so, we can just differentiate the first derivative from \ref{eq:profit_foc} with respect to $L$ again to obtain, 
 \begin{align}
-    \partials{^2\pi}{L^2} = p\frac{d^2f}{dL^2}(L) \label{eq:generalized_soc}
+    \partials{^2\pi}{L^2} = pf''(L) \label{eq:generalized_soc}
 \end{align}
-We need the above derivative to hold with respect to any $L$. However, we assumed that $\frac{d^2f}{dL^2}(L) < 0$, and since $p > 0$, then we have that $p\frac{d^2f}{dL^2}(L) < 0$, which satisfies our second order conditions.
+We need the above derivative to hold with respect to any $L$. However, we assumed that $f''(L) < 0$, and since $p > 0$, then we have that $pf''(L)(L) < 0$, which satisfies our second order conditions.
 
 This tells us that $L^*$ defines a global maximum, which means that the firm is indeed profit maximizing! 
 
 \subsection*{Some intuition}
 While the above provides the mathematical technique for how to maximize, it is useful to get some intuition about what is actually happening here. To do so, we can think about the firm's decision process.
 
-Suppose that you are running the firm but do not know any calculus. However, you do know how much you will produce for a given amount of labor and how much money you will make. One way you might decide how much labor to hire is to think what will happen if you hire one additional worker. At each point, you ask yourself whether you will make more money by hiring an additional worker or less money by hiring an additional worker. What determines this? Whether the contribution of that additional worker is greater than the additional cost of hiring that worker. Mathematically, you would hire an additional worker so long as, $p \frac{df}{dL}(L) > w$. 
+Suppose that you are running the firm but do not know any calculus. However, you do know how much you will produce for a given amount of labor and how much money you will make. One way you might decide how much labor to hire is to think what will happen if you hire one additional worker. At each point, you ask yourself whether you will make more money by hiring an additional worker or less money by hiring an additional worker. What determines this? Whether the contribution of that additional worker is greater than the additional cost of hiring that worker. Mathematically, you would hire an additional worker so long as, $p f'(L) > w$. 
 
-However, you also know that because each additional worker's contribution is less than the last worker hired, at some point you will stop hiring workers. This is the second order condition at work. So, if the increments are small enough, you will eventually reach a point where hiring an additional worker makes no difference. That is, that $p \frac{df}{dL}(L) = w$, which is the first order condition. At this point, you should stop hiring workers because any more workers that you hire will cost more than they produce. 
+However, you also know that because each additional worker's contribution is less than the last worker hired, at some point you will stop hiring workers. This is the second order condition at work. So, if the increments are small enough, you will eventually reach a point where hiring an additional worker makes no difference. That is, that $p f'(L) = w$, which is the first order condition. At this point, you should stop hiring workers because any more workers that you hire will cost more than they produce. 
 
 At some level, all economic optimization methods boil down to this process. Thinking about what will happen if increase some quantity by an infinitesimal amount, and requiring that doing so makes no difference. 
 
@@ -106,17 +106,17 @@ Another relatively simple production function is the log production function, wh
 \end{align}
 We will solve this optimization problem in a slightly different way than we did for the Cobb-Douglas case. Because we have already solved for the general first and second order conditions in \ref{sec:solving_model}, we can just plug in our derivations.
 \begin{description}
-    \item[First order conditions] The only expression we need to plug into the generalized first order condition is $\frac{df}{d L}(L)$, which is,
+    \item[First order conditions] The only expression we need to plug into the generalized first order condition is $f'(L)$, which is,
     \begin{align*}
-        \frac{df(L)}{dL} = \frac{d \log(L)}{dL} = \frac{1}{L}
+        f'(L) = \frac{d \log(L)}{dL} = \frac{1}{L}
     \end{align*} 
     Plugging this into \ref{eq:general_foc} yields,
     \begin{align*}
         \frac{p}{L^*} = w \iff L^* = \frac{p}{w}
     \end{align*}
-    \item[Second order conditions] To test the second order conditions, all we need is to solve for $\frac{d^2f}{dL^2}(L)$, which is,
+    \item[Second order conditions] To test the second order conditions, all we need is to solve for $f''(L)$, which is,
     \begin{align*}
-        \frac{d^2f}{dL^2}(L) = \frac{d^2 \log(L)}{d L^2} = - \frac{1}{L^2}
+        f''(L) = \frac{d^2 \log(L)}{d L^2} = - \frac{1}{L^2}
     \end{align*}  
     Then plugging into the generalized second order conditions, \ref{eq:generalized_soc}, yields
     \begin{align}
@@ -152,32 +152,36 @@ While the above example tells us how price and wages affect the quantity of labo
 
 To gain some intuition for how we might approach this problem, let's look back at the first order condition,
 \begin{align*}
-    p \frac{df}{dL}(L^*) = w
+    p f'(L^*) = w
 \end{align*}
-Now consider what happens if we increase $w$ by a little bit. The right hand side has increased, so the left hand side must also increase by a small amount to ensure the equality holds. However, $p$ is fixed, so it must be that the value of $L^*$ has changed. This makes sense because recall that with the optimized choice of $L$, $L^*$ is an implicit function of $p$ and $w$, so the value of $L^*$ changes.  In particular, it must have decreased, because we know that $\frac{d^2f}{dL^2} < 0$, which means that $\frac{df}{dL}$ decreases as $L$ increases, so to make $\frac{df}{dL}$ smaller, the value of $L^*$ must decrease. Notice that we were able determine how $L^*$ would change without having to know anything about the actual value of $L^*$ or the form of $f$. This is the idea behind using implicit differentiation to calculate the change. 
+Now consider what happens if we increase $w$ by a little bit. The right hand side has increased, so the left hand side must also increase by a small amount to ensure the equality holds. However, $p$ is fixed, so it must be that the value of $L^*$ has changed. This makes sense because recall that with the optimized choice of $L$, $L^*$ is an implicit function of $p$ and $w$, so the value of $L^*$ changes.  In particular, it must have decreased, because we know that $f'' < 0$, which means that $f'$ decreases as $L$ increases, so to make $f'$ smaller, the value of $L^*$ must decrease. Notice that we were able determine how $L^*$ would change without having to know anything about the actual value of $L^*$ or the form of $f$. This is the idea behind using implicit differentiation to calculate the change. 
 
 While this is an informal argument, we can formalize it with the \vocab{implicit function theorem}. While we do not offer a formal state of the theorem, it essentially states that if we have an equality of the form $f(x) = c$ for some constant $c$, and $f$ is sufficiently ``well-behaved'', then we can express the value of $x$ as a function of $c$. This also means that we can use implicit differentiation to solve for the relatioship between the two variables.
 
 In the context of our problem, it tells us that by implicity differentiating both sides of the first order condition, we can determine how $L^*$ changes with respect to wage and price, without even knowing the actual value of $L^*$!
 
 \begin{description}
-    \item[Wage] We will first formalize the above example of the wage change. To do so, we implicitly differentiate both sides of the FOC with respect to $w$. We can start by doing both sides separately. The derivative on the right hand side is simple, 
+    \item[Wage] We will first formalize the above example of the wage change. To do so, we implicitly differentiate both sides of the FOC with respect to $w$. 
+    \begin{align*}
+            \frac{d}{dw} \left(p f'(L^*(w))\right) = \frac{d}{dw} w
+    \end{align*}
+    We can start by doing both sides separately. The derivative on the right hand side is simple, 
     \begin{align*}
         \frac{d}{dw}(w) = 1
     \end{align*} 
-    The left hand side requires us to use the chain rule. We eplicitly write $L^*$ as a function of $w$ in this case to make things clear.
+    The left hand side requires us to use the chain rule. We explicitly write $L^*$ as a function of $w$ in this case to make things clear.
     \begin{align*}
-        \frac{d}{dw} \left(p \frac{df(L^*(w))}{dL}\right) = p \frac{d^2f(L^*(w))}{dL^2} \frac{dL^*(w)}{dw}
+        \frac{d}{dw} \left(p f'(L^*\right) = p f''(L^*) \frac{dL^*}{dw}
     \end{align*}
     Because the FOC must hold with equality, a small change in $w$ must lead to both sides staying the same. So, we can set the above expressions equal to each other,
     \begin{align*}
-        p f\frac{d^2f(L^*(w))}{dL^2} \frac{dL^*}{dw} = 1
+        p f''(L^*) \frac{dL^*}{dw} = 1
     \end{align*}
     Now, we can solve for $\frac{dL^*}{dw}$. Rearranging yields,
     \begin{align*}
-        \frac{dL^*}{dw} = \frac{1}{p\frac{d^2f(L^*(w))}{dL^2}}
+        \frac{dL^*}{dw} = \frac{1}{p f''(L^*)}
     \end{align*}
-    We can also determine the sign of $\frac{dL^*}{dw}$. Observe that $\frac{d^2}{dL^2}(L^*) < 0$ by assumption on our production function, and $p > 0$, so we have that overall the expression must be negative. That is,
+    We can also determine the sign of $\frac{dL^*}{dw}$. Observe that $f''(L^*) < 0$ by assumption on our production function, and $p > 0$, so we have that overall the expression must be negative. That is,
     \begin{align*}
         \frac{dL^*}{dw} < 0
     \end{align*}
@@ -185,16 +189,16 @@ In the context of our problem, it tells us that by implicity differentiating bot
 
     \item[Price] We can perform a similar calculation with the price of the output good. Differentiate both sides of the FOC with respect to $p$,
     \begin{align*}
-        \frac{d}{dp} \left(p \frac{df}{dL}(L^*)\right) &= \frac{d}{dp} w \\
-        p \frac{d^2f}{dL^2}(L^*) \frac{d L^*}{dp} + \frac{df}{dL}(L^*) &= 0
+        \frac{d}{dp} \left(p f'(L^*)\right) &= \frac{d}{dp} w \\
+        p f''(L^*) \frac{d L^*}{dp} + f'(L^*) &= 0
     \end{align*} 
     Since $w$ is an exogenous variable, it does not depend on $p$ so the right hand side is clearly 0. The left hand side has a product, so we use the product role to implicitly differentiate. So we can solve for, $\frac{dL^*}{dp}$,
     \begin{align*}
-        \frac{dL^*}{dp} = -\frac{\frac{df}{dL}(L^*)}{p \frac{d^2 f}{dL^2}(L^*)}
+        \frac{dL^*}{dp} = -\frac{f'(L^*)}{p f''(L^*)}
     \end{align*}
     Before reading further, try figuring out the sign of $\frac{dL^*}{dp}$ yourself. It should be a fairly straightforward exercise in examining the assumptions we made about $f$ and your result should match with your intuitions.
 
-    By assumption, we have that $\frac{df}{dL}(L^*) > 0, p > 0$ and we know that $\frac{d^2f}{dL^2}(L^*) < 0$, so the entire term must be positive. To check that this accords with our intutions, if the price of the good increases, the firm should produce more of that good because the marginal revenue has increased. 
+    By assumption, we have that $f'(L^*) > 0, p > 0$ and we know that $f''(L^*) < 0$, so the entire term must be positive. To check that this accords with our intutions, if the price of the good increases, the firm should produce more of that good because the marginal revenue has increased. 
 \end{description}
 
 If you observe both of our comparative statics above, you may notice some similarities between them. For instance, the denominator in both is the same. It turns out that we can say generally how to take a comparative static for a given objective function. We show this below.
@@ -235,7 +239,7 @@ And we can do the same for the profit function to determine how much profit the 
 \end{align*}
 Since these are all functions of the exogenous variables, we can take comparative statics of each of them by straightforward differentiation and the chain rule. For example, to see how the quantity produced changes for an increase in price, we have
 \begin{align*}
-    \frac{df^*}{dp} = \frac{d f(L^*)}{dp} = f'(L^*) \frac{dL^*}{dp} = -\frac{\frac{\partial f}{\partial L}(L^*)^2}{p \frac{\partial^2 f}{\partial L^2}(L^*)}
+    \frac{df^*}{dp} = \frac{d f(L^*)}{dp} = f'(L^*) \frac{dL^*}{dp} = -\frac{f'(L^*)^2}{p f''(L^*)}
 \end{align*}
 Where the last equality holds by plugging in the value of $\frac{dL^*}{dp}$ that we obtained previously. 
 
@@ -243,7 +247,7 @@ Now we can do the same for the optimized profit function. This optimized version
 
 To find the comparative statics for the value function, in this case profit, we can use a result known as the \vocab{envelope theorem}. Informally, the envelope theorem says that when calcualting how the value function is affected by a change in an exogenous variable, we only need to look at the direct effect of the exogenous variable, and can treat our choices as fixed. We can write this more formally for the case of a single variable (although note that it generalizes to multiple variables),
 
-\begin{theorem*}[Envelope]
+\begin{theorem*}[Envelope] \label{thm:envelope}
     Let $F(x; z)$ be an objective function with choice variable $x$ and exogenous variable $z$. Let $V(z) = \max_x F(x; z)$ be the value function and $x^* = \argmax_x F(x;, z)$ be the optimizing choice of $x$. Then,
     \begin{align*}
         \frac{dV}{dz} = \partials{F}{z}(x^*, z)

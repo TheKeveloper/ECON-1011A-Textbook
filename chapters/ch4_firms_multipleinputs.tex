@@ -173,24 +173,24 @@ Intuitively, this means that when input costs suddenly change by a little, the i
 
 \subsection*{Homogeneity}
 We first introduce the concept of homogeneity.
-\begin{definition}
+\begin{definition*} \label{def:homogeneity}
 A function $f(x_1, x_2, \ldots, x_m)$ is \vocab{homogeneous of degree $n$} if for all $\lambda > 0$, we have 
 $$f\left(\lambda x_{1}, \lambda x_{2}, \ldots, \lambda x_{m}\right)=\lambda^{n} f\left(x_{1}, x_{2}, \ldots, x_{m}\right).$$
-\end{definition}
+\end{definition*}
 Notice from our definition that homogeneity of degree 1 is equivalent to constant returns to scale. We also introduce an important theorem.
 
-\begin{theorem}[Euler]
+\begin{theorem*}[Euler] \label{thm:euler}
 If $f(x_1, x_2, \ldots, x_m)$ is homogeneous of degree $n$, then 
 $$x_{1} f_{x_{1}}+x_{2} f_{x_{2}}+\ldots+x_{m} f_{x_{m}}=n f\left(x_{1}, x_{2}, \ldots, x_{m}\right).$$
-\end{theorem}
+\end{theorem*}
 \TODO{Mention that we don't prove it}
 Notice that this theorem means that when we have constant returns to scale (i.e. $f$ is homogeneous of degree 1), then the production is equal to the sum of all the input amounts multiplied by their marginal product.
 
 We can now introduce an important result:
-\begin{proposition}
+\begin{proposition*} \label{prop:homogeneous_one}
 The profit function $\pi(p, r, w)$ is homogeneous of degree 1. That is, for all $\lambda > 0$, 
 $$\pi(\lambda p, \lambda r, \lambda w) = \lambda \pi(p, r, w).$$
-\end{proposition}
+\end{proposition*}
 Intuitively, this just means that if we convert all of our price units for $p$, $r$, and $w$, nothing fundamental would change---our profits would simply scale to the same amount in the new units.
 \begin{proof}
 Observe

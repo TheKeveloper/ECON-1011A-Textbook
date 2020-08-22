@@ -6,8 +6,8 @@ In this chapter, we will go over how to perform cost minimization, as well as wh
 \section{Problem setup}
 To set up the cost minimization problem, we need to first establish our production function. For simplicity, we will assume that the firm has production function $f(K, L)$ where $K$ is capital and $L$ is labor. We assume that $f$ is increasing and concave with respect to both $K$ and $L$. That is,
 \begin{align*}
-    \partials{f}{K} &> 0 \\
-    \partials{f}{L} &> 0 \\ 
+    f_K &> 0 \\
+    f_L &> 0 \\ 
     \frac{\partial^2 f}{\partial K^2} &< 0 \\
     \frac{\partial^2 f}{\partial L^2} &< 0
 \end{align*}
@@ -25,15 +25,15 @@ We can solve this via our standard constrained optimization methods.
 \subsection*{First order conditions}
 We take the first order conditions on the Lagrangian, differentiating with respect to each variable, to obtain necessary conditions for a minimum, 
 \begin{align*}
-    \partials{\Lagr}{K} &= r - \lambda \partials{f}{K}(K, L) = 0 \\
-    \partials{\Lagr}{L} &= w - \lambda \partials{f}{L}(K, L) = 0 \\
+    \partials{\Lagr}{K} &= r - \lambda f_K(K, L) = 0 \\
+    \partials{\Lagr}{L} &= w - \lambda f_L(K, L) = 0 \\
     \partials{\Lagr}{\lambda} &= f(K, L) - Q = 0
 \end{align*}
 Let $L^*$, $K^*$, and $\lambda^*$ denote the values that satisfy the above conditions. Note that the third condition is simply the constraint, $f(K^*, L^*) = Q$. However, we can also rearrange and divde the first and second constraints to obtain,
 \begin{align}
-    \frac{r}{w} = \frac{\partials{f}{K}(K^*, L^*)}{\partials{f}{L}(K^*, L^*)} \implies \frac{\partials{f}{K}(K^*, L^*)}{r} = \frac{\partials{f}{L}(K^*, L^*)}{w} \label{eq:marginal_cost_equal}
+    \frac{r}{w} = \frac{f_K(K^*, L^*)}{f_L(K^*, L^*)} \implies \frac{f_K(K^*, L^*)}{r} = \frac{f_L(K^*, L^*)}{w} \label{eq:marginal_cost_equal}
 \end{align}
-$\partials{f}{K}$ and $\partials{f}{L}$ tell us how much additional good is produced per unit of capital and labor respective, while $r$ and $w$ tell us how much an additional unit of each costs. The above equality tells us that, at an optimum, the additional good produced per dollar spent must be equal for capital and for labor. 
+$f_K$ and $f_L$ tell us how much additional good is produced per unit of capital and labor respective, while $r$ and $w$ tell us how much an additional unit of each costs. The above equality tells us that, at an optimum, the additional good produced per dollar spent must be equal for capital and for labor. 
 
 Now, consider $rK^* + wL^*$, where $K^*$ and $L^*$ are both functions of $r$, $w$, and $Q$. This tells us the total cost of producing $Q$ units of good. We can then define 
 \begin{align*}
@@ -106,7 +106,7 @@ First notice that the cost function $C(Q; r, w)$ is a value function, so the equ
     \begin{proof}
         The first order conditions from $\ref{eq:marginal_cost_equal}$ requires that,
         \begin{align*}
-            \frac{\alpha r}{\alpha w} = \frac{r}{w} = \frac{\partials{f}{K}(K^*, L^*)}{\partials{f}{L}(K^*, L^*)}
+            \frac{\alpha r}{\alpha w} = \frac{r}{w} = \frac{f_K(K^*, L^*)}{f_L(K^*, L^*)}
         \end{align*}
         The constraint does not depend on $r$ or $w$, so since the first order conditions are the same, we must have the optimized quantities are the same,
         \begin{align*}
@@ -168,9 +168,9 @@ First notice that the cost function $C(Q; r, w)$ is a value function, so the equ
         \end{align*}
         To show that $\lambda^* > 0$, we can look at the first order conditions of the Lagrangian:
         \begin{align*}
-            r = \lambda^* \partials{f}{K} \implies \lambda^* = \frac{r}{\partials{f}{K}}
+            r = \lambda^* f_K \implies \lambda^* = \frac{r}{f_K}
         \end{align*}
-        By assumption, $r > 0$ and $\partials{f}{K} > 0$, so we know that $\lambda^* > 0$. 
+        By assumption, $r > 0$ and $f_K > 0$, so we know that $\lambda^* > 0$. 
     \end{proof} 
 
     \item[Costs convex in quantity] $\frac{d^2C}{dQ^2} > 0$. That is, as the amount of goods we must produce increases, so does the marginal cost, assuming that the production function is concave. Intuitively, a concave production function means that as we need produce more, we need more of the inputs to produce each additional unit of the output. This is the same as the cost of each additional unit increasing.
@@ -266,5 +266,5 @@ A final complication is the case of multiple inequality constraints. This is con
 
 The KKT conditions are far beyond the scope of this course, and so we will not even describe them here. However, it is useful to know the problem that they solve so that you can know where to look in case you may find them helpful when developing your own model or when you read about the KKT conditions in an academic publication. 
 
-\section*{Conclusion}
+\section*{Recap}
 In this chapter, we detailed how to setup and solve a cost minimization problem to obtain the cost function $C(Q)$, for producing exactly $Q$ output. We also described and proved some of the key properties that the cost function must satisfy. Finally, we showed how cost minimization is the dual problem of profit maximization. The techniques of constrained optimization that have been introduced in this section will be useful beyond cost minimization, and especially in the upcoming chapters on individual utility maximization. If you do not fully understand constrained optimization, it would be worth re-reading parts of this chapter, the Math Review \TODO{link to this}, or to obtain additional practice from other resources. 
