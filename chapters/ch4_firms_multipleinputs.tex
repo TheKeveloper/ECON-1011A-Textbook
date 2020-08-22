@@ -205,30 +205,17 @@ $$
 \end{proof}
 
 \subsection*{Convexity}
-Again, we start with some definitions.
-\begin{definition}
-Given points $x, y \in \R^n$, a \vocab{convex combination} of $x$ and $y$ is 
-$$\lambda x + (1-\lambda)y$$
-for some $\lambda \in (0, 1)$. 
-\end{definition}
-In one dimension, a convex combination is just a weighted average. In multiple dimensions, a convex combination is a point somewhere on the line segment between $x$ and $y$, where $\lambda$ controls how close this point is to either $x$ or $y$.
-
-\todo{Reference Math Review Instead}
-\begin{definition}
-A function is \vocab{convex} if for all $\lambda \in (0, 1)$, we have
-$$f(\lambda x+(1-\lambda) y) \leq \lambda f(x)+(1-\lambda) f(y).$$
-\end{definition}
-Graphically, this means that if you draw a line segment between two points on the graph of $f$, the resulting line segment will be entirely above or on the graph of $f$. Note that a twice-differentiable function is convex if and only if its second derivative is nonnegative everywhere.
-\TODO{Insert graph.}
-
-We now introduce another important result.
-
-\begin{proposition}
+Recall the mathematically formal definition of a convex functions from \ref{def:convexity}, which is a function $f: \R^n \to \R$ such that for any $\lambda \in [0, 1], \vec{x}, \vec{y} \in \R^n$,
+\begin{align*}
+    f(\lambda \vec{x} + (1 - \lambda) \vec{y}) \leq \lambda f(\vec{x}) + (1 - \lambda) f(\vec{y}).
+\end{align*}
+We then have the following fact:
+\begin{proposition*}
 The profit function is convex. That is, for any sets of prices $(p_0, r_0, w_0)$ and $(p_1, r_1, w_1)$ and any $\lambda \in (0, 1)$, let
 $$\left(p_{\lambda}, r_{\lambda}, w_{\lambda}\right)=\left(\lambda p_{0}+(1-\lambda) p_{1}, \lambda r_{0}+(1-\lambda) r_{1}, \lambda w_{0}+(1-\lambda) w_{1}\right)$$
 be their convex combination. Then 
 $$\pi\left(p_{\lambda}, r_{\lambda}, w_{\lambda}\right) \leq \lambda \pi\left(p_{0}, r_{0}, w_{0}\right)+(1-\lambda) \pi\left(p_{1}, r_{1}, w_{1}\right).$$
-\end{proposition}
+\end{proposition*}
 
 \begin{proof}
 Let $\vec{w} = (r, w)$ and let $\vec{Z} = (K, L)$. That is, we are pretending there is a single inpute $\vZ$ with price $\vw$. For any $(p_0, \vw_0)$ and $(p_1, \vw_1)$ and $\lambda \in (0, 1)$, let 

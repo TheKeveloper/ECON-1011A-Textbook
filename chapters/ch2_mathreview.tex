@@ -73,7 +73,7 @@ We can also take higher order derivatives. Similar to the single variable case, 
 Intuitively, the quantity $f_{x_k x_j}$ represents how an increase in $x_j$ changes the marginal effect that $x_k$ has on $f$.
 
 One important result on cross-partials is \vocab{Young's Theorem}, which states the following:
-\begin{theorem*}[Young] % Personal preference for naming theorems; feel free to change this.
+\begin{theorem*}[Young] \label{thm:young}
     Let $f: \R^n \to \R$ be a smooth function with inputs $x_1, \dots, x_n$, then $\frac{\partial^2 f}{\partial x_k \partial x_j} = \frac{\partial^2 f}{\partial x_j \partial x_k}$. 
 \end{theorem*}
 This tells us that for a well-behaved function (in this case we assume smooth with respect to all inputs), then the order we take derivatives in does not matter. 
@@ -288,7 +288,7 @@ For functions of more than 2 variables, we require that the \vocab{Hessian} matr
 
 The first and second order conditions are sufficient and necessary conditions for the characterization of a global maximum in an unconstrained maximization problem. However, our problem will often have additional constraints that must be satisfied, and so we can not maximize using any set of inputs.
 
-\subsection*{Constrained Maximization}
+\subsection*{Constrained Maximization} \label{sec:constrained_maximization}
 Many optimization problems require that you optimize an objective function $f$ while satisfying some constraint, $g(\vec{x}) = c$, where $g$ is a function with the same inputs as $f$ and $c$ is some constant. In economics, this might be a consumer who has to spend $c$ dollars or a firm that is required to produce $c$ units of good. Formally, we write a constrained optimization as
 \begin{align*}
     \max_{\vec{x} \in \R^n} f(\vec{x}) \text{ s.t. } g(\vec{x}) = c
@@ -324,13 +324,29 @@ While this is the first order condition, the full second order conditions for co
 \section{Important Properties and Notation}
 The differentiation and optimization techniques above will be the foundation of mathematics necessary for this course, there are also some important mathematical properties and notations that we will use throughout this course and will be important to know. We list them here:
 \begin{description}
-    \item[Convex functions] Convex functions are often known as functions $f$ where the second derivative is negative. However, the real defining property of a convex function is that for any $0 < \alpha < 1$ and any $\vec{x}, \vec{y}$,
-    \begin{align*}
-        f(\alpha \vec{x} + (1 - \alpha) \vec{y}) \leq \alpha f(\vec{x})) + (1 - \alpha) f(\vec{y})
-    \end{align*} 
+    \item[Convexity] \label{def:convexity} So far, we have described convex functions as a function with a positive second derivative. However, this is not the formal definition of a convex function. 
     
+    \begin{definition*}
+        Given two points, $\vec{x}, \vec{y} \in \R^n$, and some $\lambda \in (0, 1)$, a \vocab{convex combination} of $\vec{x}$ and $\vec{y}$ is 
+        \begin{align*}
+            \lambda \vec{x} + (1 - \lambda) \vec{y}.
+        \end{align*}
+        Graphically, a convex combination is any point on the line segment between points $\vec{x}$ and $\vec{y}$. 
+
+        \image[0.5]{plots/ch2_convex_combo.jpg}
+    \end{definition*}
+    
+    Then we can formally define a convex function, 
+    \begin{definition*} 
+        A function $f: \R^n \to \R$ is \vocab{convex} if for any $\lambda \in [0, 1]$, $\vec{x}, \vec{y} \in \R^n$,
+        \begin{align*}
+            f(\lambda \vec{x} + (1 - \lambda) \vec{y}) \leq \lambda f(\vec{x}) + (1 - \lambda) \vec{y}
+        \end{align*}
+    \end{definition*}
+
     It can be show that if $f$ is twice differentiable, then $f$ is convex if and only if $\frac{d^2f}{dx^2}(x) < 0$ for any $x$. Graphically, this says that for a convex function, a line segment connecting two points on the function is greater at every point than the function itself. The inequality is reversed for concave functions. A function that is both concave and convex is linear.
-    \TODO{add image?}
+
+    \image[0.5]{plots/ch2_convex.png}
     \item[Monotonic] A monotonic function is any order preserving function. That is, $f$ is a monotonically increasing function if $f(x) < f(y)$ for any $x < y$. 
     \item[Sets] A set is simply a collection (possibly infinite) of mathematical objects. For a set $X$, we write that an element $x$ is in $X$ by $x \in X$. We say that $Y$ is a subset of $X$ if every element of $Y$ is also in $X$, and we write $Y \subset X$.  
     \item[Summation] Suppose we have a sum $x_1 + x_2 + \dots + x_n$. We often write this as $\sum_{i = 1}^n x_i$. For any sequences $x_1, \dots, x_n$ and $y_1, \dots, y_n$ and constants $\alpha, \beta$, we have
