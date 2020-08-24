@@ -406,7 +406,7 @@ $$\max_{H \in [0, 24]} U(wH, 24 - H).$$
 
 We initially wrote our optimization function as $U(Y, L)$, but we can equivalently think of this as a function of our choice variable $H$, where $V(H) \equiv U(wH, 24 - H)$.\footnote{Notation: the $\equiv$ sign means `is equivalent to' and is used when two names refer to the same fundamental quantity by definition, which we might want to differentiate from the cases where the $=$ sign simply refers to two different fundamental quantities that are equal.} We assume that $U(Y, L)$ is twice continuously differentiable, which implies $V(H)$ is twice continuously differentiable as well. 
 
-We want to solve for the optimal solution $H^*$ for the choice variable (as a function of the exogenous variable $w$). If there is an \vocab{internal solution} $H^* \in (0, 24)$ that maximizes the optimization function (as opposed to the solution being $H^* = 0$ or $H^* = 24$, then it must satisfy the first-order condition
+We want to solve for the optimal solution $H^*$ for the choice variable (as a function of the exogenous variable $w$). If there is an \vocab{interior solution} $H^* \in (0, 24)$ that maximizes the optimization function (as opposed to the solution being $H^* = 0$ or $H^* = 24$), then it must satisfy the first-order condition
 $$\frac{d}{dH}V(H^*) = 0.$$
 To solve, we substitute our definition of $V(H)$ to get
 $$\frac{d}{dH} U(wH^*, 24 - H^*) = 0.$$
@@ -460,5 +460,3 @@ Note that we got this without solving for $H^*(w)$ explicitly! The naive approac
 \paragraph{5. Interpret your results.}
 
 What we really care about is the sign of $\partials{H^*}{w}$. If wages increase, do people work more or less? The denominator of our solution must be positive, since it is exactly the expression from our SOC. The sign of the numerator depends on the magnitudes of the different terms. We said in our initial assumptions that $U_Y$ is positive and that $U_{YY}$ is negative. What about the sign of $U_{YL}$? Maybe it's positive: if you are richer, then maybe the marginal utility of leisure is higher, since you can afford more expensive hobbies. Maybe it's negative: if you are richer, maybe you lose appreciation for the everyday moments in life, so the marginal utility of leisure is actually lower. How might we resolve this question with data?
-
-\TODO{Write a note that it's ok not to understand this}
