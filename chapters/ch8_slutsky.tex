@@ -78,7 +78,24 @@ We now define two new terms. We define
 $$\alpha_i \equiv \frac{p_{i} x_{i}}{y}$$
 to be the \vocab{budget share} of good $i$, which represents the fraction of our budget that we spend on good $i$. We define 
 $$\varepsilon_y^i \equiv \frac{y \partial x_{i}}{x_{i} \partial y}$$
-to be the \vocab{income elasticity of demand} for good $i$. Intuitively, this quantity represents how sensitive demand for a good is in response to changes in real income. A constant income elasticity of 1 for good $i$ means that every $1\%$ increase in income leads to a $1\%$ increase in consumption of good $i$. Notice the relationship between income elasticity and the income effect for a good: the income effect for a good $i$ is negative if and only if $\varepsilon_y^i > 0$, which makes sense given our intuitive understanding of elasticity.
+to be the \vocab{income elasticity of demand} for good $i$. Intuitively, this tells us the percentage change in demand for a small percentage change in income. You may have seen the elasticity of income in previous economic classes defined as,
+\begin{align*}
+    \varepsilon_y^i = \frac{\% \text{ change in demand}}{\% \text{ change in income}}
+\end{align*}
+
+How can we square these two definitions? We can start by rewriting our definition of the elasticity to be
+\begin{align*}
+    \varepsilon_y^i \equiv \frac{\partial x_i}{x_i}  \frac{y}{\partial y} = \frac{\partial x_i / x_i}{\partial y / y}
+\end{align*}
+We abuse the definition of the derivative slightly and treat it as a fraction even though this is not the case formally. Notice however that $\frac{\partial x_i}{x_i}$ is a small change in $x_i$ divided by current consumption of $x_i$, which is a small percentage change in $x_i$. Following the same logic, $\frac{\partial y}{y}$ is a small percentage change in income. So, our definition of income elasticity is in fact equivalent to the interpretatation as small percentage changes.
+
+Another sometimes useful fact is that the income elasticity is definable in terms of log derivatives:
+\begin{align*}
+    \varepsilon_y^i = \frac{\partial x_i y}{x_i \partial y} = \frac{\partial \log x_i }{\partial \log y_i}
+\end{align*}
+In general, you can think of a change in the value of the logarithm of a value as a percentage change of said value. 
+
+Notice the relationship between income elasticity and the income effect for a good: the income effect for a good $i$ is negative if and only if $\varepsilon_y^i > 0$, which makes sense given our intuitive understanding of elasticity.
 
 Substituting these new terms into our previous equation, we have the relationship
 $$
