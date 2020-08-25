@@ -390,6 +390,8 @@ This gives us a natural way to compare utilities for two different sets of price
 \end{align*}
 If the above expression is positive, then $\vec{p}$ is preferred to $\vec{q}$, and if it is negative, then $\vec{q}$ is preferred to $\vec{p}$. Importantly, these quantities are ones that we could in principle measure, by asking or observing how much money an individual requires at prices $\vec{r}$ to be indifferent with having prices $\vec{p}$ and income $y$. 
 
+It is important to note, however, that while the money metric utility can be measured, it still does \emph{not} allow us to compare utilities across individuals.
+
 \subsection*{Equivalent and compensating variation}
 So far, we have used the money metric utility function to measure the differences between two sets of prices, $\vec{p}$ and $\vec{q}$, with respect to some set of reference prices $\vec{r}$. However, there is a question of how we select this reference price $\vec{r}$. Two reasonable prices we might pick are either $\vec{p}$ or $\vec{q}$. For the sake of this analysis, we will refer to $\vec{p}$ as the \emph{old} prices and $\vec{q}$ as the \emph{new} prices.
 
@@ -455,11 +457,12 @@ It now becomes clear that the change in \vocab{consumer surplus} is the area und
 This might look familiar because it is the same as the integral for EV and CV, except we integrate the Marshallian demand function rather than the Hicksian demand functions. This measure also works both for an individual, or an aggregate demand curve derived by summing many individual Marshallian demands. 
 
 \subsection*{Comparing the welfare measures}
-Now that we have three different measures of welfare changes, it is worth asking how they compare to each other. For simplicity, we will examine the case where the price of a \emph{normal} good decreases from $p$ to $q$. 
+Now that we have three different measures of welfare changes, it is worth asking how they compare to each other. For simplicity, we will examine the case where the price of a good decreases from $p$ to $q$. 
 
 Since we have expressed equivalent variation, compensating variation, and consumer surplus as integrals of Hicksians and Marshallians, we can determine their relative values by comparing the Hicksian and Marshallian demand functions. We will try to examine these functions graphically.
 
-Since we have a normal good, we know that the income effect is positive for a price decrease, which means that the slope of the Marshallian demand curve is steeper than that of the Hicksian demand curve. We also know that $v(q, y) \geq v(p, y)$ because $q < p$, so the agent prefers price $q$. Since the good is normal, this implies that $h(s, v(q, y)) \geq h(s, v(p, y))$ for all prices $s$ because if we need to achieve a greater utility level, we will demand more of the normal good. Finally, recall the optimality conditions that $h(p, v(p, y)) = x(p)$ and $h(q, v(q, y)) = x(q)$. This gives us sufficient sufficient information to plot the functions as follows:
+\subsubsection*{Normal good}
+First, we will consider the case where the good is normal. This means that the income effect is positive for a price decrease, so the slope of the Marshallian demand curve is steeper than that of the Hicksian demand curve. We also know that $v(q, y) \geq v(p, y)$ because $q < p$, so the agent prefers price $q$. Since the good is normal, this implies that $h(s, v(q, y)) \geq h(s, v(p, y))$ for all prices $s$ because if we need to achieve a greater utility level, we will demand more of the normal good. Finally, recall the optimality conditions that $h(p, v(p, y)) = x(p)$ and $h(q, v(q, y)) = x(q)$. This gives us sufficient sufficient information to plot the functions as follows:
 \image[0.75]{plots/ch7_ev_cv_cs_normal.png}
 
 Based on this graphic, we have
@@ -478,7 +481,8 @@ So, in the case of a normal good with a price decrease, we have
 
 The inequalities are reversed if we have a normal good with a price increase. It is worth noting the condition under which we have equality. In order for the thre quantities to be equal, we would need the slope of the Marshallian demand curve to be the same as the slope of the Hicksian demand curves. The only way this happens is if there is no income effect.
 
-Finally, it is worth briefly considering what would happen with an inferior good. In this case, the slope of the Marshallian demand curve would be less steep than the the slope of the Hicksians since the income and substitution effects would move in opposite directions. We would still however need the points of intersection for the Hicksians and the Marshallian to remain the same. This would result in the following:
+\subsubsection*{Inferior good}
+Next, we will consider what would happen if the good is inferior. In this case, the slope of the Marshallian demand curve would be less steep than the the slope of the Hicksians since the income and substitution effects would move in opposite directions. We would still however need the points of intersection for the Hicksians and the Marshallian to remain the same. This would result in the following:
 \image[0.75]{plots/ch7_ev_cv_cs_inferior.png}
 
 This results in the following values:
