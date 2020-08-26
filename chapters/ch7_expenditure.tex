@@ -119,7 +119,258 @@ To summarize, since utility-maximization and expenditure-minimization both yield
 \TODO{I left out the geometric interpretation because I think it's more for the interested reader than it is helpful for understanding, but I might add this back in?}
 \end{description}
 
-\section{Measuring welfare changes}
+\section{Slutsky Equation} 
+One of the questions are likely interested in now that we know how people demand goods is figuring out how demand changes for a given change in price. However, the answer is not always straightforward. Intuitively, if the price of a single good increases, we can separate the effect on consumption into two channels. First, that good becomes relatively more expensive and other goods become relatively cheaper; this effect is called the \vocab{substitution effect}. Second, the consumer has effectively become poorer in terms of the options she can afford; this effect is called the \vocab{income effect}. This section will study the \vocab{Slutsky equation}, which uses our ideas of Marshallian and Hicksian demand to derive an equation that contains both of these pieces together.
+
+\subsection*{Derivation}
+Recall from duality\TODO{Add reference} that at an optimum, the Marshallian and the Hicksian must be equal. Focusing on a single good $i$, this implies that, 
+$$x_{i}(\mathbf{p}, e(\mathbf{p}, \bar{u}))=h_{i}(\mathbf{p}, \bar{u}),$$
+
+By the Implicit Function Theorem, we can differentiate both sides of this equation with respect to $p_i$, yielding 
+$$\frac{d}{d p_{i}} x_{i}(\mathbf{p}, e(\mathbf{p}, \bar{u}))=\frac{d}{d p_{i}} h_{i}(\mathbf{p}, \bar{u}).$$
+Using the multivariate chain rule, this becomes 
+$$\frac{\partial x_{i}}{\partial p_{i}}(\mathbf{p}, e(\mathbf{p}, \bar{u}))+\frac{\partial x_{i}}{\partial y}(\mathbf{p}, e(\mathbf{p}, \bar{u})) \frac{\partial e}{\partial p_{i}}(\mathbf{p}, \bar{u})=\frac{\partial h_{i}}{\partial p_{i}}(\mathbf{p}, \bar{u}).$$
+By Shephard's Lemma, we know $\pdv{e}{p_i}(\mathbf{p}, \bar{u})=h_{i}(\mathbf{p}, \bar{u}),$ so we can simplify our earlier equation to 
+$$\frac{\partial x_{i}}{\partial p_{i}}(\mathbf{p}, e(\mathbf{p}, \bar{u}))+h_{i}(\mathbf{p}, \bar{u}) \frac{\partial x_{i}}{\partial y}(\mathbf{p}, e(\mathbf{p}, \bar{u}))=\frac{\partial h_{i}}{\partial p_{i}}(\mathbf{p}, \bar{u}).$$
+
+We now use the first fact that the expenditure function and the indirect utility function are inverses to rewrite this equation in terms of some budget $y$ instead of $\bar{u}$. Define $y = e(\vec{p}, \bar{u})$. Then $\bar{u} = v(p, y)$ by the first fact, and $h_i(\vec{p}, \bar{u}) = x_i(\vec{p}, y)$ by the second fact. We can substitute these terms into our equation to get 
+$$\frac{\partial x_{i}}{\partial p_{i}}(\mathbf{p}, y)+x_{i}(\mathbf{p}, y) \frac{\partial x_{i}}{\partial y}(\mathbf{p}, y)=\frac{\partial h_{i}}{\partial p_{i}}(\mathbf{p}, v(\mathbf{p}, y)).$$
+Rearranging these terms gives us the famous \vocab{Slutsky equation}
+$$
+\boxed{\frac{\partial x_{i}}{\partial p_{i}}(\mathbf{p}, y)=\frac{\partial h_{i}}{\partial p_{i}}(\mathbf{p}, v(\mathbf{p}, y))-x_{i}(\mathbf{p}, y) \frac{\partial x_{i}}{\partial y}(\mathbf{p}, y).}
+$$
+Suppressing the arguments, we can write this more succinctly as 
+$$\frac{\partial x_{i}}{\partial p_{i}}=\frac{\partial h_{i}}{\partial p_{i}}-x_{i} \frac{\partial x_{i}}{\partial y}.$$
+
+\subsection*{Interpretation}
+The effect of price changes on consumption is exactly the $\frac{\partial x_{i}}{\partial p_{i}}$ term on the left, while the right hand side of the equation separates the substitution and income effects we were interested in. 
+
+\begin{description}
+
+\item[Substitution effect.] This component is given by the first term
+$$\frac{\partial h_{i}}{\partial p_{i}}(\mathbf{p}, v(\mathbf{p}, y)).$$
+Intuitively, this term represents the first-order change solely from good $i$ becoming more expensive relative to other goods, assuming that we could still afford the original consumption bundle. Another explanation is that this term represents the effect of a price change if real income is kept constant, where real income is defined in terms of the ideal price index discussion from the previous section.
+
+We claim that the substitution effect is always negative; intuitively, if an item becomes relatively more expensive, the substitution effect would cause a shift in spending to the now relatively cheaper items. This fact is called the \vocab{Law of Compensated Demand.}
+\begin{proof}
+Recall that the expenditure function is concave in $\vec{p}$, so 
+$$
+\frac{\partial^{2} e}{\partial p_{i}^{2}}(\mathbf{p}, \bar{u})<0.
+$$
+By Shephard's Lemma, this means
+$$
+\frac{\partial}{\partial p_{i}} \frac{\partial e}{\partial p_{i}}(\mathbf{p}, \bar{u})=\frac{\partial h_{i}}{\partial p_{i}}(\mathbf{p}, \bar{u})<0.
+$$
+\end{proof}
+
+\item[Income effect.] This component is given by the second term
+$$-x_{i} \frac{\partial x_{i}}{\partial y}.$$
+Intuitively, if the consumer becomes $\Delta y$ poorer, the consumption of good $i$ decreases by 
+$$
+\Delta x_{i} \approx \frac{\partial x_{i}}{\partial y} \Delta y.
+$$
+If the consumer was originally buying $x_i$ of good $i$, then a price increase of $\Delta p_i$ effectively makes her poorer by
+$$
+\Delta y \approx -x_{i} \Delta p_{i}.
+$$
+Putting these pieces together, the income effect of a small price change $\Delta p_i$ is 
+$$
+\Delta x_{i} \simeq-x_{i} \frac{\partial x_{i}}{\partial y} \Delta p_{i},
+$$
+which matches our result from Slutsky's equation.
+
+What is the sign of the income effect? It depends! If the income effect is negative (i.e. if $\frac{\partial x_{i}}{\partial y}>0$) then $\frac{\partial x_{i}}{\partial p_{i}}<0$, since the substitution effect is always negative. This means that the demand function is downward sloping, as we might imagine intuitively. However, this might not always be the case; we might have a positive income effect when $\frac{\partial x_{i}}{\partial y}<0$ for some items (e.g. cheap dorm food) that we consume less when we become richer. 
+
+\end{description} 
+
+\subsection*{General Slutsky Equation}
+In the original Slutsky equation, we were interested in the effect of a price change in good $i$ on the consumption of good $i$, so we differentiated with respect to $p_i$. If we were instead interested in the effect of a price change in some other good $j$ on the consumption of good $i$, we would differentiate with respect to $p_j$. The resulting derivation would look identical, and our final result would be the \vocab{general Slutsky equation}
+$$
+\boxed{\frac{\partial x_{i}}{\partial p_{j}}=\frac{\partial h_{i}}{\partial p_{j}}-x_{j} \frac{\partial x_{i}}{\partial y}.}
+$$
+The $-x_{j} \frac{\partial x_{i}}{\partial y}$ term represents the income effect, where the price of good $j$ makes the consumer poorer in real terms, which has some effect on the consumption of good $i$ depending on whether good $i$ is an inferior or normal good. However, whereas the substitution effect used to be unambiguously negative, the new substitution effect $\frac{\partial h_{i}}{\partial p_{j}}$ in the general equation can be positive or negative, depending on whether goods $i$ and $j$ are substitutes or complements, respectively.
+
+\subsubsection*{Net and Gross Substitutes}
+\TODO{Not sure if we want the separate definition and proposition environments in here}
+Using this new substitution effect from the general Slutsky equation, we introduce two different ideas for how goods can be substitutes.
+
+\begin{definition*}[Net substitutes]
+We say that goods $i$ and $j$ are \vocab{net substitutes} if 
+$$
+\frac{\partial h_{i}}{\partial p_{j}}=\frac{\partial h_{j}}{\partial p_{i}}>0.
+$$
+\end{definition*}
+Intuitively, two goods are net substitutes if an increase in the price of one good causes the consumption of the other good to rise, assuming that utility must be kept constant. We note that this definition is symmetric, which we prove in the following proposition.
+
+\begin{proposition*}
+Net substitutability is a symmetric condition. That is, $$\frac{\partial h_{i}}{\partial p_{j}}=\frac{\partial h_{j}}{\partial p_{i}}.$$ 
+\end{proposition*}
+
+\begin{proof}
+By Shephard's Lemma, 
+$$h_i(\vec{p}, \bar{u}) = \pdv{e(\vec{p}, \bar{u})}{p_i}.$$
+Differentiating with respect to $p_j$ gives
+$$\pdv{h_i(\vec{p}, \bar{u})}{p_j} = \frac{\partial^2 e(\vec{p}, \bar{u})}{\partial p_i \partial p_j}.$$
+By Young's Theorem, we can swap the order of the partial derivatives, so 
+$$\frac{\partial^2 e(\vec{p}, \bar{u})}{\partial p_i \partial p_j} = \frac{\partial^2 e(\vec{p}, \bar{u})}{\partial p_j \partial p_i}.$$
+Thus, we conclude 
+$$\pdv{h_i(\vec{p}, \bar{u})}{p_j} = \pdv{h_j(\vec{p}, \bar{u})}{p_i}$$
+\end{proof}
+We also claim that every good must have some net substitutes.
+\begin{proposition*}
+For all goods $j$, there exists good $i$ such that $\pdv{h_i}{p_j} > 0$.
+\end{proposition*}
+\begin{proof}
+We know by the definition of the Hicksian that
+$$u(\vec{h}(\vec{p}, \bar{u})) = \bar{u}.$$
+Differentiating both sides by $p_j$ and using the multivariate chain rule yields 
+$$
+\sum_{i=1}^{n} u_{i} \frac{\partial h_{i}}{\partial p_{j}}=0.
+$$
+By the assumption of non-satiation (i.e. marginal utility for every good is always positive), $u_i > 0$ for all $i$. By the law of compensated demand, which we showed previously in this chapter, we have $\pdv{h_j}{p_j} < 0$. This means there must be some good $i$ such that $\pdv{h_i}{p_j} > 0$.
+\end{proof}
+
+If we want to examine possible substitution when budget is held fixed rather than when utility is held fixed, we have a similar definition using Marshallian demand instead of Hicksian demand.
+
+\begin{definition*}[Gross substitutes]
+We say that good $i$ is a \vocab{gross substitute} for good $j$ if
+$$\pdv{x_i}{p_j} > 0.$$
+\end{definition*}
+That is, good $i$ is a gross substitute for good $j$ if an increase in the price of $j$ results in increased consumption of $i$ under a fixed budget. Notice that this property is not symmetric. For a counterexample, consider two goods $x$ and $y$ with a quasilinear utility function $U(a, b) = a + \log b$. We encourage this counterexample as an exercise to the reader, but in this case, $b$ is a gross substitute for $a$, but not vice versa.
+\TODO{I'm not sure if this is mean}
+
+\subsection*{Slutsky Equation with Two Goods}
+
+If we have only two goods, we can derive Slutsky's equation directly for more intuition. We start with the utility-maximization problem 
+$$
+\max _{a, b \geq 0} u(a, b) \text { s.t. } p_{a} a+p_{b} b \leq y.
+$$
+We substitute the budget constraint to obtain the unconstrained univariate optimization problem 
+$$
+\max _{a \in\left[0, y / p_{a}\right]} u\left(a, \frac{y-p_{a} a}{p_{b}}\right).
+$$
+The first order condition is 
+$$
+u_{a}\left(a^{*}, b^{*}\right)-\frac{p_{a}}{p_{b}} u_{b}\left(a^{*}, b^{*}\right)=0.
+$$
+Together with the budget constraint 
+$$
+b^{*}=\frac{y-p_{a} a^{*}}{p_{b}},
+$$
+these two conditions give implicit solutions for Marshallian demands $a^*(p_a, p_b, y)$ and $b^*(p_a, p_b, y)$.
+We differentiate the first order condition with respect to $p_a$ with the Implicit Function Theorem, yielding 
+$$
+-\frac{u_{b}}{p_{b}}+\left(u_{a a}-\frac{p_{a}}{p_{b}} u_{a b}\right) \frac{\partial a^{*}}{\partial p_{a}}+\left(u_{a b}-\frac{p_{a}}{p_{b}} u_{b b}\right) \frac{\partial b^{*}}{\partial p_{a}}=0.
+$$
+Substituting our expression for $b^*$ from the budget constraint yields 
+$$
+-\frac{u_{b}}{p_{b}}+\left(u_{a a}-\frac{p_{a}}{p_{b}} u_{a b}\right) \frac{\partial a^{*}}{\partial p_{a}}-\left(u_{a b}-\frac{p_{a}}{p_{b}} u_{b b}\right) \frac{1}{p_{b}}\left(a^{*}+p_{a} \frac{\partial a^{*}}{\partial p_{a}}\right)=0.
+$$
+We can rearrange these terms to get
+$$
+-\left[u_{a a}-2 \frac{p_{a}}{p_{b}} u_{a b}+\left(\frac{p_{a}}{p_{b}}\right)^{2} u_{b b}\right] \frac{\partial a^{*}}{\partial p_{a}}=-\frac{u_{b}}{p_{b}}-\frac{1}{p_{b}}\left(u_{a b}-\frac{p_{a}}{p_{b}} u_{b b}\right) a^{*}.
+$$
+
+What does all of this mean? The left hand side is the comparative static $\pdv{a^*}{p_a}$, multiplied by
+$$
+S \equiv -\left[u_{a a}-2 \frac{p_{a}}{p_{b}} u_{a b}+\left(\frac{p_{a}}{p_{b}}\right)^{2} u_{b b}\right],
+$$
+which is the value that must be positive in the second-order condition for a maximum. We see the substitution effect 
+$$
+-\frac{u_{b}}{S p_{b}}<0,
+$$
+which we can verify is the same as $\pdv{h_a}{p_a}$ if we set up the expenditure-minimization problem accordingly. Lastly, we see the income effect 
+$$
+-\frac{1}{S p_{b}}\left(u_{a b}-\frac{p_{a}}{p_{b}} u_{b b}\right) a^{*}
+$$
+which is equal to $-\frac{\partial a^{*}}{\partial y} a^{*}$ if we compute $\frac{\partial a^{*}}{\partial y}$ with the implicit function theorem.
+
+\section{Income and Price Elasticity}
+One common way to measure how income and prices affect demand is to use elasticities. These are unit invariant ways of seeing how given change affects demand for a good. To motivate the use of elasticities, we can use them to examine some intuition behind the income and price effects of goods. To start, we can differentiate our original budget constraint, 
+$$y = \vec{p} \cdot \vec{x}$$
+in order to identify a few important elements. Differentiating both sides with respect to $y$ yields\
+\begin{align*}
+    1 &=\sum_{i=1}^{n} p_{i} \frac{\partial x_{i}}{\partial y} \\
+    &= \sum_{i=1}^{n} \frac{p_{i} x_{i}}{y} \frac{y \partial x_{i}}{x_{i} \partial y}.
+\end{align*}
+
+
+We now define two new terms. We define 
+$$\alpha_i \equiv \frac{p_{i} x_{i}}{y}$$
+to be the \vocab{budget share} of good $i$, which represents the fraction of our budget that we spend on good $i$. We define 
+$$\varepsilon_y^i \equiv \frac{y \partial x_{i}}{x_{i} \partial y}$$
+to be the \vocab{income elasticity of demand} for good $i$. Intuitively, this tells us the percentage change in demand for a small percentage change in income. You may have seen the elasticity of income in previous economic classes defined as,
+\begin{align*}
+    \varepsilon_y^i = \frac{\% \text{ change in demand}}{\% \text{ change in income}}
+\end{align*}
+
+How can we square these two definitions? We can start by rewriting our definition of the elasticity to be
+\begin{align*}
+    \varepsilon_y^i \equiv \frac{\partial x_i}{x_i}  \frac{y}{\partial y} = \frac{\partial x_i / x_i}{\partial y / y}
+\end{align*}
+We abuse the definition of the derivative slightly and treat it as a fraction even though this is not the case formally. Notice however that $\frac{\partial x_i}{x_i}$ is a small change in $x_i$ divided by current consumption of $x_i$, which is a small percentage change in $x_i$. Following the same logic, $\frac{\partial y}{y}$ is a small percentage change in income. So, our definition of income elasticity is in fact equivalent to the interpretatation as small percentage changes.
+
+Another sometimes useful fact is that the income elasticity is definable in terms of log derivatives:
+\begin{align*}
+    \varepsilon_y^i = \frac{\partial x_i y}{x_i \partial y} = \frac{\partial \log x_i }{\partial \log y_i}
+\end{align*}
+In general, you can think of a change in the value of the logarithm of a value as a percentage change of said value. 
+
+Notice the relationship between income elasticity and the income effect for a good: the income effect for a good $i$ is negative if and only if $\varepsilon_y^i > 0$, which makes sense given our intuitive understanding of elasticity.
+
+Substituting these new terms into our previous equation, we have the relationship
+$$
+\sum_{i=1}^{n} \alpha_{i} \varepsilon_{y}^{i} = 1.
+$$
+The term on the left is a weighted average of the different $\varepsilon_{y}^{i}$ terms, since the some of all our $\alpha_i$ terms must be 1. Since the term on the left is in units of elasticity, we can almost think of this relationship as the idea that with a $1\%$ increase in budget, we can buy $1\%$ more ``stuff'' (not necessarily $1\%$ more quantity of consumption), where the composition of this ``stuff'' is determined by each good's budget share and income elasticity. \TODO{I'm not sure if this explanation makes any sense; I can remove it if it doesn't.} Notice that this relationship also tells us that it is impossible for every good in our option set to have a negative income elasticity; if our budget increases, we should not be buying less of everything. Later, we will see that this means that it is impossible for every good in our option set to be an inferior good.
+
+We can derive a similar relationship to help us understand the substitution effect if we instead differentiate our original budget constraint with respect to the price of some good $p_j$. From the product rule, we get
+$$
+0=x_{j}+\sum_{i=1}^{n} p_{i} \frac{\partial x_{i}}{\partial p_{j}}.
+$$
+Multiplying by $\frac{p_j}{y}$ and rearranging yields 
+$$
+-\frac{p_{j} x_{j}}{y}=\sum_{i=1}^{n} \frac{p_{i} x_{i}}{y} \frac{p_{j} \partial x_{i}}{x_{i} \partial p_{j}}.
+$$
+
+We define 
+$$\varepsilon_{p_j}^i \equiv \frac{p_j \partial x_{i}}{x_{i} \partial p_j}$$
+as the \vocab{cross-price elasticity of demand}, which represents how sensitive our demand for good $i$ is in response to changes in the price of some other good $j$. When $i=j$, then this term is simply the \vocab{price elasticity of demand}. If $\varepsilon_{p_j}^i = 1$ always, then every $1\%$ increase in the price of good $j$ results in a $1\%$ increase in the consumption of good $i$.
+
+Substituting our definitions for cross-price elasticity and budget share, we get the relationship
+$$
+-\alpha_{j}=\sum_{i=1}^{n} \alpha_{i} \varepsilon_{p_{j}}^{i}.
+$$
+This equation tells us that the weighted average of cross-price elasticities of all goods with respect to price changes for good $j$ is equal the negative budget share of good $j$. We will more closely examine the $\frac{\partial x_{i}}{\partial p_j}$ piece of our definition of cross-price elasticity later in the section on the general Slutsky equation.
+
+\subsection*{Types of Goods}
+
+We might already have some intuitive idea of what goods have a negative income effect (i.e. we consume more when we get richer) and what goods have a positive income effect (i.e.e we consume less when we get richer. We can further categorize these types of goods using our definition of income elasticity:
+\begin{description}
+\item[\vocab{Inferior goods}] have a negative income elasticity $\varepsilon_y^i < 0$, so their income effect is positive. This is equivalent to saying that $\frac{\partial x_i}{\partial y} < 0$. That is, we buy less of such goods as we become richer (e.g. cheap food). Recall from the previous section that it is possible for some or no goods to be inferior, but it is impossible for all goods to be inferior. 
+
+Normally, the demand-curve for inferior goods is still downward-sloping; that is, we still have $\pdv{x_i}{p_i} < 0$. This is because even though we have positive income effect $-x_{i} \frac{\partial x_{i}}{\partial y}>0$, typically the negative substitution effect $\pdv{h_i}{p_i} < 0$ still dominates. Intuitively, an increase in the price of good $i$ has two effects for an inferior good: (1) it makes the consumer poorer, which influences consumption positively from the positive income effect of inferior goods, and (2) it makes the consumer substitute away to relatively cheaper options, which influences consumption negatively. If the second effect dominates, as is often the case, then the demand curve for an inferior good is still downward sloping.
+
+However, it is theoretically possible for the former effect to dominate, causing demand to be \textit{upward-sloping}, or $\pdv{x_i}{p_i} > 0$. That is, when prices for good $i$ rise, the consumption of good $i$ rises. These goods are called \vocab{Giffen goods} and are a rare subset of inferior goods. This phenomenon occurs if 
+$$
+\bigg | x_{i} \frac{\partial x_{i}}{\partial y} \bigg | > \pdv{h_i}{p_i},
+$$
+which generally happens when 
+$$x_{i} \frac{\partial x_{i}}{\partial y} \ll 0.$$
+Intuitively, for the income effect to be so large, the good must be very inferior (i.e. $\varepsilon_y^i \ll 0$) and the budget share of $x_i$ must be very large, which is generally the case when the consumer is poor. A famous example of this phenomenon was presented by \href{https://www.ncbi.nlm.nih.gov/pmc/articles/PMC2964162/}{Jensen and Miller (2008)}. They found that subsidizing the price of rice in rural Hunan, China, resulted in decreased consumption of rice among poor households. Why? Poor households who used to spend a large fraction of their income on rice became effectively richer through this subsidy, so they no longer needed to buy as much rice since they could afford other foods in their diets.
+
+\item[\vocab{Normal goods}] have positive income elasticity $\varepsilon_y^i > 0$, so their income effect is negative. This is equivalent to saying that $\frac{\partial x_i}{\partial y} > 0$. That is, we consume more of them when we become richer; most goods we typically think of fall under this category. The demand curve is also unambiguously downward-sloping, since both the income effect and the substitution effect are negative. By the same reasoning as before, some or all of the goods in our option set must be normal.
+
+It makes sense to buy more of a good when we become richer, but the relative size of this increase might be bigger for some goods than others. A normal good is a \vocab{luxury} if $\varepsilon_y^i > 1$, so a $1\%$ increase in income results in more than a $1\%$ increase in consumption of that good. The budget share of these goods increases as the consumer becomes richer. For example, a consumer might spend no money on luxury cars initially, but they might spend a sizable amount of money on luxury cars when they become rich.
+
+Alternatively a normal good is a \vocab{necessity} if $\varepsilon_y^i < 1$, so a $1\%$ increase in income results in an increase in consumption of that good by between $0\%$ and $1\%$. The budget share of these goods decreases as the consumer becomes richer. For example, Engel's law is the observation that the budget share for food decreases when income rises, so food is a necessity.
+
+In the special case where $\varepsilon_y^i = 1$ for all goods in the option set, we say that preferences are \vocab{homothetic}. That is, budget shares of all goods are fixed, so a $1\%$ increase in income causes a $1\%$ increase in the consumption of all goods.
+
+\end{description}
+
+
+\section{Measuring Welfare Changes}
 One of the challenges in dealing with utility in economics is that it is not directly observable. However, it would be nice to be able to quantify the change in utility from a change in prices. Fortunately, the expenditure function offers us a nice way to do so.
 
 \subsection*{Money Metric Utility}
@@ -138,6 +389,8 @@ This gives us a natural way to compare utilities for two different sets of price
     m(v(\vec{p}, y)) - m(v(\vec{q}, y)) = e(\vec{r}, v(\vec{p}, y) - e(\vec{r}, v(\vec{q}, y))
 \end{align*}
 If the above expression is positive, then $\vec{p}$ is preferred to $\vec{q}$, and if it is negative, then $\vec{q}$ is preferred to $\vec{p}$. Importantly, these quantities are ones that we could in principle measure, by asking or observing how much money an individual requires at prices $\vec{r}$ to be indifferent with having prices $\vec{p}$ and income $y$. 
+
+It is important to note, however, that while the money metric utility can be measured, it still does \emph{not} allow us to compare utilities across individuals.
 
 \subsection*{Equivalent and compensating variation}
 So far, we have used the money metric utility function to measure the differences between two sets of prices, $\vec{p}$ and $\vec{q}$, with respect to some set of reference prices $\vec{r}$. However, there is a question of how we select this reference price $\vec{r}$. Two reasonable prices we might pick are either $\vec{p}$ or $\vec{q}$. For the sake of this analysis, we will refer to $\vec{p}$ as the \emph{old} prices and $\vec{q}$ as the \emph{new} prices.
@@ -187,4 +440,68 @@ We can perform a similar process with the compensating variation to obtain,
 
 Note that while we handled these in the single good case, it generalizes to multiple goods. A simple way to see this is to consider multiple goods, but only changing the price of one good. Then we obtain the same results as above except the integral is with respect to the price of that specific good, and the the Hicksian is the Hicksian demand of that specific good. 
 
+\subsection*{Consumer Surplus}
+You may be more familiar with another way of measuring changes in welfare: consumer surplus. In an introductory economics class, consumer surplus is presented as the the difference between how much consumers are willing to pay and the price they are charged, aggregated over all consumers. 
+
+Suppose we faced a change in prices from $p$ to $q$ where $q < p$. Under the introductory economics interpretation, the change in consumer surplus ($\Delta CS$) would look something like this: 
+\image[0.5]{plots/ch7_cs.png}
+
+However, the problem with this approach relies is that it relies on there being many consumers each willing to buy one unit of the good for this line of logic to work. It might also make sense for an individual to have consumer surplus. Ideally, we would want a way to find the change in consumer surplus given an individual's marshallian demand curve. To do so, we can express the above chart with flipped axes so that we can write our demand function as the more familiar Marshallian demand, $x(p)$, 
+\image[0.5]{plots/ch7_cs_flipped.png}
+
+It now becomes clear that the change in \vocab{consumer surplus} is the area under the Marshallian demand curve from $q$ to $p$. We can express this as an integral to obtain,
+\begin{align*}
+    \Delta CS = \int_q^p x(s) \, ds
+\end{align*}
+
+This might look familiar because it is the same as the integral for EV and CV, except we integrate the Marshallian demand function rather than the Hicksian demand functions. This measure also works both for an individual, or an aggregate demand curve derived by summing many individual Marshallian demands. 
+
+\subsection*{Comparing the welfare measures}
+Now that we have three different measures of welfare changes, it is worth asking how they compare to each other. For simplicity, we will examine the case where the price of a good decreases from $p$ to $q$. 
+
+Since we have expressed equivalent variation, compensating variation, and consumer surplus as integrals of Hicksians and Marshallians, we can determine their relative values by comparing the Hicksian and Marshallian demand functions. We will try to examine these functions graphically.
+
+\subsubsection*{Normal good}
+First, we will consider the case where the good is normal. This means that the income effect is positive for a price decrease, so the slope of the Marshallian demand curve is steeper than that of the Hicksian demand curve. We also know that $v(q, y) \geq v(p, y)$ because $q < p$, so the agent prefers price $q$. Since the good is normal, this implies that $h(s, v(q, y)) \geq h(s, v(p, y))$ for all prices $s$ because if we need to achieve a greater utility level, we will demand more of the normal good. Finally, recall the optimality conditions that $h(p, v(p, y)) = x(p)$ and $h(q, v(q, y)) = x(q)$. This gives us sufficient sufficient information to plot the functions as follows:
+\image[0.75]{plots/ch7_ev_cv_cs_normal.png}
+
+Based on this graphic, we have
+\begin{align*}
+    \begin{cases}
+        EV &= A + B + C \\
+        \Delta CS &= B + C \\
+        CV &= C
+    \end{cases}
+\end{align*}
+
+So, in the case of a normal good with a price decrease, we have
+\begin{align*}
+    EV \geq \Delta CS \geq CV
+\end{align*}
+
+The inequalities are reversed if we have a normal good with a price increase. It is worth noting the condition under which we have equality. In order for the thre quantities to be equal, we would need the slope of the Marshallian demand curve to be the same as the slope of the Hicksian demand curves. The only way this happens is if there is no income effect.
+
+\subsubsection*{Inferior good}
+Next, we will consider what would happen if the good is inferior. In this case, the slope of the Marshallian demand curve would be less steep than the the slope of the Hicksians since the income and substitution effects would move in opposite directions. We would still however need the points of intersection for the Hicksians and the Marshallian to remain the same. This would result in the following:
+\image[0.75]{plots/ch7_ev_cv_cs_inferior.png}
+
+This results in the following values:
+\begin{align*}
+    \begin{cases}
+        EV &= F \\
+        \Delta CS &= E + F \\
+        CV &= D + E + F
+    \end{cases}
+\end{align*}
+
+So, for an \emph{inferior good}, 
+\begin{align*}
+    EV \leq \Delta CS \leq CV
+\end{align*}
+
+Once again, if you have a price increase instead of a price decrease, the inequalities are reversed. 
+
+Note however that regardless of whether we have a normal or inferior good, the change in consumer surplus is always between the equivalent and compensating variations. 
+
 \section*{Recap}
+In this chapter, we discussed how we could derive the Hicksian demand function and the resulting expenditure function. This allowed us to derive the famous Slutsky equation, which decomposed the effects of a price change into a substitution effect and an income effect. We defined normal goods as those with a negative income effect in response to a price increase, while inferior goods have a positive income effect in response to a price increase. We also examined how we could use the expenditure function to derive a measurable utility function, as well as how to use that utility function to measure changes in welfare from price increases. 

@@ -49,16 +49,16 @@ Now that we have defined the cost function, we can examine some properties that 
 \begin{theorem*}[Constrained Envelope] \label{thm:constrained_envelope}
     Let $F(x, y; z)$ be an objective function with choice variables $x, y$ and exogenous variable $z$, and let $g(x, y; z) = c$ be the constraint. Denote the optimal choices of $x$ and $y$ by $x^*(z)$ and $y^*(z)$, respectively. Let $v(z) = F(x^*(z), y^*(z); z)$. Then,
     \begin{align*}
-        \frac{dv}{dz}(z) = \partials{\Lagr}{z}(x^*, y^*, \lambda^*; z) = \partials{F}{z}(x^*, y^*; z) - \lambda^* \partials{g}{z}(x^*, y^*; z)
+        \frac{dv}{dz}(z) = \partials{\Lagr}{z}(x^*, y^*, \lambda^*; z) = F_z(x^*, y^*; z) - \lambda^* g_z(x^*, y^*; z)
     \end{align*}
-    Where $\lambda^*$ is the value of the Lagrange multiplier that satisfies the first order conditions.  \footnote{This formulation of the theorem is dependent on how you write the Lagrangian. We write the Lagrangian in this text as, $\Lagr(x, y; z) = F(x, y; z) - \lambda(g(x, y; z) - c)$. However, it is also sometimes written as $\Lagr(x, y; z) = F(x, y; z) + \lambda(g(x, y; z) - c)$ (with addition instead of subtraction). These are equivalent except for the fact that the sign of $\lambda^*$ will flipped between them. So, for the latter formulation, we would have, $\frac{dv}{dz}(z) = \partials{F}{z}(x^*, y^*; z) - \lambda^* \partials{g}{z}(x^*, y^*; z)$}
+    Where $\lambda^*$ is the value of the Lagrange multiplier that satisfies the first order conditions.  \footnote{This formulation of the theorem is dependent on how you write the Lagrangian. We write the Lagrangian in this text as, $\Lagr(x, y; z) = F(x, y; z) - \lambda(g(x, y; z) - c)$. However, it is also sometimes written as $\Lagr(x, y; z) = F(x, y; z) + \lambda(g(x, y; z) - c)$ (with addition instead of subtraction). These are equivalent except for the fact that the sign of $\lambda^*$ will flipped between them. So, for the latter formulation, we would have, $\frac{dv}{dz}(z) = F_z(x^*, y^*; z) - \lambda^* g_z(x^*, y^*; z)$}
 \end{theorem*}
 
 \begin{proof}
     First, it will be useful to recall the first order conditions for the Lagrangian,
     \begin{align*}
-        \partials{\Lagr}{x} = 0 &\implies \partials{F}{x}(x^*, y^*; z) = \lambda^* \partials{g}{x}(x^*, y^*; z) \\
-        \partials{\Lagr}{y} = 0 &\implies \partials{F}{y}(x^*, y^*; z) = \lambda^* \partials{g}{y}(x^*, y^*; z) \\
+        \partials{\Lagr}{x} = 0 &\implies F_x(x^*, y^*; z) = \lambda^* g_x(x^*, y^*; z) \\
+        \partials{\Lagr}{y} = 0 &\implies F_y(x^*, y^*; z) = \lambda^* g_y(x^*, y^*; z) \\
         \partials{\Lagr}{\lambda} = 0 &\implies g(x^*, y^*; z) = c
     \end{align*}
     Next, the value function is given by
@@ -67,23 +67,23 @@ Now that we have defined the cost function, we can examine some properties that 
     \end{align*}
     Totally differentiating $v$ with respect to $z$ yields,
     \begin{align*}
-        \frac{dv}{dz}(z) = \partials{F}{x}(x^*, y^*; z) \frac{dx^*}{dz} + \partials{F}{y}(x^*, y^*; z) \frac{dy^*}{dz}(z) + \partials{F}{z}(x^*, y^*; z)
+        \frac{dv}{dz}(z) = F_x(x^*, y^*; z) \frac{dx^*}{dz} + F_y(x^*, y^*; z) \frac{dy^*}{dz}(z) + F_z(x^*, y^*; z)
     \end{align*}
-    Now, notice that we can replace $\partials{F}{x}$ and $\partials{F}{y}$ using the first two equations in the FOC,
+    Now, notice that we can replace $F_x$ and $F_y$ using the first two equations in the FOC,
     \begin{align*}
-        \frac{dv}{dz}(z) &= \lambda^* \partials{g}{x}(x^*, y^*; z)  \frac{dx^*}{dz} + \lambda^* \partials{g}{y}(x^*, y^*; z) \frac{dy^*}{dz} + \partials{F}{z}(x^*, y^*; z) \\
-        &= \lambda^* \left(\partials{g}{x}(x^*, y^*; z) \frac{dx^*}{dz} + \partials{g}{y}(x^*, y^*; z) \frac{dy^*}{dz}\right) + \partials{F}{z}(x^*, y^*; z)
+        \frac{dv}{dz}(z) &= \lambda^* g_x(x^*, y^*; z)  \frac{dx^*}{dz} + \lambda^* g_y(x^*, y^*; z) \frac{dy^*}{dz} + F_z(x^*, y^*; z) \\
+        &= \lambda^* \left(g_x(x^*, y^*; z) \frac{dx^*}{dz} + g_y(x^*, y^*; z) \frac{dy^*}{dz}\right) + F_z(x^*, y^*; z)
     \end{align*}
     Now, we totally differentiate the third equation in the FOC with respect to $z$ to obtain,
     \begin{align*}
-        &\partials{g}{x}(x^*, y^*; z) \frac{dx^*}{dz} + \partials{g}{y}(x^*, y^*; z) \frac{dy^*}{dz} + \partials{g}{z}(x^*, y^*; z) = 0 \\
-        \implies& \partials{g}{x}(x^*, y^*; z) \frac{dx^*}{dz} + \partials{g}{y}(x^*, y^*; z) \frac{dy^*}{dz} = - \partials{g}{z}(x^*, y^*; z)
+        &\frac{d}{dz}g(x^*(z), y^*(z); z) = \frac{d}{dz} c \\
+        \implies &g_x(x^*, y^*; z) \frac{dx^*}{dz} + g_y(x^*, y^*; z) \frac{dy^*}{dz} + g_z(x^*, y^*; z) = 0 \\
+        \implies& g_x(x^*, y^*; z) \frac{dx^*}{dz} + g_y(x^*, y^*; z) \frac{dy^*}{dz} = - g_z(x^*, y^*; z)
     \end{align*}
     Plugging into the expression for $\frac{dv}{dz}$ yields,
     \begin{align*}
-        \frac{dv}{dz}(z) = \partials{F}{z}(x^*, y^*; z) - \lambda^* \partials{g}{z}(x^*, y^*; z)
+        \frac{dv}{dz}(z) = F_z(x^*, y^*; z) - \lambda^* g_z(x^*, y^*; z)
     \end{align*}
-    Which is precisely the statement of the theorem.
 \end{proof}
 
 With the constrained envelope theorem at hand, we can now examine some useful properties of the cost function.
