@@ -1,0 +1,30 @@
+\chapter{Intertemporal choice}
+
+One of the common problems people face is deciding how much of their money to spend today versus how much to save for tomorrow. This question also has important policy implications. How much should governments supplement savings? How should we expect an aging generation's spending levels to change? Are people saving too much or too little? In this chapter, we offer an approach to analyzing how economic agents optimize their consumption across different time periods.
+
+\section*{Two period model}
+We start off by setting up a simple two-period model, which we will denote by the times $t = 1, 2$. The goal of the agent will be to maximize their utility over the two period. 
+
+\subsection*{Model setup}
+We assume that there are two periods, and that the agent is making a decision for how much to consume in each period before either period has happened yet. 
+
+\begin{description}
+    \item[Consumption] In each period, the agent chooses how much they which to consume. In period one they choose $c_1$ and in period two they choose $c_2$. For simplicity, we assume there is only one good, but the model can be extended to encompass multiple goods. We will also assume for the purposes of this model that the price remains constant between periods and the it is normalized to 1. 
+    \item[Utility] We assume that in each period, the agent has a utility function $u(\cdot)$ that depends only on consumption and which has the usual utility assumptions: continuous, twice-differentiable, increasing, and concave. So the agent receives utility $u(c_1)$ in period 1 and $u(c_2)$ in period 2. The agent's goal is to maximize their utility over the two periods, and we assume that the utilities between periods are additively separable and that period 2 utility is discounted (see below) by $\beta$, yielding the overall utility function,
+    \begin{align*}
+        U(c_1, c_2) = u(c_1) + \beta u(c_2)
+    \end{align*} 
+    The additive separability is a key assumption here. It means for example that consumption in period 1 cannot increase the marginal utility in period 2, or vice versa. There are cases where additive separability does not hold, but we will assume so here for the sake of simplicity.
+    \item[Discount rate] We assume that period 2 utility is discounted by some factor $\beta$, where usually $0 < \beta < 1$. Intuitively, we are saying that the agent values the present more than the future. This might be due to impatience, or any other factor that causes the agent to value the present more than the future. Note that this is \emph{not} (necessarily) the same as the discount rate used in valuing financial assets, as that is more accurately handled by the interest rate which is a separate component of the model. 
+    \item[Income] We assume that in each period, the agent receives some exogenous income $y_t$. 
+    \item[Savings and interest] The agent can borrow or save at an interest rate, $r$, which is exogenously given. This means that the agent's total spending ability in period 2 is given by $(1 + r)(y_1 - c_1) + y_2$. If $y_1 - c_1$ is positive, it means that agent saved, and if it is negative, then the agent borrowed. Crucially, we assume that the agent can borrow as much as they want in period 1, so the only budget constraint is between periods. We also assume that $r$ is the real interest rate, which allows us to treat a negative value of $r$ as a change in the price between periods. 
+    \item[Intertemporal budget constraint] While we assume no borrowing constraint, we do require that the agent cannot be in debt at the end of the two periods. That is, we require that the present value of total income is at least the present value of total consumption:
+    \begin{align*}
+        c_1 + \frac{c_2}{1 + r} \leq y_1 + \frac{y_2}{1 + r}
+    \end{align*}
+    The idea behind the present value is that if I consume 1 unit of good in period 2, I could have used that money to purchase $\frac{1}{1 + r}$ of goods in period 1. The same logic applies to income. In this sense, the interest rate tells us how prices and purchasing power are different between periods.  
+\end{description}
+Collectively, these components of the model yield the following maximization problem:
+\begin{align*}
+    \max_{c_1, c_2} u(c_1) + \beta u(c_2) \text{ s.t. } c_1 + \frac{c_2}{1 + r} \leq y_1 + \frac{y_2}{1 + r}
+\end{align*}
