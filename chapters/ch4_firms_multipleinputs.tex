@@ -114,25 +114,6 @@ Intuitively, the returns to scale tell us whether a big factory is more or less 
 
 The returns to scale of a production function are fundamentally important to how the firm maximizes profits. If returns to scale are always increasing, then the firm will always want to produce an infinite quantity. If returns to scale are constant, then it will either (1) want to produce an infinite amount, (2) produce nothing, or (3) be indifferent across all output quantities.
 
-\section{Specific production functions}
-Now that we have the tools to study general production functions, we consider two common and useful examples.
-
-\TODO{Add actual solutions}
-
-\subsection*{Leontief (fixed-proportion) technology}
-
-Here, we have the functional form
-$$f(K, L)=\min \left\{\frac{K}{a_{K}}, \frac{L}{a_{L}}\right\}.$$
-The interpretation of this form is that the firm needs capital and labor in specific proportions; any additional increase in one without an increase in the other will yield no extra production. For example, if it takes exactly one machine to produce one unit of product, and there must be exactly one worker operating each machine, then we would have $a_K = a_L = 1$. Notice that the returns to scale are constant; the firm will produce at infinity if the price of the product is greater than the unit cost, it will produce at 0 if the price is less than the unit cost, and it will be indifferent if the price and the cost are equal.
-
-\subsection*{Cobb-Douglas technology}
-
-In this case, we have the production function
-$$f(K, L) = AK^\alpha L^\beta.$$
-Notice that the returns to scale depend on the value of $\alpha + \beta$. The firm has increasing returns to scale if this value is greater than 1, constant returns to scale if it is equal to 1, and decreasing returns to scale if it is less than 1. We can also see that
-$$\frac{\partial f^2}{\partial K \partial L} = \alpha \beta AK^{\alpha - 1} L^{\beta -1} > 0,$$
-so capital and labor are complements in this model. 
-
 \section{Long run vs. short run}
 
 \TODO{Make footnote on bar LR/SR definition}
@@ -245,6 +226,80 @@ We can substitute these inequalities into our convex combination expression, yie
 Notice that we did not even need for the profit function to be twice differentiable! The intuitive reasoning behind this proof is that average of the profits of the extreme prices would be the profits at the average prices if we chose the same inputs at the extreme prices as we did at the average price. However, we can always do weakly better at each of the extreme prices by reoptimizing our inputs compared to what we chose at the average, which means that the average profits of these extremes must be weakly greater.
 
 How do we interpret this result? This means that given the options between (1) prices constantly fluctuating between $(p_0, w_0, r_0)$ and $(p_1, w_1, r_1)$ with some probability and (2) prices staying at their expected value always, the firm would prefer scenario (1). This is because under price fluctuations, the firm has more opportunities to reoptimize its input quantities compared to the case where prices are fixed.
+
+\section{Specific production functions}
+Now that we have the tools to study general production functions, we consider two common and useful examples.
+
+\TODO{Add actual solutions}
+
+\subsection*{Leontief (fixed-proportion) technology}
+
+Here, we have the functional form
+$$f(K, L)=\min \left\{\frac{K}{a_{K}}, \frac{L}{a_{L}}\right\}.$$
+The interpretation of this form is that the firm needs capital and labor in specific proportions; any additional increase in one without an increase in the other will yield no extra production. For example, if it takes exactly one machine to produce one unit of product, and there must be exactly one worker operating each machine, then we would have $a_K = a_L = 1$. Notice that the returns to scale are constant; the firm will produce at infinity if the price of the product is greater than the unit cost, it will produce at 0 if the price is less than the unit cost, and it will be indifferent if the price and the cost are equal.
+
+Mathematically, a firm with this production function solves the problem
+$$\max_{K, L} \left[p\left(\min\left\{\frac{K}{a_K}, \frac{L}{a_L}\right\}\right) - rK - wL\right].$$
+Observe that at the maximum, we must have
+$$\frac{K^*}{a_K} = \frac{L^*}{a_L},$$
+since increasing either capital or labor contributes nothing to production unless its counterpart is also increased proportionally. We can substitute this relationship into our maximization problem to get
+$$\max_{K} \left[p\frac{K}{a_K} - rK - w\frac{a_L}{a_K}K\right].$$
+Rearranging, we have 
+$$\max_{K} K\left(\frac{p}{a_K} - w\frac{a_L}{a_K} - r\right).$$
+Notice that we do not even need first order conditions here! If $\frac{p}{a_K} - w\frac{a_L}{a_K} - r > 0$, then $K^*$ and $L^*$ go to infinity; otherwise, they stay at 0. This result is exactly what we concluded in the previous paragraph.
+
+\subsection*{Cobb-Douglas technology}
+
+In this case, we have the production function
+$$f(K, L) = AK^\alpha L^\beta,$$
+where $0 < \alpha, \beta < 1$ to ensure diminishing returns to capital and labor, and $A > 0$. Notice that the returns to scale depend on the value of $\alpha + \beta$. The firm has increasing returns to scale if this value is greater than 1, constant returns to scale if it is equal to 1, and decreasing returns to scale if it is less than 1. We can also see that
+$$\frac{\partial f^2}{\partial K \partial L} = \alpha \beta AK^{\alpha - 1} L^{\beta -1} > 0,$$
+so capital and labor are complements in this model. 
+
+We could solve this model using the general solutions we developed in the previous sections, but it is an informative example to solve this model directly, since we will be revisiting this functional form several times in this class. We assume that $\alpha + \beta < 1$ so that we have decreasing returns to scale and thus an interior solution, and we assume that $A = 1$ for simplicity. We have the maximization problem
+$$\max_{K, L} pAK^\alpha L^\beta - rK - wL.$$
+Our first order conditions give
+$$\begin{cases}
+\alpha p (K^*)^{\alpha - 1} (L^*)^{\beta} - r = 0 \\
+\beta p (K^*)^{\alpha} (L^*)^{\beta - 1} - w = 0.
+\end{cases}$$
+There are many ways to solve this system for $K^*$ and $L^*$, but a useful and insightful trick is to rearrange the system to yield
+$$\begin{cases}
+p (K^*)^{\alpha} (L^*)^{\beta} = \frac{rK^*}{\alpha} \\
+p (K^*)^{\alpha} (L^*)^{\beta }  = \frac{wL^*}{\beta}.
+\end{cases}$$
+Notice that the term on the left in both equations is firm revenue, and each term on the right is the cost from either capital or labor, divided by the exponent of that term in the production function. Equating these terms gives 
+$$\frac{rK^*}{\alpha} = \frac{wL^*}{\beta},$$
+which tells us that the costs spent on capital ($rK^*$) and labor ($wL^*$) are proportional to each other according to their corresponding exponents.
+We now solve for $K^*$ and $L^*$ by first rearranging our system into
+$$\begin{cases}
+L^* = \frac{\beta r K^*}{\alpha w} \\
+p (K^*)^{\alpha} (\frac{\beta r K^*}{\alpha w})^{\beta }  = \frac{rK^*}{\alpha}.
+\end{cases}$$
+Expanding and rearranging the second term in this system yields the solution
+$$\boxed{K^* = \left[p\left(\frac{\beta}{w}\right)^{\beta} \left(\frac{\alpha}{r}\right)^{1-\beta} \right]^{\frac{1}{1-\alpha-\beta}}.}$$
+In order to find comparative statics for $K^*$, we would differentiate this expression with respect to $p$, $w$, and $r$. If we only care about the signs of these derivatives, a useful trick is to first take the log of this expression, which preserves sign because it is a monotonic transformation. We leave these derivatives as an exercise to the reader, since it is possible to determine the signs of the derivatives by simply observing the expression at hand, yielding
+$$\boxed{\pdv{K^*}{p}>0, \pdv{K^*}{r}<0, \pdv{K^*}{w}<0.}$$
+The first two inequalities are expected: the first says that we rent more capital if our product can be sold more expensively, and the second says that we rent less capital if capital is more expensive. The third inequality tells us that we hire less capital when wages rise, so capital and labor are complements, as we noted before.
+
+We can substitute this value of $K^*$ into our earlier system to solve
+$$\boxed{L^* = \left[p\left(\frac{\alpha}{r}\right)^{\alpha} \left(\frac{\beta}{w}\right)^{1-\alpha} \right]^{\frac{1}{1-\alpha-\beta}},}$$
+which is analogous to our solution for $K^*$. We also have a similar set of comparative statics
+$$\boxed{\pdv{L^*}{p}>0, \pdv{L^*}{r}<0, \pdv{L^*}{w}<0}$$
+that also carry the analogous interpretation.
+
+Finally, we can collect these expressions to solve for the profit function
+\begin{align*}
+\pi(p, r, w) &= p (K^*)^{\alpha} (L^*)^{\beta} - rK^* - wL^* \\
+&= \frac{rK^*}{\alpha} - rK^* - \frac{\beta r K^*}{\alpha} \\
+&= \frac{r(1-\alpha-\beta)}{\alpha}K^* \\
+&= \frac{r(1-\alpha-\beta)}{\alpha}\left[p\left(\frac{\beta}{w}\right)^{\beta} \left(\frac{\alpha}{r}\right)^{1-\beta} \right]^{\frac{1}{1-\alpha-\beta}} \\
+&= \boxed{(1-\alpha-\beta)\left[p\left(\frac{\beta}{w}\right)^{\beta} \left(\frac{\alpha}{r}\right)^{\alpha} \right]^{\frac{1}{1-\alpha-\beta}}.}
+\end{align*}
+We can then take comparative statics to see that
+$$\boxed{\pdv{\pi^*}{p}>0, \pdv{\pi^*}{r}<0, \pdv{\pi^*}{w}<0}.$$
+These results should be intuitive: profits rise when price of the product rises, and profits fall when input costs rise.
+
 
 \section*{Recap}
 \TODO{finish this}
