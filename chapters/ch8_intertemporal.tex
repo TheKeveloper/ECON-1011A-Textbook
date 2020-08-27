@@ -28,3 +28,24 @@ Collectively, these components of the model yield the following maximization pro
 \begin{align*}
     \max_{c_1, c_2} u(c_1) + \beta u(c_2) \text{ s.t. } c_1 + \frac{c_2}{1 + r} \leq y_1 + \frac{y_2}{1 + r}
 \end{align*}
+
+\subsection*{Solving the model}
+One thing to notice about this model is that we can essentially treat this as optimizing over two different goods: period 1 consumption and period 2 consumption. In this case, period 1 consumption has a price 1, while period 2 consumption has price $\frac{1}{1 + r}$. Another thing to notice is that while we have income in each period, we can behave as if we just have a single income because we can borrow or lend freely. We will define the \vocab{net present value} of income, which is how much all money is worth today given that we can invest or borrow, as
+\begin{align*}
+    Y = y_1 + \frac{1}{1 + r} y_2
+\end{align*}
+
+Since we are treating consumption in each period as two separate goods, then we know like in the normal case with two goods, our constraint must hold equality. So our constraint is really $c_1 + \frac{1}{1 + r} c_2 = Y$. Rearranging, we get that at an optimum, $c_2 = (1 + r)(Y - c_1)$. All this means we can rewrite our optimization as
+\begin{align*}
+    \max_{c_1 \in [0, Y]} u(c_1) + \beta u((1 + r) (Y - c_1))
+\end{align*}
+
+Following the standard ways of solving, we can differentiate with respect to $c_1$ to obtain the first order conditions,
+\begin{align*}
+    u'(c_1^*) - \beta (1 + r) u'((1 + r) (Y - c_1^*)) = 0
+\end{align*}
+Replacing $c_2^* = (1 + r) (Y - c_1^*)$, and rearranging, we obtain what is known as the \vocab{Euler equation}, which tells us how consumption in period 1 is related to consumption in period 2:
+\begin{align*} \label{eq:euler}
+    u'(c_1^*) = \beta (1 + r) u'(c_2^*)
+\end{align*}
+We can obtain some brief intutition for this equation. Let's suppose we are deciding between spending an extra dollar in period 1, or saving that money and spending it in period 2. At an optimum, the marginal benefit of each of these alterantives must be equal. First, if we spend the dollar on consumption on period 1, we increase consumption by 1 unit, which (approximately) increases utility by $u'(c_1)$. On the other hand, if we save the dollar, we will have $1 + r$ dollars in period 2, which we can spend on $1 + r$ units of consumption. Each additional unit of consumption increases utility in period 2 by (approximately) $u'(c_2)$. So, our total increase in period 2 utility is $(1 + r) u'(c_2)$. Then, we discount that increase in utility back to the present by factor of $\beta$, so our total increase in utility from saving the money and spending in period 2 is given by $\beta (1 + r) u'(c_2)$. At an optimum, this must be equal to the marginal benefit of consumption period 1, $u'(c_1)$, which is exactly what the first order conditions above say. This is a simplified version of what is known as a \vocab{perturbation argument}, where we argue that at an optimum, a very small perturbation to our choices must have net zero effect, because otherwise we would change our choices. While we will not explicitly use this approach in this course, it is a useful way to gain intuition for why certain quantities must be related to each other in particular ways. 
