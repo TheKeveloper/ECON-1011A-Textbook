@@ -2,7 +2,7 @@
 
 One of the common problems people face is deciding how much of their money to spend today versus how much to save for tomorrow. This question also has important policy implications. How much should governments supplement savings? How should we expect an aging generation's spending levels to change? Are people saving too much or too little? In this chapter, we offer an approach to analyzing how economic agents optimize their consumption across different time periods.
 
-\section*{Two period model}
+\section{Two period model}
 We start off by setting up a simple two-period model, which we will denote by the times $t = 1, 2$. The goal of the agent will be to maximize their utility over the two period. 
 
 \subsection*{Model setup}
@@ -49,3 +49,95 @@ Replacing $c_2^* = (1 + r) (Y - c_1^*)$, and rearranging, we obtain what is know
     u'(c_1^*) = \beta (1 + r) u'(c_2^*)
 \end{align*}
 We can obtain some brief intutition for this equation. Let's suppose we are deciding between spending an extra dollar in period 1, or saving that money and spending it in period 2. At an optimum, the marginal benefit of each of these alterantives must be equal. First, if we spend the dollar on consumption on period 1, we increase consumption by 1 unit, which (approximately) increases utility by $u'(c_1)$. On the other hand, if we save the dollar, we will have $1 + r$ dollars in period 2, which we can spend on $1 + r$ units of consumption. Each additional unit of consumption increases utility in period 2 by (approximately) $u'(c_2)$. So, our total increase in period 2 utility is $(1 + r) u'(c_2)$. Then, we discount that increase in utility back to the present by factor of $\beta$, so our total increase in utility from saving the money and spending in period 2 is given by $\beta (1 + r) u'(c_2)$. At an optimum, this must be equal to the marginal benefit of consumption period 1, $u'(c_1)$, which is exactly what the first order conditions above say. This is a simplified version of what is known as a \vocab{perturbation argument}, where we argue that at an optimum, a very small perturbation to our choices must have net zero effect, because otherwise we would change our choices. While we will not explicitly use this approach in this course, it is a useful way to gain intuition for why certain quantities must be related to each other in particular ways. 
+
+\subsection*{Comparative statics}
+In order to take comparative statics, we can observe that with our rearranged maximization problem, we can treat our intertemporal utility function $U$ as an objective function of a single variable,
+\begin{align*}
+    U(c_1) = u(c_1) + \beta u((1 + r) (Y - c_1))
+\end{align*}
+This means that we can use our general approach for taking a comparative static when the objective function has a single variable (\ref{prop:single_var_static}), which implies that for any exogenous variable $z$, we have
+\begin{align*}
+    \frac{dc_1^*}{dz} = -\frac{U_{c_1 z}}{U_{c_1 c_1}}(c_1^*, z)
+\end{align*}
+First, we can compute the following,
+\begin{align*}
+    U_{c_1} &= u'(c_1) - \beta (1 + r) u'((1 + r)(Y - c_1))\\ 
+    U_{c_1 c_1} &= u''(c_1) + \beta (1+r)^2 u''((1 + r) (Y - c_1))
+\end{align*}
+This calculation offers two things. The first is that we know what $U_{c_1}$ is, so we can partially differentiate $U_{c_1}$ with respect to $z$ to obtain the numerator of the comparative static for any variable. The second is that we know the denominator, $U_{c_1 c_1}$, which must be negative since $u'' < 0$ is negative. This tells us that the sign of the comparative static is the same as that of the numerator.
+
+However, so far we have only done a general setup for the comparative static $\frac{dc_1}{dz}$. What if we want to examine $c_2$? Fortunately, if we know $\frac{dc_1}{dz}$, then we can figure out $\frac{dc_2}{dz}$ by noticing that $c_2 = (1 + r)(Y - c_1)$. So, with straightforward differentiation, we obtain,
+\begin{align*}
+    \frac{dc_2}{dz} &= \frac{d}{dz} \left((1 + r) (Y - c_1)\right) \\
+    &= (1 + r)\left(\frac{dY}{dz} - \frac{dc_1}{dr}\right) + \frac{dr}{dz}(Y - c_1)
+\end{align*}
+
+With this general setup in mind, we can now find some specific comparative statics. Throughout, we occasionally substitute in $c_2 = (1 + r) (Y - c_1)$. 
+
+\begin{description}
+    \item[Income] First, we will find the effet of a change in total net present value of income, so we can partially differentiate $U_{c_1}$ with respect to $Y$,
+    \begin{align*}
+        U_{c_1 Y} &= \partials{}{Y} \left(u'(c_1) - \beta (1 + r) u'((1 + r)(Y - c_1))\right) \\
+        &= - \beta (1 + r)^2 u''((1 + r)(Y - c_1))  \\
+        &= - \beta (1 + r)^2 u''(c_2)
+    \end{align*}
+    Plugging into our general comparative static yields,
+    \begin{align*}
+        \frac{dc_1}{dY} &= - \frac{U_{c_1 Y}}{U_{c_1 c_1}} \\
+        &= \frac{\beta (1 + r)^2 u''(c_2)}{u''(c_1) + \beta (1+r)^2 u''(c_2)}
+    \end{align*}
+    Observe that since $u'' < 0$, then the numerator and denominator are both negative, which means that the expression as a whole must be positive. In particular, we know that $0  < \frac{dc_1}{dY} < 1$, since the numerator, $\beta (1 + r)^2 u''(c_2)$, appears additively in the denominator. We can also use our general calculation for $\frac{dc_2}{dz}$ to obtain,
+    \begin{align*}
+        \frac{dc_2}{dY} &= (1 + r)\left(\frac{dY}{dY} - \frac{dc_1}{dY}\right) + \frac{dr}{dY}(Y - c_1) \\
+        &= (1 + r) \left(1 - \frac{dc_1}{dY}\right)
+    \end{align*}
+    Since we know that $\frac{dc_1}{dY} < 1$, we know that $\frac{dc_2}{dY} > 0$. This offers a key insight: 
+    \emph{$c_1$ and $c_2$ are both normal goods}. 
+
+    Moreover, this offers a nice interpretation, that when we get an extra dollar in net present value, we spend a portion, $\frac{dc_1}{dY}$ on consumption today, and then we save the rest, $1 - \frac{dc_1}{dY}$, at an interest rate $(1 + r)$, to spend tomorrow. 
+
+    Finally, while we have computed here comparative statics for $Y$, we can use the definition of $Y = y_1 + \frac{y_2}{1 + r}$ and the chain rule to obtain,
+    \begin{align*}
+        \frac{dc_1}{dy_1} &= \frac{dc_1}{dY} \frac{dY}{dy_1} = \frac{dc_1}{dY} \\
+        \frac{dc_1}{dy_2} &= \frac{dc_2}{dY} \frac{dY}{dy_2} = \frac{1}{1 + r} \frac{dc_1}{dY}
+    \end{align*}
+ 
+    \item[Interest rate] First, recall that $Y = \frac{y_2}{1 + r} + y_1$. We will need to plug this in explicitly for this comparative static since $r$ appearsin the expression for $Y$. So, partially differentiating $U_{c_1}$ with respect to the interest rate $r$ yields,
+    \begin{align*}
+        U_{c_1 r} &= \partials{}{r}\left(u'(c_1) - \beta (1 + r) u'((1 + r)(Y - c_1))\right) \\
+        &= \partials{}{r}\left(u'(c_1) - \beta (1 + r) u'(y_2 + (1 + r)(y_1 - c_1))\right) \\ 
+        &= -\beta(1 + r) (y_1 - c_1) u''(y_2 + (1 + r)(y_1 - c_1)) - \beta u'(y_2 + (1 + r)(y_1 - c_1)) \\
+        &= -\beta (1 + r) (y_1 - c_1) u''(c_2) - \beta u''(c_2)
+    \end{align*} 
+    Plugging into our general framework,
+    \begin{align*}
+        \frac{dc_1}{dr} &= -\frac{U_{c_1 r}}{U_{c_1 c_1}} \\
+        &= \frac{\beta u'(c_2) + \beta (1 + r)(y_1 - c_1) u''(c_2)}{u''(c_1) + \beta (1 + r)^2 u''(c_2)}
+    \end{align*}
+    This equation is known as the \vocab{intertemporal slutsky equation}, because with a slight rearrangement, it decomposes nicely into income and substitution effects:
+    \begin{align*}
+        \frac{dc_1}{dr} = \underbrace{\frac{\beta u'(c_2)}{u''(c_1) + \beta (1 + r)^2 u''(c_2)}}_{\text{substitution}} + \underbrace{(y_1 - c_1) \frac{\beta(1 + r) u''(c_2)}{u''(c_1) + \beta (1 + r)^2 u''(c_2)}}_{\text{income}}
+    \end{align*}
+    
+    Observe that the substitution effect is always negative, since the denominator is $U_{c_1 c_1}$, which is always negative, and the numerator is always positive. The intuition here is that since a rise in the interest rate means that each dollar consumed today has a larger effect on consumption tomorrow, we will prefer to save and consume more next period if the interest rate is higher. 
+
+    The income effect on the other hand, depends solely on the sign of $y_1 - c_1$. Intuitively, if we $y_1 - c_1 > 0$, then we are savers, and an increase in the interest rate makes us richer, so the income effect is positive. If $y_1 - c_1 < 0$, then we are borrowers, and a higher interest rate makes us poorer, so the income effect is negative. In fact, observe that with a little rearrangement,
+    \begin{align*}
+        (y_1 - c_1) \frac{\beta(1 + r) u''(c_2)}{u''(c_1) + \beta (1 + r)^2 u''(c_2)} &= \left(\frac{y_1 - c_1}{1 + r}\right) \frac{\beta(1 + r)^2 u''(c_2)}{u''(c_1) + \beta (1 + r)^2 u''(c_2)} \\
+        &= (y_1 - c_1) \frac{1}{1 + r} \frac{dc_1}{dY} \\
+        &= (y_1 - c_1) \frac{dc_1}{dy_2}
+    \end{align*}
+    In other words, a small increase in the interest rate changes our effective income in period 2 by a factor of $(y_1 - c_1)$, and so to determine the effect on current consumption, we multiply that change by the effect of a future income change on current consumption, $\frac{dc_1}{dy_2}$. 
+
+    \item[Discount rate] We consider a small increase to $\beta$, which intuitively makes the agent more patient. Once again, we partially differentiate $U_{c_1}$ with respect to $\beta$,
+    \begin{align*}
+        U_{c_1 \beta} &= \partials{}{\beta} \left(u'(c_1) - \beta (1 + r) u'((1 + r)(Y - c_1))\right) \\
+        &= -(1 + r) u'(c_2)
+    \end{align*} 
+    Then, plugging into our general framework,
+    \begin{align*}
+        \frac{dc_1}{d \beta} &= - \frac{U_{c_1 \beta} }{U_{c_1 c_1}} \\
+        &= \frac{(1 + r)u'(c_2)}{u''(c_1) + \beta (1+r)^2 u''(c_2)}
+    \end{align*}
+    Notice that the numerator is positive, while the denominator is negative, so we have that $\frac{dc_1}{d\beta} < 0$. Intuitively, this makes sense because if we are more patient, we will save more of our money and spend it in the next period rather than in the current period. 
+\end{description}
