@@ -66,36 +66,6 @@ Again, the proof is the same as in Section~\ref{sec:cost_properties} and is enco
 
 \TODO{Add example of Cobb Douglas}
 
-\section{Measuring Price Changes}
-
-One important application of our study of the expenditure function is a metric for measuring price changes, or a \vocab{price index}. Prices for goods often change, but what would be a good way to aggregate different price changes across multiple goods into a single metric?
-
-One appealing approach is to use the expenditure function. Suppose we start with utility $u_0$ when prices are at $\vec{p}^0$, and then prices change to $\vec{p}^1$. A natural metric might measure how much expenditure would need to change in order to maintain utility $u_0$ at this new price level $\vec{p}^1$. Mathematically, this definition would look like
-$$\frac{e(\vec{p}^1, u_0)}{e(\vec{p}^0, u_0)}.$$
-As another way to interpret this definition, if we had income $y_0$ when prices were $\vec{p}^0$, and then prices changed to $\vec{p}^1$ and our income changed to $\frac{e(\vec{p}^1, u_0)}{e(\vec{p}^0, u_0)}y_0$, then our utility would be the constant.
-
-The definition above is wonderful in theory but cannot be measured in practice: since we cannot observe consumers' utilities, we also cannot observe their expenditure functions. However, one workaround is to recognize that 
-$$e(\vec{p}, u) = \vec{p}\cdot \vec{h} (\vec{p}, u)$$
-by definition, and that
-$$\mathbf{x}(\mathbf{p}, y)=\mathbf{h}(\mathbf{p}, v(\mathbf{p}, y))$$
-by duality. It is important to understand why the equation above holds: the utility-maximizing consumption given a budget (Marshallian demand) is the same as the expenditure-minimizing consumption to achieve this realized utility level (Hicksian demand). This observation is useful because although we cannot measure the expenditure function, we can measure Marshallian demand, since $\vec{x}, \vec{p}$, and $y$ are all observed.
-
-Using these formulations, we can approximate 
-$$\frac{e\left(\mathbf{p}^{1}, u_{0}\right)}{e\left(\mathbf{p}^{0}, u_{0}\right)} \approx \frac{\sum_{i=1}^{n} p_{i}^{1} x_{i}^{0}}{\sum_{i=1}^{n} p_{i}^{0} x_{i}^{0}},$$
-where the approximation on the right-hand side is known as the \vocab{Laspeyres price index}. Notice where this approximation is not exact. The denominators are equal, since 
-$$e\left(\mathbf{p}^{0}, u_{0}\right) = \sum_{i=1}^{n} p_{i}^{0} x_{i}^{0}$$
-by definition of the expenditure function, but the numerators differ:
-$$e\left(\mathbf{p}^{1}, u_{0}\right) \leq \sum_{i=1}^{n} p_{i}^{1} x_{i}^{0}.$$
-Intuitively, this is because we know $\vec{x}^0$ achieves our minimum utility $u_0$, but purchasing this same bundle might no longer be the minimum expenditure to achieve this utility once prices change. Thus, 
-$$\frac{e\left(\mathbf{p}^{1}, u_{0}\right)}{e\left(\mathbf{p}^{0}, u_{0}\right)} \leq \frac{\sum_{i=1}^{n} p_{i}^{1} x_{i}^{0}}{\sum_{i=1}^{n} p_{i}^{0} x_{i}^{0}},$$
-so the Laspeyres price index is an overestimate of our theoretical ideal. If we had an income $y_0$ initially and multiplied it by the Laspeyres price index after the price change, we would be able to weakly increase our utility, since we can still afford our old consumption bundle, but we may be able to reoptimize and do even better.
-
-A similar approach to the same problem is the \vocab{Paasche price index}
-$$\frac{e\left(\mathbf{p}^{1}, u_{1}\right)}{e\left(\mathbf{p}^{0}, u_{1}\right)} \approx \frac{\sum_{i=1}^{n} p_{i}^{1} x_{i}^{1}}{\sum_{i=1}^{n} p_{i}^{0} x_{i}^{1}},$$
-where we now weight prices by $\vec{x}^1$ instead of $\vec{x}^0$. The theoretical ideal on the left is a similar idea but uses the new utility level as the baseline rather than the old utility level. The Paasche price index on the right is now an underapproximation of the theoretical ideal on the left, since while the numerators are equal, the denominators differ as
-$$e\left(\mathbf{p}^{0}, u_{1}\right) \leq \sum_{i=1}^{n} p_{i}^{0} x_{i}^{1}$$
-by a similar reasoning to before. Intuitively, the Laspeyres price index measures how much a consumption bundle that was optimal in the base year costs now, whereas the Paasche price index measures how much a consumption bundle that is optimal now would have cost in the base year. 
-
 \section{Hicksian and Marshallian Duality}
 The Hicksian and Marshallian have offered us two different demand functions. However, the Hicksiand and the Marshallian are related in two important ways.
 \begin{description}
@@ -503,5 +473,35 @@ Once again, if you have a price increase instead of a price decrease, the inequa
 
 Note however that regardless of whether we have a normal or inferior good, the change in consumer surplus is always between the equivalent and compensating variations. 
 
+\section{Measuring Price Changes}
+
+One important application of our study of the expenditure function is a metric for measuring price changes, or a \vocab{price index}. Prices for goods often change, but what would be a good way to aggregate different price changes across multiple goods into a single metric?
+
+One appealing approach is to use the expenditure function. Suppose we start with utility $u_0$ when prices are at $\vec{p}^0$, and then prices change to $\vec{p}^1$. A natural metric might measure how much expenditure would need to change in order to maintain utility $u_0$ at this new price level $\vec{p}^1$. Mathematically, this definition would look like
+$$\frac{e(\vec{p}^1, u_0)}{e(\vec{p}^0, u_0)}.$$
+As another way to interpret this definition, if we had income $y_0$ when prices were $\vec{p}^0$, and then prices changed to $\vec{p}^1$ and our income changed to $\frac{e(\vec{p}^1, u_0)}{e(\vec{p}^0, u_0)}y_0$, then our utility would be the constant.
+
+The definition above is wonderful in theory but cannot be measured in practice: since we cannot observe consumers' utilities, we also cannot observe their expenditure functions. However, one workaround is to recognize that 
+$$e(\vec{p}, u) = \vec{p}\cdot \vec{h} (\vec{p}, u)$$
+by definition, and that
+$$\mathbf{x}(\mathbf{p}, y)=\mathbf{h}(\mathbf{p}, v(\mathbf{p}, y))$$
+by duality. It is important to understand why the equation above holds: the utility-maximizing consumption given a budget (Marshallian demand) is the same as the expenditure-minimizing consumption to achieve this realized utility level (Hicksian demand). This observation is useful because although we cannot measure the expenditure function, we can measure Marshallian demand, since $\vec{x}, \vec{p}$, and $y$ are all observed.
+
+Using these formulations, we can approximate 
+$$\frac{e\left(\mathbf{p}^{1}, u_{0}\right)}{e\left(\mathbf{p}^{0}, u_{0}\right)} \approx \frac{\sum_{i=1}^{n} p_{i}^{1} x_{i}^{0}}{\sum_{i=1}^{n} p_{i}^{0} x_{i}^{0}},$$
+where the approximation on the right-hand side is known as the \vocab{Laspeyres price index}. Notice where this approximation is not exact. The denominators are equal, since 
+$$e\left(\mathbf{p}^{0}, u_{0}\right) = \sum_{i=1}^{n} p_{i}^{0} x_{i}^{0}$$
+by definition of the expenditure function, but the numerators differ:
+$$e\left(\mathbf{p}^{1}, u_{0}\right) \leq \sum_{i=1}^{n} p_{i}^{1} x_{i}^{0}.$$
+Intuitively, this is because we know $\vec{x}^0$ achieves our minimum utility $u_0$, but purchasing this same bundle might no longer be the minimum expenditure to achieve this utility once prices change. Thus, 
+$$\frac{e\left(\mathbf{p}^{1}, u_{0}\right)}{e\left(\mathbf{p}^{0}, u_{0}\right)} \leq \frac{\sum_{i=1}^{n} p_{i}^{1} x_{i}^{0}}{\sum_{i=1}^{n} p_{i}^{0} x_{i}^{0}},$$
+so the Laspeyres price index is an overestimate of our theoretical ideal. If we had an income $y_0$ initially and multiplied it by the Laspeyres price index after the price change, we would be able to weakly increase our utility, since we can still afford our old consumption bundle, but we may be able to reoptimize and do even better.
+
+A similar approach to the same problem is the \vocab{Paasche price index}
+$$\frac{e\left(\mathbf{p}^{1}, u_{1}\right)}{e\left(\mathbf{p}^{0}, u_{1}\right)} \approx \frac{\sum_{i=1}^{n} p_{i}^{1} x_{i}^{1}}{\sum_{i=1}^{n} p_{i}^{0} x_{i}^{1}},$$
+where we now weight prices by $\vec{x}^1$ instead of $\vec{x}^0$. The theoretical ideal on the left is a similar idea but uses the new utility level as the baseline rather than the old utility level. The Paasche price index on the right is now an underapproximation of the theoretical ideal on the left, since while the numerators are equal, the denominators differ as
+$$e\left(\mathbf{p}^{0}, u_{1}\right) \leq \sum_{i=1}^{n} p_{i}^{0} x_{i}^{1}$$
+by a similar reasoning to before. Intuitively, the Laspeyres price index measures how much a consumption bundle that was optimal in the base year costs now, whereas the Paasche price index measures how much a consumption bundle that is optimal now would have cost in the base year. 
+
 \section*{Recap}
-In this chapter, we discussed how we could derive the Hicksian demand function and the resulting expenditure function. This allowed us to derive the famous Slutsky equation, which decomposed the effects of a price change into a substitution effect and an income effect. We defined normal goods as those with a negative income effect in response to a price increase, while inferior goods have a positive income effect in response to a price increase. We also examined how we could use the expenditure function to derive a measurable utility function, as well as how to use that utility function to measure changes in welfare from price increases. 
+In this chapter, we discussed how we could derive the Hicksian demand function and the resulting expenditure function. This allowed us to derive the famous Slutsky equation, which decomposed the effects of a price change into a substitution effect and an income effect. We defined normal goods as those with a negative income effect in response to a price increase, while inferior goods have a positive income effect in response to a price increase. We also examined how we could use the expenditure function to derive a measurable utility function, as well as how to use that utility function to measure changes in welfare from price increases. Finally, we examined how the expenditure function could be used to construct an index of prices to see how prices have changed in the economy as a whole. 

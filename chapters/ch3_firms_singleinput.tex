@@ -284,5 +284,79 @@ We will now prove the envelope theorem in the single variable case.
 
 Essentially the envelope theorem says that because we are at an optimum, a small change in our choice variable does not change the value of the overall objective function because of the first order condition. In the context of profit, this tells us that the effect of a change in price is purely the increase in price from the units that we are already producing, $f(L^*)$. Note that this does \emph{not} say that our choice of labor or that our production amount is not changing. Rather, it says that becuase we are at an optimum, the derivative of the profit with respect to $L$ must be 0. This means that a small change in $L$ will not affect the overall profit, so the only effect is the mechanical effect of increasing the price of the current units sold.
 
+\section{Policy applications}
+Now that we have a basic model of the firm setup, we can augment it slightly to add some common policy questions and see how they affect the firm's output. In particular, we can examine ƒixed costs and taxes on firms. For each addition to the basic model, we can ask whether it changes the firm's decisions or its profits. 
+
+\subsection*{Fixed costs}
+Suppose that firms have some fixed cost, $b$, that must be paid. This might be the cost of purchasing land, a factory, or filling out paperwork. First, we will assume that the firm must operate. In this case, the profit function is given by,
+\begin{align*}
+    \pi = p f(L) - w L - b
+\end{align*}
+Notice however, that this is a monotonic transformation of the profit function, which means that the optimal choice remains the same. We can verify this by taking first order conditions,
+\begin{align*}
+    \partials{\pi}{L} = pf'(L^*) - w = 0 \implies pf'(L^*) = w
+\end{align*}
+This is the same as the first order conditions in the basic firm model, which tells us that the optimal choices are the same. In particular, this means that profits are simply $b$ dollars lower than in the standard case.
+
+However, so far we have assumed that the firm is forced to operate. In reality, if profits are negative, the firm would likely shut down. So, if the choice of $L^*$ implicitly defined above yields a positive profit, then the firm will choose $L^*$. However, if it yields a negative profit, then the firm will shut down and hire 0 labor. So, the choice of labor is instead given by,
+
+\begin{align*}
+    \begin{cases}
+        L^* & \text{ if } p f(L^*) - w L^* - b \geq 0 \\
+        0 & \text{ o/w }
+    \end{cases}
+\end{align*}
+
+\subsection*{Tax per unit sold}
+In both the United States and Europe, taxes are levied on many goods at the point of sale. In the United States, this takes the form of a sales tax, while the European Union uses a Value-Added Tax. Here, we model the effect of a tax on sales on firm production. 
+
+Suppose that the government levies a tax of $\tau$ on each unit of production sold. If the market price is still $p$, then this means that the firm really receives $p - \tau$ dollars per unit sold. Notice that we could also use this to model a per-unit subsidy, which would simply be the case where $\tau < 0$. We assume that the market price does not adjust to the imposition of this tax, and that $\tau < p$.  This means that the firm's profit function is now,
+\begin{align*}
+    \pi = (p - \tau) f(L) - w L
+\end{align*}
+We can once again take first order conditions to obtain,
+\begin{align*}
+    \partials{\pi}{L} = (p - \tau) f'(L^*) - w = 0 \implies (p - \tau) f'(L^*) = w
+\end{align*}
+Notice that this is almost exactly the same as the original first order conditions, except that we've replaced $p$ with $p - \tau$. This is because the firm is facing essentially the same problem, except instead of facing a price $p$ for each good, they face $\tilde{p} = p - \tau$ as the price. 
+
+One question we might have is whether this leads to higher or lower labor consumption that in the normal case. If we had an explicit functional form, we could directly compare for the resulting values of $L^*$. However, this is more difficult without an explicit functional form. A nice trick though is take comparative statics. Notice that the original case with no tax is just the special case of $\tau = 0$. So, if we take comparative statics with respect to $\tau$, we could determine the direction of the change in labor usage. To do so, we implicitly differentiate the first order condition with respect to $\tau$,
+\begin{align*}
+    &\frac{d}{d\tau}\left((p - \tau) f'(L^*)\right) = \frac{d}{d\tau} w \\
+    \implies& (p - \tau) f''(L^*) \frac{dL^*}{d\tau}- f'(L^*) = 0 \\
+    \implies& \frac{dL^*}{d\tau} = \frac{f'(L^*)}{(p - \tau) f''(L^*)} 
+\end{align*}
+There are a few things to notice. The first is that since we assumed $\tau < p$, then $\frac{dL^*}{d\tau}$ is negative. That is, the higher the tax, the less labor the firm hires. Since the production function is monotonically increasing in $L$, then this also tells us that as taxes are higher, the firm produces less output.
+
+The second thing to notice is that if we were to differentiate with respect to the market price, $p$, instead, we would get,
+\begin{align*}
+    \frac{dL^*}{dp} = - \frac{f'(L^*)}{(p - \tau) f''(L^*)} = -\frac{dL^*}{d\tau}
+\end{align*}
+That is, the effect of a change in the tax is exactly the negative of the effect of a change in price. This is because the firm only cares about the after-tax price, in which case a tax increase is essentially the same as a price increase.
+
+Finally, a key point to notice is that if you were to compare $\frac{dL^*}{d\tau}$ here to the expression for $\frac{dL^*}{dp}$ in the model without taxes, you would get the same negative relationship except with $p$ replaced with $p - \tau$. This is to emphasize the point that if you know how the firm would respond to $p$, you can essentially replace $p$ with $p - \tau$ everywhere if you impose a tax. 
+
+\subsection*{Tax on labor}
+Rather than a tax on the end product, we can instead consider what would happen with a tax (or subsidy) on labor. This is modeled in essentially the same way as the tax on production, except now we impose a tax $\tau$ on each unit of labor, so that the total cost of one unit of labor is given by $w + \tau$. To avoid degenerate cases, we assume that $w + \tau > 0$ (this could be negative if we instead subsidized labor with $\tau < 0$). Then our profit function is given by
+\begin{align*}
+    \pi = p f'(L^*) - (w + \tau) L
+\end{align*}
+Much like the case of a tax on output however, all we have done is change the effective price of labor. This means that rather than re-calculating everything, we can just plug in $w + \tau$ in place of $w$ everywhere in our original model. This immediately yields the first order condition as,
+\begin{align*}
+    p f'(L^*) = w + \tau
+\end{align*}
+Furthermore, notice that $\tau$ is essentially the same as $w$ from a mathematical perspective. That is, we could swap the symbols and the math would remain the smae. This means that the comparative statics are the same, so we can just use our original expression for $\frac{dL^*}{dw}$ (which does not actually depend on $w$),
+\begin{align*}
+    \frac{dL^*}{d\tau}= \frac{1}{pf''(L^*)}
+\end{align*}
+These calculations are useful shortcuts, and can be replicated by our normal approach. 
+
+\subsection*{Tax on profits}
+Finally, we will consider a proportional tax on profits. That is, we impose a tax, $\tau$, on each dollar of profits earned. We assume that $\tau < 1$. This means that the firm's after tax profits are given by,
+\begin{align*}
+    \pi = (1 - \tau) \left(p f(L) - w L \right)
+\end{align*}
+However, notice that if $\tau < 1$, this is just a monotonic transformation of the original profit function, so the optimal choice of $L$ remains the same. This tells us that \emph{firm behavior is unchanged by a tax on profits}. However, you may have seen that economists are often opposed to high corporate income taxes. Why would this be the case if we can impose large taxes with no distortionary effects? This is because our model only has one period, and ignores important factors like investment in future productivity, and the risk of starting a firm in the first place.
+
 \section*{Recap}
 We can now calculate how profit-maximizing firms will choose how many workers to hire, and we have also examined how the firm's labor demand, production, and profit will change in response to variations in price and wages. We have observed these changes not only with specific production functions, but also obtained more general results for how firms should respond to changes. These are already some very powerful economic modeling tools that can formalize existing economic intutions and suggest how we might capture more complex results. In the next chapter, we will develop the model slightly by considering firms who not only choose labor, but multiple inputs. 
