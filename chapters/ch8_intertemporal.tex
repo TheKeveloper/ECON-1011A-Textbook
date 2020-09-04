@@ -149,9 +149,64 @@ With this general setup in mind, we can now find some specific comparative stati
     Notice that the numerator is positive, while the denominator is negative, so we have that $\frac{dc_1}{d\beta} < 0$. Intuitively, this makes sense because if we are more patient, we will save more of our money and spend it in the next period rather than in the current period. 
 \end{description}
 
-\subsection*{Real investment technology}
+\section{Real investment technology}
 So far, we have developed a two period model where we have an exogenously given interest rate than agent can borrow or lend at without constraints. However, we will now consider a situation where there are no credit markets. Instead, the agent can invest the money and earn a return for period 2. We make the following adjustments to the model:
 \begin{description}
     \item[No period 2 income] For simplicity, we assume that $y_2 = 0$. This is not strictly necessary, but the analysis where $y_2 > 0$ complicates the model somewhat and does not add much insight. We assume therefore that $y_1 > 0$.
-    \item[Real investment technology] The agent has access to a real investment technology, $w(\cdot)$. If the agent invests $h$ income in the first period, then the agent receives $w(h)$ in the second period, with $w'(h) > 0 \forall h$.  
+    \item[Real investment technology] The agent has access to a real investment technology, $w(\cdot)$. If the agent invests $h$ income in the first period, then the agent receives $w(h)$ in the second period, with $w'(h) > 0 \forall h$. 
 \end{description}
+
+\subsection*{Optimal Investment}
+Since the agent's consumption in period 1 is determined by whatever they do not invest, and the consumption in period 2 is determined by the return on investment, the only choice the agent has to make is how much to invest. This means that we have $c_1 = y_1 - h$ and $c_2 = w(h)$. So, the agent's problem is,
+\begin{align*}
+    \max_{h \in [0, y_1]} u(y_1 - h) + \beta u(w(h))
+\end{align*}
+Differentiating the objective function with respect to $h$ yields the first order condition, 
+\begin{align*}
+    &-u'(y_1 - h^*) + \beta u'(w(h^*)) w'(h^*) = 0 \\
+    \implies& u'(y_1 - h^*) = \beta u'(w(h^*)) w'(h^*)
+\end{align*}
+This is the new Euler equation, and notice that it looks very similar to the Euler equation with credit markets. In fact, if we have $w(h) = (1 + r)h$, then this equation is exactly the same as the original Euler equation. The key difference here is that the investment technology we have here is not necessarily linear, and is in some sense a more general approach to intertemporal choice than with only the interest rate.
+
+\subsection*{Two Savings Technologies}
+Finally, we can consider the case where the agent not only has access to the investment technology, $w$, but also to credit markets with an exogenous real interest rate $r$. We once again assume that the agent has no other outside income other than investment returns. 
+
+First, notice that with perfect credit markets, we have the standard budget constraint,
+\begin{align*}
+    c_1 + \frac{c_2}{1 + r} = y_1 + \frac{y_2}{1 + r}
+\end{align*}
+Notice however, that $y_2 = w(h)$ because our only outside income is given by our return on investment, and that to finance that investment, we need to spend $h$ in the first period leaving total first period expendable income as $y_1 - h$. We can then rewrite the budget constraint as
+\begin{align*}
+    c_1 + \frac{c_2}{1 + r} = y_1 - h + \frac{w(h)}{1 + r}
+\end{align*}
+This yields the optimization problem,
+\begin{align*}
+    \max_{c_1, c_2, h} u(c_1) + \beta u(c_2) \text{ s.t. } c_1 + \frac{c_2}{1 + r} = y_1 - h + \frac{w(h)}{1 + r}
+\end{align*}
+As always, we can use the Lagrangian to solve the constrained optimization problem,
+\begin{align*}
+    \Lagr = u(c_1) + \beta u(c_2) - \lambda \left(c_1 + \frac{c_2}{1+r} - y_1 + h - \frac{w(h)}{1 + r}\right)
+\end{align*}
+This yields the following first order conditions,
+\begin{align*}
+\partials{\Lagr}{c_1} &= u'(c_1) - \lambda = 0 \\
+\partials{\Lagr}{c_2} &= \beta u'(c_2) - \frac{\lambda}{1 + r} = 0 \\
+\partials{\Lagr}{h} &= 1 - \frac{w'(h)}{1 + r} = 0 \\
+\partials{\Lagr}{\lambda} &= c_1 + \frac{c_2}{1+r} - y_1 + h - \frac{w(h)}{1 + r} = 0
+\end{align*}
+The first and second equations can be arranged to yield the standard Euler equation,
+\begin{align*}
+    u'(c_1) = \beta (1 + r) u'(c_2)
+\end{align*}
+The last equation is simply the budget constraint,
+\begin{align*}
+    c_1 + \frac{c_2}{1+r} = y_1 - h + \frac{w(h)}{1 + r}
+\end{align*}
+
+What interests us most is the third equation. Notice that the third equation alone is sufficient to define $h^*$, 
+\begin{align*}
+    w'(h^*) = 1 + r
+\end{align*}
+Why does this condition make sense? The intuition is that we will invest up to the point where an additional dollar returns equal to the interest rate. After that point, assuming our investment technology is concave, we would always prefer to save our money and earn interest on it because that has a greater marginal return. Another key thing to notice is that the amount we choose to invest does not depend on how impatient the agent is, or on the utility function at all. 
+
+The idea here is that the agent will \emph{always choose the investment that maximizes net present value}. Because the credit markets allow us to shift income between time periods, our only investment choice is to maximize income. This means that we could solve the optimizations separately by first optimizing the NPV of income by choosing investment, and then choose our consumption taking our NPV of income as given.
