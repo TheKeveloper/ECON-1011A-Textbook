@@ -210,3 +210,28 @@ What interests us most is the third equation. Notice that the third equation alo
 Why does this condition make sense? The intuition is that we will invest up to the point where an additional dollar returns equal to the interest rate. After that point, assuming our investment technology is concave, we would always prefer to save our money and earn interest on it because that has a greater marginal return. Another key thing to notice is that the amount we choose to invest does not depend on how impatient the agent is, or on the utility function at all. 
 
 The idea here is that the agent will \emph{always choose the investment that maximizes net present value}. Because the credit markets allow us to shift income between time periods, our only investment choice is to maximize income. This means that we could solve the optimizations separately by first optimizing the NPV of income by choosing investment, and then choose our consumption taking our NPV of income as given.
+
+\section{Multiple periods and discounting}
+We've worked primarily on a model with only two periods. However, many questions in economics, such as savings over a lifetime, involve more than two periods. In this section, we discuss how to model multi-period models, and with a particular focus on how we discount multiple periods.
+
+\subsection*{Basic multi-period model}
+We assume that we want to develop a model over $n$ periods. In the most general case, we could even have that $n = \infty$. However, for the purposes of this course we will treat $n$ as finite. We use many of the same assumptions as in the two period model. We maintain our assumption of additive separability of utility between periods, and the agent chooses consumption $c_t$ in period $t$. The utility for a given period is therefore $u(c_t)$. We also assume that each period $t$ is discounted by a factor $\beta_t$ relative to period 1, with $\beta_1 = 1$ (no discounting the present). This yields the following intertemporal utility function,
+\begin{align*}
+    U(c_1, \dots, c_n) &= u(c_1) + \beta_2 u(c_2) + \dots + \beta_n u(c_n) \\
+    &= \sum_{t = 1}^n \beta_t u(c_t)
+\end{align*}
+
+We also assume that the agent has incomes $y_t$ in each period $t$, and that the agent has perfect credit markets with real interest rate $r$, which is constant over time. This means that a dollar invested in period $1$ will return $(1 + r)^{t - 1}$ in period $t$. Similarly, a dollar borrowed in period $1$ will require payment of $(1 + r)^{t - 1}$ in period $t$. We require that the agent's NPV of consumption is at most the NPV of current income. This yields the budget constraint,
+\begin{align*}
+    \sum_{t = 1}^n \frac{c_t}{(1 + r)^{t - 1}} \leq \sum_{t = 1}^n \frac{y_t}{(1 + r)^{t - 1}}
+\end{align*}
+We will once again define the NPV of income as,
+\begin{align*}
+    Y = \sum_{t = 1}^n \frac{y_t}{(1 + r)^{t - 1}}
+\end{align*}
+We also know that similar to previous cases, at an optimum, the budget constraint will hold with equality. This yields the optimization problem,
+\begin{align*}
+    \max_{c_1, \dots, c_n} \sum_{t = 1}^n \beta_t u(c_t) \text{ s.t. } \sum_{t = 1}^n \frac{c_t}{(1 + r)^{t - 1}}  \leq Y
+\end{align*}
+
+However, getting anything useful or interesting in this analysis requires that we specify a particular method of discounting. That is, we need to specify the $\beta_t$s. There are two predominant ways for doing so, which we will cover next. 
