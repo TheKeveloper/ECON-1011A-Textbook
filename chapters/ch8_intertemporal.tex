@@ -290,3 +290,51 @@ We can use the standard Lagrangian method, which yields two classes of Euler equ
     u'(c_t) &= \delta (1 + r) u'(c_{t + 1}), \, t \geq 2 \text{  (long run)}
 \end{align*}
 The first tells us how we consume in the present. Since we know that $u$ is a concave function, then the addition of the $\beta$ term means that $c_1$ will be proportionally higher relative to $c_2$ than $c_t$ is relative to $c_{t + 1}$ for $t \geq 2$. That is, since the agent has disproportionate value on the present, they will consume more in period 1 relative to period 2 than period 2 relative to period 3.
+
+\subsubsection*{Time Inconsistency}
+While the model as we have established it so far tells us how an agent in period 1 would \emph{plan} consumption in future periods, we face a problem of time inconsistency. That is, the agent in period 1 assumes that the value of period 2 consumption relative to period 3 consumption is the same as the value of period 3 consumption relative to period 4. But once the agent reaches period 2, then period 2 becomes the ``present,'' and the agent will want to consume more in period 2 than originally planned. Mathematically, the naive agent assumes that period 2 utility will take the form $u(c_2) + \delta u(c_3) + \dots + \delta^{n - 2} u(c_n)$. However, in reality, the agent in period 2 faces intertemporal utility function,
+\begin{align*}
+    U_2(c_2, \dots, c_n) = u(c_2) + \beta (\delta u(c_3) + \dots + \delta^{n - 2} u(c_n))
+\end{align*}
+Students may know this phenomena better as ``procrastination,'' where you plan to do your homework tomorrow, but when tomorrow comes, you push it off to the day after.
+
+There are two possible solutions to this. The first is that we can assume that the agent has some self-control device where they can force their future self to consume exactly what is planned today. This might take the form of putting money in a savings account where only a fixed amount can be withdrawn each period. If such a self-control mechanism exists, then the agent will consume exactly as planned, and the existing hyperbolic discounting model is sufficient. 
+
+The second is that the agent in the present knows that their future self will be time inconsistent. This is like a student knowing that even though they plan to do homework tomorrow, that they will likely be lazy and procrastinate further. In this case, the agent must engage in \vocab{strategic consumption}, taking into account their future responses when planning present consumption. 
+
+To model this problem, we will simplify by assuming that there are $n = 3$ periods. We solve this using a method known as \vocab{backwards induction}, where we solve for how the agent will behave in period $n$ given choices in period $n - 1$, and then take that behavior as given to optimize in period $n - 1$. In our case, we will consider what decision the agent makes in period 2 if in period 1, the agent leaves $w$ wealth in terms of NPV. Then, we will take this response as given in period 1 and optimize. 
+
+\begin{description}
+    \item[Period 2] We assume that the agent has $w$ in wealth leftover in period 1 to spend on period 2 and 3 consumption. Agent 2's optimization problem is,
+    \begin{align*}
+        \max_{c_2, c_3} u(c_2) + \beta \delta u(c_3) \text{ s.t. } c_2 + \frac{c_3}{1 + r} = w
+    \end{align*} 
+    The Euler equation in this case should be familiar,
+    \begin{align*}
+        u'(c_2^) = \beta \delta (1 + r) u'(c_3^)
+    \end{align*}
+    We will express the solutions as functions of $w$, $c_2(w)$ and $c_3(w)$. Notice that know in this case there is no time inconsistency between periods 2 and 3, because period 3 is the last period so all remaining money will be spent, as planned. The functions $c_2(w)$ and $c_3(w)$ tell us what the period 2 behavior will be if the agent leaves $w$ wealth behind in period 1. Now we can model the behavior of the agent in period $1$. 
+    \item[Period 1] The goal of the agent in period 1 is to consume to maximize their current intertemporal utility function, knowing that their future self will actually consume according to $c_2(w)$ and $c_3(w)$. Note however, that the agent in period 1 is only taking into consideration the \emph{behavior} of their future self, not the fact that their period 2 self will be maximizing a different utility function. 
+    
+    We can reduce the problem to the single choice variable $w$, how much the agent saves in period 1. This means that the new budget constraint is
+    \begin{align*}
+        c_1 + \frac{w}{1 + r} = Y
+    \end{align*}
+    By plugging in the constraint, we get $c_1 = Y - \frac{w}{1 + r}$, yelding the following optimization problem:
+    \begin{align*}
+        \max_{w \in [0, (1 + r) Y]} u\left(Y - \frac{w}{1 + r}\right) + \beta[\delta u(c_2(w)) + \delta^2 u(c_3(w))]
+    \end{align*}
+    This yields the first order condition,
+    \begin{align*}
+        u'\left(Y - \frac{w^*}{1 + r}\right) = \beta \delta (1 + r) \left[u'(c_2(w))c_2'(w) + u'(c_3(w))c_3'(w)\right] 
+    \end{align*}
+    This is sufficient to define the optimal solution for the agent when planning for the fact that their future selves will behave differently than planned. 
+\end{description}
+
+Finally, it is worth some examination what happnes in the case of a change in $\beta$. That is, how do our consumption decisions differ if we become more or less impatient. Let's consider specifically the case where we become more impatient, which corresponds to a decline in $\beta$. There are three notable effects when it comes to how consumption changes:
+\begin{description}
+    \item[Direct effect] The most obvious is the direct effect of a change in impatience, which comes from the fact that $\beta$ appears directly in the first order condition. Because we value the present more relative to the future, we will want to shift consumption into the present. 
+    \item[Substitution effect] It is important to recall that $\beta$ also appears implicitly in the functions $c_2$ and $c_3$ because we have present bias when making the consumption decision in period 2 as well. The first effect of more impatience is that we would shift more consumption from period 3 to period 2, because in period 2, we value the present more. So $c_2(w)$ increases while $c_3(w)$ decreases. Because $u$ is concave, this translates to $u'(c_2(w))$ decreasing and $u'(c_3(w))$ increasing. The magnitudes of these changes are ambiguous, so we cannot say the effect that it has on period 1 consumption.
+    \item[Income effect] Finally, the fact that we are more impatient means that a greater share of additional saved income will go to period 2 consumption than period 3 consumption, because the period 2 agent values the present more. This translates mathematically into the fact that $c_2'(w)$ increases, while $c_3'(w)$ decreases, because more of each marginal dollar saved goes to period 2 consumption than period 3. Once again, the net effect on period 1 consumption is ambiguous. 
+\end{description}
+These three combine to make it so that it is highly ambiguous what the net effect of a change in impatience will be. We would be able to determine this effect by examining the comparative statics with an explicit functional form. However, we will not do so here.
