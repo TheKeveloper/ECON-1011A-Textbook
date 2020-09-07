@@ -231,7 +231,62 @@ We will once again define the NPV of income as,
 \end{align*}
 We also know that similar to previous cases, at an optimum, the budget constraint will hold with equality. This yields the optimization problem,
 \begin{align*}
-    \max_{c_1, \dots, c_n} \sum_{t = 1}^n \beta_t u(c_t) \text{ s.t. } \sum_{t = 1}^n \frac{c_t}{(1 + r)^{t - 1}}  \leq Y
+    \max_{c_1, \dots, c_n} \sum_{t = 1}^n \beta_t u(c_t) \text{ s.t. } \sum_{t = 1}^n \frac{c_t}{(1 + r)^{t - 1}} = Y
 \end{align*}
 
 However, getting anything useful or interesting in this analysis requires that we specify a particular method of discounting. That is, we need to specify the $\beta_t$s. There are two predominant ways for doing so, which we will cover next. 
+
+\subsection*{Exponential discounting}
+The standard method of discounting in economics is known as \vocab{exponential discounting}. In this case, we assume that each period is discounted by a constant factor, $\delta$, relative to the previous period. This means we set $\beta_t = \delta^{t - 1}$. We can therefore write our intertemporal utility function as,
+\begin{align*}
+    U(c_1, \dots, c_n) &= u(c_1) + \delta u(c_2) + \delta^2 u(c_3) + \dots + \delta^{n - 1} u(c_n) \\
+    &= \sum_{t = 1}^n \delta^{t - 1}u(c_t)
+\end{align*}
+This discounting has the nice property that an agent in period two ``views'' the utility function the same as an agent in period one. That is, the way that an agent in period 1 views period 2, is the same way that an agent in period 2 views period 3, and similarly for all periods. 
+
+With this discounting rule, our maximization problem is,
+\begin{align*}
+    \max_{c_1, \dots, c_n} \sum_{t = 1}^n \delta^{t - 1}u(c_t) \text{ s.t. } \text{ s.t. } \sum_{t = 1}^n \frac{c_t}{(1 + r)^{t - 1}} = Y
+\end{align*}
+
+We can then use the standard Lagrangian approach,
+\begin{align*}
+    \Lagr = \sum_{t = 1}^n \delta^{t - 1}u(c_t) - \lambda \left(\sum_{t = 1}^n \frac{c_t}{(1 + r)^{t - 1}} - Y\right)
+\end{align*}
+
+We can once again take first order conditions. Notice that because each of the $c_t$s is linearly separable, the first order condition for each will not depend on any other $c_t$. So, we can write,
+\begin{align*}
+    \partials{\Lagr}{c_t} &= \delta^{t - 1} u'(c_t) - \lambda \frac{1}{(1 + r)^{t - 1}} = 0, \, t = 1, 2, \dots, n \\
+    \partials{\Lagr}{\lambda} &= \sum_{t = 1}^n \frac{c_t}{(1 + r)^{t - 1}} - Y = 0
+\end{align*}
+Rearranging the first equation, we have that
+\begin{align*}
+    \delta^{t- 1} (1+ r)^{t - 1} u'(c_t) = \lambda, \, t = 1, 2, \dots, n
+\end{align*}
+Now we can consider the Euler equation for times $t$ and $t + s$ where $s > 0$. Substituting in for $\lambda$, we get
+\begin{align*}
+    &\delta^{t - 1} (1+ r)^{t - 1} u'(c_t) = \delta^{t + s - 1} (1 + r)^{t + s - 1} u'(c_{t + s}) \\
+    \implies& u'(c_t) = \delta^s (1 + r)^s u'(c_{t + s})
+\end{align*}
+Notice that if we set $s = 1$, then we get the same Euler equation as the two period model,
+\begin{align*}
+    u'(c_t) = \delta (1+r)u'(c_{t + 1})
+\end{align*}
+
+This model of exponential discounting is heavily used through economics, and especially in macroeconomics, where decisions about saving and spending over time are essential. This model also makes some important implications. The first is that because the future looks the same no matter period is the present, our choices are consistent and we should expect a steady rate of change in consumption. That is, our consumption might be growing, declining, or constant, but that the rate of change in our consumption should be the same over time because each period ``looks'' the same as the last. This model is also very flexible. It can be extended to an infinite time horizon model, and it can even be adjusted to take place in continuous time, making it one of the most important model setups in microeconomics.
+
+\subsection*{Hyperbolic Discounting}
+While the exponential discounting model has many nice properties, it does not seem to be how humans behave empirically. Consider the following scenario: if given a choice between having one cookie now, or two cookies a week from now, most people would schoose one cookie now. However, when given the choice between one cookies a 10 weeks from now, or two cookies 11 weeks from now, most would choose 11 weeks from now. If we were discounting exponentially, we should make the same choice in either scenario. The fact that we don't suggests that exponential discounting may not be an accurate model of human behavior.
+
+The problem is that people seem to have disproportionate value for the present. That is, the difference between today and tomorrow is more important to us than the difference between tomorrow and the day after. To capture this effect in our model, we assume that starting in the second period, everything is indeed discounted exponentially, but that there is special weight on the present where everything in the future is discounted by a constant factor $\beta < 0$ in addition to the exponential factor, $\delta$. Our intertemporal utilty function becomes,
+\begin{align*}
+    U(c_1, \dots, c_n) &= u(c_1) + \beta(\delta u(c_2) + \dots + \delta^{n - 1} u(c_n)) \\
+    &= u(c_1) + \beta \sum_{t = 2}^n \delta^{t - 1} u(c_t)
+\end{align*}
+
+We can use the standard Lagrangian method, which yields two classes of Euler equation,
+\begin{align*}
+    u'(c_1) &= \beta \delta (1 + r) u'(c_2) \text{  (short run)}\\
+    u'(c_t) &= \delta (1 + r) u'(c_{t + 1}), \, t \geq 2 \text{  (long run)}
+\end{align*}
+The first tells us how we consume in the present. Since we know that $u$ is a concave function, then the addition of the $\beta$ term means that $c_1$ will be proportionally higher relative to $c_2$ than $c_t$ is relative to $c_{t + 1}$ for $t \geq 2$. That is, since the agent has disproportionate value on the present, they will consume more in period 1 relative to period 2 than period 2 relative to period 3.
