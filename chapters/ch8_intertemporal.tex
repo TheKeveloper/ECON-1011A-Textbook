@@ -1,0 +1,361 @@
+\chapter{Intertemporal choice}
+
+One of the common problems people face is deciding how much of their money to spend today versus how much to save for tomorrow. This question also has important policy implications. How much should governments supplement savings? How should we expect an aging generation's spending levels to change? Are people saving too much or too little? In this chapter, we offer an approach to analyzing how economic agents optimize their consumption across different time periods.
+
+\section{Two period model}
+We start off by setting up a simple two-period model, which we will denote by the times $t = 1, 2$. The goal of the agent will be to maximize their utility over the two period. 
+
+\subsection*{Model setup}
+We assume that there are two periods, and that the agent is making a decision for how much to consume in each period before either period has happened yet. 
+
+\begin{description}
+    \item[Consumption] In each period, the agent chooses how much they which to consume. In period one they choose $c_1$ and in period two they choose $c_2$. For simplicity, we assume there is only one good, but the model can be extended to encompass multiple goods. We will also assume for the purposes of this model that the price remains constant between periods and the it is normalized to 1. 
+    \item[Utility] We assume that in each period, the agent has a utility function $u(\cdot)$ that depends only on consumption and which has the usual utility assumptions: continuous, twice-differentiable, increasing, and concave. So the agent receives utility $u(c_1)$ in period 1 and $u(c_2)$ in period 2. The agent's goal is to maximize their utility over the two periods, and we assume that the utilities between periods are additively separable and that period 2 utility is discounted (see below) by $\beta$, yielding the overall utility function,
+    \begin{align*}
+        U(c_1, c_2) = u(c_1) + \beta u(c_2)
+    \end{align*} 
+    The additive separability is a key assumption here. It means for example that consumption in period 1 cannot increase the marginal utility in period 2, or vice versa. There are cases where additive separability does not hold, but we will assume so here for the sake of simplicity.
+    \item[Discount rate] We assume that period 2 utility is discounted by some factor $\beta$, where usually $0 < \beta < 1$. Intuitively, we are saying that the agent values the present more than the future. This might be due to impatience, or any other factor that causes the agent to value the present more than the future. Note that this is \emph{not} (necessarily) the same as the discount rate used in valuing financial assets, as that is more accurately handled by the interest rate which is a separate component of the model. 
+    \item[Income] We assume that in each period, the agent receives some exogenous income $y_t$. 
+    \item[Savings and interest] The agent can borrow or save at an interest rate, $r$, which is exogenously given. This means that the agent's total spending ability in period 2 is given by $(1 + r)(y_1 - c_1) + y_2$. If $y_1 - c_1$ is positive, it means that agent saved, and if it is negative, then the agent borrowed. Crucially, we assume that the agent can borrow as much as they want in period 1, so the only budget constraint is between periods. We also assume that $r$ is the real interest rate, which allows us to treat a negative value of $r$ as a change in the price between periods. 
+    \item[Intertemporal budget constraint] While we assume no borrowing constraint, we do require that the agent cannot be in debt at the end of the two periods. That is, we require that the present value of total income is at least the present value of total consumption:
+    \begin{align*}
+        c_1 + \frac{c_2}{1 + r} \leq y_1 + \frac{y_2}{1 + r}
+    \end{align*}
+    The idea behind the present value is that if I consume 1 unit of good in period 2, I could have used that money to purchase $\frac{1}{1 + r}$ of goods in period 1. The same logic applies to income. In this sense, the interest rate tells us how prices and purchasing power are different between periods.  
+\end{description}
+Collectively, these components of the model yield the following maximization problem:
+\begin{align*}
+    \max_{c_1, c_2} u(c_1) + \beta u(c_2) \text{ s.t. } c_1 + \frac{c_2}{1 + r} \leq y_1 + \frac{y_2}{1 + r}
+\end{align*}
+
+\subsection*{Solving the model}
+One thing to notice about this model is that we can essentially treat this as optimizing over two different goods: period 1 consumption and period 2 consumption. In this case, period 1 consumption has a price 1, while period 2 consumption has price $\frac{1}{1 + r}$. Another thing to notice is that while we have income in each period, we can behave as if we just have a single income because we can borrow or lend freely. We will define the \vocab{net present value} of income, which is how much all money is worth today given that we can invest or borrow, as
+\begin{align*}
+    Y = y_1 + \frac{1}{1 + r} y_2
+\end{align*}
+
+Since we are treating consumption in each period as two separate goods, then we know like in the normal case with two goods, our constraint must hold equality. So our constraint is really $c_1 + \frac{1}{1 + r} c_2 = Y$. Rearranging, we get that at an optimum, $c_2 = (1 + r)(Y - c_1)$. All this means we can rewrite our optimization as
+\begin{align*}
+    \max_{c_1 \in [0, Y]} u(c_1) + \beta u((1 + r) (Y - c_1))
+\end{align*}
+
+Following the standard ways of solving, we can differentiate with respect to $c_1$ to obtain the first order conditions,
+\begin{align*}
+    u'(c_1^*) - \beta (1 + r) u'((1 + r) (Y - c_1^*)) = 0
+\end{align*}
+Replacing $c_2^* = (1 + r) (Y - c_1^*)$, and rearranging, we obtain what is known as the \vocab{Euler equation}, which tells us how consumption in period 1 is related to consumption in period 2:
+\begin{align*} \label{eq:euler}
+    u'(c_1^*) = \beta (1 + r) u'(c_2^*)
+\end{align*}
+We can obtain some brief intutition for this equation. Let's suppose we are deciding between spending an extra dollar in period 1, or saving that money and spending it in period 2. At an optimum, the marginal benefit of each of these alterantives must be equal. First, if we spend the dollar on consumption on period 1, we increase consumption by 1 unit, which (approximately) increases utility by $u'(c_1)$. On the other hand, if we save the dollar, we will have $1 + r$ dollars in period 2, which we can spend on $1 + r$ units of consumption. Each additional unit of consumption increases utility in period 2 by (approximately) $u'(c_2)$. So, our total increase in period 2 utility is $(1 + r) u'(c_2)$. Then, we discount that increase in utility back to the present by factor of $\beta$, so our total increase in utility from saving the money and spending in period 2 is given by $\beta (1 + r) u'(c_2)$. At an optimum, this must be equal to the marginal benefit of consumption period 1, $u'(c_1)$, which is exactly what the first order conditions above say. This is a simplified version of what is known as a \vocab{perturbation argument}, where we argue that at an optimum, a very small perturbation to our choices must have net zero effect, because otherwise we would change our choices. While we will not explicitly use this approach in this course, it is a useful way to gain intuition for why certain quantities must be related to each other in particular ways. 
+
+\subsection*{Comparative statics}
+In order to take comparative statics, we can observe that with our rearranged maximization problem, we can treat our intertemporal utility function $U$ as an objective function of a single variable,
+\begin{align*}
+    U(c_1) = u(c_1) + \beta u((1 + r) (Y - c_1))
+\end{align*}
+This means that we can use our general approach for taking a comparative static when the objective function has a single variable (\ref{prop:single_var_static}), which implies that for any exogenous variable $z$, we have
+\begin{align*}
+    \frac{dc_1^*}{dz} = -\frac{U_{c_1 z}}{U_{c_1 c_1}}(c_1^*, z)
+\end{align*}
+First, we can compute the following,
+\begin{align*}
+    U_{c_1} &= u'(c_1) - \beta (1 + r) u'((1 + r)(Y - c_1))\\ 
+    U_{c_1 c_1} &= u''(c_1) + \beta (1+r)^2 u''((1 + r) (Y - c_1))
+\end{align*}
+This calculation offers two things. The first is that we know what $U_{c_1}$ is, so we can partially differentiate $U_{c_1}$ with respect to $z$ to obtain the numerator of the comparative static for any variable. The second is that we know the denominator, $U_{c_1 c_1}$, which must be negative since $u'' < 0$ is negative. This tells us that the sign of the comparative static is the same as that of the numerator.
+
+However, so far we have only done a general setup for the comparative static $\frac{dc_1}{dz}$. What if we want to examine $c_2$? Fortunately, if we know $\frac{dc_1}{dz}$, then we can figure out $\frac{dc_2}{dz}$ by noticing that $c_2 = (1 + r)(Y - c_1)$. So, with straightforward differentiation, we obtain,
+\begin{align*}
+    \frac{dc_2}{dz} &= \frac{d}{dz} \left((1 + r) (Y - c_1)\right) \\
+    &= (1 + r)\left(\frac{dY}{dz} - \frac{dc_1}{dr}\right) + \frac{dr}{dz}(Y - c_1)
+\end{align*}
+
+With this general setup in mind, we can now find some specific comparative statics. Throughout, we occasionally substitute in $c_2 = (1 + r) (Y - c_1)$. 
+
+\begin{description}
+    \item[Income] First, we will find the effet of a change in total net present value of income, so we can partially differentiate $U_{c_1}$ with respect to $Y$,
+    \begin{align*}
+        U_{c_1 Y} &= \partials{}{Y} \left(u'(c_1) - \beta (1 + r) u'((1 + r)(Y - c_1))\right) \\
+        &= - \beta (1 + r)^2 u''((1 + r)(Y - c_1))  \\
+        &= - \beta (1 + r)^2 u''(c_2)
+    \end{align*}
+    Plugging into our general comparative static yields,
+    \begin{align*}
+        \frac{dc_1}{dY} &= - \frac{U_{c_1 Y}}{U_{c_1 c_1}} \\
+        &= \frac{\beta (1 + r)^2 u''(c_2)}{u''(c_1) + \beta (1+r)^2 u''(c_2)}
+    \end{align*}
+    Observe that since $u'' < 0$, then the numerator and denominator are both negative, which means that the expression as a whole must be positive. In particular, we know that $0  < \frac{dc_1}{dY} < 1$, since the numerator, $\beta (1 + r)^2 u''(c_2)$, appears additively in the denominator. We can also use our general calculation for $\frac{dc_2}{dz}$ to obtain,
+    \begin{align*}
+        \frac{dc_2}{dY} &= (1 + r)\left(\frac{dY}{dY} - \frac{dc_1}{dY}\right) + \frac{dr}{dY}(Y - c_1) \\
+        &= (1 + r) \left(1 - \frac{dc_1}{dY}\right)
+    \end{align*}
+    Since we know that $\frac{dc_1}{dY} < 1$, we know that $\frac{dc_2}{dY} > 0$. This offers a key insight: 
+    \emph{$c_1$ and $c_2$ are both normal goods}. 
+
+    Moreover, this offers a nice interpretation, that when we get an extra dollar in net present value, we spend a portion, $\frac{dc_1}{dY}$ on consumption today, and then we save the rest, $1 - \frac{dc_1}{dY}$, at an interest rate $(1 + r)$, to spend tomorrow. 
+
+    Finally, while we have computed here comparative statics for $Y$, we can use the definition of $Y = y_1 + \frac{y_2}{1 + r}$ and the chain rule to obtain,
+    \begin{align*}
+        \frac{dc_1}{dy_1} &= \frac{dc_1}{dY} \frac{dY}{dy_1} = \frac{dc_1}{dY} \\
+        \frac{dc_1}{dy_2} &= \frac{dc_2}{dY} \frac{dY}{dy_2} = \frac{1}{1 + r} \frac{dc_1}{dY}
+    \end{align*}
+ 
+    \item[Interest rate] First, recall that $Y = \frac{y_2}{1 + r} + y_1$. We will need to plug this in explicitly for this comparative static since $r$ appearsin the expression for $Y$. So, partially differentiating $U_{c_1}$ with respect to the interest rate $r$ yields,
+    \begin{align*}
+        U_{c_1 r} &= \partials{}{r}\left(u'(c_1) - \beta (1 + r) u'((1 + r)(Y - c_1))\right) \\
+        &= \partials{}{r}\left(u'(c_1) - \beta (1 + r) u'(y_2 + (1 + r)(y_1 - c_1))\right) \\ 
+        &= -\beta(1 + r) (y_1 - c_1) u''(y_2 + (1 + r)(y_1 - c_1)) - \beta u'(y_2 + (1 + r)(y_1 - c_1)) \\
+        &= -\beta (1 + r) (y_1 - c_1) u''(c_2) - \beta u''(c_2)
+    \end{align*} 
+    Plugging into our general framework,
+    \begin{align*}
+        \frac{dc_1}{dr} &= -\frac{U_{c_1 r}}{U_{c_1 c_1}} \\
+        &= \frac{\beta u'(c_2) + \beta (1 + r)(y_1 - c_1) u''(c_2)}{u''(c_1) + \beta (1 + r)^2 u''(c_2)}
+    \end{align*}
+    This equation is known as the \vocab{intertemporal slutsky equation}, because with a slight rearrangement, it decomposes nicely into income and substitution effects:
+    \begin{align*}
+        \frac{dc_1}{dr} = \underbrace{\frac{\beta u'(c_2)}{u''(c_1) + \beta (1 + r)^2 u''(c_2)}}_{\text{substitution}} + \underbrace{(y_1 - c_1) \frac{\beta(1 + r) u''(c_2)}{u''(c_1) + \beta (1 + r)^2 u''(c_2)}}_{\text{income}}
+    \end{align*}
+    
+    Observe that the substitution effect is always negative, since the denominator is $U_{c_1 c_1}$, which is always negative, and the numerator is always positive. The intuition here is that since a rise in the interest rate means that each dollar consumed today has a larger effect on consumption tomorrow, we will prefer to save and consume more next period if the interest rate is higher. 
+
+    The income effect on the other hand, depends solely on the sign of $y_1 - c_1$. Intuitively, if we $y_1 - c_1 > 0$, then we are savers, and an increase in the interest rate makes us richer, so the income effect is positive. If $y_1 - c_1 < 0$, then we are borrowers, and a higher interest rate makes us poorer, so the income effect is negative. In fact, observe that with a little rearrangement,
+    \begin{align*}
+        \frac{dc_1}{dr} &= (y_1 - c_1) \frac{\beta(1 + r) u''(c_2)}{u''(c_1) + \beta (1 + r)^2 u''(c_2)} \\
+        &= \left(\frac{y_1 - c_1}{1 + r}\right) \frac{\beta(1 + r)^2 u''(c_2)}{u''(c_1) + \beta (1 + r)^2 u''(c_2)} \\
+        &= (y_1 - c_1) \frac{1}{1 + r} \frac{dc_1}{dY} \\
+        &= (y_1 - c_1) \frac{dc_1}{dy_2}
+    \end{align*}
+    In other words, a small increase in the interest rate changes our effective income in period 2 by a factor of $(y_1 - c_1)$, and so to determine the effect on current consumption, we multiply that change by the effect of a future income change on current consumption, $\frac{dc_1}{dy_2}$. 
+    
+    There are a few important additional takeaways from this analysis. 
+    
+    The first is the distributional effect of a change in interest. Since the income effect is positive for savers and negative for borrowers, this tells us that as the interest rate rises, savers become richer and borrowers become poorer. 
+
+    The second is that we can consider what happens in a world without credit markets. That is, in the special case where $c_1 = y_1$, and therefore $c_2 = y_2$. In that case, we know that the agent would spend less in period 1 and save more because all that would exist is the substitution effect. 
+    
+    \item[Discount rate] We consider a small increase to $\beta$, which intuitively makes the agent more patient. Once again, we partially differentiate $U_{c_1}$ with respect to $\beta$,
+    \begin{align*}
+        U_{c_1 \beta} &= \partials{}{\beta} \left(u'(c_1) - \beta (1 + r) u'((1 + r)(Y - c_1))\right) \\
+        &= -(1 + r) u'(c_2)
+    \end{align*} 
+    Then, plugging into our general framework,
+    \begin{align*}
+        \frac{dc_1}{d \beta} &= - \frac{U_{c_1 \beta} }{U_{c_1 c_1}} \\
+        &= \frac{(1 + r)u'(c_2)}{u''(c_1) + \beta (1+r)^2 u''(c_2)}
+    \end{align*}
+    Notice that the numerator is positive, while the denominator is negative, so we have that $\frac{dc_1}{d\beta} < 0$. Intuitively, this makes sense because if we are more patient, we will save more of our money and spend it in the next period rather than in the current period. 
+\end{description}
+
+\section{Real investment technology}
+So far, we have developed a two period model where we have an exogenously given interest rate than agent can borrow or lend at without constraints. However, we will now consider a situation where there are no credit markets. Instead, the agent can invest the money and earn a return for period 2. We make the following adjustments to the model:
+\begin{description}
+    \item[No period 2 income] For simplicity, we assume that $y_2 = 0$. This is not strictly necessary, but the analysis where $y_2 > 0$ complicates the model somewhat and does not add much insight. We assume therefore that $y_1 > 0$.
+    \item[Real investment technology] The agent has access to a real investment technology, $w(\cdot)$. If the agent invests $h$ income in the first period, then the agent receives $w(h)$ in the second period, with $w'(h) > 0 \forall h$. 
+\end{description}
+
+\subsection*{Optimal Investment}
+Since the agent's consumption in period 1 is determined by whatever they do not invest, and the consumption in period 2 is determined by the return on investment, the only choice the agent has to make is how much to invest. This means that we have $c_1 = y_1 - h$ and $c_2 = w(h)$. So, the agent's problem is,
+\begin{align*}
+    \max_{h \in [0, y_1]} u(y_1 - h) + \beta u(w(h))
+\end{align*}
+Differentiating the objective function with respect to $h$ yields the first order condition, 
+\begin{align*}
+    &-u'(y_1 - h^*) + \beta u'(w(h^*)) w'(h^*) = 0 \\
+    \implies& u'(y_1 - h^*) = \beta u'(w(h^*)) w'(h^*)
+\end{align*}
+This is the new Euler equation, and notice that it looks very similar to the Euler equation with credit markets. In fact, if we have $w(h) = (1 + r)h$, then this equation is exactly the same as the original Euler equation. The key difference here is that the investment technology we have here is not necessarily linear, and is in some sense a more general approach to intertemporal choice than with only the interest rate.
+
+\subsection*{Two Savings Technologies}
+Finally, we can consider the case where the agent not only has access to the investment technology, $w$, but also to credit markets with an exogenous real interest rate $r$. We once again assume that the agent has no other outside income other than investment returns. 
+
+First, notice that with perfect credit markets, we have the standard budget constraint,
+\begin{align*}
+    c_1 + \frac{c_2}{1 + r} = y_1 + \frac{y_2}{1 + r}
+\end{align*}
+Notice however, that $y_2 = w(h)$ because our only outside income is given by our return on investment, and that to finance that investment, we need to spend $h$ in the first period leaving total first period expendable income as $y_1 - h$. We can then rewrite the budget constraint as
+\begin{align*}
+    c_1 + \frac{c_2}{1 + r} = y_1 - h + \frac{w(h)}{1 + r}
+\end{align*}
+This yields the optimization problem,
+\begin{align*}
+    \max_{c_1, c_2, h} u(c_1) + \beta u(c_2) \text{ s.t. } c_1 + \frac{c_2}{1 + r} = y_1 - h + \frac{w(h)}{1 + r}
+\end{align*}
+As always, we can use the Lagrangian to solve the constrained optimization problem,
+\begin{align*}
+    \Lagr = u(c_1) + \beta u(c_2) - \lambda \left(c_1 + \frac{c_2}{1+r} - y_1 + h - \frac{w(h)}{1 + r}\right)
+\end{align*}
+This yields the following first order conditions,
+\begin{align*}
+\partials{\Lagr}{c_1} &= u'(c_1) - \lambda = 0 \\
+\partials{\Lagr}{c_2} &= \beta u'(c_2) - \frac{\lambda}{1 + r} = 0 \\
+\partials{\Lagr}{h} &= 1 - \frac{w'(h)}{1 + r} = 0 \\
+\partials{\Lagr}{\lambda} &= c_1 + \frac{c_2}{1+r} - y_1 + h - \frac{w(h)}{1 + r} = 0
+\end{align*}
+The first and second equations can be arranged to yield the standard Euler equation,
+\begin{align*}
+    u'(c_1) = \beta (1 + r) u'(c_2)
+\end{align*}
+The last equation is simply the budget constraint,
+\begin{align*}
+    c_1 + \frac{c_2}{1+r} = y_1 - h + \frac{w(h)}{1 + r}
+\end{align*}
+
+What interests us most is the third equation. Notice that the third equation alone is sufficient to define $h^*$, 
+\begin{align*}
+    w'(h^*) = 1 + r
+\end{align*}
+Why does this condition make sense? The intuition is that we will invest up to the point where an additional dollar returns equal to the interest rate. After that point, assuming our investment technology is concave, we would always prefer to save our money and earn interest on it because that has a greater marginal return. Another key thing to notice is that the amount we choose to invest does not depend on how impatient the agent is, or on the utility function at all. 
+
+The idea here is that the agent will \emph{always choose the investment that maximizes net present value}. Because the credit markets allow us to shift income between time periods, our only investment choice is to maximize income. This means that we could solve the optimizations separately by first optimizing the NPV of income by choosing investment, and then choose our consumption taking our NPV of income as given.
+
+\section{Multiple periods and discounting}
+We've worked primarily on a model with only two periods. However, many questions in economics, such as savings over a lifetime, involve more than two periods. In this section, we discuss how to model multi-period models, and with a particular focus on how we discount multiple periods.
+
+\subsection*{Basic multi-period model}
+We assume that we want to develop a model over $n$ periods. In the most general case, we could even have that $n = \infty$. However, for the purposes of this course we will treat $n$ as finite. We use many of the same assumptions as in the two period model. We maintain our assumption of additive separability of utility between periods, and the agent chooses consumption $c_t$ in period $t$. The utility for a given period is therefore $u(c_t)$. We also assume that each period $t$ is discounted by a factor $\beta_t$ relative to period 1, with $\beta_1 = 1$ (no discounting the present). This yields the following intertemporal utility function,
+\begin{align*}
+    U(c_1, \dots, c_n) &= u(c_1) + \beta_2 u(c_2) + \dots + \beta_n u(c_n) \\
+    &= \sum_{t = 1}^n \beta_t u(c_t)
+\end{align*}
+
+We also assume that the agent has incomes $y_t$ in each period $t$, and that the agent has perfect credit markets with real interest rate $r$, which is constant over time. This means that a dollar invested in period $1$ will return $(1 + r)^{t - 1}$ in period $t$. Similarly, a dollar borrowed in period $1$ will require payment of $(1 + r)^{t - 1}$ in period $t$. We require that the agent's NPV of consumption is at most the NPV of current income. This yields the budget constraint,
+\begin{align*}
+    \sum_{t = 1}^n \frac{c_t}{(1 + r)^{t - 1}} \leq \sum_{t = 1}^n \frac{y_t}{(1 + r)^{t - 1}}
+\end{align*}
+We will once again define the NPV of income as,
+\begin{align*}
+    Y = \sum_{t = 1}^n \frac{y_t}{(1 + r)^{t - 1}}
+\end{align*}
+We also know that similar to previous cases, at an optimum, the budget constraint will hold with equality. This yields the optimization problem,
+\begin{align*}
+    \max_{c_1, \dots, c_n} \sum_{t = 1}^n \beta_t u(c_t) \text{ s.t. } \sum_{t = 1}^n \frac{c_t}{(1 + r)^{t - 1}} = Y
+\end{align*}
+
+However, getting anything useful or interesting in this analysis requires that we specify a particular method of discounting. That is, we need to specify the $\beta_t$s. There are two predominant ways for doing so, which we will cover next. 
+
+\subsection*{Exponential discounting}
+The standard method of discounting in economics is known as \vocab{exponential discounting}. In this case, we assume that each period is discounted by a constant factor, $\delta$, relative to the previous period. This means we set $\beta_t = \delta^{t - 1}$. We can therefore write our intertemporal utility function as,
+\begin{align*}
+    U(c_1, \dots, c_n) &= u(c_1) + \delta u(c_2) + \delta^2 u(c_3) + \dots + \delta^{n - 1} u(c_n) \\
+    &= \sum_{t = 1}^n \delta^{t - 1}u(c_t)
+\end{align*}
+This discounting has the nice property that an agent in period two ``views'' the utility function the same as an agent in period one. That is, the way that an agent in period 1 views period 2, is the same way that an agent in period 2 views period 3, and similarly for all periods. 
+
+With this discounting rule, our maximization problem is,
+\begin{align*}
+    \max_{c_1, \dots, c_n} \sum_{t = 1}^n \delta^{t - 1}u(c_t) \text{ s.t. } \text{ s.t. } \sum_{t = 1}^n \frac{c_t}{(1 + r)^{t - 1}} = Y
+\end{align*}
+
+We can then use the standard Lagrangian approach,
+\begin{align*}
+    \Lagr = \sum_{t = 1}^n \delta^{t - 1}u(c_t) - \lambda \left(\sum_{t = 1}^n \frac{c_t}{(1 + r)^{t - 1}} - Y\right)
+\end{align*}
+
+We can once again take first order conditions. Notice that because each of the $c_t$s is linearly separable, the first order condition for each will not depend on any other $c_t$. So, we can write,
+\begin{align*}
+    \partials{\Lagr}{c_t} &= \delta^{t - 1} u'(c_t) - \lambda \frac{1}{(1 + r)^{t - 1}} = 0, \, t = 1, 2, \dots, n \\
+    \partials{\Lagr}{\lambda} &= \sum_{t = 1}^n \frac{c_t}{(1 + r)^{t - 1}} - Y = 0
+\end{align*}
+Rearranging the first equation, we have that
+\begin{align*}
+    \delta^{t- 1} (1+ r)^{t - 1} u'(c_t) = \lambda, \, t = 1, 2, \dots, n
+\end{align*}
+Now we can consider the Euler equation for times $t$ and $t + s$ where $s > 0$. Substituting in for $\lambda$, we get
+\begin{align*}
+    &\delta^{t - 1} (1+ r)^{t - 1} u'(c_t) = \delta^{t + s - 1} (1 + r)^{t + s - 1} u'(c_{t + s}) \\
+    \implies& u'(c_t) = \delta^s (1 + r)^s u'(c_{t + s})
+\end{align*}
+Notice that if we set $s = 1$, then we get the same Euler equation as the two period model,
+\begin{align*}
+    u'(c_t) = \delta (1+r)u'(c_{t + 1})
+\end{align*}
+
+This model of exponential discounting is heavily used through economics, and especially in macroeconomics, where decisions about saving and spending over time are essential. This model also makes some important implications. The first is that because the future looks the same no matter period is the present, our choices are consistent and we should expect a steady rate of change in consumption. That is, our consumption might be growing, declining, or constant, but that the rate of change in our consumption should be the same over time because each period ``looks'' the same as the last. This model is also very flexible. It can be extended to an infinite time horizon model, and it can even be adjusted to take place in continuous time, making it one of the most important model setups in microeconomics.
+
+\subsection*{Hyperbolic Discounting}
+While the exponential discounting model has many nice properties, it does not seem to be how humans behave empirically. Consider the following scenario: if given a choice between having one cookie now, or two cookies a week from now, most people would schoose one cookie now. However, when given the choice between one cookies a 10 weeks from now, or two cookies 11 weeks from now, most would choose 11 weeks from now. If we were discounting exponentially, we should make the same choice in either scenario. The fact that we don't suggests that exponential discounting may not be an accurate model of human behavior.
+
+The problem is that people seem to have disproportionate value for the present. That is, the difference between today and tomorrow is more important to us than the difference between tomorrow and the day after. To capture this effect in our model, we assume that starting in the second period, everything is indeed discounted exponentially, but that there is special weight on the present where everything in the future is discounted by a constant factor $\beta < 0$ in addition to the exponential factor, $\delta$. Our intertemporal utilty function becomes,
+\begin{align*}
+    U(c_1, \dots, c_n) &= u(c_1) + \beta(\delta u(c_2) + \dots + \delta^{n - 1} u(c_n)) \\
+    &= u(c_1) + \beta \sum_{t = 2}^n \delta^{t - 1} u(c_t)
+\end{align*}
+
+We can use the standard Lagrangian method, which yields two classes of Euler equation,
+\begin{align*}
+    u'(c_1) &= \beta \delta (1 + r) u'(c_2) \text{  (short run)}\\
+    u'(c_t) &= \delta (1 + r) u'(c_{t + 1}), \, t \geq 2 \text{  (long run)}
+\end{align*}
+The first tells us how we consume in the present. Since we know that $u$ is a concave function, then the addition of the $\beta$ term means that $c_1$ will be proportionally higher relative to $c_2$ than $c_t$ is relative to $c_{t + 1}$ for $t \geq 2$. That is, since the agent has disproportionate value on the present, they will consume more in period 1 relative to period 2 than period 2 relative to period 3.
+
+\subsubsection*{Time Inconsistency}
+While the model as we have established it so far tells us how an agent in period 1 would \emph{plan} consumption in future periods, we face a problem of time inconsistency. That is, the agent in period 1 assumes that the value of period 2 consumption relative to period 3 consumption is the same as the value of period 3 consumption relative to period 4. But once the agent reaches period 2, then period 2 becomes the ``present,'' and the agent will want to consume more in period 2 than originally planned. Mathematically, the naive agent assumes that period 2 utility will take the form $u(c_2) + \delta u(c_3) + \dots + \delta^{n - 2} u(c_n)$. However, in reality, the agent in period 2 faces intertemporal utility function,
+\begin{align*}
+    U_2(c_2, \dots, c_n) = u(c_2) + \beta (\delta u(c_3) + \dots + \delta^{n - 2} u(c_n))
+\end{align*}
+Students may know this phenomena better as ``procrastination,'' where you plan to do your homework tomorrow, but when tomorrow comes, you push it off to the day after.
+
+There are two possible solutions to this. The first is that we can assume that the agent has some self-control device where they can force their future self to consume exactly what is planned today. This might take the form of putting money in a savings account where only a fixed amount can be withdrawn each period. If such a self-control mechanism exists, then the agent will consume exactly as planned, and the existing hyperbolic discounting model is sufficient. 
+
+The second is that the agent in the present knows that their future self will be time inconsistent. This is like a student knowing that even though they plan to do homework tomorrow, that they will likely be lazy and procrastinate further. In this case, the agent must engage in \vocab{strategic consumption}, taking into account their future responses when planning present consumption. 
+
+To model this problem, we will simplify by assuming that there are $n = 3$ periods. We solve this using a method known as \vocab{backwards induction}, where we solve for how the agent will behave in period $n$ given choices in period $n - 1$, and then take that behavior as given to optimize in period $n - 1$. In our case, we will consider what decision the agent makes in period 2 if in period 1, the agent leaves $w$ wealth in terms of NPV. Then, we will take this response as given in period 1 and optimize. 
+
+\begin{description}
+    \item[Period 2] We assume that the agent has $w$ in wealth leftover in period 1 to spend on period 2 and 3 consumption. Agent 2's optimization problem is,
+    \begin{align*}
+        \max_{c_2, c_3} u(c_2) + \beta \delta u(c_3) \text{ s.t. } c_2 + \frac{c_3}{1 + r} = w
+    \end{align*} 
+    The Euler equation in this case should be familiar,
+    \begin{align*}
+        u'(c_2^) = \beta \delta (1 + r) u'(c_3^)
+    \end{align*}
+    We will express the solutions as functions of $w$, $c_2(w)$ and $c_3(w)$. Notice that know in this case there is no time inconsistency between periods 2 and 3, because period 3 is the last period so all remaining money will be spent, as planned. The functions $c_2(w)$ and $c_3(w)$ tell us what the period 2 behavior will be if the agent leaves $w$ wealth behind in period 1. Now we can model the behavior of the agent in period $1$. 
+    \item[Period 1] The goal of the agent in period 1 is to consume to maximize their current intertemporal utility function, knowing that their future self will actually consume according to $c_2(w)$ and $c_3(w)$. Note however, that the agent in period 1 is only taking into consideration the \emph{behavior} of their future self, not the fact that their period 2 self will be maximizing a different utility function. 
+    
+    We can reduce the problem to the single choice variable $w$, how much the agent saves in period 1. This means that the new budget constraint is
+    \begin{align*}
+        c_1 + \frac{w}{1 + r} = Y
+    \end{align*}
+    By plugging in the constraint, we get $c_1 = Y - \frac{w}{1 + r}$, yelding the following optimization problem:
+    \begin{align*}
+        \max_{w \in [0, (1 + r) Y]} u\left(Y - \frac{w}{1 + r}\right) + \beta[\delta u(c_2(w)) + \delta^2 u(c_3(w))]
+    \end{align*}
+    This yields the first order condition,
+    \begin{align*}
+        u'\left(Y - \frac{w^*}{1 + r}\right) = \beta \delta (1 + r) \left[u'(c_2(w))c_2'(w) + u'(c_3(w))c_3'(w)\right] 
+    \end{align*}
+    This is sufficient to define the optimal solution for the agent when planning for the fact that their future selves will behave differently than planned. 
+\end{description}
+
+Finally, it is worth some examination what happnes in the case of a change in $\beta$. That is, how do our consumption decisions differ if we become more or less impatient. Let's consider specifically the case where we become more impatient, which corresponds to a decline in $\beta$. There are three notable effects when it comes to how consumption changes:
+\begin{description}
+    \item[Direct effect] The most obvious is the direct effect of a change in impatience, which comes from the fact that $\beta$ appears directly in the first order condition. Because we value the present more relative to the future, we will want to shift consumption into the present. 
+    \item[Substitution effect] It is important to recall that $\beta$ also appears implicitly in the functions $c_2$ and $c_3$ because we have present bias when making the consumption decision in period 2 as well. The first effect of more impatience is that we would shift more consumption from period 3 to period 2, because in period 2, we value the present more. So $c_2(w)$ increases while $c_3(w)$ decreases. Because $u$ is concave, this translates to $u'(c_2(w))$ decreasing and $u'(c_3(w))$ increasing. The magnitudes of these changes are ambiguous, so we cannot say the effect that it has on period 1 consumption.
+    \item[Income effect] Finally, the fact that we are more impatient means that a greater share of additional saved income will go to period 2 consumption than period 3 consumption, because the period 2 agent values the present more. This translates mathematically into the fact that $c_2'(w)$ increases, while $c_3'(w)$ decreases, because more of each marginal dollar saved goes to period 2 consumption than period 3. Once again, the net effect on period 1 consumption is ambiguous. 
+\end{description}
+These three combine to make it so that it is highly ambiguous what the net effect of a change in impatience will be. We would be able to determine this effect by examining the comparative statics with an explicit functional form. However, we will not do so here.
+
+\section{Additive Non-Separability of Utility}
+So far, we have assumed that utility across time periods is additively separable. That is, consumption in period 1 does not enter directly into the utility function for period 2. However, this might not always be a good assumption. We might for example care less about the actual level of consumption, and more about how consumption has changed relative to the previous period. In this case, our intertemporal utility function might look something like,
+\begin{align*}
+    U(c_1, c_2) = u(c_1, 0) + \beta u(c_2, c_2 - c_1)
+\end{align*}
+
+A more standard model of non-separability occurs with addictive or habit forming goods. That is, our consumption of some good today increases our marginal utility of that good tomorrow. For example, by drinking coffee today and becoming addicted to it, tomorrow that first cup of coffee matters much more to how much utility you have. Notice however, that we do not make claims about how addictive goods model model the level of utility. That is, we do not claim that drinking coffee today will make the individual happier tomorrow. It could also be that by drinking coffee today, we make the lack of coffee much more painful tomorrow, thereby increasing coffee's marginal utility. On the other hand, there may be cases where becoming addicted really does increase overall utility tomorrow, such as in goods with an ``acquired taste.'' This might be something like studying for economics today makes you more interested in economics, resulting in the marginal utility of studying economics being higher tomorrow. 
+
+This allows us to develop a model of \vocab{rational addiction}, where it might be rational for an individual to become addicted to a good because of the large increases in future marginal utility that result.
+
+\subsection*{Addictive goods}
+First, we will set up a general model of addictive goods over two periods. We define a per-period utility function, $u(a, b)$, where we interpret $a$ as the consumption of the good in the previous period, while $b$ is the consumption today. If the good is addictive, then we expect $u_{12}$\footnote{Recall that $u_{12}$ is shorthand for taking the partial derivative of $u$ with respect to its first argument, and then its second} to be positive. That is, the marginal utility of consumption today is increasing in the consumption of the good yesterday. We will generally only assume that $u_2 > 0$, and that $u_{22} < 0$. This is just the usual assumption that utility is increasing and concave in our consumption of the good today. Note that we do not make assumptions on $u_1$. If $u_1 > 0$, this would mean that consumption yesterday directly increases utility today. This might be the case with the example of studying economics, where even if we do not study economics today, the fact that we studied it yesterday makes us better off today. If $u_1 < 0$, this would mean that consumption yesterday directly makes us worse off today. This might be the case with something like drug use, where the fact that we used it yesterday directly harms our health today. Combined, we have the intertemporal utility function,
+\begin{align*}
+    U(c_1, c_2) = u(0, c_1) + \beta u(c_1, c_2)
+\end{align*}
+
+Unfortunately, solving for the general model here does not tell us anything particularly interesting. Nonetheless, the goal here is to offer some insight into how you may want to set up a model of addiction, and in particular to see that it is in theory very possible for people to want to acquire certain addictions.
+
+\section*{Recap}
+In this chapter, we have established how individuals make consumption choices across time. Starting off with a simple two period model, we derived the Euler equation relating consumption across time periods, and determined how consumption today is affected by changes in income, the interest rate (the intertemporal slutsky equation), and our level of patience. Next, we generalized to $n$-period models, and introduced two methods of discounting. The exponential discounting model is standard in economics, while the hyperbolic discounting model introduces some present-bias and may force our present-self to consume strategically. Finally, we demonstrated how removing the assumption of separable utility can allow us to model addictive goods, and that addiction for certain goods may in fact be rational. 
