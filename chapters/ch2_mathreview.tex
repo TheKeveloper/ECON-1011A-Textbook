@@ -119,22 +119,24 @@ Intuitively, you can think of each term of the sum as how much a small change in
 \subsubsection*{Total vs Partial Derivative}
 One common point of confusion is the difference between the total derivative and the partial derivative. After all, the difference between $\frac{\partial f}{\partial x}$ and $\frac{d f}{d x}$ seems to be just one of notation, but they are not in general the same for a multivariable function. 
 
-The partial derivative, $\frac{\partial f}{\partial x}$ tells you how $f$ changes with respect to the variable \emph{named} $x$, while $\frac{df}{dx}$ tells you how $f$ changes with respect to the \emph{value} $x$. This can be particularly confusing if the name of the input is the same as the input value. To see the difference, let's consider the example of the two variable function, 
+The partial derivative, $\frac{\partial f}{\partial x}$ tells you the \emph{direct} effect of a small change in the argument \emph{named} $x$ on the value of the function $f$, while the total derivative tells you the \emph{total} effect (including direct and indirect effects) of the variable $x$. That is, supposed we hvae a multivariate function, $f(x, y)$. However, suppose that $y$ is a function of $x$, so $y = y(x)$. Then our function is really $f(x, y(x))$. To compute $\partials{f}{x}$, we would differentiate with respect to the first variable while holding $y$ constant. That is, even though a change in $x$ affects the value of $y$ which would affect the value of $f$, we ignore this change when taking the partial derivative. Hence, we only find the direct, \emph{partial}, effect of $x$ on the function $f$. For the total derivative, on the other hand, we would differentiate with respect to $x$ while taking into account the fact that $x$ enters into $y$, and we would need to use the chain rule. This tell us the \emph{total} effect of $x$ on the function $f$, including when $x$ is an input to other variables.
+
+To see the difference more explicitly, let's consider the example of the two variable function, 
 \begin{align*}
     f(x, y) = x \cdot y^2
 \end{align*}
 Where the name of the first input is $x$, and the name of the second input is $y$. Now we can consider evaluating $f$ at some value $x$ for both inputs, so $f(x, x)$. What is the partial derivative with respect to $x$ and what is the total derivative?
 
-In this case, the partial derivative with respect to $x$ at the point $x$, $\frac{\partial f}{\partial x}$, is given by differenatiating with respect to the first variable, and then plugging in the values of $x$. To see this, we can first treat it as $f(x, y)$, and differentiate with respect to $x$ holding $y$ fixed, so in general,
+In this case, the partial derivative with respect to $x$ at the point $x$, $\frac{\partial f}{\partial x}$, is given by differenatiating with respect to the first variable, and then plugging in the values of $x$. To see this, we can first treat it as $f(x, y)$, and differentiate with respect to $x$ holding $y$ fixed,
 \begin{align*}
     \frac{\partial f}{\partial x}(x, y) = y^2
 \end{align*}
-Next, we plug in the \emph{value} $x$ for both the first and second inputs, so that
+Next, we plug in the $x$ for both the first and second inputs, so that
 \begin{align*}
     \frac{\partial f}{\partial x}(x, x) = x^2
 \end{align*}
 
-Compare that to how we take the total derivative. In this case, we first plug in the value of $x$ for both the first and second inputs, so that $f(x, x) = x \cdot x^2 = x^3$, and then differentiate this totally with respect to $x$, so
+Compare that to how we take the total derivative. In this case, we first plug in $x$ for both the first and second inputs, so that $f(x, x) = x \cdot x^2 = x^3$, and then differentiate this totally with respect to $x$, so
 \begin{align*}
     \frac{df}{dx} = 3x^2
 \end{align*}
@@ -145,7 +147,7 @@ We can also use the multivariable chain rule.
     &= 3x^2
 \end{align*}
 
-In general, you can think of the partial derivative, $\partials{f}{x}$ as differentiating with respect to the variable named $x$ first, and then plugging in a specific value of $x$, while the total derivative is first plugging in a specific value of $x$, and then differentiating with respect to that value. 
+One useful way to think of the partial derivative, $\partials{f}{x}$, is as differentiating with respect to the variable named $x$ first, and then plugging in a specific value of $x$, while the total derivative is first plugging in a specific value of $x$, and then differentiating with respect to that value. 
 
 \subsection*{Implicit Differentiation}
 So far, we have covered how to differentiate functions when we know their explicit form, but one reasonable question is whether or not we can differentiate functions without needing to solve for the function explicitly. This leads us to \vocab{implicit differentiation}, which allows us to differentiate a function while only knowing equality conditions that it satisfies. In some calculus classes, this may have come in the context of solving a related rates problem. 
@@ -223,7 +225,7 @@ If we wish to express higher order partial derivatives or cross-partials, then w
     f_{xy} = \frac{\partial^2 f}{\partial y \partial x}
 \end{align*}
 
-Lagrange notation is not as expressive in terms of intuition as Leibnitz notation, but it is significantly more concise and cleaner. We will often prefer Lagrange notation when we have more complicated expressions.
+While Lagrange notation is often more concise and cleaner than Leibnitz notation, it is less expressive. In particular, when we use Lagrange notation we are always expressing the partial derivative rather than the total derivative. However, Lagrange notation is often preferable with more complicated expressions involving many partial derivatives. 
 
 \subsubsection*{When to use each}
 In general there are no set rules on when you should prefer Leibnitz notation or Lagrange's notation, and is purely a question of convenience. In this text, we will use a mix of both in order to present expressions in what we believe to be the clearest way possible. However, a good rule of thumb is to prefer Lagrange notation when you are differentiating an explicit function with respect to one of its inputs, while using Leibnitz notation when expressing the relationship between two quantities that are implicit functions of each other. 
@@ -429,7 +431,7 @@ If we assume that $V$ is concave in $H$, then this condition is automatically sa
 \begin{align*}
 V'(H) &=\frac{d}{d H} U(w H, 24-H) \\
 &=w \frac{\partial U}{\partial Y}(w H, 24-H)-\frac{\partial U}{\partial L}(w H, 24-H) \\
-&=w U_{Y}(w H, 24-H)-U_{L}(w H, 24-H).\footnote{Notation: $U_{Y} \equiv \frac{\partial U}{\partial Y}, U_{L} \equiv \frac{\partial U}{\partial L}, U_{Y L} \equiv \frac{\partial^{2} U}{\partial Y \partial L}$.}
+&=w U_{Y}(w H, 24-H)-U_{L}(w H, 24-H).
 \end{align*}
 We would then differentiate again to get
 \begin{align*}
