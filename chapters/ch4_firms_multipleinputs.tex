@@ -64,30 +64,30 @@ $$\begin{cases}
 
 We can suppress the arguments to $K^*$ and $L^*$ (but do not forget that these are functions!) and simplify to get 
 $$\begin{cases}
-p\left(f_{K K} \frac{\partial K^{*}}{\partial w}+f_{K L} \frac{\partial L^{*}}{\partial w}\right)=0 \\
-p\left(f_{L K} \frac{\partial K^{*}}{\partial w}+f_{L L} \frac{\partial L^{*}}{\partial w}\right)=1.
+p\left(f_{K K} \frac{d K^{*}}{d w}+f_{K L} \frac{d L^{*}}{d w}\right)=0 \\
+p\left(f_{L K} \frac{d K^{*}}{d w}+f_{L L} \frac{d L^{*}}{d w}\right)=1.
 \end{cases}$$
 We have a system of linear equations and are interested in obtaining $\frac{\partial K^*}{\partial w}$ and $\frac{\partial L^*}{\partial w}$, so we can solve our system with Gaussian elimination, substitution, Cramer's rule, or any method you prefer. Using Gaussian elimination, we can rearrange to get 
 $$\begin{cases}
-f_{L L} p\left(f_{K K} \frac{\partial K^{*}}{\partial w}+f_{K L} \frac{\partial L^{*}}{\partial w}\right)-f_{K L}\left[p\left(f_{L K} \frac{\partial K^{*}}{\partial w}+f_{L L} \frac{\partial L^{*}}{\partial w}\right)-1\right]=0 \\
-g_{K K}\left[p\left(f_{L K} \frac{\partial K^{*}}{\partial w}+f_{L L} \frac{\partial L^{*}}{\partial w}\right)-1\right]-f_{L K} p\left(f_{K K} \frac{\partial K^{*}}{\partial w}+f_{K L} \frac{\partial L^{*}}{\partial w}\right)=0.
+f_{L L} p\left(f_{K K} \frac{d K^{*}}{d w}+f_{K L} \frac{d L^{*}}{d w}\right)-f_{K L}\left[p\left(f_{L K} \frac{d K^{*}}{d w}+f_{L L} \frac{d L^{*}}{d w}\right)-1\right]=0 \\
+g_{K K}\left[p\left(f_{L K} \frac{d K^{*}}{d w}+f_{L L} \frac{d L^{*}}{d w}\right)-1\right]-f_{L K} p\left(f_{K K} \frac{d K^{*}}{d w}+f_{K L} \frac{d L^{*}}{d w}\right)=0.
 \end{cases}$$
 Simplifying yields 
 $$\begin{cases}
-p f_{K K} f_{L L} \frac{\partial K^{*}}{\partial w}-p f_{K L}^{2} \frac{\partial K^{*}}{\partial w}+g_{K L}=0 \\
-p f_{K K} f_{L L} \frac{\partial L^{*}}{\partial w}-f_{K K}-p f_{K L}^{2} \frac{\partial L^{*}}{\partial w}=0.
+p f_{K K} f_{L L} \frac{d K^{*}}{d w}-p f_{K L}^{2} \frac{d K^{*}}{d w}+g_{K L}=0 \\
+p f_{K K} f_{L L} \frac{d L^{*}}{d w}-f_{K K}-p f_{K L}^{2} \frac{d L^{*}}{d w}=0.
 \end{cases}$$
 This allows us to solve for 
 $$\boxed{\begin{cases}
-\frac{\partial K^{*}}{\partial w}=-\frac{1}{p} \frac{f_{K L}}{f_{K K} f_{L L}-f_{K L}^{2}} \\
-\frac{\partial L^{*}}{\partial w}=\frac{1}{p} \frac{f_{K K}}{f_{K K} f_{L L}-f_{K L}^{2}}.
+\frac{d K^{*}}{d w}=-\frac{1}{p} \frac{f_{K L}}{f_{K K} f_{L L}-f_{K L}^{2}} \\
+\frac{d L^{*}}{d w}=\frac{1}{p} \frac{f_{K K}}{f_{K K} f_{L L}-f_{K L}^{2}}.
 \end{cases}}$$
 
 Remember that we are ultimately interested in the signs of these two terms. Notice that the $f_{K K} f_{L L}-f_{K L}^{2}$ term in each of the denominators must be positive, since this is exactly the third of our SOCs! We know that $f_{KK} < 0$ from our first SOC, so we know that 
-$$\frac{\partial L^{*}}{\partial w} < 0.$$
+$$\frac{d L^{*}}{d w} < 0.$$
 This has the unsurprising interpretation that as wages increases, the amount of labor hired decreases. 
 
-Notice that that the sign of $\frac{\partial K^{*}}{\partial w}$ depends on the sign of $f_{KL}$; the former is positive if and only if the latter is negative. Whether $f_{KL}$ is positive or negative depends on the specific production function $f$. If $f_{KL} > 0$, we say that capital and labor are \vocab{complements}. That is, when labor increases, the marginal product of capital increases. Thus, when wages rise and the firm hires less labor, the marginal product of capital falls, so the optimal quantity of capital rented also falls. Intuitively, when inputs are complements, if we want less of one input, then we also want less of the other.
+Notice that that the sign of $\frac{d K^{*}}{d w}$ depends on the sign of $f_{KL}$; the former is positive if and only if the latter is negative. Whether $f_{KL}$ is positive or negative depends on the specific production function $f$. If $f_{KL} > 0$, we say that capital and labor are \vocab{complements}. That is, when labor increases, the marginal product of capital increases. Thus, when wages rise and the firm hires less labor, the marginal product of capital falls, so the optimal quantity of capital rented also falls. Intuitively, when inputs are complements, if we want less of one input, then we also want less of the other.
 
 Alternatively, if $f_{KL} < 0$, we say that capital and labor are \vocab{substitutes}. That is, when labor increases, the marginal product of capital decreases. Then, when wages rise and the firm hires less labor, the marginal product of capital increases, so the optimal quantity of capital rented also increases. This effect explains why we call the inputs substitutes: when we want less of one input, we now want more of the other.
 \TODO{Include the approach using the general formula?}
@@ -119,8 +119,8 @@ The returns to scale of a production function are fundamentally important to how
 When we previously computed comparative statics with respect to wage, we assumed that the firm could adjust both capital and labor. However, we can also consider the case where the firm can only adjust labor in the short run, with capital fixed. For example, this might be relevant for a firm that would need a few years to build a new factory but can choose to higher more workers in the meantime to increase production.
 
 Thus, our previous comparative static stays the same in the long run, when both capital and labor are adjustable, That is, we have 
-$$\left.\frac{\partial L^{*}}{\partial w}\right|_{L R}=\frac{1}{p} \frac{f_{K K}}{f_{K K} f_{L L}-f_{K L}^{2}}=\frac{1}{p\left(f_{L L}-f_{K L}^{2} / f_{K K}\right)}$$
-from before.\footnote{The $\pdv{L^*}{w}|_{LR}$ and $\pdv{L^*}{w}|_{SR}$ notation is a shorthand to represent the fact that the $L^*(p, r, w)$ functions are different between the two cases, since they come from solving the long run and short run optimization problems, respectively.}
+$$\left.\frac{d L^{*}}{d w}\right|_{L R}=\frac{1}{p} \frac{f_{K K}}{f_{K K} f_{L L}-f_{K L}^{2}}=\frac{1}{p\left(f_{L L}-f_{K L}^{2} / f_{K K}\right)}$$
+from before.\footnote{The $\frac{d L^*}{d w}|_{LR}$ and $\frac{d L^*}{d w}|_{SR}$ notation is a shorthand to represent the fact that the $L^*(p, r, w)$ functions are different between the two cases, since they come from solving the long run and short run optimization problems, respectively.}
 
 However, in the case where $K$ is held at a constant $\bar{K}$ in the short term, then our optimization problem becomes
 $$\max_L pf(\bar{K}, L) - r\bar{K} - wL.$$
@@ -129,7 +129,7 @@ $$p\frac{\partial}{\partial L} f(\bar{K}, L^*) - w = 0,$$
 which gives
 $$pf_L(\bar{K}, L^*) = w.$$
 We want the new comparative static with respect to $w$ in the short term, so using the Implicit Function Theorem and differentiating both sides yields
-$$\left.\frac{\partial L^{*}}{\partial w}\right|_{S R}=\frac{1}{p f_{L L}}.$$
+$$\left.\frac{d L^{*}}{d w}\right|_{S R}=\frac{1}{p f_{L L}}.$$
 
 Note that both the short run and long run response to a wage increase is negative, but the long run response is larger in magnitude. Intuitively, if capital and labor are substitutes, then in the long run, the increase in wages would increase capital, driving labor down even more than in the short run. If capital and labor are complements, then in the long run, the increase in wages would decrease capital, which would also result in even less labor hired. In either case, when capital is able to adjust to the wage hike, the marginal revenue product of labor goes down, so labor goes down even more than it does in the short term.
 
@@ -142,7 +142,7 @@ $$\pi(p, r, w) = pf(K^*(p, r, w), L^*(p, r, w)) - rK^*(p, r, w) - wL^*(p, r, w).
 
 What happens to profits when price changes? Taking the partial derivative with respect to $p$ gives
 $$\frac{\partial \pi}{\partial p} = f(K^*, L^*),$$
-which is a results known as \vocab{Hotelling's Lemma.} But wait! Where are all the $\frac{\partial K^*}{\partial p}$ and $\pdv{L^*}{p}$ terms? Recall that by the Envelope Theorem, since we are differentiating the value function with respect to the parameters, we can treat the original choice variables as constants. Intuitively, this is because the choice variables are already optimized with respect to the parameters, which means that their derivatives must be 0. \TODO{Provide proof of Envelope Theorem again, except now in multivariate case?}
+which is a results known as \vocab{Hotelling's Lemma.} But wait! Where are all the $\frac{\partial K^*}{\partial p}$ and $\frac{d L^*}{d p}$ terms? Recall that by the Envelope Theorem, since we are differentiating the value function with respect to the parameters, we can treat the original choice variables as constants. Intuitively, this is because the choice variables are already optimized with respect to the parameters, which means that their derivatives must be 0. \TODO{Provide proof of Envelope Theorem again, except now in multivariate case?}
 
 We can similarly differentiate with respect to $r$ and $w$ to get that 
 $$\pdv{\pi}{r} = -K^*$$
@@ -277,13 +277,13 @@ p (K^*)^{\alpha} (\frac{\beta r K^*}{\alpha w})^{\beta }  = \frac{rK^*}{\alpha}.
 Expanding and rearranging the second term in this system yields the solution
 $$\boxed{K^* = \left[p\left(\frac{\beta}{w}\right)^{\beta} \left(\frac{\alpha}{r}\right)^{1-\beta} \right]^{\frac{1}{1-\alpha-\beta}}.}$$
 In order to find comparative statics for $K^*$, we would differentiate this expression with respect to $p$, $w$, and $r$. If we only care about the signs of these derivatives, a useful trick is to first take the log of this expression, which preserves sign because it is a monotonic transformation. We leave these derivatives as an exercise to the reader, since it is possible to determine the signs of the derivatives by simply observing the expression at hand, yielding
-$$\boxed{\pdv{K^*}{p}>0, \pdv{K^*}{r}<0, \pdv{K^*}{w}<0.}$$
+$$\boxed{\frac{d K^*}{d p}>0, \frac{d K^*}{d r}<0, \frac{d K^*}{d w}<0.}$$
 The first two inequalities are expected: the first says that we rent more capital if our product can be sold more expensively, and the second says that we rent less capital if capital is more expensive. The third inequality tells us that we hire less capital when wages rise, so capital and labor are complements, as we noted before.
 
 We can substitute this value of $K^*$ into our earlier system to solve
 $$\boxed{L^* = \left[p\left(\frac{\alpha}{r}\right)^{\alpha} \left(\frac{\beta}{w}\right)^{1-\alpha} \right]^{\frac{1}{1-\alpha-\beta}},}$$
 which is analogous to our solution for $K^*$. We also have a similar set of comparative statics
-$$\boxed{\pdv{L^*}{p}>0, \pdv{L^*}{r}<0, \pdv{L^*}{w}<0}$$
+$$\boxed{\frac{d L^*}{d p}>0, \frac{d L^*}{d r}<0, \frac{d L^*}{d w}<0}$$
 that also carry the analogous interpretation.
 
 Finally, we can collect these expressions to solve for the profit function
@@ -295,7 +295,7 @@ Finally, we can collect these expressions to solve for the profit function
 &= \boxed{(1-\alpha-\beta)\left[p\left(\frac{\beta}{w}\right)^{\beta} \left(\frac{\alpha}{r}\right)^{\alpha} \right]^{\frac{1}{1-\alpha-\beta}}.}
 \end{align*}
 We can then take comparative statics to see that
-$$\boxed{\pdv{\pi^*}{p}>0, \pdv{\pi^*}{r}<0, \pdv{\pi^*}{w}<0}.$$
+$$\boxed{\frac{d \pi^*}{d p}>0, \frac{d \pi^*}{d r}<0, \frac{d \pi^*}{d w}<0}.$$
 These results should be intuitive: profits rise when price of the product rises, and profits fall when input costs rise.
 
 
