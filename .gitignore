@@ -9,3 +9,4 @@ main.pdf
 *.gz
 *.toc
 ~$plots.pptx
+*.DS_Store
