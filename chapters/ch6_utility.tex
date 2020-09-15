@@ -7,7 +7,7 @@ You may have seen utility in previous economics courses described as a quantific
 \subsection*{Utility as preference relations}
 We start by approaching the problem of quantifying an individual's preferences by considering a simpler problem: determining whether an individual prefers one outcome over another. Suppose we have two outcomes, $A$ and $B$, for a given individual. These could be any set of outcomes. $A$ might represent receiving 4 apples and $B$ might represent receiving 6 bananas, or $A$ might represent going to Harvard while $B$ is going to Yale.
 
-We have a fairly reasonable to judge whether an individual prefers outcome $A$ or outcome $B$, by observing which they choose when presented with a choice. This means that we can denote a \vocab{preference relation} on outcomes, which expresses which outcome an individual prefers between two outcomes. The notation is as follows:
+We have a fairly reasonable way to judge whether an individual prefers outcome $A$ or outcome $B$, by observing which they choose when presented with a choice. This means that we can denote a \vocab{preference relation} on outcomes, which expresses which outcome an individual prefers between two outcomes. The notation is as follows:
 \begin{itemize}
     \item $A \prec B$ means that the agent strictly prefers $B$ to $A$. That is, given the choice between $A$ and $B$, the agent would choose $B$.
     \item $A \succ B$ means that the agent strictly prefers $A$ to $B$.
@@ -133,7 +133,7 @@ Now that we know how to find the demand functions of optimizing consumers, we ca
 \begin{align*}
     v(\vec{p}, y) = u(\vec{x}^*(\vec{p}, y))
 \end{align*}
-Where $\vec{x}^*$ is the vector of optimal choice of goods. Notice that the value function is only a function of the exogenous variables, and essentially tells us what is the most utility a consumer can obtain given prices and income. The value function is also known as the \vocab{indirect utility function}. This is analogous to the indirect profit function in the case of firms. Note however that the value function, like the utility function, is ordinal rather than cardinal. 
+Where $\vec{x}^*$ is the vector of optimal choice of goods. Notice that the value function is only a function of the exogenous variables, and essentially tells us what is the most utility a consumer can obtain given prices and income. The value function is also known as the \vocab{indirect utility function}. This is analogous to the profit function in the case of firms. Note however that the value function, like the utility function, is ordinal rather than cardinal. 
 
 \subsection*{Properties of indirect utility}
 \begin{description}
@@ -153,7 +153,7 @@ Where $\vec{x}^*$ is the vector of optimal choice of goods. Notice that the valu
         By assumption, we know that $\partials{u}{x_i}, p_i > 0$. So we must have that $\lambda^* = \partials{u}{x_i} / p_i > 0$.
     \end{proof}
 
-    \item[Decreasing in item prices] As the price of a good $i$ increases, the value function increases, $\frac{dv}{dp_i} > 0$. In particular, $\frac{dv}{dp_i} = - \lambda^* p_i$. 
+    \item[Decreasing in item prices] As the price of a good $i$ increases, the value function decreases, $\frac{dv}{dp_i} < 0$. In particular, $\frac{dv}{dp_i} = - \lambda^* x_i$. 
     
     The intuition here is similar to the intuition about incomes. Suppose you had the same or higher utility with the optimal consumption bundle at new prices. Since prices were lower before, you could have purchased the same bundle at the old prices. But since this bundle is different from the old bundle, and the old bundle was optimizing, the new bundle must be worse.
 
