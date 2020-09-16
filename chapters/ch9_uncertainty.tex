@@ -1,0 +1,68 @@
+\chapter{Choice Under Uncertainty}
+So far, we have assumed implicitly that the world is deterministic, and that agents can perfectly forecast what the world will look like when they make particular choices. However, this is often not the case in the real world. We don't know exactly what the world will look like tomorrow. Nonetheless, there is some sense in which we can still make choices even though the future is uncertain. To do so, we typically use probability theory, where we assume that the future world is random, but that we can assign a probability to certain outcomes. In this chapter, we will cover how rational agents make choices when the outcome is uncertain. 
+
+\section{Probability Theory}
+Before delving into choice under uncertainty and the economic applications of uncertainty, we will cover some basic probability theory. If you have already taken a course on probability theory, and are familiar with concepts like random variables and expected value, this may be largely review. Note that this will not be as comprehensive as a full probability theory course, and will gloss over some of the formalities of probability.
+
+\subsection*{Random Events and Probability}
+For the purposes of this text, we will define a \vocab{random event} as an event that occurs or does not occur with some probability\footnote{
+    As a brief note, formally, a random event $A$ is a subset of some event space $X$. Two events $A, B$ are ``disjoint'' events if $A \cap B = \emptyset$. That is, the events are mutually exclusive. The function $P$ takes an event $A$, and computes the ``measure'' of the set. If you want to learn more, you can read more into probability theory and measure theory. 
+}. For example, we might say that an event $A$ has a probability $0 \leq p \leq 1$ of occuring. We often also denote the probability of an event $A$ as $P(A)$. While we will not delve too deeply into the philosophy or theory of probability, we will give some idea for what it means for some event to have a given probability. From a \vocab{Frequentist} perspective, to say that event $A$ has probability $0.30$ means out of every 100 times we are faced with this scenario, $A$ will happen 30 times. That is, a probability $p$ is the proportion of times an event $A$ occurs when faced with the current circumstance. From a \vocab{Bayesian} perspective, to say that an event $A$ has probability $p$ is assigning a measure of uncertainty to that event that follows certain rules, which we will detail next.
+
+There are three \vocab{axioms of probability}, which are rules that any assignment of probabilities to events must obey.
+
+\begin{enumerate}
+    \item The probability of all disjoint events must sum to 1. That is, if we have $n$ possible different outcomes with probabilities $p_1, p_2, \dots, p_n$, then $p_1 + p_2 + \dots + p_n = 1$. One important note is that these events must be disjoint, so no two events can both occur, for this to be true.
+    \item Probabilities must be strictly non-negative. Events can have $0$ probability, but cannot have negative probability. By the first axiom, we also know that probabilities can be at most 1.
+    \item The probability of at least one of $k$ disjoint events occurring with probabilities $p_1, \dots, p_k$ is $p_1 + \dots + p_k$. Once again, disjoint means that if event 1 occurs, event 2 cannot also occur. In other words, the events are ``mutually exclusive.''
+\end{enumerate}
+
+While these are the formal axioms of probability, there are a few additionally useful properties and definitions to be aware of,
+\begin{description}
+    \item[Probability of an event not happening] For an event $A$, the probability of ``not $A$'', also denoted as $A^c$ (the complement of $A$), we have $P(A^c) = 1 - P(A)$.
+    \item[Probability of non-disjoint events] If we have two events, $A$ and $B$, the probability of $A$ or $B$ (denoted as $P(A \cup B)$) is given by $P(A \cup B) = P(A) + P(B) - P(A \cap B)$ where $A \cap B$ is the event that both $A$ and $B$ occur.  
+    \item[Conditional probability] The event $A | B$ denotes the event that $A$ occurs given that $B$ has already occured. We assign the probability as, $P(A | B) = \frac{P(A \cap B)}{P(B)}$. That is, the probability that $A$ and $B$ occur, divided by the probability that $B$ occurs. If we have $P(A | B) = P(A)$, then we say that $A$ and $B$ are \vocab{independent events}. The intuition is that if $A$ and $B$ are independent, whether or not $B$ occurs does not affect the probability of $A$ occuring. 
+    \item[Probability of independent events] If two events, $A$ and $B$ are independent, then the probability of $A$ and $B$ happening is $P(A \cap B) = P(A) P(B)$. 
+\end{description}
+
+\subsection*{Random Variables and Expectation}
+While we have discussed random events so far, in economics we normally deal with events that can be assigned some numerical value. A \vocab{random variable} is a variable that takes real values (values in $\R$) according to what random events happen.\footnote{
+    Formally, a random variable is actually a function $f: X \to \R$, where the input is some subset of the event space, and the output is the real number associated with that event. As a result, we can add, multiply, or apply functions to, a random variable in a mathematically rigorous way
+} We can treat a random variable the same way we would treat any other variable. The key is that the result of any operation we apply to a random variable is still a random variable. So if we have a random variable $X$, then $X + 5$ and $f(X)$ are still random variables. 
+
+The main way we use random variables in economics is by examining the \vocab{expected value} of a random variable, denote $E[X]$, which you can think of as the ``average'' value of of the random variable over many trials. Mathematically, suppose that a random variable $X$ takes on values $1, \dots, n$ with probabilities $p_1, \dots, p_n$, then the expected value of $X$ is given by,
+\begin{align*}
+    E[X] = \sum_{x = 1}^n x p_x
+\end{align*}
+More generally, suppose that $S$ is the set of possible values of $X$ (also known as the \vocab{support} of $X$), then the expected value of $X$ is given by,
+\begin{align*}
+    E[X] = \sum_{x \in S} x P(X = x)
+\end{align*}
+Where $P(X = x)$ is the probability that the random variable $X$ takes on a specific value $x$. Note that the above definition only works when $X$ takes on discrete values. In this class, we will almost always deal with discrete values. We will cover the case of continuous random variables in the next section as optional for those who are interested.  
+
+There are a few additional definitions and properties of expectation that are useful for this course:
+\begin{description}
+    \item[Linearity] If we have two random variables $X, Y$ and two constants $\alpha, \beta$, then 
+    \begin{align*}
+        E[\alpha X + \beta Y] = \alpha E[X] + \beta E[Y]
+    \end{align*} 
+    Note that this is easily verifiable because the expectation is just a weighted sum, and you can separate addition in sums, as well as pull out multiplication by constants. Observe also that this means that for any constant $c$, $E[X + c] = E[X] + c$. This is because you can think of a constant as just a random variable that takes the value $c$ with probability 1. 
+
+    An important caveat though is that in general, $E[XY] \neq E[X]E[Y]$. In fact, this is only the case if $X$ and $Y$ are independent random variables. Similarly, $E[X^2] \neq E[X]^2$ unless $X$ is a constant.
+
+    \item[Expectations of functions] Let $f: \R \to \R$ be a function and $X$ be a random variable with support $S$. Then, $f(X)$ is also a random variable. In particular, the expectation of $f(X)$ is given by,
+    \begin{align*}
+        E[f(X)] = \sum_{x \in S} f(x) P(X = x)
+    \end{align*} 
+    Note that in general, $E[f(X)] \neq f(E[X])$. The next property will describe when this is the case.
+    \item[Jensen's Inequality]
+    \item[Variance] 
+\end{description}
+
+\subsection*{Continuous Random Variables*}
+
+\section{Expected Utility Theory}
+
+\section{Insurance}
+
+\section{Risk Aversion}
