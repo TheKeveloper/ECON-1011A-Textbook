@@ -55,8 +55,24 @@ There are a few additional definitions and properties of expectation that are us
         E[f(X)] = \sum_{x \in S} f(x) P(X = x)
     \end{align*} 
     Note that in general, $E[f(X)] \neq f(E[X])$. The next property will describe when this is the case.
-    \item[Jensen's Inequality]
-    \item[Variance] 
+    \item[Jensen's Inequality] For a function $f: \R \to \R$ and random variable $X$, 
+    \begin{align*}
+        E[f(X)] \leq f(E[X]) \text{ if $f$ is concave}
+    \end{align*}
+    Similarly,
+    \begin{align*}
+        E[f(X)] \geq f(E[X]) \text{ if $f$ is convex}
+    \end{align*}
+    Finally, these jointly imply that
+    \begin{align*}
+        E[f(X)] = E[f(X)] \text{ iff $f$ is linear}
+    \end{align*}
+    This property is particularly important when examining concave utility functions. 
+    \item[Variance] The variance of a random variable $X$ is defined as
+    \begin{align*}
+        \var(X) = E[(X - E[X])^2] = E[X^2] - E[X]^2
+    \end{align*} 
+    One important note is that $\var(X)$ is always non-negative, and the variance is only zero for a constant random variable.
 \end{description}
 
 \subsection*{Continuous Random Variables*}
