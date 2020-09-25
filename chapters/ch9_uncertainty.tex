@@ -91,6 +91,27 @@ Note that the integral is over all real numbers, but that we can omit values tha
 Finally all of the properties of expectation in the discrete case also hold in the continuous case. 
 
 \section{Expected Utility Theory}
+Now that we have understood some basic probability theory, we can consider how agents optimize when there is uncertainty. 
+
+Let $Y$ be a random variable denoting the income of the agent. For simplicity, we will assume that there are two possible states of the world: $a$ and $b$, where $Y = y_a$ in state $a$, and $Y = y_b$ in state $b$. State $a$ occurs with probability $P(Y = y_a) = p$, and so state $b$ occurs with probability $P(Y = y_b) = q = 1 - p$. We define a utility function $u$ over income, so that if the agent receives guaranteed income $y$, the utility is $u(y)$. Notice that this is the utility that an agent receives for a guaranteed outcome, which is known as the agent's \vocab{Bernoulli utility function}. 
+
+While the most general formulation for how the agent treats uncertainty might be some function $U(y_a, y_b; p)$, we typically assume that agents care about their \vocab{expected utility}, which is given by,
+\begin{align*}
+    EU(y_a, y_b; p) = E[u(Y)] = p u(y_a) + (1 - p) u(y_b)
+\end{align*}
+It is important to note that \emph{the expected utility function is a utility function} and it is the agent's objective function. In some sense, it is the ``true'' utility function that the agent maximizes when making decisions under uncertainty. Note that when there is certainty about the outcome, then we simply take $p = 1$ or $p = 0$, and the expected utility function is precisely equal to the Bernoulli utility function for the given outcome. 
+
+Notice however, that since the agent's objective function is the the expected utility function and not the Bernoulli utility function, you cannot take a monotonic transformation of the Bernoulli utility function and obtain the same result. You could take a monotonic transformation of the expected utility function, but this will often not be very useful because the expected utility is a sum of utility functions.
+
+Finally, there is a key distinction between expected utility and expected value of two different outcomes. The expected value of an outcome is given by
+\begin{align*}
+    E[Y] = p y_a + (1 - p) y_b
+\end{align*}
+In general, $u(E[Y]) \neq E[u(Y)]$. Notice that if we make our standard assumption that the utility function $u$ is concave, then by Jensen's inequality,
+\begin{align*}
+    E[u(Y)] \leq u(E[Y])
+\end{align*}
+In other words, when utility is concave, prefer getting \$5 for sure than a 50-50 chance of getting \$0 or \$10. This is known as risk aversion, and we will cover it in more detail later in this chapter. 
 
 \section{Insurance}
 
