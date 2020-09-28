@@ -56,7 +56,7 @@ To do so, we can just differentiate the first derivative from \ref{eq:profit_foc
 \begin{align}
     \partials{^2\pi}{L^2} = pf''(L) \label{eq:generalized_soc}
 \end{align}
-We need the above derivative to hold with respect to any $L$. However, we assumed that $f''(L) < 0$, and since $p > 0$, then we have that $pf''(L)(L) < 0$, which satisfies our second order conditions.
+We need the above derivative to hold with respect to any $L$. However, we assumed that $f''(L) < 0$, and since $p > 0$, then we have that $pf''(L)< 0$, which satisfies our second order conditions.
 
 This tells us that $L^*$ defines a global maximum, which means that the firm is indeed profit maximizing! 
 
@@ -156,7 +156,7 @@ To gain some intuition for how we might approach this problem, let's look back a
 \end{align*}
 Now consider what happens if we increase $w$ by a little bit. The right hand side has increased, so the left hand side must also increase by a small amount to ensure the equality holds. However, $p$ is fixed, so it must be that the value of $L^*$ has changed. This makes sense because recall that with the optimized choice of $L$, $L^*$ is an implicit function of $p$ and $w$, so the value of $L^*$ changes.  In particular, it must have decreased, because we know that $f'' < 0$, which means that $f'$ decreases as $L$ increases, so to make $f'$ smaller, the value of $L^*$ must decrease. Notice that we were able determine how $L^*$ would change without having to know anything about the actual value of $L^*$ or the form of $f$. This is the idea behind using implicit differentiation to calculate the change. 
 
-While this is an informal argument, we can formalize it with the \vocab{implicit function theorem}. While we do not offer a formal state of the theorem, it essentially states that if we have an equality of the form $f(x) = c$ for some constant $c$, and $f$ is sufficiently ``well-behaved'', then we can express the value of $x$ as a function of $c$. This also means that we can use implicit differentiation to solve for the relatioship between the two variables.
+While this is an informal argument, we can formalize it with the \vocab{implicit function theorem}. While we do not offer a formal state of the theorem, it essentially states that if we have an equality of the form $f(x) = c$ for some constant $c$, and $f$ is sufficiently ``well-behaved'' (do not worry about what this means formally, and assume that all functions we deal with satisfy the necessary conditions), then we can express the value of $x$ as a function of $c$. This also means that we can use implicit differentiation to solve for the relatioship between the two variables.
 
 In the context of our problem, it tells us that by implicity differentiating both sides of the first order condition, we can determine how $L^*$ changes with respect to wage and price, without even knowing the actual value of $L^*$!
 
@@ -248,7 +248,7 @@ Now we can do the same for the optimized profit function. This optimized version
 To find the comparative statics for the value function, in this case profit, we can use a result known as the \vocab{envelope theorem}. Informally, the envelope theorem says that when calculating how the value function is affected by a change in an exogenous variable, we only need to look at the direct effect of the exogenous variable, and can treat our choices as fixed. We can write this more formally for the case of a single variable (although note that it generalizes to multiple variables),
 
 \begin{theorem*}[Envelope] \label{thm:envelope}
-    Let $F(x; z)$ be an objective function with choice variable $x$ and exogenous variable $z$. Let $V(z) = \max_x F(x; z)$ be the value function and $x^* = \argmax_x F(x;, z)$ be the optimizing choice of $x$. Then,
+    Let $F(x; z)$ be an objective function with choice variable $x$ and exogenous variable $z$. Let $V(z) = \max_x F(x; z)$ be the value function and $x^* = \argmax_x F(x; z)$ be the optimizing choice of $x$. Then,
     \begin{align*}
         \frac{dV}{dz} = \partials{F}{z}(x^*, z)
     \end{align*}
