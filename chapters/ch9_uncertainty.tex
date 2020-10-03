@@ -111,8 +111,51 @@ In general, $u(E[Y]) \neq E[u(Y)]$. Notice that if we make our standard assumpti
 \begin{align*}
     E[u(Y)] \leq u(E[Y])
 \end{align*}
-In other words, when utility is concave, prefer getting \$5 for sure than a 50-50 chance of getting \$0 or \$10. This is known as risk aversion, and is what we will cover in section \ref{sec:risk_aversion}.
+In other words, when utility is concave, prefer getting \$5 for sure than a 50-50 chance of getting \$0 or \$10. This is known as risk aversion, which is the main reason that agents buy insurance, which we will cover in the next section.
 
 \section{Insurance}
+One of the most relevant models for making choices under uncertainty to our everyday lives is insurance. Many states require that drivers buy insurance for their vehicles, and access to health insurance is one of the most poignant political issues in the United States. Uncertainty and how we deal with it is one of the central questions of insurance, and we will offer a formal economic treatment of it here. 
 
-\section{Risk Aversion}\label{sec:risk_aversion}
+\subsection*{Setup}
+While real insurance contracts can often become very complex, we offer a simple model here. The fundamental structure of insurance is that we agree to pay an insurance some fee, and if things go ``bad,'' then the insurance company helps us recoup our losses. While in the real world there are various degrees of harm, we will assume there are only two possible worlds: ``good'' and ``bad.''
+
+Let $u(w)$ be the agent's Bernoulli utility function for a given wealth $w$. That is, if the agent receives a guaranteed $w$ dollars, they will receive utility $u(w)$. Now assume that with probability $p$, the agent will lose dollars $d$. So if the bad world occurs, the agent receives $u(w - d)$ utility. We can therefore write the expected utility function,
+\begin{align*}
+    EU = p u(w - d) + (1 - p)u(w)
+\end{align*}
+
+In order for the agent to insure against the bad world. Let $x$ denote the dollars of insurance that the agent buys. That is, if the agent buys $x$ units of insurance, then the agent receives $x$ in the bad world. The cost of each unit of insurance is $q < 1$, and the agent must pay this insurance in either world. So the agent's expected utility is given by,
+\begin{align*}
+    EU = p u(w - d - qx + x) + (1 - p) u(w - qx) 
+\end{align*}
+Notice that we must have $q < 1$, otherwise the agent would never buy any insurance. In the same way that savings allows us to shift income through time, insurance allows us to shift income between possible worlds, by taking money away from ourselves in the good world to compensate ourselves in the bad world. 
+
+\subsection*{Solving optimal insurance}
+The natural question once we know the agent's utility function is how much insurance the agent should buy. Our optimization problem is therefore,
+\begin{align*}
+    \max_{x \geq 0} p u(w - d - qx + x) + (1 - p) u(w - qx)
+\end{align*}
+
+The first order conditions are given by,
+\begin{align*}
+    \underbrace{p (1 - q) u'(w - d - qx + x)}_{\text{(1)}} - \underbrace{(1 - p) q u'(w - qx)}_{\text{(2)}} = 0
+\end{align*}
+Let's try to give some intuitive interpretation to this first order condition. The first order condition gives us roughly the \emph{expected gain per additional dollar on insurance}. At an optimum, this must be zero because otherwise we would shift around the money. Not only is this true by definition of the derivative, but we can also take a look at each piece.
+
+First, we'll take a look at (1). This is the gain in the bad world from an additional dollar in insurance. The term $p$ tells us the probability that we actually receive this gain, because we only gain from insurance in the bad world. Next, $(1 - q)$ is the net gain that we will receive from an additional unit of insurance purchased. This is because for each unit of insurance we get one dollar in the bad world, and the cost of that insurance is $q$. Finally, $u'(w - d - qx + x)$ tells us the increase in utility we would get from an additional dollar in insurance, so multiplying it by $(1 - q)$ tells us how much utility benefit we get in the bad world for an additional unit of insurance purchased.
+
+Next, we can take a look at (2), which is the loss in utility in the good world from an additional unit of insurance purchased. $1 - p$ tells us the probability that this utility loss is actually realized. We spend $q$ to buy the additional unit of insurance. Finally, $u'(w - qx)$ tells us how much utility we lose for every dollar we lose in the good world, so multiplying by $q$ tells us the total loss in utility in the good world from an additional dollar of insurance.
+
+Subracting (2) from (1) therefore tells us the expected gain in utility from an additional unit of insurance purchased, and at an optimum, this must be zero.
+
+We can gain some further intuition from rearranging,
+\begin{align*}
+    \frac{u'(w - d - qx + x)}{u'(w - qx)} &= \frac{(1 - p)q}{p(1 - q)}
+\end{align*}
+The left hand side is a marginal rate of substitution, which tells us the ratio of how much better off the agent has to be in the bad world compared to the good world. The right hand side tells us that in the equilibrium, this must be some constant.
+
+\subsection*{Pricing Insurance}
+
+\subsection*{Insurance on the Margin}
+
+\section{Risk Aversion} \label{sec:risk_aversion}
