@@ -205,3 +205,24 @@ That is, the marginal utility of buying insurance is always negative! In other w
 The reason this paradoxical result occurs is because if you believe that the world where you fail the exam is so bad that you won't spend any money and your level of income makes no difference, then you are better off just maximizing your happiness in the world where you do pass the exam. In the ideal world however, you spend more time studying for the exam to reduce $p$, the probability of failure. 
 
 \section{Risk Aversion} \label{sec:risk_aversion}
+We have already explored the concept of risk aversion to some degree, as it is the main reason that individuals usually have a preference to buy insurance. Here, we will explore the concept of risk aversion more deeply, and, in particular, how to quantify risk aversion. 
+
+\subsection*{Certainty Equivalence}
+Suppose we have some current income $y$, and that we will receive some additional income $X$, which is a random variable. $X$ may be your returns in the stock market, or maybe you are a gambler and $X$ is the return that you make on a bet. We say that a bet with return $X$ is a \vocab{fair bet} if $E[X] = 0$. Our expected utility is given by,
+\begin{align*}
+    EU = E[u(y + X)]
+\end{align*}
+The question is, would you accept a fair bet? For example, if your professor offered you a bet where he would flip a coin and pay you \$100 if it landed heads, and take \$100 if it landed tails, would you take the bet? For most people, the answer is no. The reason is because the utility function, $u$, is strictly concave, so we can apply Jensen's inequality to obtain,
+\begin{align*}
+    E[u(y + X)] < u(E[y + X]) = u(E[y])
+\end{align*}
+That is, our expected utility from taking the best is strictly lower than our utility from not taking the bet. 
+
+However, what if the professor instead gave you a choice, to either accept the above bet or he could just take away \$10? We therefore have a choice between an uncertain bet versus a certain loss. Without delving into the behavioral economics of the question, we can recognize that there is some amount of money that we would be willing to give up, for certain, to avoid having to risk losing \$100. That is, there exists some $c \in \R$ such that
+\begin{align*}
+    E[u(y + X)] = u(y + c)
+\end{align*}
+$c$ is known as the \vocab{certainty equivalent}, which is the amount of money required for us to be indifferent between receiving $c$ or taking the bet. Note that if the bet is fair, because $u$ is concave, we will always have $c < 0$. The below plot shows how the certainty equivalent is demonstrated graphically:
+
+\image[0.75]{plots/ch9_certainty_equivalent.png}
+
