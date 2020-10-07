@@ -190,5 +190,18 @@ By the same logic as before, using the convexity of $u$, we can conclude that,
 This gives us a strange occasion where if the price of insurance is below the actuarially fair price, then the agent will actually \emph{over-insure}, and would prefer for the bad outcome to happen because they will collect so much insurance money! 
 
 \subsection*{Insurance on the Margin}
+We can consider one final case where the agent may choose not to buy \emph{any} insurance even if they are risk averse. Consider the following scenario where you are offered some monetary insurance against failing a midterm in an economics course. If you do well on the midterm, you are happy and will go out to spend money. But if you do poorly on the midterm, you will not even have any desire to spend money because it will be useless to you. We can model this by multiplying the wealth in a given period by 1 if we pass the midterm, and 0 if we fail. If you have initial wealth $w$, price $q$ for insurance, and probability $p$ of failing the midterm, we can model the expected utility as,
+
+\begin{align*}
+    EU &= p u(0 \times (w - qx + x)) + (1 - p) u(1 \times (w - qx)) \\
+    &= p u(0) + (1 - p) u(w - qx)
+\end{align*}
+Notice however, that
+\begin{align*}
+    \frac{\partial EU}{\partial x} = - q(1 - p) u'(w - qx) < 0
+\end{align*}
+That is, the marginal utility of buying insurance is always negative! In other words, we would not only not want to buy insurance, we would actually want to \emph{sell} insurance on us failing the exam to get more money in the world where we don't fail. 
+
+The reason this paradoxical result occurs is because if you believe that the world where you fail the exam is so bad that you won't spend any money and your level of income makes no difference, then you are better off just maximizing your happiness in the world where you do pass the exam. In the ideal world however, you spend more time studying for the exam to reduce $p$, the probability of failure. 
 
 \section{Risk Aversion} \label{sec:risk_aversion}
