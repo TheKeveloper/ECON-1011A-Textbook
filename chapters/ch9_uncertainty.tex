@@ -149,12 +149,45 @@ Next, we can take a look at (2), which is the loss in utility in the good world 
 Subracting (2) from (1) therefore tells us the expected gain in utility from an additional unit of insurance purchased, and at an optimum, this must be zero.
 
 We can gain some further intuition from rearranging,
-\begin{align*}
-    \frac{u'(w - d - qx + x)}{u'(w - qx)} &= \frac{(1 - p)q}{p(1 - q)}
-\end{align*}
+\begin{equation} \label{eq:insurance_foc}
+    \frac{u'(w - d - qx + x)}{u'(w - qx)} = \frac{(1 - p)q}{p(1 - q)}
+\end{equation}
 The left hand side is a marginal rate of substitution, which tells us the ratio of how much better off the agent has to be in the bad world compared to the good world. The right hand side tells us that in the equilibrium, this must be some constant.
 
 \subsection*{Pricing Insurance}
+Now we consider the price of insurance, and we start by examining this from a firm's perspective. In particular, we can think about how much expected profit a firm makes by selling $x$ units of insurance at some price $q$. The firm gets $qx$ units of revenue. With probability $p$, the firm will have to pay out $x$ dollars. So, the firm's expected profit is given by,
+\begin{align*}
+    qx - px = (q - p)x
+\end{align*}
+Now we can consider the reasonable values for $q$. If $q < p$, then the firm would never sell insurance, so this does not seem reasonable. If $q > p$, then we would expect more firms to enter the market, increasing the supply of insurance and pushing the price down. In most competitive markets of this sort, the firms make zero profits, in which case $q = p$. This is known as \vocab{actuarially fair insurance}, where the price per unit of insurance is equal to the risk of the bad event happening. 
+
+Now we can consider what happens if insurance prices are actuarially fair. Plugging in $q = p$ into our first order conditions in \ref{eq:insurance_foc}, we get
+\begin{align*}
+    \frac{u'(w - d - qx + x)}{u'(w - qx)} = \frac{(1 - p)p}{p(1 - p)} = 1
+\end{align*}
+This tells us that we must have $u'(w - d - qx + x) = u'(w - qx)$. Since we assume that $u'$ is a monotonically decreasing function, we know then that $w - d - qx + x = w - qx$. That is, the agent has the same outcomes in both periods, and we say this is a situation where the agent has \vocab{fully insured}. This tells us something very important: \emph{if prices are actuarially fair, agents are able to fully insure and eliminate risk}. 
+
+On the other hand, if we have $q > p$, then the firm is making a profit, and going back to the first order conditions, we would be able to obtain that,
+\begin{align*}
+    \frac{u'(w - d - qx + x)}{u'(w - qx)} &= \frac{(1- p) q}{p (1 - q)} > 1 \\
+    \implies u'(w - d - qx + x) &> u'(w - qx)
+\end{align*} 
+Since $u$ is concave, $u'$ is decreasing, which means that 
+\begin{align*}
+    w - qx > w - d - qx + x
+\end{align*}
+So, if the price of insurance is greater than the actuarily fair price, then the agent under-insures and still prefers the good world to the bad world. 
+
+Finally, we can consider the unrealistic case where $q < p$. In this case, the firm makes negative expected profit, so it is unlikely for this to ever happen. If it did, we can take a look at how much insurance the agent will buy once again using the first order conditions to find that
+\begin{align*}
+    \frac{u'(w - d - qx + x)}{u'(w - qx)} &= \frac{(1- p) q}{p (1 - q)} < 1 \\
+    \implies u'(w - d - qx + x) &< u'(w - qx)
+\end{align*}
+By the same logic as before, using the convexity of $u$, we can conclude that,
+\begin{align*}
+    w - d - qx + x > w - qx
+\end{align*}
+This gives us a strange occasion where if the price of insurance is below the actuarially fair price, then the agent will actually \emph{over-insure}, and would prefer for the bad outcome to happen because they will collect so much insurance money! 
 
 \subsection*{Insurance on the Margin}
 
