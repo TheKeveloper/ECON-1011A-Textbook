@@ -222,7 +222,35 @@ However, what if the professor instead gave you a choice, to either accept the a
 \begin{align*}
     E[u(y + X)] = u(y + c)
 \end{align*}
-$c$ is known as the \vocab{certainty equivalent}, which is the amount of money required for us to be indifferent between receiving $c$ or taking the bet. Note that if the bet is fair, because $u$ is concave, we will always have $c < 0$. The below plot shows how the certainty equivalent is demonstrated graphically:
+$c$ is known as the \vocab{certainty equivalent}, which is the amount of money required for us to be indifferent between receiving $c$ or taking the bet. Formally, $c$ is a function of the random variable $X$ and the current income, $c(X, y)$ Note that if the bet is fair, because $u$ is concave, we will always have $c < 0$. The below plot shows how the certainty equivalent is demonstrated graphically:
 
 \image[0.75]{plots/ch9_certainty_equivalent.png}
 
+We can use the certainty equivalent as a way of proxying for the degree of risk aversion a given agent exhibits. For the same bet, we could say that the agent with the lower certainty equivalent has greater risk aversion. Intuitively, if the certainty equivalent is lower, then this means that an agent is willing to accept more of a certain loss to avoid the uncertainty of a particular bet. 
+
+\subsection*{Coefficients of Risk Aversion}
+So far, we have seen that for a given bet, the agent with the lower certainty equivalent is more risk averse. However, it would be preferable if we could find some way to compare the risk aversion between two agents without needing to examine a specific bet. One thing that we might notice is that, per the diagram in the previous section, an agent's level of risk aversion seems to be related to how curved the utility function is. That is, the ``degree'' of concavity of the utility function.
+
+At a first guess, we may measure the risk aversion by the second derivative of the utility function, $u''$. However, this is somewhat problematic because remember that we can rescale the utility function, and if we use $u''$ as the measure of risk aversion, we may view an agent as more risk averse simply through by rescaling the utility function. To address this issue, we want to normalize the second derivative someway, and we can do so by dividing by the first derivative, $u'$. Accordingly, we define the \vocab{Arrow-Pratt coefficient of absolute risk aversion as},
+\begin{align*}
+    \alpha = -\frac{u''(y)}{u'(y)}
+\end{align*}
+We negate the expression because the second derivative, $u''$ is negative, and we want greater $\alpha$ to mean more risk averse. We can also interpret $\alpha$ as a percentage change or elasticity, as it is the instantaneous change in $u'(x)$ divided by $u'(x)$. 
+
+The coefficient of absolute risk aversion has an important relationship to the certainty equivalent through the following theorem:
+
+\begin{theorem*}
+    Let $u$ and $v$ be utility functions. Let $c_u(X)$ be the certainty equivalent of $u$ for a random variable $X$ and let $c_v(X)$ be the certainty equivalent of $v$ at $X$, such that $E[u(X)] = u(c_u(X))$ and $E[v(X)] = u(c_v(X))$. Then,
+    \begin{align*}
+        \frac{u''(x)}{u'(x)} \geq \frac{v''(x)}{v'(x)} \; \forall \, x \iff c_u(X) \leq c_v(X) \; \forall \, X
+    \end{align*}
+    That is, $u$ has a higher coefficient of absolute risk aversion than $v$ everywhere if and only if for every lottery $X$, the certainty equivalent for $X$ under $u$ is lower than the certainty equivalent for $X$ under $v$. 
+\end{theorem*}
+
+While we will not prove the theorem in this book, the intuition is that the more curved the utility function is, the greater the loss you will be willing to accept to avoid uncertainty. We can therefore interpret the coefficient of absolute risk aversion at a given point as how much one would pay to avoid a bet that has small dollar value.
+
+However, this is an income dependent measure. For example, a billionaire is probably more willing to take a \$100 bet than an unemployed college student. We can instead define the \vocab{coefficient of relative risk aversion}, 
+\begin{align*}
+    \rho = y \frac{u''(y)}{u'(y)}
+\end{align*}
+Rather than considering the absolute dollar value of a given lottery $X$, the coefficient of relative risk aversion tells us how risk averse an individual is to lotteries that are a given \emph{percentage} of the individual's current income.
