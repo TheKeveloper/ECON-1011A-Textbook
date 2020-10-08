@@ -1,0 +1,332 @@
+\chapter{Choice Under Uncertainty}
+So far, we have assumed implicitly that the world is deterministic, and that agents can perfectly forecast what the world will look like when they make particular choices. However, this is often not the case in the real world. We don't know exactly what the world will look like tomorrow. Nonetheless, there is some sense in which we can still make choices even though the future is uncertain. To do so, we typically use probability theory, where we assume that the future world is random, but that we can assign a probability to certain outcomes. In this chapter, we will cover how rational agents make choices when the outcome is uncertain. 
+
+\section{Probability Theory}
+Before delving into choice under uncertainty and the economic applications of uncertainty, we will cover some basic probability theory. If you have already taken a course on probability theory, and are familiar with concepts like random variables and expected value, this may be largely review. Note that this will not be as comprehensive as a full probability theory course, and will gloss over some of the formalities of probability.
+
+\subsection*{Random Events and Probability}
+For the purposes of this text, we will define a \vocab{random event} as an event that occurs or does not occur with some probability\footnote{
+    As a brief note, formally, a random event $A$ is a subset of some event space $X$. Two events $A, B$ are ``disjoint'' events if $A \cap B = \emptyset$. That is, the events are mutually exclusive. The function $P$ takes an event $A$, and computes the ``measure'' of the set. If you want to learn more, you can read more into probability theory and measure theory. 
+}. For example, we might say that an event $A$ has a probability $0 \leq p \leq 1$ of occuring. We often also denote the probability of an event $A$ as $P(A)$. While we will not delve too deeply into the philosophy or theory of probability, we will give some idea for what it means for some event to have a given probability. From a \vocab{Frequentist} perspective, to say that event $A$ has probability $0.30$ means out of every 100 times we are faced with this scenario, $A$ will happen 30 times. That is, a probability $p$ is the proportion of times an event $A$ occurs when faced with the current circumstance. From a \vocab{Bayesian} perspective, to say that an event $A$ has probability $p$ is assigning a measure of uncertainty to that event that follows certain rules, which we will detail next.
+
+There are three \vocab{axioms of probability}, which are rules that any assignment of probabilities to events must obey.
+
+\begin{enumerate}
+    \item The probability of all disjoint events must sum to 1. That is, if we have $n$ possible different outcomes with probabilities $p_1, p_2, \dots, p_n$, then $p_1 + p_2 + \dots + p_n = 1$. One important note is that these events must be disjoint, so no two events can both occur, for this to be true.
+    \item Probabilities must be strictly non-negative. Events can have $0$ probability, but cannot have negative probability. By the first axiom, we also know that probabilities can be at most 1.
+    \item The probability of at least one of $k$ disjoint events occurring with probabilities $p_1, \dots, p_k$ is $p_1 + \dots + p_k$. Once again, disjoint means that if event 1 occurs, event 2 cannot also occur. In other words, the events are ``mutually exclusive.''
+\end{enumerate}
+
+While these are the formal axioms of probability, there are a few additionally useful properties and definitions to be aware of,
+\begin{description}
+    \item[Probability of an event not happening] For an event $A$, the probability of ``not $A$'', also denoted as $A^c$ (the complement of $A$), we have $P(A^c) = 1 - P(A)$.
+    \item[Probability of non-disjoint events] If we have two events, $A$ and $B$, the probability of $A$ or $B$ (denoted as $P(A \cup B)$) is given by $P(A \cup B) = P(A) + P(B) - P(A \cap B)$ where $A \cap B$ is the event that both $A$ and $B$ occur.  
+    \item[Conditional probability] The event $A | B$ denotes the event that $A$ occurs given that $B$ has already occured. We assign the probability as, $P(A | B) = \frac{P(A \cap B)}{P(B)}$. That is, the probability that $A$ and $B$ occur, divided by the probability that $B$ occurs. If we have $P(A | B) = P(A)$, then we say that $A$ and $B$ are \vocab{independent events}. The intuition is that if $A$ and $B$ are independent, whether or not $B$ occurs does not affect the probability of $A$ occuring. 
+    \item[Probability of independent events] If two events, $A$ and $B$ are independent, then the probability of $A$ and $B$ happening is $P(A \cap B) = P(A) P(B)$. 
+\end{description}
+
+\subsection*{Random Variables and Expectation}
+While we have discussed random events so far, in economics we normally deal with events that can be assigned some numerical value. A \vocab{random variable} is a variable that takes real values (values in $\R$) according to what random events happen.\footnote{
+    Formally, a random variable is actually a function $f: X \to \R$, where the input is some subset of the event space, and the output is the real number associated with that event. As a result, we can add, multiply, or apply functions to, a random variable in a mathematically rigorous way
+} We can treat a random variable the same way we would treat any other variable. The key is that the result of any operation we apply to a random variable is still a random variable. So if we have a random variable $X$, then $X + 5$ and $f(X)$ are still random variables. 
+
+The main way we use random variables in economics is by examining the \vocab{expected value} of a random variable, denote $E[X]$, which you can think of as the ``average'' value of of the random variable over many trials. Mathematically, suppose that a random variable $X$ takes on values $1, \dots, n$ with probabilities $p_1, \dots, p_n$, then the expected value of $X$ is given by,
+\begin{align*}
+    E[X] = \sum_{x = 1}^n x p_x
+\end{align*}
+More generally, suppose that $S$ is the set of possible values of $X$ (also known as the \vocab{support} of $X$), then the expected value of $X$ is given by,
+\begin{align*}
+    E[X] = \sum_{x \in S} x P(X = x)
+\end{align*}
+Where $P(X = x)$ is the probability that the random variable $X$ takes on a specific value $x$. Note that the above definition only works when $X$ takes on discrete values. In this class, we will almost always deal with discrete values. We will cover the case of continuous random variables in the next section as optional for those who are interested.  
+
+There are a few additional definitions and properties of expectation that are useful for this course:
+\begin{description}
+    \item[Linearity] If we have two random variables $X, Y$ and two constants $\alpha, \beta$, then 
+    \begin{align*}
+        E[\alpha X + \beta Y] = \alpha E[X] + \beta E[Y]
+    \end{align*} 
+    Note that this is easily verifiable because the expectation is just a weighted sum, and you can separate addition in sums, as well as pull out multiplication by constants. Observe also that this means that for any constant $c$, $E[X + c] = E[X] + c$. This is because you can think of a constant as just a random variable that takes the value $c$ with probability 1. 
+
+    An important caveat though is that in general, $E[XY] \neq E[X]E[Y]$. In fact, this is only the case if $X$ and $Y$ are independent random variables. Similarly, $E[X^2] \neq E[X]^2$ unless $X$ is a constant.
+
+    \item[Expectations of functions] Let $f: \R \to \R$ be a function and $X$ be a random variable with support $S$. Then, $f(X)$ is also a random variable. In particular, the expectation of $f(X)$ is given by,
+    \begin{align*}
+        E[f(X)] = \sum_{x \in S} f(x) P(X = x)
+    \end{align*} 
+    Note that in general, $E[f(X)] \neq f(E[X])$. The next property will describe when this is the case.
+    \item[Jensen's Inequality] For a function $f: \R \to \R$ and random variable $X$, 
+    \begin{align*}
+        E[f(X)] \leq f(E[X]) \text{ if $f$ is concave}
+    \end{align*}
+    Similarly,
+    \begin{align*}
+        E[f(X)] \geq f(E[X]) \text{ if $f$ is convex}
+    \end{align*}
+    Finally, these jointly imply that
+    \begin{align*}
+        E[f(X)] = E[f(X)] \text{ iff $f$ is linear}
+    \end{align*}
+    This property is particularly important when examining concave utility functions. 
+    \item[Variance] The variance of a random variable $X$ is defined as
+    \begin{align*}
+        \text{var}(X) = E[(X - E[X])^2] = E[X^2] - E[X]^2
+    \end{align*} 
+    One important note is that $\text{var}(X)$ is always non-negative, and the variance is only zero for a constant random variable.
+    \item[Covariance] The covariance between two random variables $X$ and $Y$ is defined as,
+    \begin{align*}
+        \text{cov}(X, Y) = E[(X - E[X])(Y - E[Y])] = E[XY] - E[X]E[Y]
+    \end{align*} 
+    The covariance tells us if how we expect $Y$ to change if $X$ is one unit higher. In essence, it tells us how two random variables are related. If $X$ and $Y$ are independent random variables, then $\text{cov}(X, Y) = 0$. However, the converse is not true. $\text{cov}(X, Y) = 0$ does not imply independence.
+    \item[Derivatives in Expectations] Suppose we have some random variable $X$, and a function $f(X; z)$ where $z$ is some exogenous variable. Then,
+    \begin{align*}
+        \frac{\partial}{\partial z} E[f(X; z)] = E\left[\frac{\partial f(X; z)}{\partial z}\right]
+    \end{align*} 
+    That is, so long as we are not differentiating with respect to the random variable, the derivative of an expectation is the expectation of the derivative. The reason this is true is because the expectation is just a sum, and the derivative of a sum is just the sum of the derivatives.\footnote{This also holds for integrals, and hence for continuous random variables, under some regularity conditions. This known generally as the \href{https://en.wikipedia.org/wiki/Leibniz_integral_rule}{Leibnitz Integration Rule}. } 
+\end{description}
+
+\subsection*{Continuous Random Variables*}
+While we will for the most part not deal with continuous random variables and focus on discrete random variables in this course, they may be useful to know for your own economic models. This section is entirely optional and will not have much to do with this course. A \vocab{continuous random variable} $X$ is a random variable that can take values on a continuum. To see why this might be a problem, consider choosing a random number $U$ on the interval $[0, 1]$. What is the probability that $P(U = x)$ for any $x \in [0, 1]$? Clearly, this probability must be equal for all $x$. However, $U = x$ and $U = y$ are disjoint events for any $x \neq y$. This means that the probability that $U$ is equal to any of these values cannot be any positive real number, because if it was, the probability that $U$ is equal to any value on $[0, 1]$ would be $\infty$ because we would be summing an uncountably infinite number of positive values (and in fact, this may not be well defined). So we need a new way to examine probabilities when working with continuous random variables.
+
+One way to get some probabililty that we know is positive is by considering not whether a $U$ is equal to a particular value, but whether it is greater than a particular value. That is, $P(U \geq x)$. Well, for any $x \in [0, 1]$, this probability is given by $P(U \geq x) = x$. Notice that we can treat this as a function of $x$. For a given random variable, this is known as the \vocab{cumulative distribution function (CDF)}, and is denoted by, $F(x) = P(U \geq x)$. In this case, $U$ follows what is known as a uniform distribution, but this function exists for any general random variable following any distribution. 
+
+One thing to notice however, is that the function $F(x) = x$ is differentiable. So, while we can't get the \emph{probability} that $U = x$, if we take the derivative of $F$, which we denote as $f(x) = F'(x)$, then we can get something \emph{like} the probability that $U = x$. The derivative of the cumulative distribution function, if it exists, is known as the \vocab{probability density function (PDF)}. While the PDF behaves much like a probability, it is important to remember that \emph{the PDF is not a probability}. In particular, while the PDF is always non-negative, it may be greater than 1, which a probability cannot be. 
+
+Now that we understand a little bit better how to deal with the probabilities of continuous random variables, we can get to what we are really interested in: their expectations. Let $X$ be a random variable with density function $f$. Recall that in the discrete case, we calculated $E[X]$ by summing each possible value it could take multiplied by the probability that it took that value. We can took something similar for continuous random variables. The integral is essentially how we take sums over continuous space, while the PDF gives us an analogous version of a probability. Hence, the \vocab{expectation of a continuous random variable} is given by,
+\begin{align*}
+    E[X] = \int_{-\infty}^\infty x f(x) \, dx
+\end{align*}
+Note that the integral is over all real numbers, but that we can omit values that have density 0.
+
+Finally all of the properties of expectation in the discrete case also hold in the continuous case. 
+
+\section{Expected Utility Theory}
+Now that we have understood some basic probability theory, we can consider how agents optimize when there is uncertainty. 
+
+Let $Y$ be a random variable denoting the income of the agent. For simplicity, we will assume that there are two possible states of the world: $a$ and $b$, where $Y = y_a$ in state $a$, and $Y = y_b$ in state $b$. State $a$ occurs with probability $P(Y = y_a) = p$, and so state $b$ occurs with probability $P(Y = y_b) = q = 1 - p$. We define a utility function $u$ over income, so that if the agent receives guaranteed income $y$, the utility is $u(y)$. Notice that this is the utility that an agent receives for a guaranteed outcome, which is known as the agent's \vocab{Bernoulli utility function}. 
+
+While the most general formulation for how the agent treats uncertainty might be some function $U(y_a, y_b; p)$, we typically assume that agents care about their \vocab{expected utility}, which is given by,
+\begin{align*}
+    EU(y_a, y_b; p) = E[u(Y)] = p u(y_a) + (1 - p) u(y_b)
+\end{align*}
+It is important to note that \emph{the expected utility function is a utility function} and it is the agent's objective function. In some sense, it is the ``true'' utility function that the agent maximizes when making decisions under uncertainty. Note that when there is certainty about the outcome, then we simply take $p = 1$ or $p = 0$, and the expected utility function is precisely equal to the Bernoulli utility function for the given outcome. 
+
+Notice however, that since the agent's objective function is the the expected utility function and not the Bernoulli utility function, you cannot take a monotonic transformation of the Bernoulli utility function and obtain the same result. You could take a monotonic transformation of the expected utility function, but this will often not be very useful because the expected utility is a sum of utility functions.
+
+Finally, there is a key distinction between expected utility and expected value of two different outcomes. The expected value of an outcome is given by
+\begin{align*}
+    E[Y] = p y_a + (1 - p) y_b
+\end{align*}
+In general, $u(E[Y]) \neq E[u(Y)]$. Notice that if we make our standard assumption that the utility function $u$ is concave, then by Jensen's inequality,
+\begin{align*}
+    E[u(Y)] \leq u(E[Y])
+\end{align*}
+In other words, when utility is concave, prefer getting \$5 for sure than a 50-50 chance of getting \$0 or \$10. This is known as risk aversion, which is the main reason that agents buy insurance, which we will cover in the next section.
+
+\section{Insurance}
+One of the most relevant models for making choices under uncertainty to our everyday lives is insurance. Many states require that drivers buy insurance for their vehicles, and access to health insurance is one of the most poignant political issues in the United States. Uncertainty and how we deal with it is one of the central questions of insurance, and we will offer a formal economic treatment of it here. 
+
+\subsection*{Setup}
+While real insurance contracts can often become very complex, we offer a simple model here. The fundamental structure of insurance is that we agree to pay an insurance some fee, and if things go ``bad,'' then the insurance company helps us recoup our losses. While in the real world there are various degrees of harm, we will assume there are only two possible worlds: ``good'' and ``bad.''
+
+Let $u(w)$ be the agent's Bernoulli utility function for a given wealth $w$. That is, if the agent receives a guaranteed $w$ dollars, they will receive utility $u(w)$. Now assume that with probability $p$, the agent will lose dollars $d$. So if the bad world occurs, the agent receives $u(w - d)$ utility. We can therefore write the expected utility function,
+\begin{align*}
+    EU = p u(w - d) + (1 - p)u(w)
+\end{align*}
+
+In order for the agent to insure against the bad world. Let $x$ denote the dollars of insurance that the agent buys. That is, if the agent buys $x$ units of insurance, then the agent receives $x$ in the bad world. The cost of each unit of insurance is $q < 1$, and the agent must pay this insurance in either world. So the agent's expected utility is given by,
+\begin{align*}
+    EU = p u(w - d - qx + x) + (1 - p) u(w - qx) 
+\end{align*}
+Notice that we must have $q < 1$, otherwise the agent would never buy any insurance. In the same way that savings allows us to shift income through time, insurance allows us to shift income between possible worlds, by taking money away from ourselves in the good world to compensate ourselves in the bad world. 
+
+\subsection*{Solving optimal insurance}
+The natural question once we know the agent's utility function is how much insurance the agent should buy. Our optimization problem is therefore,
+\begin{align*}
+    \max_{x \geq 0} p u(w - d - qx + x) + (1 - p) u(w - qx)
+\end{align*}
+
+The first order conditions are given by,
+\begin{align*}
+    \underbrace{p (1 - q) u'(w - d - qx + x)}_{\text{(1)}} - \underbrace{(1 - p) q u'(w - qx)}_{\text{(2)}} = 0
+\end{align*}
+Let's try to give some intuitive interpretation to this first order condition. The first order condition gives us roughly the \emph{expected gain per additional dollar on insurance}. At an optimum, this must be zero because otherwise we would shift around the money. Not only is this true by definition of the derivative, but we can also take a look at each piece.
+
+First, we'll take a look at (1). This is the gain in the bad world from an additional dollar in insurance. The term $p$ tells us the probability that we actually receive this gain, because we only gain from insurance in the bad world. Next, $(1 - q)$ is the net gain that we will receive from an additional unit of insurance purchased. This is because for each unit of insurance we get one dollar in the bad world, and the cost of that insurance is $q$. Finally, $u'(w - d - qx + x)$ tells us the increase in utility we would get from an additional dollar in insurance, so multiplying it by $(1 - q)$ tells us how much utility benefit we get in the bad world for an additional unit of insurance purchased.
+
+Next, we can take a look at (2), which is the loss in utility in the good world from an additional unit of insurance purchased. $1 - p$ tells us the probability that this utility loss is actually realized. We spend $q$ to buy the additional unit of insurance. Finally, $u'(w - qx)$ tells us how much utility we lose for every dollar we lose in the good world, so multiplying by $q$ tells us the total loss in utility in the good world from an additional dollar of insurance.
+
+Subracting (2) from (1) therefore tells us the expected gain in utility from an additional unit of insurance purchased, and at an optimum, this must be zero.
+
+We can gain some further intuition from rearranging,
+\begin{equation} \label{eq:insurance_foc}
+    \frac{u'(w - d - qx + x)}{u'(w - qx)} = \frac{(1 - p)q}{p(1 - q)}
+\end{equation}
+The left hand side is a marginal rate of substitution, which tells us the ratio of how much better off the agent has to be in the bad world compared to the good world. The right hand side tells us that in the equilibrium, this must be some constant.
+
+\subsection*{Pricing Insurance}
+Now we consider the price of insurance, and we start by examining this from a firm's perspective. In particular, we can think about how much expected profit a firm makes by selling $x$ units of insurance at some price $q$. The firm gets $qx$ units of revenue. With probability $p$, the firm will have to pay out $x$ dollars. So, the firm's expected profit is given by,
+\begin{align*}
+    qx - px = (q - p)x
+\end{align*}
+Now we can consider the reasonable values for $q$. If $q < p$, then the firm would never sell insurance, so this does not seem reasonable. If $q > p$, then we would expect more firms to enter the market, increasing the supply of insurance and pushing the price down. In most competitive markets of this sort, the firms make zero profits, in which case $q = p$. This is known as \vocab{actuarially fair insurance}, where the price per unit of insurance is equal to the risk of the bad event happening. 
+
+Now we can consider what happens if insurance prices are actuarially fair. Plugging in $q = p$ into our first order conditions in \ref{eq:insurance_foc}, we get
+\begin{align*}
+    \frac{u'(w - d - qx + x)}{u'(w - qx)} = \frac{(1 - p)p}{p(1 - p)} = 1
+\end{align*}
+This tells us that we must have $u'(w - d - qx + x) = u'(w - qx)$. Since we assume that $u'$ is a monotonically decreasing function, we know then that $w - d - qx + x = w - qx$. That is, the agent has the same outcomes in both periods, and we say this is a situation where the agent has \vocab{fully insured}. This tells us something very important: \emph{if prices are actuarially fair, agents are able to fully insure and eliminate risk}. 
+
+On the other hand, if we have $q > p$, then the firm is making a profit, and going back to the first order conditions, we would be able to obtain that,
+\begin{align*}
+    \frac{u'(w - d - qx + x)}{u'(w - qx)} &= \frac{(1- p) q}{p (1 - q)} > 1 \\
+    \implies u'(w - d - qx + x) &> u'(w - qx)
+\end{align*} 
+Since $u$ is concave, $u'$ is decreasing, which means that 
+\begin{align*}
+    w - qx > w - d - qx + x
+\end{align*}
+So, if the price of insurance is greater than the actuarily fair price, then the agent under-insures and still prefers the good world to the bad world. 
+
+Finally, we can consider the unrealistic case where $q < p$. In this case, the firm makes negative expected profit, so it is unlikely for this to ever happen. If it did, we can take a look at how much insurance the agent will buy once again using the first order conditions to find that
+\begin{align*}
+    \frac{u'(w - d - qx + x)}{u'(w - qx)} &= \frac{(1- p) q}{p (1 - q)} < 1 \\
+    \implies u'(w - d - qx + x) &< u'(w - qx)
+\end{align*}
+By the same logic as before, using the convexity of $u$, we can conclude that,
+\begin{align*}
+    w - d - qx + x > w - qx
+\end{align*}
+This gives us a strange occasion where if the price of insurance is below the actuarially fair price, then the agent will actually \emph{over-insure}, and would prefer for the bad outcome to happen because they will collect so much insurance money! 
+
+\subsection*{Insurance on the Margin}
+We can consider one final case where the agent may choose not to buy \emph{any} insurance even if they are risk averse. Consider the following scenario where you are offered some monetary insurance against failing a midterm in an economics course. If you do well on the midterm, you are happy and will go out to spend money. But if you do poorly on the midterm, you will not even have any desire to spend money because it will be useless to you. We can model this by multiplying the wealth in a given period by 1 if we pass the midterm, and 0 if we fail. If you have initial wealth $w$, price $q$ for insurance, and probability $p$ of failing the midterm, we can model the expected utility as,
+
+\begin{align*}
+    EU &= p u(0 \times (w - qx + x)) + (1 - p) u(1 \times (w - qx)) \\
+    &= p u(0) + (1 - p) u(w - qx)
+\end{align*}
+Notice however, that
+\begin{align*}
+    \frac{\partial EU}{\partial x} = - q(1 - p) u'(w - qx) < 0
+\end{align*}
+That is, the marginal utility of buying insurance is always negative! In other words, we would not only not want to buy insurance, we would actually want to \emph{sell} insurance on us failing the exam to get more money in the world where we don't fail. 
+
+The reason this paradoxical result occurs is because if you believe that the world where you fail the exam is so bad that you won't spend any money and your level of income makes no difference, then you are better off just maximizing your happiness in the world where you do pass the exam. In the ideal world however, you spend more time studying for the exam to reduce $p$, the probability of failure. 
+
+\section{Risk Aversion} \label{sec:risk_aversion}
+We have already explored the concept of risk aversion to some degree, as it is the main reason that individuals usually have a preference to buy insurance. Here, we will explore the concept of risk aversion more deeply, and, in particular, how to quantify risk aversion. 
+
+\subsection*{Certainty Equivalence}
+Suppose we have some current income $y$, and that we will receive some additional income $X$, which is a random variable. $X$ may be your returns in the stock market, or maybe you are a gambler and $X$ is the return that you make on a bet. We say that a bet with return $X$ is a \vocab{fair bet} if $E[X] = 0$. Our expected utility is given by,
+\begin{align*}
+    EU = E[u(y + X)]
+\end{align*}
+The question is, would you accept a fair bet? For example, if your professor offered you a bet where he would flip a coin and pay you \$100 if it landed heads, and take \$100 if it landed tails, would you take the bet? For most people, the answer is no. The reason is because the utility function, $u$, is strictly concave, so we can apply Jensen's inequality to obtain,
+\begin{align*}
+    E[u(y + X)] < u(E[y + X]) = u(E[y])
+\end{align*}
+That is, our expected utility from taking the best is strictly lower than our utility from not taking the bet. 
+
+However, what if the professor instead gave you a choice, to either accept the above bet or he could just take away \$10? We therefore have a choice between an uncertain bet versus a certain loss. Without delving into the behavioral economics of the question, we can recognize that there is some amount of money that we would be willing to give up, for certain, to avoid having to risk losing \$100. That is, there exists some $c \in \R$ such that
+\begin{align*}
+    E[u(y + X)] = u(y + c)
+\end{align*}
+$c$ is known as the \vocab{certainty equivalent}, which is the amount of money required for us to be indifferent between receiving $c$ or taking the bet. Formally, $c$ is a function of the random variable $X$ and the current income, $c(X, y)$ Note that if the bet is fair, because $u$ is concave, we will always have $c < 0$. The below plot shows how the certainty equivalent is demonstrated graphically:
+
+\image[0.75]{plots/ch9_certainty_equivalent.png}
+
+We can use the certainty equivalent as a way of proxying for the degree of risk aversion a given agent exhibits. For the same bet, we could say that the agent with the lower certainty equivalent has greater risk aversion. Intuitively, if the certainty equivalent is lower, then this means that an agent is willing to accept more of a certain loss to avoid the uncertainty of a particular bet. 
+
+\subsection*{Coefficients of Risk Aversion}
+So far, we have seen that for a given bet, the agent with the lower certainty equivalent is more risk averse. However, it would be preferable if we could find some way to compare the risk aversion between two agents without needing to examine a specific bet. One thing that we might notice is that, per the diagram in the previous section, an agent's level of risk aversion seems to be related to how curved the utility function is. That is, the ``degree'' of concavity of the utility function.
+
+At a first guess, we may measure the risk aversion by the second derivative of the utility function, $u''$. However, this is somewhat problematic because remember that we can rescale the utility function, and if we use $u''$ as the measure of risk aversion, we may view an agent as more risk averse simply through by rescaling the utility function. To address this issue, we want to normalize the second derivative someway, and we can do so by dividing by the first derivative, $u'$. Accordingly, we define the \vocab{Arrow-Pratt coefficient of absolute risk aversion as},
+\begin{align*}
+    \alpha = -\frac{u''(y)}{u'(y)}
+\end{align*}
+We negate the expression because the second derivative, $u''$ is negative, and we want greater $\alpha$ to mean more risk averse. We can also interpret $\alpha$ as a percentage change or elasticity, as it is the instantaneous change in $u'(x)$ divided by $u'(x)$. 
+
+The coefficient of absolute risk aversion has an important relationship to the certainty equivalent through the following theorem:
+
+\begin{theorem*}
+    Let $u$ and $v$ be utility functions. Let $c_u(X)$ be the certainty equivalent of $u$ for a random variable $X$ and let $c_v(X)$ be the certainty equivalent of $v$ at $X$, such that $E[u(X)] = u(c_u(X))$ and $E[v(X)] = u(c_v(X))$. Then,
+    \begin{align*}
+        \frac{u''(x)}{u'(x)} \geq \frac{v''(x)}{v'(x)} \; \forall \, x \iff c_u(X) \leq c_v(X) \; \forall \, X
+    \end{align*}
+    That is, $u$ has a higher coefficient of absolute risk aversion than $v$ everywhere if and only if for every lottery $X$, the certainty equivalent for $X$ under $u$ is lower than the certainty equivalent for $X$ under $v$. 
+\end{theorem*}
+
+While we will not prove the theorem in this book, the intuition is that the more curved the utility function is, the greater the loss you will be willing to accept to avoid uncertainty. We can therefore interpret the coefficient of absolute risk aversion at a given point as how much one would pay to avoid a bet that has small dollar value.
+
+However, this is an income dependent measure. For example, a billionaire is probably more willing to take a \$100 bet than an unemployed college student. We can instead define the \vocab{coefficient of relative risk aversion}, 
+\begin{align*}
+    \rho = -y \frac{u''(y)}{u'(y)}
+\end{align*}
+Rather than considering the absolute dollar value of a given lottery $X$, the coefficient of relative risk aversion tells us how risk averse an individual is to lotteries that are a given \emph{percentage} of the individual's current income. This may be a preferable measure for examining risk aversion when there are large differences in individual income. 
+
+Finally, we will give functional forms where the above coefficients of risk aversion are constant. 
+\begin{description}
+    \item[Constant Absolute Risk Aversion (CARA)] A utility function $u$ that satisfies constant absolute risk aversion is one where $-\frac{u''(y)}{u'(y)} = \alpha \; \forall \, y$. That is, the agent is just as willing to accept a bet for a given small dollar amount at any income level. The standard form of the Constant Absolute Risk Aversion (CARA) utility function is:
+    \begin{align*}
+        u(y) = 1 - e^{-\alpha y}
+    \end{align*} 
+    You can verify that $\frac{u''(y)}{u'(y)} = \alpha$ for any $y$. 
+    \item[Constant Relative Risk Aversion (CRRA)] A utility function $u$ that satisfies constant relative risk aversion is one where $-y \frac{u''(y)}{u'(y)} = \rho \; \forall \, y$. That is, the agent is just as willing to accept a bet for a small percentage of their income at any income level. The standard form of the Constant Relative Risk Aversion (CRRA) utility function is: 
+    \begin{align*}
+        u(y) = \frac{y^{1 - \rho}}{1 - \rho}
+    \end{align*} 
+    You can verify that $-y\frac{u''(y)}{u'(y)} = \rho$ for any $y$ in this case. The CRRA utility function is especially important because we often think that it is a fairly reasonably assumption that individuals have constant relative risk aversion. 
+\end{description}
+
+Finally, while we have dealt primarily with risk aversion as it pertains to consumers, we should note that as applied to firms, we typically assume that firms are not risk averse. That is, $\alpha = \rho = 0$. This is because we assume that firms have ``linear'' utility in profits. So, firms will always take bets that have positive expected utility. When a firm or agent is not risk averse, we say that they are \vocab{risk neutral}.  
+
+\subsection*{Positive Expected Value Bets}
+For the most part so far, we have assumed that $E[X] = 0$. That is, the bet is fair. However, we may often face situations where the expected value of a given bet is positive, so $E[X] > 0$. However, just because the expected value of a given bet is positive, we may still be unwilling to take the bet. While some in quantitative finance may argue this is irrational, it may be perfectly rational to turn down positive value bets. Due to risk aversion, we may still have,
+\begin{align*}
+    E[u(y + X)] < u(y)
+\end{align*}
+Intuitively, say you were faced with a 50\% chance of earning \$100,001, and a 50\% chance of losing \$100,000. While the expected value of this bet is positive, most peolpe would turn it down because the damage from losing \$100,000 far outweighs the benefits of gaining \$100,001. 
+
+So far we have assumed that we are given a binary choice whether to accept a given bet. However, what if you were able to choose how \emph{much} you want to bet? This would be like the scenario of how many chips to consider betting at a casino, or how many dollars to invest in a given stock. Suppose that if you are offered to take a bet $kX$ where you get to choose the constant $k$, and where $E[X] > 0$. We now want to choose $k$ to maximize,
+\begin{align*}
+    v(k) = E[u(y + kX)] = \sum_{i = 1}^s p_i u(y + k x_i)
+\end{align*}
+We will show that $k^* > 0$. That is, if the bet has positive expected value, there is always some amount that we should be willing to bet. To do so, consider the marginal expected value from increasing $k$ by a small amount by taking the derivative of $v$ with respect to $k$,
+\begin{align*}
+    v'(k) = E[X u'(y + kX)] = \sum_{i = 1}^s p_i x_i u'(y + k x_i)
+\end{align*}
+What happens if we plug in $k = 0$?
+\begin{align*}
+    v'(0) &= E[X u'(y)] = E[X] u'(y) \\
+    &= \sum_{i = 1}^s p_i x_i u'(y) = u'(y) \sum_{i = 1}^s p_i x_i  = u'(y) E[X]
+\end{align*}
+Since we know that $E[X] > 0$, we have that $v'(0) > 0$. That is, we can increase our expected utility by increasing $k$ by a small amount. Hence, we know that $k^*$ must be positive. 
+
+\subsubsection*{Stochastic Changes in Income}
+So far, we have assumed that our initial income, $y$, is determinstic, but what if it too was a random variable? Assume the same setting as early, but now we have income $Y$ as a random variable. Our goal is now to choose $k$ to maximize,
+\begin{align*}
+    v(k) = E[u(Y + kX)]
+\end{align*}
+Once again differentiating with respect to $k$, we get,
+\begin{align*}
+    v(k) = E[X u'(Y + kX)]
+\end{align*}
+Evaluating at $k = 0$, we get,
+\begin{align*}
+    v(0) &= E[X u'(Y)] \\
+    &= E[X]E[u'(Y)] + (E[X u'(Y)] - E[X]E[u'(Y)]) \\
+    &= E[X]E[u'(Y)] + \text{cov}(X, u'(Y))
+\end{align*}
+That is, our willingness to bet any amount depends not only on our expected returns, but how correlated our income is with our bet. Since we always like having more income, $u'(y) > 0$ for any $y$, then we know that $E[u'(Y)] > 0$. Notice that if $X$ and $Y$ were uncorrelated, then we would have,
+\begin{align*}
+    v(0) = E[X u'(Y)] = E[X] E[u'(Y)] > 0
+\end{align*}
+So, if $X$ and $Y$ are uncorrelated, then we would take positive bets. However, what if $X$ and $Y$ are correlated? In particular, what is the sign of $\text{cov}(X, u'(Y))$? We can consider how this is determined by the sign of $\text{cov}(X, Y)$. Suppose that $\text{cov}(X, Y) > 0$. This means that if we know that $Y$ is higher, we should expect $X$ to be higher as well. But if $Y$ is higher, since $u$ is concave, we know that $u'$ is lower, and vice versa. So, if $u'(Y)$ is lower, than we would expect $X$ to be higher and vice versa. We can express this as,
+\begin{align*}
+    \text{cov}(X, u'(Y)) > 0 \text{ if and only if } \text{cov}(X, Y) < 0
+\end{align*}
+In other words, if $X$ and $Y$ are negatively correlated, we will actually want to take more of the bet. This is because we know that in the case we lose the bet, our expected income will be higher. Conversely, if $X$ and $Y$ are positively correlated, we will be less willing to take large bets because if we lose the bet, we compound those loses by also losing income. This is the reason why some financial advisors recommend against investing heavily in stocks in a company that you work for, because if the company goes bankrupt, then you are both at risk of losing your income and your savings in the company's stock.\footnote{When the Enron Corporation, an energy, commodity, and services company went bankrupt following an accounting scandal in 2001, many employees lost both their primary source of income and their savings. This was because Enron's leadership had encouraged many employees to buy and own stock in the company, driving the stock price up, but leaving employeees with nothing after the company went under. \href{https://www.marketwatch.com/story/enron-workers-lost-everything-in-collapse-they-say}{Source.}}
+
+\section*{Recap}
+In this chapter, we considered agents make choices when faced with uncertainty. We model uncertainty as agents maximizing expected utility, which is a probability weighted sum of the agent's Bernoulli utility functions. We considered how agents would buy insurance, what it means for insurance to be priced fairly, and how agents respond to different insurance prices. We also considered how to measure risk aversion, and under what conditions agents will take an uncertain bet versus a certain outcome. Much of modern economics, particularly macroeconomics, relies on how agents respond to random and uncertain events, and understanding these mechanics is essential to developing realistic models of the economy.
