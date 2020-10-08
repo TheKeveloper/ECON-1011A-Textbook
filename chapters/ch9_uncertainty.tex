@@ -73,6 +73,11 @@ There are a few additional definitions and properties of expectation that are us
         \text{var}(X) = E[(X - E[X])^2] = E[X^2] - E[X]^2
     \end{align*} 
     One important note is that $\text{var}(X)$ is always non-negative, and the variance is only zero for a constant random variable.
+    \item[Covariance] The covariance between two random variables $X$ and $Y$ is defined as,
+    \begin{align*}
+        \text{cov}(X, Y) = E[(X - E[X])(Y - E[Y])] = E[XY] - E[X]E[Y]
+    \end{align*} 
+    The covariance tells us if how we expect $Y$ to change if $X$ is one unit higher. In essence, it tells us how two random variables are related. If $X$ and $Y$ are independent random variables, then $\text{cov}(X, Y) = 0$. However, the converse is not true. $\text{cov}(X, Y) = 0$ does not imply independence.
 \end{description}
 
 \subsection*{Continuous Random Variables*}
@@ -251,6 +256,22 @@ While we will not prove the theorem in this book, the intuition is that the more
 
 However, this is an income dependent measure. For example, a billionaire is probably more willing to take a \$100 bet than an unemployed college student. We can instead define the \vocab{coefficient of relative risk aversion}, 
 \begin{align*}
-    \rho = y \frac{u''(y)}{u'(y)}
+    \rho = -y \frac{u''(y)}{u'(y)}
 \end{align*}
-Rather than considering the absolute dollar value of a given lottery $X$, the coefficient of relative risk aversion tells us how risk averse an individual is to lotteries that are a given \emph{percentage} of the individual's current income.
+Rather than considering the absolute dollar value of a given lottery $X$, the coefficient of relative risk aversion tells us how risk averse an individual is to lotteries that are a given \emph{percentage} of the individual's current income. This may be a preferable measure for examining risk aversion when there are large differences in individual income. 
+
+Finally, we will give functional forms where the above coefficients of risk aversion are constant. 
+\begin{description}
+    \item[Constant Absolute Risk Aversion (CARA)] A utility function $u$ that satisfies constant absolute risk aversion is one where $-\frac{u''(y)}{u'(y)} = \alpha \; \forall \, y$. That is, the agent is just as willing to accept a bet for a given small dollar amount at any income level. The standard form of the Constant Absolute Risk Aversion (CARA) utility function is:
+    \begin{align*}
+        u(y) = 1 - e^{-\alpha y}
+    \end{align*} 
+    You can verify that $\frac{u''(y)}{u'(y)} = \alpha$ for any $y$. 
+    \item[Constant Relative Risk Aversion (CRRA)] A utility function $u$ that satisfies constant relative risk aversion is one where $-y \frac{u''(y)}{u'(y)} = \rho \; \forall \, y$. That is, the agent is just as willing to accept a bet for a small percentage of their income at any income level. The standard form of the Constant Relative Risk Aversion (CRRA) utility function is: 
+    \begin{align*}
+        u(y) = \frac{y^{1 - \rho}}{1 - \rho}
+    \end{align*} 
+    You can verify that $-y\frac{u''(y)}{u'(y)} = \rho$ for any $y$ in this case. The CRRA utility function is especially important because we often think that it is a fairly reasonably assumption that individuals have constant relative risk aversion. 
+\end{description}
+
+Finally, while we have dealt primarily with risk aversion as it pertains to consumers, we should note that as applied to firms, we typically assume that firms are not risk averse. That is, $\alpha = \rho = 0$. This is because we assume that firms have ``linear'' utility in profits. So, firms will always take bets that have positive expected utility. When a firm or agent is not risk averse, we say that they are \vocab{risk neutral}.  
