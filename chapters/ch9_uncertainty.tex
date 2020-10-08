@@ -78,6 +78,11 @@ There are a few additional definitions and properties of expectation that are us
         \text{cov}(X, Y) = E[(X - E[X])(Y - E[Y])] = E[XY] - E[X]E[Y]
     \end{align*} 
     The covariance tells us if how we expect $Y$ to change if $X$ is one unit higher. In essence, it tells us how two random variables are related. If $X$ and $Y$ are independent random variables, then $\text{cov}(X, Y) = 0$. However, the converse is not true. $\text{cov}(X, Y) = 0$ does not imply independence.
+    \item[Derivatives in Expectations] Suppose we have some random variable $X$, and a function $f(X; z)$ where $z$ is some exogenous variable. Then,
+    \begin{align*}
+        \frac{\partial}{\partial z} E[f(X; z)] = E\left[\frac{\partial f(X; z)}{\partial z}\right]
+    \end{align*} 
+    That is, so long as we are not differentiating with respect to the random variable, the derivative of an expectation is the expectation of the derivative. The reason this is true is because the expectation is just a sum, and the derivative of a sum is just the sum of the derivatives.\footnote{This also holds for integrals, and hence for continuous random variables, under some regularity conditions. This known generally as the \href{https://en.wikipedia.org/wiki/Leibniz_integral_rule}{Leibnitz Integration Rule}. } 
 \end{description}
 
 \subsection*{Continuous Random Variables*}
@@ -275,3 +280,53 @@ Finally, we will give functional forms where the above coefficients of risk aver
 \end{description}
 
 Finally, while we have dealt primarily with risk aversion as it pertains to consumers, we should note that as applied to firms, we typically assume that firms are not risk averse. That is, $\alpha = \rho = 0$. This is because we assume that firms have ``linear'' utility in profits. So, firms will always take bets that have positive expected utility. When a firm or agent is not risk averse, we say that they are \vocab{risk neutral}.  
+
+\subsection*{Positive Expected Value Bets}
+For the most part so far, we have assumed that $E[X] = 0$. That is, the bet is fair. However, we may often face situations where the expected value of a given bet is positive, so $E[X] > 0$. However, just because the expected value of a given bet is positive, we may still be unwilling to take the bet. While some in quantitative finance may argue this is irrational, it may be perfectly rational to turn down positive value bets. Due to risk aversion, we may still have,
+\begin{align*}
+    E[u(y + X)] < u(y)
+\end{align*}
+Intuitively, say you were faced with a 50\% chance of earning \$100,001, and a 50\% chance of losing \$100,000. While the expected value of this bet is positive, most peolpe would turn it down because the damage from losing \$100,000 far outweighs the benefits of gaining \$100,001. 
+
+So far we have assumed that we are given a binary choice whether to accept a given bet. However, what if you were able to choose how \emph{much} you want to bet? This would be like the scenario of how many chips to consider betting at a casino, or how many dollars to invest in a given stock. Suppose that if you are offered to take a bet $kX$ where you get to choose the constant $k$, and where $E[X] > 0$. We now want to choose $k$ to maximize,
+\begin{align*}
+    v(k) = E[u(y + kX)] = \sum_{i = 1}^s p_i u(y + k x_i)
+\end{align*}
+We will show that $k^* > 0$. That is, if the bet has positive expected value, there is always some amount that we should be willing to bet. To do so, consider the marginal expected value from increasing $k$ by a small amount by taking the derivative of $v$ with respect to $k$,
+\begin{align*}
+    v'(k) = E[X u'(y + kX)] = \sum_{i = 1}^s p_i x_i u'(y + k x_i)
+\end{align*}
+What happens if we plug in $k = 0$?
+\begin{align*}
+    v'(0) &= E[X u'(y)] = E[X] u'(y) \\
+    &= \sum_{i = 1}^s p_i x_i u'(y) = u'(y) \sum_{i = 1}^s p_i x_i  = u'(y) E[X]
+\end{align*}
+Since we know that $E[X] > 0$, we have that $v'(0) > 0$. That is, we can increase our expected utility by increasing $k$ by a small amount. Hence, we know that $k^*$ must be positive. 
+
+\subsubsection*{Stochastic Changes in Income}
+So far, we have assumed that our initial income, $y$, is determinstic, but what if it too was a random variable? Assume the same setting as early, but now we have income $Y$ as a random variable. Our goal is now to choose $k$ to maximize,
+\begin{align*}
+    v(k) = E[u(Y + kX)]
+\end{align*}
+Once again differentiating with respect to $k$, we get,
+\begin{align*}
+    v(k) = E[X u'(Y + kX)]
+\end{align*}
+Evaluating at $k = 0$, we get,
+\begin{align*}
+    v(0) &= E[X u'(Y)] \\
+    &= E[X]E[u'(Y)] + (E[X u'(Y)] - E[X]E[u'(Y)]) \\
+    &= E[X]E[u'(Y)] + \text{cov}(X, u'(Y))
+\end{align*}
+That is, our willingness to bet any amount depends not only on our expected returns, but how correlated our income is with our bet. Since we always like having more income, $u'(y) > 0$ for any $y$, then we know that $E[u'(Y)] > 0$. Notice that if $X$ and $Y$ were uncorrelated, then we would have,
+\begin{align*}
+    v(0) = E[X u'(Y)] = E[X] E[u'(Y)] > 0
+\end{align*}
+So, if $X$ and $Y$ are uncorrelated, then we would take positive bets. However, what if $X$ and $Y$ are correlated? In particular, what is the sign of $\text{cov}(X, u'(Y))$? We can consider how this is determined by the sign of $\text{cov}(X, Y)$. Suppose that $\text{cov}(X, Y) > 0$. This means that if we know that $Y$ is higher, we should expect $X$ to be higher as well. But if $Y$ is higher, since $u$ is concave, we know that $u'$ is lower, and vice versa. So, if $u'(Y)$ is lower, than we would expect $X$ to be higher and vice versa. We can express this as,
+\begin{align*}
+    \text{cov}(X, u'(Y)) > 0 \text{ if and only if } \text{cov}(X, Y) < 0
+\end{align*}
+In other words, if $X$ and $Y$ are negatively correlated, we will actually want to take more of the bet. This is because we know that in the case we lose the bet, our expected income will be higher. Conversely, if $X$ and $Y$ are positively correlated, we will be less willing to take large bets because if we lose the bet, we compound those loses by also losing income. This is the reason why some financial advisors recommend against investing heavily in stocks in a company that you work for, because if the company goes bankrupt, then you are both at risk of losing your income and your savings in the company's stock.\footnote{When the Enron Corporation, an energy, commodity, and services company went bankrupt following an accounting scandal in 2001, many employees lost both their primary source of income and their savings. This was because Enron's leadership had encouraged many employees to buy and own stock in the company, driving the stock price up, but leaving employeees with nothing after the company went under. \href{https://www.marketwatch.com/story/enron-workers-lost-everything-in-collapse-they-say}{Source.}}
+
+\section*{Recap}
+In this chapter, we considered agents make choices when faced with uncertainty. We model uncertainty as agents maximizing expected utility, which is a probability weighted sum of the agent's Bernoulli utility functions. We considered how agents would buy insurance, what it means for insurance to be priced fairly, and how agents respond to different insurance prices. We also considered how to measure risk aversion, and under what conditions agents will take an uncertain bet versus a certain outcome. Much of modern economics, particularly macroeconomics, relies on how agents respond to random and uncertain events, and understanding these mechanics is essential to developing realistic models of the economy.
