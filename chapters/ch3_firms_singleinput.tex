@@ -1,7 +1,7 @@
 \chapter{Firms with a Single Input}
 We start with one of the simplest economic models: a firm in a perfectly competitive market with a single input. Firms are one of the most basic components of the economy. Firms purchase inputs, convert those inputs into outputs via a production function, and then sell those goods to make a profit. This also gives firms a clear objective function: profit. To make things simple, we assume that the firm only requires one input to produce their good, so the only choice that the firm makes is how much input to purchase. 
 
-\section{Model setup}
+\section{Model Setup}
 We will formalize a mathematical model of the firm. We assume that the firm can choose to hire $L$ units of labor at a wage $w$, which is the price per unit of labor. The firm has a production function, $f(L)$, which takes the units of labor as an input, and returns some unit of product. We assume that the production function is continuous and twice differentiable, increasing, $f'(L) > 0$, and concave $f''(L) < 0$, for any $L$. The firm can then sell each unit of product at a price $p$. The firm takes both $p$ and $w$ as exogenous variables. We can then define the firm's profit, $\pi$, as follows:
 \begin{align}
     \pi(L; p, w) = p f(L) - w L \label{eq:profit_def}
@@ -20,7 +20,7 @@ While this seems like a fairly simple model, there are some pretty important ass
 
 One reasonable question to ask with all of these assumptions in place is whether they are realistic assumptions. The answer is that they probably are not all perfectly realistic. However, there are cases where these assumptions might be close enough. Consider the market for corn, for example. Each individual farmer's corn production has a negligible effect on the market as a whole, and they have enough money every year to grow as much corn as is profitable. However, we will see that even if these assumptions are not all realistic, they help simplify the model so that we can solve it and gain some useful insights about the mechanics of this economy. 
 
-\section{Solving the model} \label{sec:solving_model}
+\section{Solving the Model} \label{sec:solving_model}
 Now that we have setup the model and established the underlying assumptions, we can begin to solve the model. Our objective function is $\pi$, and our choice variable is $L$, so we can write our maximization problem as follows:
 \begin{align}
     \max_{L} \pi(L; p, w) = \max_{L} p f(L) - w L
@@ -56,7 +56,7 @@ To do so, we can just differentiate the first derivative from \ref{eq:profit_foc
 \begin{align}
     \partials{^2\pi}{L^2} = pf''(L) \label{eq:generalized_soc}
 \end{align}
-We need the above derivative to hold with respect to any $L$. However, we assumed that $f''(L) < 0$, and since $p > 0$, then we have that $pf''(L)(L) < 0$, which satisfies our second order conditions.
+We need the above derivative to hold with respect to any $L$. However, we assumed that $f''(L) < 0$, and since $p > 0$, then we have that $pf''(L)< 0$, which satisfies our second order conditions.
 
 This tells us that $L^*$ defines a global maximum, which means that the firm is indeed profit maximizing! 
 
@@ -156,7 +156,7 @@ To gain some intuition for how we might approach this problem, let's look back a
 \end{align*}
 Now consider what happens if we increase $w$ by a little bit. The right hand side has increased, so the left hand side must also increase by a small amount to ensure the equality holds. However, $p$ is fixed, so it must be that the value of $L^*$ has changed. This makes sense because recall that with the optimized choice of $L$, $L^*$ is an implicit function of $p$ and $w$, so the value of $L^*$ changes.  In particular, it must have decreased, because we know that $f'' < 0$, which means that $f'$ decreases as $L$ increases, so to make $f'$ smaller, the value of $L^*$ must decrease. Notice that we were able determine how $L^*$ would change without having to know anything about the actual value of $L^*$ or the form of $f$. This is the idea behind using implicit differentiation to calculate the change. 
 
-While this is an informal argument, we can formalize it with the \vocab{implicit function theorem}. While we do not offer a formal state of the theorem, it essentially states that if we have an equality of the form $f(x) = c$ for some constant $c$, and $f$ is sufficiently ``well-behaved'', then we can express the value of $x$ as a function of $c$. This also means that we can use implicit differentiation to solve for the relatioship between the two variables.
+While this is an informal argument, we can formalize it with the \vocab{implicit function theorem}. While we do not offer a formal state of the theorem, it essentially states that if we have an equality of the form $f(x) = c$ for some constant $c$, and $f$ is sufficiently ``well-behaved'' (do not worry about what this means formally, and assume that all functions we deal with satisfy the necessary conditions), then we can express the value of $x$ as a function of $c$. This also means that we can use implicit differentiation to solve for the relatioship between the two variables.
 
 In the context of our problem, it tells us that by implicity differentiating both sides of the first order condition, we can determine how $L^*$ changes with respect to wage and price, without even knowing the actual value of $L^*$!
 
@@ -248,7 +248,7 @@ Now we can do the same for the optimized profit function. This optimized version
 To find the comparative statics for the value function, in this case profit, we can use a result known as the \vocab{envelope theorem}. Informally, the envelope theorem says that when calculating how the value function is affected by a change in an exogenous variable, we only need to look at the direct effect of the exogenous variable, and can treat our choices as fixed. We can write this more formally for the case of a single variable (although note that it generalizes to multiple variables),
 
 \begin{theorem*}[Envelope] \label{thm:envelope}
-    Let $F(x; z)$ be an objective function with choice variable $x$ and exogenous variable $z$. Let $V(z) = \max_x F(x; z)$ be the value function and $x^* = \argmax_x F(x;, z)$ be the optimizing choice of $x$. Then,
+    Let $F(x; z)$ be an objective function with choice variable $x$ and exogenous variable $z$. Let $V(z) = \max_x F(x; z)$ be the value function and $x^* = \argmax_x F(x; z)$ be the optimizing choice of $x$. Then,
     \begin{align*}
         \frac{dV}{dz} = \partials{F}{z}(x^*, z)
     \end{align*}
@@ -332,14 +332,14 @@ The second thing to notice is that if we were to differentiate with respect to t
 \begin{align*}
     \frac{dL^*}{dp} = - \frac{f'(L^*)}{(p - \tau) f''(L^*)} = -\frac{dL^*}{d\tau}
 \end{align*}
-That is, the effect of a change in the tax is exactly the negative of the effect of a change in price. This is because the firm only cares about the after-tax price, in which case a tax increase is essentially the same as a price increase.
+That is, the effect of a change in the tax is exactly the negative of the effect of a change in price. This is because the firm only cares about the after-tax price, in which case a tax increase is essentially the same as a price decrease.
 
 Finally, a key point to notice is that if you were to compare $\frac{dL^*}{d\tau}$ here to the expression for $\frac{dL^*}{dp}$ in the model without taxes, you would get the same negative relationship except with $p$ replaced with $p - \tau$. This is to emphasize the point that if you know how the firm would respond to $p$, you can essentially replace $p$ with $p - \tau$ everywhere if you impose a tax. 
 
 \subsection*{Tax on labor}
 Rather than a tax on the end product, we can instead consider what would happen with a tax (or subsidy) on labor. This is modeled in essentially the same way as the tax on production, except now we impose a tax $\tau$ on each unit of labor, so that the total cost of one unit of labor is given by $w + \tau$. To avoid degenerate cases, we assume that $w + \tau > 0$ (this could be negative if we instead subsidized labor with $\tau < 0$). Then our profit function is given by
 \begin{align*}
-    \pi = p f'(L^*) - (w + \tau) L
+    \pi = p f(L^*) - (w + \tau) L
 \end{align*}
 Much like the case of a tax on output however, all we have done is change the effective price of labor. This means that rather than re-calculating everything, we can just plug in $w + \tau$ in place of $w$ everywhere in our original model. This immediately yields the first order condition as,
 \begin{align*}
