@@ -1,0 +1,31 @@
+\chapter{Heterogeneity}
+
+So far in this course, we've studied how individual agents optimize their decisions according to various incentives, such as firms employing labor and capital to maximize profits or consumers purchasing goods to maximize utility. The next three chapters will use these tools as building blocks to study what happens when we bring several of these optimizing agents together. This chapter will explore the broad conceptual theme of \vocab{heterogeneity} across agents in such systems, which we will apply to questions in labor economics (e.g. why do different jobs pay different wages?) and urban economics (e.g. why does the cost of rent differ by area?). These ideas will give a framework for introducing the concepts of supply and demand. The next two chapters will use this foundation to derive welfare properties of free-market economies and examine when government intervention can improve on market inefficiencies.
+
+\section{Compensating Differentials}
+
+We started this course with two axioms of positive economics. The first is that agents respond to incentives; this central assumption led to the optimization techniques explored thus far. The second is the \vocab{principle of arbitrage}, which is the idea that we cannot obtain something valuable at no cost. If there were a scarce object with positive value and no cost, then we would call this scenario an \vocab{arbitrage opportunity}. Either everyone would take this object and deplete it, or its price would rise to the point that some people no longer want to purchase it. As a result, the principle of arbitrage tells us that any real-world arbitrage opportunities must be fleeting, so economic models typically assume that they do not exist.\footnote{This idea leads to a common joke. An economist and her friend are walking down the street, when the friend points out, ``Look! A \$100 dollar bill is on the ground.'' The economist doesn't bother, replying, ``That can't be the case; if there were, then someone would have picked it up by now.''}
+
+An extension of the principle of arbitrage is the \vocab{law of one price}, which states that two products of the same quality must have the same price. If a superior product had the same price as an inferior product, then nobody would buy the inferior product, causing the price of the superior product to rise and the price of the inferior product to fall. If two similar products had different prices, everyone would flock to the cheaper product, causing prices of the cheaper good to rise and prices of the more expensive good to fall. As a result, the law of one price tells us that if two objects have different prices, then there must be some underlying difference justifying this price gap, a concept referred to as the principle of \vocab{compensating differentials}. Notice that this is a different economic lens than what we have previously used to study problems. Whereas everything we studied so far assumed that the prices that firms and consumers faced were exogenously determined, we will now use the idea of compensating differentials to explore how these prices come about.
+
+\subsection*{Labor Economics}
+
+A basic question in labor economics is why some people earn more than others. How do people choose jobs, and how does this explain why certain jobs pay more than others?
+
+\paragraph{A Basic Model.} We start with a scenario where people choose between being a professor and a vomit collector (VC). We assume that people all have the same utility function $u(y, k)$, where $y$ denotes income and $k$ captures how pleasant the job is, and that $u$ is increasing in both $y$ and $k$. Let $k_p$ be the pleasantness of being a professor and $k_v$ be the pleasantness of being a VC. We assume that being a professor is more pleasant than being a VC, so $k_p > k_v.$\footnote{Vomit collectors are the people who collect vomit around rollercoasters. We make no normative assertions about the real-world pleasantness of being a vomit collector (or of being a venture capitalist, which coincidentally shares the same acronym).}
+
+We start by assuming that both of these jobs are accessible to all people. By the law of one price, it cannot be the case that professors and VCs are paid the same (i.e. that $y_p = y_v$). If this were the case, then the utility of being a professor must be strictly higher than that of being a VC, so everyone would be a professor. For there to be an equilibrium with people employed as both professors and VCs, then it must be the case that utilities are the equalized, so 
+$$u(y_p, k_p) = u(y_v, k_v).$$
+That is, VCs must be paid more in equilibrium to compensate them for the unpleasantness of their job.
+
+We now use our model compute the wage difference between professors and VCs in equilibrium. Let $y_v = y_p + w$ and $k_v = k_p - x$, so $w$ and $x$ represent the differences in income and pleasantness between the jobs, respectively. Our requirement of equal utilities across the jobs gives the following implicit solution for $w$ as a function of $x$:
+$$u(y_p, k_p) = u(y_p + w(x), k_p - x).$$
+
+We are ultimately interested in how $w$ depends on $x$, so we can differentiate our implicit solution with respect to $x$ to get 
+$$0 = u_y(y_p + w(x), k_p - x)\pdv{w}{x} - u_k(y_p + w(x), k_p - x),$$
+resulting in the comparative static of interest:
+$$\pdv{w}{x} = \frac{u_k(y_p + w(x), k_p - x)}{u_y(y_p + w(x), k_p - x)} > 0.$$
+The comparative static is positive since we assumed that $u$ is increasing in both $y$ and $k$; this result tells us that the more relatively pleasant being a professor is, the more VCs must be compensated for choosing their job instead. This wage difference $w$ is thus referred to as the \vocab{equalizing difference}.
+
+
+
