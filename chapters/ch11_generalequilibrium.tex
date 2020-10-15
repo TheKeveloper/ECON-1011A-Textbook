@@ -1,2 +1,53 @@
 \chapter{General Equilibrium}
 While we've done a lot of economics so far, we have not actually modeled a full economy yet! We've instead focused on studying what is known as \vocab{partial equilibrium}, which examines how agents optimize their behavior taking the other side of the market. For example, when we study the firm optimization problem, we take the price of the good as given and assume there are some consumers who are willing to buy the goods at that price. Similarly, when we studied consumer theory, we assumed that consumers could always buy goods at a given price, and we do not model how the firms actually produce those goods. In both cases, we did not concern ourselves with how prices or wages are set. However, in real economies, prices depend on how agents in the economy behave and the decisions that they make. In this section, we will model a \vocab{general equilibrium}, which considers how individual optimizations leads supply and demand in markets clearing through appropriately set prices. In a general equilibrium model, rather than prices being exogenous, they will be endogenously determined by supply and demand, and the only truly exogenous variables will be the so-called economic ``primitives,'' which are coefficients that determine an individual's utility function, productivity, etc., and we will have truly modeled a full economy. 
+
+\section{Exchange Economy}
+We will start by considering a very simple economy in general equilibrium: an \vocab{exchange economy}. In an exchange economy, agents have initial endowments of goods that they can buy and sell from each other. Rather than agents producing goods, we assume that agents are just exchanging existing goods. While this might seem very different from the economies that we've examined so far or even the economies that you are familiar with. However, the exchange economy allows us to examine the fundamental role of prices, and why markets can make everyone better off regardless of what endowments the agents start with.
+
+\subsection*{Setup}
+An exchange economy has multiple components, some of which will differ from the standard models that we have examined so far. We establish what these components are here.
+
+\begin{description}
+    \item[Agents] In contrast to partial equilibrium models where we can examine the economy from the perspective of a single agent, because there is trading in the exchange economy, we need to quantify the number of agents. For simplicity, we will assume that there are $N$ agents.\footnote{
+        Note that we are implicitly assuming here that there are a finite number of agents. In many economic models, rather than assuming a finite number of agents, we may assume an infite number of agents, or even a continuum of agents that are ``named'' on the interval $[0, 1]$. Such models can be especially valuable when considering heterogeneous agents or extensive margin effects. 
+    } We can ``name'' these agents from $1, \dots, N$. When we are describing some property $x$ that applies to a given agent, we will use superscripts, and the index $i$, so $u^i$ might denote the utility function for the $i$th agent. 
+    \item[Goods] We assume that there are $M$ different goods, and we name these goods $j = 1, \dots, M$. We will use subscripts to describe variables relating to a particular good. So $x^i_j$ might denote the demand for good $j$ by agent $i$. 
+    \item[Endowments] We assume that agents have some exogenous amount of each good to start with. Agent $i$ has $w^i_j$ units of good $j$. In vector notation, we can describe agent $i$'s endowment as $\vec{w}^i \in \R^M$. 
+    \item[Utility functions] We assume that each agent has a utility function, $u^i(\cdot)$ and that the arguments to the utility function are the goods that the agent receives, and \emph{only} the goods that the agent receives. While this might seem like a simple assumption on the utility function, it rules out cases like externalities where an agent's utility depends on how much another agent consumes of a particular good. 
+    \item[Prices] We assume that every agent faces the same price $p_j$ for good $j$. This means that we can describe the prices in the economy as a whole by $\vec{p} \in \R^M$. Importantly, we assume that each agent is a \emph{price-taker}, meaning that the agent does not assume that their choices are able to affect the global prices. This is of course not in general true, in cases like monopoly or monopsony, but it is a reasonable assumption for cases where $N$ is large.     
+\end{description}
+
+\subsection*{Walrasian Equilibrium}
+Now that we have established the basic setup of the economy, we will describe what it means for the economy to be in equilibrium. A general equilibrium of the economy satisfies the following: 
+\begin{description}
+    \item[Individual optimization] Each agent $i$ chooses consumption $x_j$ of good $j$ to optimize their utility function, $u^i(\vec{x})$ subject to the following constraint,
+    \begin{equation} \label{eq:ge_budget_constraint}
+        \sum_{j = 1}^M p_j x_j \leq \sum_{j = 1}^M p_j w^i_j 
+    \end{equation} 
+    This says that the market value of our total consumption can be at most the market value of our initial endowment of goods. In essence, we are treating the market value of our initial endowment as our income. Written in vector form, agent $i$ solves the maximization problem,
+    \begin{align*}
+        \vec{x}^i = \argmax_{\vec{x}}u^i(\vec{x}) \text{ s.t. } \vec{p} \cdot \vec{x} \leq \vec{p} \cdot \vec{w}^i
+    \end{align*}
+    $\vec{x}^i(\vec{p})$ is the agent's Marshallian demand function for each of the goods, and notice that it will be a function of the prices. Each individual agent treats these prices as given, and solves the optimization assuming that their demand will have no effect on the price. 
+
+    \item[All markets clear] The price vector, $\vec{p}$ is set to ensure that the total demand for each good is equal to the total endowments of each good. This is known as \vocab{market clearing}. That is, $\vec{p}$ must be such that for every good $j$, 
+    \begin{align*}
+        \sum_{i = 1}^N x^i_j(\vec{p}) = \sum_{i = 1}^N w^i_j(\vec{p})
+    \end{align*}  
+    Or more succinctly in vector notation,
+    \begin{align*}
+        \sum_{i = 1}^N \vec{x}^i(\vec{p}) = \sum_{i = 1}^N \vec{w}^i(\vec{p})
+    \end{align*}
+    Another formulation of this condition is to consider the \vocab{excess demand function} for a particular good, which is the difference between the total demand of a good and the total supply of that good. In an exchange economy, the total supply of a good is simply the total endowments of that good. So, the excess of demand function of good $j$ with prices $\vec{p}$ is given by
+    \begin{align*}
+        f_j(\vec{p}) = \sum_{i = 1}^N x^i_j - w^i_j
+    \end{align*}
+    In an equilibrium, we need prices $\vec{p}^*$ such that,
+    \begin{align*}
+        f_j(\vec{p}^*) = 0 \; \text{for all $j$}
+    \end{align*}
+    That is, a given market clears if that market has no excess demand.\footnote{
+        Excess demand functions are of special importance in the study of general equilibria. While we will not consider the stability of general equilibria in this course, it is often assumed that a reasonable price adjustment process for a particular good $j$ is an increasing function of $f_j(\vec{p})$. That is, the market prices converge to equilibrium by adjusting upwards when there is too much demand in a particular market, and adjusting downwards when there is too little demand. If such a price adjustment process converges to an equilibrium, that equilibrium is called stable. It is known that even under very reasonable assumptions and a basic economy, general equilibria can fail to be stable. 
+    }
+\end{description}
+A set of demand functions $\{\vec{x}^i\}$ and prices $\vec{p}$ that satisfy the above is known as a \vocab{Walrasian equilibrium}, which is the type of general equilibrium that we will focus on in this course. Later in this chapter, we will cover the basic properties of a Walrasian equilibrium, and whether they are guaranteed to exist. 
