@@ -12,7 +12,7 @@ An extension of the principle of arbitrage is the \vocab{law of one price}, whic
 
 A basic question in labor economics is why some people earn more than others. How do people choose jobs, and how does this explain why certain jobs pay more than others?
 
-\paragraph{A Basic Model.} We start with a scenario where people choose between being a professor and a vomit collector (VC). We assume that people all have the same utility function $u(y, k)$, where $y$ denotes income and $k$ captures how pleasant the job is, and that $u$ is increasing in both $y$ and $k$. Let $k_p$ be the pleasantness of being a professor and $k_v$ be the pleasantness of being a VC. We assume that being a professor is more pleasant than being a VC, so $k_p > k_v.$\footnote{Vomit collectors are the people who collect vomit around rollercoasters. We make no normative assertions about the real-world pleasantness of being a vomit collector (or of being a venture capitalist, which coincidentally shares the same acronym).}
+\paragraph{A Basic Model.} We start with a scenario where people choose between being a professor and a vomit collector (VC). We assume that people all have the same utility function $u(y, k)$, where $y$ denotes income and $k$ captures how pleasant the job is, and that $u$ is increasing in both $y$ and $k$. Let $k_p$ be the pleasantness of being a professor and $k_v$ be the pleasantness of being a VC. We assume that being a professor is more pleasant than being a VC, so $k_p > k_v.$\footnote{Vomit collectors are the people who collect vomit around rollercoasters. We make no normative assertions about the real-world pleasantness of being a vomit collector.}
 
 We start by assuming that both of these jobs are accessible to all people. By the law of one price, it cannot be the case that professors and VCs are paid the same (i.e. that $y_p = y_v$). If this were the case, then the utility of being a professor must be strictly higher than that of being a VC, so everyone would be a professor. For there to be an equilibrium with people employed as both professors and VCs, then it must be the case that utilities are the equalized, so 
 $$u(y_p, k_p) = u(y_v, k_v).$$
@@ -28,4 +28,87 @@ $$\pdv{w}{x} = \frac{u_k(y_p + w(x), k_p - x)}{u_y(y_p + w(x), k_p - x)} > 0.$$
 The comparative static is positive since we assumed that $u$ is increasing in both $y$ and $k$; this result tells us that the more relatively pleasant being a professor is, the more VCs must be compensated for choosing their job instead. This wage difference $w$ is thus referred to as the \vocab{equalizing difference}.
 
 
+\paragraph{Omitted Heterogeneity.} Our previous model is a direct application of the law of one price using only the modeling tools we have developed earlier in the course. However, our result seems unrepresentative of the real world because of the assumption that both jobs are accessible to all types of people. In reality, there is heterogeneity in \vocab{human capital}, defined as productivity or skill, across the labor market. Our basic models is biased by this \vocab{omitted heterogeneity}; if we actually modeled the heterogeneity in human capital in the labor market, we could then produce the expected result that more productive people receive higher wages. We will learn how to model this type of heterogeneity later on, but the key lesson from this example is to be cautious of sources of omitted heterogeneity that might stem from the model assumptions. In the example of the labor market, there are other complicating factors in the real world, such as unions, licensing requirements, and other local laws; it is generaly important to acknowledge which details a model incorporates and which details it ignores. If we wanted to actually apply our method of compensating differentials to study the pleasantness of being a professor, one approach would be to compare wages with a job that draws from a similar applicant pool (e.g. Wall Street financiers).
 
+\paragraph{Statistical Value of Life.} One real-world application of the notion of compensating differentials is estimating the statistical value of a life, defined as the implied monetary value that people place on their own lives. As morally objectionable as this analysis seems at first, these estimates are frequently used by the government to perform a cost-benefit analysis of various regulations.\footnote{For example, see https://www.epa.gov/environmental-economics/mortality-risk-valuation.}
+
+For example, consider the portion of the labor force that chooses between becoming a fisherman (people who catch fish in the sea) and a fishmonger (people who sell fish in the market). Becoming a fisherman is riskier and has a probability $p$ of being killed on the job, whereas becoming a fishmonger is safe and has $0$ probability of being killed on the job. If we assume that both jobs are available to the same people and that both jobs are equally pleasant, then the only driver of a wage difference between the jobs should be the increased likelihood of death. 
+
+Suppose the utility of income while alive is $u(y)$ and the utility of death is $u_{\text{death}}$, and the incomes of fishermen and fishmongers are $y_p$ and $y_0$, respectively. The expected utility of being a fisherman is then
+$$(1-p)u(y_p) + pu_{\text{death}},$$
+while the utility of being a fishmonger is $u(y_0)$. Under our idea of compensating differentials, the expected utilities of both jobs must be the same in equilibrium for there to be people in each job, so we have
+$$(1-p)u(y_p) + pu_{\text{death}} = u(y_0).$$
+We can rearrange this equation as
+$$u(y_p) + u_{\text{death}} = \frac{1}{p}\left[u(y_p) - u(y_0)\right],$$
+where we can interpret the LHS of this equation as the fisherman's value for her own life. In order for this expression to be useful, we need to estimate the RHS of this equation, which is difficult because we do not have a direct measure of the fisherman's utility. As a workaround, we can use the first-order approximation of local linearity to get $u(y_p) - u(y_0) \approx u'(y_0)(y_p - y_0)$, which allows us to rewrite our equation as 
+$$\frac{u\left(y_{p}\right)-u_{\text {death }}}{u^{\prime}\left(y_{0}\right)}\approx \frac{y_{p}-y_{0}}{p}.$$
+The LHS of this new equation represents the fisherman's value of life measured in dollars, since we divided by the marginal utility of income. The RHS of the equaiton is our estimate of this quantity, which we can compute directly from the observed values of $y_p$, $y_0$, and $p$. Intuitively, we observe that the estimated value of life that we compute is proportional to the wage difference needed to compensate people for becoming fishermen, as expected. This wage difference is divided by the probability of death as a fisherman, which means that this wage difference must grow as the relative danger of being a fisherman increases.
+
+It is important to consider again whether we trust the result of our model. One potential source of omitted heterogeneity that we neglected in our model is heterogeneity in preferences. It is possible that some people enjoy more active and dangerous jobs, and thus the wage difference needed to compensate the riskier job is lower than their true value of life. Moreover, there might be other implicit assumptions in our model that are unrealistic. For example, we assumed that agents optimize their expected utility, but one might question whether people actually think about probabilities accurately and optimize in this way.
+
+\subsection*{Urban Economics}
+
+We now transition to a different context where the notion of compensating differentials can be applied. A common area of work in urban economics is explaining why land prices differ across different regions. If two identical houses in different neighborhoods sell at different houses, then our law of one price suggests that there must be some additional benefit to buying the expensive house. The primary benefit is likely location: we will consider in this section how location affects access to public education and commute times.
+
+\paragraph{Public Schools.} In the United States, enrollment in public schools is often determined by housing location. As such, areas with better public schools should have a higher land value. 
+
+In a model where people value income and schools, we can express households' utility functions as $u(y-p_{\text{house}}, q_{\text{school}})$, where $p_{\text{house}}$ denotes the price of the house and $q_{\text{school}}$ denotes the quality of the school. If there are two identical neighborhoods that are only different in the quality of the local school, then the law of one price tells us that the utility of living in either neighborhood must be equalized in equilibrium, so the marginal consumer is indifferent between either neighborhood. We can express this equilibrium as 
+$$u(y - p_G, q_G) = u(y-p_B, q_B),$$
+where $p_G$ and $p_B$ are respective prices of the good and bad neighborhoods, and $q_G$ and $q_B$ are the respective qualities of the good and bad schools. Assuming that utility is increasing in income and school quality, if $q_G > q_B$, then our model tells us that $p_G > p_B$, as we already intuitively explained.
+
+Again, we consider the different ways that our model might be inaccurate. There are lots of potential sources of omitted heterogeneity: different neighborhoods have different characteristics other than local school quality, and different consumers have different personal characteristics like income and preference for education. 
+
+\paragraph{Commute Times.} Another possible benefit to housing location is the commute distance. If we assume that everyone needs to commute to the center of a city for work, then a house that is close to the center should be more preferable, and thus more expensive, than an identical house on the outskirts of the city.
+
+In our model, we will assume that utility $u(y)$ is only a function of income, and a commuting distance of $d$ results in a monetary cost of $c(d)$, where $c$ is an increasing function. All housing must generate the same utility net of commuting costs for the marginal consumer to be indifferent between housing locations. Thus, given two houses with prices $p_1$ and $p_2$ and respective distances $d_1$ and $d_2$ from the city center, our equilibrium is characterized by the equation
+$$u(y - c(d_1) - p_1) = u(y - c(d_2) - p_2).$$
+Our model tells us that as distance from the center decreases, prices of housing should increase to compensate.
+
+One nice application of our equilibrium result is the ability to estimate the anticipated rent of a neighborhood given its distance to the city center. If we assume that $c(0) = 0$ (i.e. the cost of no commute is nothing), then we can rewrite our equilibrium as 
+$$u(y-c(d)-p(d)) = u(y-p(0)),$$
+which gives us an implicit solution for rent $p(d)$ as a function of distance $d$. Since the utility function is increasing, the net income levels of the two locations must be the same for utility to be the same, which gives us
+$$y-c(d) - p(d) = y - p(0).$$
+We can rearrange this as
+$$p(d) = p(0) - c(d),$$
+which now gives us an explicit solution for the rent prices. This solution tells us that the price difference between a house in the center of a city and an identical house at a distance $d$ away should be exactly equal to the cost of commuting this distance $d$. If we wanted to estimate the anticipated value of $p(0)$, we could extend our analysis of compensating differentials and observe that people must be indifferent between living in the center of the city and living in a completely different region. If we assume that living outside the city results in a wage $w < y$ that is less than wages in the city, then to make the marginal consumer indifferent between living in the city and living elsewhere, we must have $p(0) = y - x.$
+
+The second application of our equilibrium result is an explanation of the size that cities become. Suppose that landowners can decide to rent out land to either city commuters or farmers, who are willing to pay $f$ for a unit of land. If we let $d^*$ be the threshold distance where the city turns to farmland, we must have
+$$p(d^*) = f$$
+for landowners to be indifferent at this threshold. We know from our model that $p(d^*) = y - x - c(d^*)$ represents the price that commuters are willing to pay at this distance, so we rewrite our previous equation as
+$$c(d^*) = y - x - f.$$
+This equation implicitly determines how large a city will become before it turns to farmland. If we assume that commuting costs have a linear functional form, so $c(d^*) = td^*$ for some constant $t$, then we can obtain the explicit solution
+$$d^* = \frac{y-x-f}{t}.$$
+The comparative statics of this result should match our basic intuition. As working in the city becomes more lucrative compared to working elsewhere (i.e. $y-x$ increases), the city becomes larger (i.e. $d$ increases) to accommodate the people who are willing to live far away from the city center to access this wage benefit. As commute costs $t$ rise, then the city becomes smaller, as people are less willing to live far away from the city center. Laslty, as the value of farmland $f$ increases, the city becomes smaller, as landowners would rather rent land to farmers than city commuters. 
+
+\paragraph{Land Lot Sizing.} As one final extension of our model of city commute times, we consider the case where consumers can choose the land area they purchase in addition to just location. If consumers have utility over income and land area $A$, and $p(d)$ is the unit price of land at a distance $d$ from the city center, then we can express consumers' utility as $U(y-c(d)-p(d)A, A).$ We could solve the two first order conditions with respect to $A$ and $d$ to find the optimum, but instead we highlight a new approach of sequentially optimizing $A$ and $d$ in order to gain insight into how our reasoning of spatial indifference applies. Given some choice of distance $d$, the consumer chooses land area $A$ by solving the utility maximization problem 
+$$\max_{A}U(y-c(d)-p(d)A, A).$$
+We can express the first order condition as 
+$$-p(d)U_y(y-c(d)-p(d)A, A) + U_A(y-c(d)-p(d)A, A) = 0,$$
+where $U_y$ and $U_A$ denote $\pdv{U}{y}$ and $\pdv{U}{A}$, respectively. This gives us a function $A^*(d)$ which tells us the optimal choice of land area given $d$. In spatial equilibrium, utility must be equal across all distances $d$ for the marginal consumer to be indifferent of location, so we have
+\begin{align*}
+    0 &= \frac{\text{d}}{\text{d}d} U(y - c(d) - p(d)A^*(d), A^*(d)) \\
+    &= U_y(\cdot, \cdot)\left(-c'(d)-p'(d)A^*(d) - p(d)\pdv{A^*}{d}\right) + U_A\left(\cdot, \cdot\right)\pdv{A^*}{d} \\
+    &= \pdv{A^*}{d}(U_A(\cdot, \cdot) - p(d)U_y(\cdot, \cdot)) + (-c'(d)-p'(d)A^*(d))U_y(\cdot, \cdot) \\
+    &= (-c'(d)-p'(d)A^*(d))U_y(\cdot, \cdot),
+\end{align*}
+which gives us the final spatial indifference condition
+$$p'(d) = -\frac{c'(d)}{A^*(d)}.$$
+
+If we differentiate our earlier first order condition for land area $A$, we have
+$$\frac{\partial A^{*}}{\partial d}=\frac{-p^{\prime} U_{y}+\left(c^{\prime}+p^{\prime} A^{*}\right)\left(p U_{yy}-U_{yA}\right)}{-\left(p^{2} U_{yy}-2 p U_{yA}+U_{AA}\right)}.$$
+We can eliminate the second term in the numerator by substituting the spatial indifference condition $p' = \frac{c'}{A^*}$, yielding
+$$\frac{\partial A^{*}}{\partial d}=\frac{-p^{\prime} U_{y}}{-\left(p^{2} U_{yy}-2 p U_{yA}+U_{AA}\right)}.$$
+If the utility function $U$ is increasing and concave in $y$ and $A$, then the denominator is positive by concavity and the numerator is positive since $p'(d)$ is negative. Thus, we have $\pdv{A^*}{d} > 0$, so we want to buy more land if we are farther from the center of the city, since the land is cheaper in spatial equilibrium. 
+
+Lastly, if we assume the functional forms
+$$U(C, A) = C + \alpha \ln(A),$$
+then our first order condition tells us that $p(d) = \frac{\alpha}{A^*}.$
+If we assume that commute costs are linear, so $c(d) = cd$, then we can substitute these values into our spatial indifference condition to get 
+$p'(d) = -\frac{c}{A^*}.$
+Putting these two results together, we have
+$$\frac{p'(d)}{p(d)} = -\frac{c}{\alpha},$$
+which is a differential equation with solution $\ln p(d) = \kappa - \frac{c}{\alpha} d.$
+We can thus express the price of land as 
+$$p(d) = p(0)e^{-\frac{c}{\alpha}d}$$
+and the optimal land lot size as
+$$A^*(d) = \frac{\alpha}{p(0)}e^{\frac{c}{\alpha}d}.$$
