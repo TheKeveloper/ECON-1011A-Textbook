@@ -87,5 +87,23 @@ The model we have developed so far considers only exchange economies where agent
 In this section, we will discuss some of the key properties and theorems related to Walrasian Equilibria.
 
 \subsection*{Existence}
-One of the main questions is whether a Walrasian equilibrium exists at all. Is it true for every set of initial endowments and every set of utility functions that a price vector will exist to clear the markets? The answer is non-obvious, but fortunately, there do exists very weak assumptions on the agent's utility functions that guarantee the existence of a Walrasian Equilibrium.
+One of the main questions is whether a Walrasian equilibrium exists at all. Is it true for every set of initial endowments and every set of utility functions that a price vector will exist to clear the markets? The answer is non-obvious, but fortunately, there do exists very weak assumptions on the agent's utility functions that guarantee the existence of a Walrasian Equilibrium. To do so, we need to first define \vocab{convex preferences}.
 
+\begin{definition*}[Convex preferences]
+    A preference relation $\precsim$ is convex if for any bundles of goods, $\vec{x}, \vec{y}, \vec{z}$ where $\vec{x} \succsim \vec{z} $ and $\vec{y} \succsim \vec{z}$, then for any $\lambda \in [0, 1]$,
+    \begin{align*}
+        \lambda \vec{x} + (1 - \lambda) \vec{y} \succsim \vec{z}
+    \end{align*}
+    In utility function form, we have,
+    \begin{align*}
+        u(\vec{x}) \geq u(\vec{z}), u(\vec{y}) \geq u(\vec{z}) \implies u(\lambda \vec{x} + (1 - \lambda)\vec{y}) \geq u(\vec{z})
+    \end{align*}
+\end{definition*}
+
+Now, we can offer the following existence theorem, which we will not prove because the proof is beyond the scope of this course,
+\begin{theorem*}[Existence of Walrasian Equilibrium]
+    In an exchange economy where agents have convex preferences, every good is desirable, and the consumption of a good only affects the utility of the agent consuming it, there exists a Walrasian equilibrium. 
+\end{theorem*}
+By every good being desirable, we mean that for every agent, their utility must strictly increase if they consume more of a particular good. While the assumptions on this theorem are relatively weak, they do rule out some key cases, such as goods where consuming one good has an externality effect on the other agents.
+
+While the above existence applies to exchange economies, there is one additional requirement for the existence of a general equilibrium in a production economy: the production function must be concave. This rules out cases of increasing returns to scale. 
