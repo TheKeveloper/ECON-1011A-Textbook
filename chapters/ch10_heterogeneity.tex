@@ -8,11 +8,12 @@ We started this course with two axioms of positive economics. The first is that 
 
 An extension of the principle of arbitrage is the \vocab{law of one price}, which states that two products of the same quality must have the same price. If a superior product had the same price as an inferior product, then nobody would buy the inferior product, causing the price of the superior product to rise and the price of the inferior product to fall. If two similar products had different prices, everyone would flock to the cheaper product, causing prices of the cheaper good to rise and prices of the more expensive good to fall. As a result, the law of one price tells us that if two objects have different prices, then there must be some underlying difference justifying this price gap, a concept referred to as the principle of \vocab{compensating differentials}. Notice that this is a different economic lens than what we have previously used to study problems. Whereas everything we studied so far assumed that the prices that firms and consumers faced were exogenously determined, we will now use the idea of compensating differentials to explore how these prices come about.
 
-\subsection*{Labor Economics}
+\section{Labor Economics}
 
 A basic question in labor economics is why some people earn more than others. How do people choose jobs, and how does this explain why certain jobs pay more than others?
 
-\paragraph{A Basic Model.} We start with a scenario where people choose between being a professor and a vomit collector (VC). We assume that people all have the same utility function $u(y, k)$, where $y$ denotes income and $k$ captures how pleasant the job is, and that $u$ is increasing in both $y$ and $k$. Let $k_p$ be the pleasantness of being a professor and $k_v$ be the pleasantness of being a VC. We assume that being a professor is more pleasant than being a VC, so $k_p > k_v.$\footnote{Vomit collectors are the people who collect vomit around rollercoasters. We make no normative assertions about the real-world pleasantness of being a vomit collector.}
+\subsection*{A Basic Model} 
+We start with a scenario where people choose between being a professor and a vomit collector (VC). We assume that people all have the same utility function $u(y, k)$, where $y$ denotes income and $k$ captures how pleasant the job is, and that $u$ is increasing in both $y$ and $k$. Let $k_p$ be the pleasantness of being a professor and $k_v$ be the pleasantness of being a VC. We assume that being a professor is more pleasant than being a VC, so $k_p > k_v.$\footnote{Vomit collectors are the people who collect vomit around rollercoasters. We make no normative assertions about the real-world pleasantness of being a vomit collector.}
 
 We start by assuming that both of these jobs are accessible to all people. By the law of one price, it cannot be the case that professors and VCs are paid the same (i.e. that $y_p = y_v$). If this were the case, then the utility of being a professor must be strictly higher than that of being a VC, so everyone would be a professor. For there to be an equilibrium with people employed as both professors and VCs, then it must be the case that utilities are the equalized, so 
 $$u(y_p, k_p) = u(y_v, k_v).$$
@@ -28,9 +29,11 @@ $$\pdv{w}{x} = \frac{u_k(y_p + w(x), k_p - x)}{u_y(y_p + w(x), k_p - x)} > 0.$$
 The comparative static is positive since we assumed that $u$ is increasing in both $y$ and $k$; this result tells us that the more relatively pleasant being a professor is, the more VCs must be compensated for choosing their job instead. This wage difference $w$ is thus referred to as the \vocab{equalizing difference}.
 
 
-\paragraph{Omitted Heterogeneity.} Our previous model is a direct application of the law of one price using only the modeling tools we have developed earlier in the course. However, our result seems unrepresentative of the real world because of the assumption that both jobs are accessible to all types of people. In reality, there is heterogeneity in \vocab{human capital}, defined as productivity or skill, across the labor market. Our basic models is biased by this \vocab{omitted heterogeneity}; if we actually modeled the heterogeneity in human capital in the labor market, we could then produce the expected result that more productive people receive higher wages. We will learn how to model this type of heterogeneity later on, but the key lesson from this example is to be cautious of sources of omitted heterogeneity that might stem from the model assumptions. In the example of the labor market, there are other complicating factors in the real world, such as unions, licensing requirements, and other local laws; it is generaly important to acknowledge which details a model incorporates and which details it ignores. If we wanted to actually apply our method of compensating differentials to study the pleasantness of being a professor, one approach would be to compare wages with a job that draws from a similar applicant pool (e.g. Wall Street financiers).
+\subsection*{Omitted Heterogeneity} 
+Our previous model is a direct application of the law of one price using only the modeling tools we have developed earlier in the course. However, our result seems unrepresentative of the real world because of the assumption that both jobs are accessible to all types of people. In reality, there is heterogeneity in \vocab{human capital}, defined as productivity or skill, across the labor market. Our basic models is biased by this \vocab{omitted heterogeneity}; if we actually modeled the heterogeneity in human capital in the labor market, we could then produce the expected result that more productive people receive higher wages. We will learn how to model this type of heterogeneity later on, but the key lesson from this example is to be cautious of sources of omitted heterogeneity that might stem from the model assumptions. In the example of the labor market, there are other complicating factors in the real world, such as unions, licensing requirements, and other local laws; it is generaly important to acknowledge which details a model incorporates and which details it ignores. If we wanted to actually apply our method of compensating differentials to study the pleasantness of being a professor, one approach would be to compare wages with a job that draws from a similar applicant pool (e.g. Wall Street financiers).
 
-\paragraph{Statistical Value of Life.} One real-world application of the notion of compensating differentials is estimating the statistical value of a life, defined as the implied monetary value that people place on their own lives. As morally objectionable as this analysis seems at first, these estimates are frequently used by the government to perform a cost-benefit analysis of various regulations.\footnote{For example, see https://www.epa.gov/environmental-economics/mortality-risk-valuation.}
+\subsection*{Statistical Value of Life} 
+One real-world application of the notion of compensating differentials is estimating the statistical value of a life, defined as the implied monetary value that people place on their own lives. As morally objectionable as this analysis seems at first, these estimates are frequently used by the government to perform a cost-benefit analysis of various regulations.\footnote{For example, see https://www.epa.gov/environmental-economics/mortality-risk-valuation.}
 
 For example, consider the portion of the labor force that chooses between becoming a fisherman (people who catch fish in the sea) and a fishmonger (people who sell fish in the market). Becoming a fisherman is riskier and has a probability $p$ of being killed on the job, whereas becoming a fishmonger is safe and has $0$ probability of being killed on the job. If we assume that both jobs are available to the same people and that both jobs are equally pleasant, then the only driver of a wage difference between the jobs should be the increased likelihood of death. 
 
@@ -46,11 +49,12 @@ The LHS of this new equation represents the fisherman's value of life measured i
 
 It is important to consider again whether we trust the result of our model. One potential source of omitted heterogeneity that we neglected in our model is heterogeneity in preferences. It is possible that some people enjoy more active and dangerous jobs, and thus the wage difference needed to compensate the riskier job is lower than their true value of life. Moreover, there might be other implicit assumptions in our model that are unrealistic. For example, we assumed that agents optimize their expected utility, but one might question whether people actually think about probabilities accurately and optimize in this way.
 
-\subsection*{Urban Economics}
+\section{Urban Economics}
 
 We now transition to a different context where the notion of compensating differentials can be applied. A common area of work in urban economics is explaining why land prices differ across different regions. If two identical houses in different neighborhoods sell at different houses, then our law of one price suggests that there must be some additional benefit to buying the expensive house. The primary benefit is likely location: we will consider in this section how location affects access to public education and commute times.
 
-\paragraph{Public Schools.} In the United States, enrollment in public schools is often determined by housing location. As such, areas with better public schools should have a higher land value. 
+\subsection*{Public Schools} 
+In the United States, enrollment in public schools is often determined by housing location. As such, areas with better public schools should have a higher land value. 
 
 In a model where people value income and schools, we can express households' utility functions as $u(y-p_{\text{house}}, q_{\text{school}})$, where $p_{\text{house}}$ denotes the price of the house and $q_{\text{school}}$ denotes the quality of the school. If there are two identical neighborhoods that are only different in the quality of the local school, then the law of one price tells us that the utility of living in either neighborhood must be equalized in equilibrium, so the marginal consumer is indifferent between either neighborhood. We can express this equilibrium as 
 $$u(y - p_G, q_G) = u(y-p_B, q_B),$$
@@ -58,7 +62,8 @@ where $p_G$ and $p_B$ are respective prices of the good and bad neighborhoods, a
 
 Again, we consider the different ways that our model might be inaccurate. There are lots of potential sources of omitted heterogeneity: different neighborhoods have different characteristics other than local school quality, and different consumers have different personal characteristics like income and preference for education. 
 
-\paragraph{Commute Times.} Another possible benefit to housing location is the commute distance. If we assume that everyone needs to commute to the center of a city for work, then a house that is close to the center should be more preferable, and thus more expensive, than an identical house on the outskirts of the city.
+\subsection*{Commute Times} 
+Another possible benefit to housing location is the commute distance. If we assume that everyone needs to commute to the center of a city for work, then a house that is close to the center should be more preferable, and thus more expensive, than an identical house on the outskirts of the city.
 
 In our model, we will assume that utility $u(y)$ is only a function of income, and a commuting distance of $d$ results in a monetary cost of $c(d)$, where $c$ is an increasing function. All housing must generate the same utility net of commuting costs for the marginal consumer to be indifferent between housing locations. Thus, given two houses with prices $p_1$ and $p_2$ and respective distances $d_1$ and $d_2$ from the city center, our equilibrium is characterized by the equation
 $$u(y - c(d_1) - p_1) = u(y - c(d_2) - p_2).$$
@@ -80,7 +85,8 @@ This equation implicitly determines how large a city will become before it turns
 $$d^* = \frac{y-x-f}{t}.$$
 The comparative statics of this result should match our basic intuition. As working in the city becomes more lucrative compared to working elsewhere (i.e. $y-x$ increases), the city becomes larger (i.e. $d$ increases) to accommodate the people who are willing to live far away from the city center to access this wage benefit. As commute costs $t$ rise, then the city becomes smaller, as people are less willing to live far away from the city center. Laslty, as the value of farmland $f$ increases, the city becomes smaller, as landowners would rather rent land to farmers than city commuters. 
 
-\paragraph{Land Lot Sizing.} As one final extension of our model of city commute times, we consider the case where consumers can choose the land area they purchase in addition to just location. If consumers have utility over income and land area $A$, and $p(d)$ is the unit price of land at a distance $d$ from the city center, then we can express consumers' utility as $U(y-c(d)-p(d)A, A).$ We could solve the two first order conditions with respect to $A$ and $d$ to find the optimum, but instead we highlight a new approach of sequentially optimizing $A$ and $d$ in order to gain insight into how our reasoning of spatial indifference applies. Given some choice of distance $d$, the consumer chooses land area $A$ by solving the utility maximization problem 
+\subsection*{Land Lot Sizing} 
+As one final extension of our model of city commute times, we consider the case where consumers can choose the land area they purchase in addition to just location. If consumers have utility over income and land area $A$, and $p(d)$ is the unit price of land at a distance $d$ from the city center, then we can express consumers' utility as $U(y-c(d)-p(d)A, A).$ We could solve the two first order conditions with respect to $A$ and $d$ to find the optimum, but instead we highlight a new approach of sequentially optimizing $A$ and $d$ in order to gain insight into how our reasoning of spatial indifference applies. Given some choice of distance $d$, the consumer chooses land area $A$ by solving the utility maximization problem 
 $$\max_{A}U(y-c(d)-p(d)A, A).$$
 We can express the first order condition as 
 $$-p(d)U_y(y-c(d)-p(d)A, A) + U_A(y-c(d)-p(d)A, A) = 0,$$
@@ -112,3 +118,138 @@ We can thus express the price of land as
 $$p(d) = p(0)e^{-\frac{c}{\alpha}d}$$
 and the optimal land lot size as
 $$A^*(d) = \frac{\alpha}{p(0)}e^{\frac{c}{\alpha}d}.$$
+
+\section{Aggregate Supply}
+We now shift gears and discuss a different system where we see multiple optimizing agents come together. We previously analyzed firm theory from the perspective of a single profit-maximizing firm; we now consider environments with multiple firms in order to build up to the idea of market supply that is often referenced in introductory economics courses.
+
+\subsection*{Identical Firms}
+We start with the simplest case of $N$ identical firms in a market. Suppose that each firm has a cost function
+$$c(q) = \frac{1}{2}cq^2$$
+to producing a quantity $q$, where $c$ is some constant. Assuming that the perfectly competitive market price is $p$, we established in our study of firm theory that each firm chooses production to maximize profits, solving
+$$\max_q \pi(q) = \max_q pq - \frac{1}{2}cq^2.$$
+The first order condition gives
+$$\frac{d\pi}{dq} = p - cq^* = 0,$$
+yielding
+$$q^*(p) = \frac{p}{c}.$$
+We will write this function $q^*(p)$ as $q(p)$ for brevity in the rest of the section.
+
+Since there are $N$ identical firms facing price $p$ and thus producing at this quantity, we can express the total market production, or \vocab{aggregate supply} (or market supply), as 
+$$Q(p) = N\frac{p}{c}.$$
+One quantity we are interested in is the \vocab{price elasticity of aggregate supply}; that is, we want to know the percentage increase in market production we would expect from a percentage increase in market price. There are two ways to compute this value. The first is to use the definition
+$$\epsilon = \frac{Q'(p)}{\frac{Q}{p}} = \frac{\frac{N}{c}}{\frac{Q}{p}} = 1.$$
+The second is to observe that $\ln(Q) = \ln(p) + \ln(\frac{N}{c})$ and use the equivalent definition
+$$\epsilon = \pdv{\ln(Q)}{\ln(p)} = 1.$$
+Intuitively, the elasticity of supply is 1 because market supply is linearly related to market price due our functional form for costs, so a 1\% increase in prices leads to a 1\% increase in market supply.
+
+\subsection*{Varying Costs}
+We now incorporate heterogeneity into our system and consider the case where different firms face different costs. Each firm still has the cost function $c(q) = \frac{1}{2}cq^2$, except now the constant factor $c$ varies across firms. We can represent this variation in the constant cost factor through a probability density function (PDF) $f(c)$.\footnote{See Chapter~\ref{sec:probability} for review on PDFs.} This representation is convenient because the PDF integrates to 1, so if there are $N$ total firms, we can represent the total number of firms with a constant cost factor $c$ between two any two values $a$ and $b$ as
+$$N\int_a^b f(c)dc.$$
+
+We again want the total market supply as a function of market price $p$. As before, a firm with a constant cost factor of $c$ will choose to produce
+$$q(p, c) = \frac{p}{c}.$$
+To get the total market supply, we integrate over the supply of each firm according to where they are in PDF, which gives us the general form 
+$$Q(p) = N\int_{\underline{c}}^{\overline{c}} q(p, c)f(c)dc.$$
+In this equation, $\underline{c}$ and $\overline{c}$ represent the respective minimum and maximum constant cost factors faced by firms to ensure that we are integrating over the entire PDF; we also could have integrated from $-\infty$ to $\infty$ for the same result. Intuitively, the expression $\int_{\underline{c}}^{\overline{c}} q(p, c)f(c)dc$ is the expected value of a randomly chosen firm's production,\footnote{This is an application of the Law of the Unconscious Statistician (LOTUS) for computing the expected value of a continuous random variable.} 
+so our expression for $Q(p)$ is simply the average production across firms multiplied by the number of firms. We can plug in our expression for $q(p, c)$ to obtain 
+$$Q(p) = N\int_{\underline{c}}^{\overline{c}} \frac{p}{c}f(c)dc = Np\int_{\underline{c}}^{\overline{c}} \frac{1}{c}f(c)dc.$$
+We can compute the elasticity of supply as 
+$$\epsilon = \frac{Q'(p)}{\frac{Q}{p}} = \frac{N\int_{\underline{c}}^{\overline{c}} \frac{1}{c}f(c)dc}{N\int_{\underline{c}}^{\overline{c}} \frac{1}{c}f(c)dc} = 1,$$
+or by using the formulation
+$$\epsilon = \pdv{\ln(Q)}{\ln(p)} = \pdv{}{\ln(p)}\left(\ln(p) + \ln\left(\int_{\underline{c}}^{\overline{c}} \frac{1}{c}f(c)dc\right)\right) = 1.$$
+Notice that the price elasticy of supply is still 1; this is because even though the constant cost factor varies across firms, we imposed the same functional form for cost, causing market price to still enter linearly into $q(p, c)$.
+
+For more intuition of how this market supply behaves, suppose that the constant cost factor across firms is distributed uniformly between $k-a$ and $k+a$; that is, any two equally sized subintervals of the interval $[k-a, k+a]$ will contain the same number of firms. Since the PDF must be constant over its support and integrate to 1, we know that $f(c) = \frac{1}{2a}$. Substituting this into our expression for market supply yields
+$$Q(p)=N p \int_{k-a}^{k+a} \frac{1}{c} \frac{1}{2 a} d c=\frac{N p}{2 a} \ln \frac{k+a}{k-a}.$$
+There are two notable comparative statics to consider. First, we have
+$$\pdv{Q}{k} = \frac{Np}{2a}\left(\frac{1}{k+a}-\frac{1}{k-a}\right) < 0,$$
+so supply falls when $k$ rises. This result should be unsurprising; as the average cost of firms increases, the total market supply decreases. Second, we have
+$$\pdv{Q}{a} = \frac{Np}{2a}\left(\frac{1}{k+a}+\frac{1}{k-a}\right) > 0,$$
+so supply rises when $a$ rises. Intuitively, an increase in $a$ means that firms are more spread out in their costs, even though average costs are still the same. Since we saw that production $q(p, c) = \frac{p}{c}$ is convex and decreasing in $c$, graphically we notice that we gain more in production from the new low-cost firms than we lose from the new high-cost firms. This general result when $q$ is convex in $c$ is a consequence of Jensen's inequality that $E[q(c)]\geq q(E[c])$, or more broadly that $E[q(c)]$ increases as the variance of $c$ increases.
+
+\subsection*{Production with Entry}
+In our previous cost function $c(q) = \frac{cq^2}{2}$, firms only had a variable cost; if firms chose to produce $q=0$, then the corresponding cost would be $c(0) = 0.$ As a result, we had the result that all firms produce a positive amount, since some sufficiently small amount of production must always be profitable. This model might be realistic if firms' only inputs were labor. 
+
+We now introduce a fixed cost $b$ for operating in the industry that is independent of the level of production, such as the cost of renting land for the firm. We assume that this fixed cost is identical for all firms, but the variable cost is still determined by the constant cost factor $c$ that varies across firms. Incorporating this fixed cost term into our prior cost function gives the new cost function
+$$c(q) = b + \frac{cq^2}{2}.$$
+The key modeling difference is that firms will only produce if they can make positive profits; if a firm will have negative profits at all positive production levels, they have a new option to shut down and avoid paying the fixed cost $b$ (e.g. by selling the land) to earn zero profits. 
+
+Firms that choose to operate are solving 
+$$\max_q pq - b - \frac{cq^2}{2},$$
+yielding the same solution $q(p) = \frac{p}{c}$ as before. The corresponding profit function is 
+$$\pi(q) = pq(p) - b - \frac{cq(p)^2}{2} = p\frac{p}{c} - b - \frac{1}{2}c\left(\frac{p}{c}\right)^2 = \frac{p^2}{2c} - b.$$
+Remember that firms only choose to operate when their profits are nonnegative, so the condition for firms to operate is given by 
+$$\pi(q) \geq 0 \implies c \leq \frac{p^2}{2b}.$$
+This condition for a firm to remain in operation is referred to as the \vocab{entry constraint}.
+
+Turning to aggregate supply, we previously had the expression
+$$Q(p)=N \int_{\underline{c}}^{\bar{c}} q(p, c) f(c) d c$$
+when we had no fixed costs, or $b=0$. With this fixed costs, firms that have a high enough constant cost factor $c$ will not meet the entry constraint and thus choose to shut down. We only integrate over firms that have positive production, so our new market supply is given by 
+Turning to aggregate supply, we previously had the expression
+$$Q(p)=N \int_{\underline{c}}^{c^*} q(p, c) f(c) d c$$
+where $c^* = \frac{p^2}{2b}$ is the maximum constant cost factor such that a firm just breaks even. Substituting in our expression for $q(p, c)$ gives
+$$Q(p) = N p \int_{\underline{c}}^{\frac{p^{2}}{2 b}} \frac{1}{c} f(c) d c.$$
+
+We again consider a uniform distrubution for $c$ between $k-a$ and $k+a$ to gain intuition on the relevant comparative statics. We assume that $c^* = \frac{p^2}{2b} < k+a$, so there are some firms that do not meet the entry constraint and choose to shut down. We can then write market supply as 
+$$Q(p) = \frac{Np}{2a} \int_{\underline{c}}^{\frac{p^{2}}{2 b}} \frac{1}{c}d c.$$
+We want the slope of this supply curve $\pdv{Q}{p}$, which tells us how market supply changes in absolute terms per unit increase in market price; this value can also be used to later compute the price elasticity of supply. We apply the Fundamental Theorem of Calculus to obtain
+$$\frac{\partial Q}{\partial p}=\underbrace{\frac{N}{2 a} \int_{k-a}^{\frac{p^{2}}{2 b}} \frac{1}{c} d c}_{\text {intensive margin }}+\underbrace{\frac{N p}{2 a} \frac{2 b}{p^{2}} \frac{p}{b}}_{\text {extensive margin }} = \frac{N}{2 a} \int_{k-a}^{\frac{p^{2}}{2 b}} \frac{1}{c} d c+\frac{N}{a}.$$
+The first term is called the \vocab{intensive margin}, which explains the same phenomenon that we saw before: if market prices rise, then all firms that are already operating will choose to produce more. The second term is new now that we introduced the entry constraint. This term is called the \vocab{extensive margin}, which captures the fact that if market prices rise, then some firms that were previously shut down will now choose to operate. More generally, for any change that affects a population of individuals, the intensive margin refers to how every preexisting member of this population changes their behavior on the margin, while the extensive margin refers to individuals on the margin choosing to enter or exit this population.
+
+Observe that if we increase the fixed cost $b$, then we decrease the size of the intensive margin, since there are fewer firms operating prior to the price change. If we increase $a$, the measure of cost variation between firms, then we decrease the size of the extensive margin, since there will be fewer firms who were close to the entry constraint if cost variation were larger. The effect of increasing $a$ on the size of the intensive margin is ambiguous, since it can either increase or decrease the fraction of the $N$ firms that chose to operate to begin with.
+
+There are two ways that this distinction between intensive and extensive margin might be useful. First, n a real-world scenario with a market price increase, it might take time for firms to enter the market (e.g. due to the time required to build a factory), so in the short term, only the intensive margin will be reflected in the change in market supply. In the long term, the extensive margin is introduced as firms can enter the market, so the total response to the price increase will be greater than the short-term response. Second, consider a government deciding between a lump sum tax on producers compared to a per-unit tax on production. The lump sum tax acts as an additional fixed cost on production, whereas the per-unit price acts as a variable cost; the former likely has a larger impact on the extensive margin, whereas the latter likely has a larger impact on the intensive margin.
+
+\section{Aggregate Demand}
+We now turn our attention to consumers in the market. We could produce the analogous models to our discussion of aggregate supply, with consumers that have varying utility levels over the same product. This analysis of \vocab{aggregate demand}, or the total quantity consumed in the market given the market price, will largely lead to similar results to before. The natural way of constructing these models would be to assume that each consumer chooses how much of the good to consume, analogous to how firms were choosing how much of the good to produce. Instead, we turn our attention to a new type of problem, where consumers have discrete demand.
+
+\subsection*{Discrete Demand}
+When consumers have \vocab{discrete demand}, there are only a few discrete quantities that the consumer can feasibly consume. This assumption is normally applicable when goods are purchased in large discrete lumps, such as cars and houses. For our purposes, we will assume that consumers can only buy zero or one of these discrete goods (e.g houses, for most people).
+
+In our model, we will assume that utility is quasilinear in income, and the price of the discrete good is $p$. We can write our utility as
+$$u(x) = y - px + v(x),$$
+where $y$ is our starting income, $x \in \{0, 1\}$ is the quantity of the good we can buy, and $v$ is an increasing, concave function reflecting our value for the good. Since $v(x)$ can only take on two values, we can say $v(0) = 0$ and $v(1) = v$. Then we can express our utility function as 
+$$u(x) = \begin{cases}
+    y & x = 0 \\
+    y - p + v & x = 1,
+\end{cases}$$
+so we will choose to buy the good if and only if $v > p$, as expected.
+
+The problem is uninteresting if every has the same utility function and thus shares the same value of $v$; in this case, the symmetry of the problem tells us that everyone buys the good or nobody does. We can introduce heterogeneity into our consumers by assuming that different people have different values of $v$. We denote the PDF of $v$ as $g(v)$, and we normalize the total population to be of size $N=1$, so we will be counting individuals as fractions of the population. In this model, everyone who values the good more than its price (i.e. has a value $v$ such that $v > p$) will purchase the good, so the total market demand can be written as
+$$D(p)=\int_{p}^{\bar{v}} g(v) d v=1-\int_{\underline{v}}^{p} g(v) d v=1-G(p),$$
+where $\underline{v}$ and $\bar{v}$ are the minimum and maximum values of $v$ across all people, respectively. The term
+$$G(p) = \int_{\underline{v}}^{p} g(v) d v = \operatorname{Prob}(v \leq p)$$
+is the cumulative distribution function (CDF) of the distribution for $v$. Notably, even though an individual consumer's consumption takes on discrete values, the fact that different consumers have different preferences allows for aggregate demand to be continuous.
+
+If prices increase, then the market demand is given by 
+$$\pdv{D}{p} = \frac{d}{d p}\left[1-\int_{\underline{v}}^{p} g(v) d v\right]=-g(p).$$
+Notice that this this term comes from the extensive margin and reflects the number of people that will no longer buy the good now that its price is more expensive. Unlike our discussion of aggregate supply, we do not have an intensive margin term here because consumers can only buy 0 or 1 units of the good, so there are no marginal decisions to make about quantity after an individual decides to consume the good.
+
+\subsection*{Rent Control}
+One major application of our analysis of aggregate demand in a discrete demand setting will be to \vocab{rent control}. Rent control is a \vocab{price ceiling} on the price of rent, forcing landlords to keep their rental prices below what the free market equilibrium price would be. Intuitively, imposing a rent control leads to an undersupply in housing, since some landlords will choose not to rent out their homes. However, it might have a redistributional effect on consumers; even though the undersupply in housing means fewer consumers can buy homes, poorer consumers who were previously unable to buy homes now have a chance at ownership.
+
+Suppose that the market-clearing price\footnote{This is the price where supply and demand are equal in the free market; we will discuss where this price comes from in the next chapter.} is $p^*$, but this price is lowered by the price ceiling to $p^{rc}$. Our main goal is to discuss the effect on consumer surplus. For a brief discussion of the effect on producers, we can consider the case of $N$ identical producers with cost functions $c(q) = \frac{cq^2}{2}.$ As we solved before, the profit of a single producer is 
+$$\pi(p)=p q(p)-C(q(p))=p \frac{p}{c}-\frac{1}{2} c\left(\frac{p}{c}\right)^{2}=\frac{1}{2} \frac{p^{2}}{c}.$$
+
+We now focus on the effect on consumer surplus. On an individual level, consumer surplus rises for the people who are able to buy the cheaper houses, but it falls for the people who previously were able to buy the house but now could not due to the undersupply of housing. The sign of the change in total consumer surplus is thus ambiguous. 
+
+One approach to modeling consumers would be to assume $M$ identical consumers and assume continuous demand rather than the discrete demand mdodel we just developed. We can assume that each agent has a linear demand fucntion $d(p) = \frac{a-p}{b}$; however, this amount they consume cannot be more than $\frac{Q(p^{rc})}{M}$ due to the constraint on supply. We can then express the total consumer surplus the integral under the Marshallian demand curve, given by
+\begin{align*}
+CS &= \int_{p^{r c}}^{a} \min \left\{M \frac{a-p}{b}, N \frac{p^{r c}}{c}\right\} d p \\
+&= \frac{N p^{r c}}{c} \frac{1}{2}\left(a-p^{r c}+a-\frac{b N p^{r c}}{M c}-p^{r c}\right) \\
+&= \frac{N p^{r c}}{c}\left(a-p^{r c}-\frac{b N p^{r c}}{2 M c}\right).
+\end{align*}
+For the rent control to have an effect, it must be lower than the market price, so we must have $\frac{a-p^{rc}}{b} \geq \frac{Np^{rc}}{Mc},$ so the consumer surplus is positive.
+
+The second approach to modeling consumers uses our model before of heterogeneous consumers, each with discrete demand. Each of the $M$ consumers has a value $v$ of purchasing the discrete good, and $v$ is distributed uniformly between $a-b$ and $a$. That is, we have the PDF $g(v) = \frac{1}{b}$ and CDF $G(v) = \frac{v-(a-b)}{b}$ in this interval. As we showed before, this leads to the aggregate demand function 
+$$D(p) = M(1 - G(p)) = M\frac{a-p}{b}.$$
+We can thus compute the consumer surplus as
+\begin{align*}
+C S&=M \frac{Q\left(p^{r c}\right)}{D\left(p^{r c}\right)} \int_{p^{r c}}^{a} \frac{v-p^{r c}}{b} d v \\
+&= M \frac{N p^{r c}}{c} \frac{b}{M\left(a-p^{r c}\right)} \frac{1}{b}\left[\frac{1}{2} v^{2}-p^{r c} v\right]_{p^{r c}}^{a} \\
+&= \frac{N p^{r c}}{c} \frac{a-p^{r c}}{2}.
+\end{align*}
+
+The difference between these two approaches is subtle yet important. In the case where consumers are identical and have continuous demand, total consumer surplus is positive, and this is because everyone receives an equal share of the consumer surplus. In the case where consumers are heterogeneous and have discrete demand, total consumer surplus is still positive, but the question of who receives this consumer surplus depends on the recipients of the cheaper housing with the rent control. As a result, while some might advocate for rent control as a means of giving low-income consumers a chance at purchasing scarce resources, this argument assumes that there are distributional mechanisms in place that give these consumers a fair chance at receiving the resource. Many critics are skeptical that these distributional mechanisms are feasible, which becomes an important criticism of rent controls as a practice.
+
+\section*{Recap}
+This chapter marks a transition away from studying individual optimizing agents toward studying systems of these optimizing agents put together. We first introduced the concept of arbitrage and the law of one price, which led to the idea of compensating differentials as a way of explaining why prices vary across different choices. In particular, we started with the simple notion that the marginal individual must be indifferent between options in equilibrium, and we used this approach to develop important ideas in labor and urban economics. We then shifted from studying heterogeneity in different choices (e.g. the choice of vocation or neighborhood) to heterogeneity in different choice-makers. We introduced a method for modeling heterogeneous firms and consumers on top of our previous frameworks for firm theory and consumer theory, which allowed us to develop the concepts of aggregate supply and demand. As applications of these ideas, we were able to explore the impact of fixed costs on aggregate supply and the impact of rent control on aggregate demand. In the next chapter, we will bring these ideas of aggregate supply and demand together to finally develop a model with both sides of the market, which will result in a way to understand how prices and quantities arise in a free-market economy.
