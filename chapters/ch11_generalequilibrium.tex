@@ -107,3 +107,41 @@ Now, we can offer the following existence theorem, which we will not prove becau
 By every good being desirable, we mean that for every agent, their utility must strictly increase if they consume more of a particular good. While the assumptions on this theorem are relatively weak, they do rule out some key cases, such as goods where consuming one good has an externality effect on the other agents.
 
 While the above existence applies to exchange economies, there is one additional requirement for the existence of a general equilibrium in a production economy: the production function must be concave. This rules out cases of increasing returns to scale. 
+
+\subsection*{Walras's Law}
+When solving for a general equilibrium model with $M$ goods, we usually are only able to solve for the ratio of the equilibrium prices between those goods, so we will typically normalize the price of one of the goods to $1$. The economic intuition here is that of monetary neutrality: it does not matter what units we measure prices in, but only that they are consistent relative to each other. 
+
+However, we want to make sure that even if we normalize the price of a given item to $1$, that the market still clears. To do so, we use a result known as Walras's Law:
+
+\begin{theorem*}[Walras's Law]
+    In an economy where agents face budget constraints, the sum of the values of the excess demands in all markets must be zero, regardless of prices. More formally, Let $\vec{p}$ be an arbitrary price vector with $N$ individuals and $M$ goods. Let $\vec{x}^i$ denote the Marshallian demand function and let $\vec{w}^i$ be the endowment vector for each agent $i$. Then,
+    \begin{align*}
+        \sum_{i = 1}^N \vec{p} \cdot (\vec{x}^i - \vec{w}^i) = 0
+    \end{align*}
+\end{theorem*}
+\begin{proof}
+    The proof of Walras's Law is fairly straightfoward if we know that budget constraints are satisfied. By the definition of the budget constraint of agent $i$, we know that
+    \begin{align*}
+        \vec{p} \cdot \vec{x}^i = \vec{p} \cdot \vec{w}^i \iff  \vec{p} \cdot \vec{x}^i - \vec{p} \cdot \vec{w}^i = 0 
+    \end{align*}
+    Hence, the total value of excess demand in the economy is,
+    \begin{align*}
+        \sum_{i = 1}^N \vec{p} \cdot (\vec{x}^i - \vec{w}^i) &= \sum_{i = 1}^N  (\vec{p} \cdot \vec{x}^i - \vec{p} \cdot \vec{w}^i) \\
+        &= \sum_{i = 1}^N 0 \text{ by the budget constraint}\\
+        &= 0 
+    \end{align*}
+\end{proof}
+
+Walras's Law offers an important corollary that allows us to normalize prices:
+\begin{corollary*}
+    If an economy with $n$ goods and positive prices has markets clear in $n - 1$ of those goods, then the $n$th market must also clear.
+\end{corollary*}
+
+\begin{proof}
+    Let $z_j$ be the total excess demand for good $j$. Suppose without loss of generality that $z_j = 0$ for $j = 1, \dots, n - 1$. That is, the market clears for $n - 1$ goods. Let $\vec{p}$ be the the corresponding price vector. By Walras's law, we know that, 
+    \begin{align*}
+        \sum_{j = 1}^n p_j z_j = p_n z_n = 0
+    \end{align*}
+    Because by assumption, $p_j z_j = 0$ for all $j < n$. Since $p_n > 0$ by assumption of positive prices, we conclude that $z_n = 0$. That is, the excess demand in the $n$th market is 0, which means that the market clears. 
+\end{proof}
+For us, this means that if we normalize the price of a given good to $1$, and we adjust prices to clear in all the other markets, then the market for that good must also clear. 
