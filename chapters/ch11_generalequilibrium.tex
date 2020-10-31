@@ -114,7 +114,7 @@ When solving for a general equilibrium model with $M$ goods, we usually are only
 However, we want to make sure that even if we normalize the price of a given item to $1$, that the market still clears. To do so, we use a result known as Walras's Law:
 
 \begin{theorem*}[Walras's Law]
-    In an economy where agents face budget constraints, the sum of the values of the excess demands in all markets must be zero, regardless of prices. More formally, Let $\vec{p}$ be an arbitrary price vector with $N$ individuals and $M$ goods. Let $\vec{x}^i$ denote the Marshallian demand function and let $\vec{w}^i$ be the endowment vector for each agent $i$. Then,
+    In an economy where agents face budget constraints, the sum of the values of the excess demands in all markets must be zero, regardless of prices. More formally, let $\vec{p}$ be an arbitrary price vector with $N$ individuals and $M$ goods. Let $\vec{x}^i$ denote the Marshallian demand function and let $\vec{w}^i$ be the endowment vector for each agent $i$. Then,
     \begin{align*}
         \sum_{i = 1}^N \vec{p} \cdot (\vec{x}^i - \vec{w}^i) = 0
     \end{align*}
@@ -156,3 +156,37 @@ In some sense, Pareto efficiency is the most basic property you would want an op
 
 However, it is important to note that Pareto efficiency is a very weak condition. For example, an allocation where all of the goods in the economy go to one individual is Pareto efficient. However, to get stronger conditions of optimality for an allocation of goods, you may need to bring in interpersonal comparisons of utility, which economists try to avoid. 
 
+\subsection*{First Welfare Theorem}
+The First Welfare Theorem tells us a key property about the efficiency of Walrasian equilibria:
+
+\begin{theorem*}[First Welfare Theorem]
+    Every Walrasian equilibrium is Pareto efficient. 
+\end{theorem*}
+\begin{proof}
+    Let $\vec{w}^i$ be the endowents and let $u^i$ be the utility function for agent $i$. A Walrasian equilibrium is characterized by prices $\vec{p}$ and allocations $\{\vec{x}^i\}_{i = 1}^N$. Suppose we have some alternative allocation $\{\vec{z}^i\}_{i = 1}^N$ where at least one agent is strictly better off. Let $i^*$ be such an agent: 
+    \begin{align*}
+        u^i(\vec{z}^{i^*}) > u^i(\vec{x}^{i^*})
+    \end{align*}
+    However, since, in the Walrasian equilibrium, $i^*$ is optimizing, then $\vec{z}^{i^*}$ must not be affordable at prices $\vec{p}$, because if it were, then the agent would have already purchased $\vec{z}^{i^*}$. So,
+    \begin{align*}
+        \vec{p} \cdot \vec{z}^{i^*} > \vec{p} \cdot \vec{x}^{i^*}
+    \end{align*}
+    If we assume that no other individual is strictly worse off, then for every agent $i$, we must have that
+    \begin{align*}
+        u^i(\vec{z}^i) \geq u^i(\vec{x}^i) \implies \vec{p} \cdot \vec{z}^i \geq \vec{p} \cdot \vec{x}^i
+    \end{align*}
+    Where the inequality is strict for $i^*$. Summing over all agents therefore yields,
+    \begin{align*}
+        \sum_{i = 1}^N \vec{p} \cdot \vec{z}^i = \vec{p} \cdot \sum_{i = 1}^N \vec{z}^i > \vec{p} \cdot \sum_{i = 1}^N \vec{x}^i = \sum_{i = 1}^N \vec{p} \cdot \vec{x}^i
+    \end{align*}
+    However, recall in both cases, we require the total allocations to be equal to the total initial endowments, so we have,
+    \begin{align*}
+        \sum_{i = 1}^N \vec{z}^i = \sum_{i = 1}^N \vec{w}^i = \sum_{i = 1}^N \vec{x}^i
+    \end{align*}
+    Substituting into the above inequality then yields,
+    \begin{align*}
+        \vec{p} \cdot \sum_{i = 1}^N \vec{w}^i > \vec{p} \cdot \sum_{i = 1}^N \vec{w}^i
+    \end{align*}
+    This is a contradiction, and hence we know that in a Walrasian equilibrium, no agent can be made better off without making at least one other agent worse off. 
+    
+\end{proof}
