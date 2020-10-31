@@ -193,3 +193,39 @@ The First Welfare Theorem tells us a key property about the efficiency of Walras
 
 The First Welfare Theorem tells us that, at least in a very basic sense, competitive equilibria are efficient because no person can be made better off without making another first off. In other words, there are no ``welfare arbitrage'' opportunities where a social planner could intervene and make everyone better off. The economic intuition here is that if two agents could be made better off without making either worse off, they could trade with each other, and the equilibrium sets the prices so that everyone who is willing to trade with each other does so. 
 
+\subsection*{Second Welfare Theorem}
+While the First Welfare Theorem told us that every Walrasian Equilbirium is Pareto efficient, the Second Welfare Theorem tells us the converse: that every Pareto efficient outcome can be the result of a Walrasian equilibrium with appropriate prices and initial endowments. 
+
+\begin{theorem*}[Second Welfare Theorem]
+    Any Pareto efficient allocation $\{\vec{x}^i\}$ forms a Walrasian equilibrium with some prices $\vec{p}^i$ and some initial endowments, $\vec{w}^i$.
+\end{theorem*}
+\begin{proof}
+    Let $\{\vec{x}^i\}$ be a Pareto efficient allocation. Our goal is to construct some initial endowments $\{\vec{w}^i\}$ such that the resulting equilibrium prices $\vec{p}$ yield the allocation $\{\vec{x}^i\}$. The intuitive guess is to set $\vec{w}^i = \vec{x}^i$ for all agents $i$. That is, we are simply setting the initial endowments to be equal to the desired final allocation. Let $\vec{p}$ be the vector of prices and let $\{\vec{z}^i\}$ be the allocation resulting from the Walrasian equilibrum with our constructed endowment. We will assume that preferences are such that the Walrasian equilibrium exists.
+
+    We need to show that every agent weakly prefers $\vec{x}^i$ to $\vec{z}^i$, $u^i(\vec{x}^i) \geq u^i(\vec{z}^i)$ for all agents $i$. We know that every agent could afford to keep their current bundle, $\vec{x}^i$, and we know that $\{\vec{x}^i\}$ is a Pareto efficient allocation (by assumption). This means that if there were some agent $i^*$ who strictly preferred $\vec{z}^{i^*}$ to $\vec{x}^{i^*}$, then some other agent $j^*$ must be made worse off and strictly prefer $\vec{x}^{j^*}$ to $\vec{z}^{j^*}$. But this means that the agent is not optimizing, because the agent could afford $\vec{x}^{j^*}$, a contradiction. 
+
+    Hence, every agent must weakly prefer $\vec{x}^i$ to $\vec{z}^i$, which means that $\{\vec{x}^i\}$ is an equilibrium allocation with initial endowments $\{\vec{w}^i\}$
+\end{proof}
+The intuition for the Second Welfare Theorem is that if there was some Pareto efficient allocation in an economy that we wanted to obtain, we could just start off by giving everyone that allocation. Even if people were allowed to trade, they would keep their initial endowments because anything else would necessarily make them worse off in a competitive market.
+
+This has particular importance in economic policy, because it tells us that if we can make lump sum transfers between agents, then if there is some Pareto efficient allocation you want to achieve, you can just use lump sum taxes and subsidies to achieve that allocation.
+
+\section{Recap of GE}
+For the first time in this course, we have learned how we can fully model an economy, and we finally know how those exogenous prices might be determined in the real world. We will quickly recap some of the key steps in how to solve for a general equilibrium, as well as the limitations facing Walrasian equilibria in particular.
+
+\subsection*{Solving for Walrasian Equilibrium}
+While Walrasian equilbria might seem complicated at first, but can in fact be boiled down to three simple steps. 
+\begin{enumerate}
+    \item Set up each agent's maximization problem taking prices as exogneous. Solve for their optimal choices in the same way that we would in a partial equilibrium. The supply/demand functions should only depend on prices and other exogenous variables. 
+    \item Taking each agent's behavior under particular prices as given, set the supply and demand in each market to be equal. This is the same as setting the excess demand in each market to 0. Normalize one of the prices to $1$. Then, solve for the remaining prices via your system of equations. The prices should only depend on exogenous variables.
+    \item Plug in the prices that you calculated from step 2 back into optimal choices that you computed in part 1. This will tell you the final allocations for each agent, and it should only depend on exogenous variables. Prices should not appear in your final allocations.
+\end{enumerate}
+
+\subsection*{Limitations of Walrasian Equilibria}
+Finally, while Walrasian equilibria are a foundational component of microeconomic theory, there are some important limitations to keep in mind.
+\begin{description}
+    \item[No externalities] When modeling Walrasian equilibria, we assume that one agent's consumption cannot affect another agent's consumption. This explicitly rules out both positive and negative externalities.
+    \item[Non-satiation] We assume that each agent prefers more of a good than less of it, and that no good can make an agent worse off by having more of it. This is often not the case in the real world, and may make modeling a market for, say pollution, much more difficult.
+    \item[Perfect information and markets] While this assumption is implicit via the ``Walrasian auctioneer,'' we assume that agents have perfect information about each other's utility functions and prices, and that there are no costs to transactions. This is often not the case in the real world, as most transactions involve one party having more information than the other, and many transactions involve costs beyond price, like travel or negotiation costs. Embedded in this assumption is that agents cannot lie about their demand to try to manipulate the market price to be lower. Each agent reports demand as if their behavior will not change the price.  
+\end{description}
+In the following chapters, we will relax some of these assumptions and examine the role of government policy in correcting imperfect markets, as well as how agents may behave differently in cases of imperfect information or where agents know they can affect the price. 
