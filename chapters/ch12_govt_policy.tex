@@ -1,2 +1,45 @@
 \chapter{Government Policy and Externalities}
 We have primarily examined what might what be called ``free market economies,'' where agents act without any government policy. In particular, we have acted under the assumption that one agent's consumption and behavior cannot affect another agent's behavior except through the market mechanisms. However, in the real world, certain behaviors impose externalities upon other agents. In order to examine the policy responses to these externalities, we need to understand how to model government policymaking, taking into account how agents will respond to the policy, and what types of objectives governments might have. 
+
+
+\section{Modeling Government Policy}
+Our first goal is to understand how to model and optimize government policies. The basic structure for optimizing government policies is as follows:
+\begin{enumerate}
+    \item Decide which policy variables the government will be able to manipulate (taxes, subsidies, etc).
+    \item Agents in the economy optimize their behavior taking the government's policy variables as exogenous. 
+    \item The government chooses the policy variables to optimize some objective function, taking the agent's responses as given. 
+\end{enumerate}
+
+\subsection*{Maximizing tax revenue}
+We will make these steps concrete with a simple example of maximizing tax revenue via a tax on firms. Often in our political discourse, it is assumed that you are able to raise revenue simply by raising taxes. While this is often the case, because taxes distort behavior, the higher the taxes, the less firms will produce and hence it will decrease tax revenues. To see that this would be the case, suppose that governments can only tax revenue (not profits), and the government levies a 100\% tax on revenues. Because firms have other costs, they will choose to simply not produce, which means that the government's tax revenue would be 0. This is commonly known as the \vocab{Laffer curve} argument, which was popularized by economist Arthur Laffer, and was used during the Reagan administration (as well as subsequent administrations) to argue that cutting taxes would in fact raise revenue. 
+
+Here, we will consider the problem of how to determine the optimal tax, by following the above steps.
+
+\begin{enumerate}
+    \item First, we will determine the government's policy variable. We will let $\tau$ be a tax on revenues, so that if the exogenous price of the good is $p$, and the firm produces $Q$ units of the good, the government receives,
+    \begin{align*}
+        (1 - \tau) p Q
+    \end{align*}
+    Notice that we could also interpret this as a percentage tax on each unit of the good sold. This type of tax is known as an \vocab{\emph{ad valorum}}, or proportional, tax. 
+    \item Next, we solve the firm's profit maximization problem. The firm takes $\tau$ as given, has cost function $C(Q)$, and hence solves,
+    \begin{align*}
+        \max_{Q} (1 - \tau) p Q - C(Q)
+    \end{align*}
+    The familiar first order condition defines the optimal production,
+    \begin{align*}
+        (1 - \tau) p = C'(Q^*)
+    \end{align*}
+    \item Finally, we maximize the government's objective function, which in this case is tax revenue. We take the firm's choice of production, $Q^*$ So the government solves,
+    \begin{align*}
+        \max_{\tau} \tau p Q^*(\tau)
+    \end{align*}
+    This yields first order conditions for the optimal tax, $\tau^*$, 
+    \begin{align*}
+        \tau^* \frac{dQ^*}{d\tau} = -Q^*
+    \end{align*}
+    Note that this does not depend directly on price, as multiplying by price is just a monotonic transformation of the objective function. However, price may enter in implicitly through $Q^*$ and $\frac{dQ^*}{d\tau}$. Dividing through by $-Q^*$ yields
+    \begin{align*}
+        -\frac{\tau^*}{Q^*} \frac{dQ^*}{d\tau} = 1
+    \end{align*}
+    Notice that on the left, we have the elasticity of $Q$ with respect to $\tau$, which is the elasticity of production with respect to the tax. This tells us that at an optimum, the elasticity of supply with respect to the tax rate must equal 1. Intuitively, if we increase taxes by $1\%$ and our quantity (hence revenue) decreases by $1\%$, then we cannot earn any additional revenue by changing the tax because the decrease in revenue exactly balances out the increase in per unit tax. 
+\end{enumerate}
