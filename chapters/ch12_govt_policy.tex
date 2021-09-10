@@ -44,7 +44,7 @@ Here, we will consider the problem of how to determine the optimal tax, by follo
     Notice that on the left, we have the elasticity of $Q$ with respect to $\tau$, which is the elasticity of production with respect to the tax. This tells us that at an optimum, the elasticity of supply with respect to the tax rate must equal 1. Intuitively, if we increase taxes by $1\%$ and our quantity (hence revenue) decreases by $1\%$, then we cannot earn any additional revenue by changing the tax because the decrease in revenue exactly balances out the increase in per unit tax. 
 \end{enumerate}
 
-\section{Externalities}
+\section{Modeling Externalities}
 In all of the models that we have considered so far, we have assumed that each agent's utility depends only on the decisions that they make. We showed in the last chapter that in a setting where agents have full information and each agent's choices only directly affects their own utility, then a competitive equilibrium is efficient. In this section, we will examine how to model \vocab{externalities}, which is when the choices of one agent enter directly into the utility function of another agent. Perhaps the most common example of an externality is pollution. When you drive a car, the carbon dioxide emitted from the car not only affects your utility, but the utility of every individual. While externalities are normally thought of as negative, there are also positive externalities, like volunteering to clean up a local park making the park going experience for everyone else better. Of particular interest will be how the government can intervene in the case of externalities to make a Pareto improvement, that is, everyone will be better off than without government intervention. 
 
 It is important to note however, that when we refer to externalities, we mean only when the choice of one agent enters \emph{directly} into the utility of another agent. We do not account for how an agent's choices can affect other agents through the market mechanism. For example, if you decide to buy oranges, increasing the demand for oranges and hence raising the price, and hence decreasing the utility for other orange buyers. While your choices in this case may have affected the utility of other agents, they did so only via market effects rather than direct effects, and hence we do not treat them the same as externalities with direct effects. 
@@ -109,3 +109,42 @@ While it might seem difficult at first to obtain a closed form solution for $\ta
 Then to satisfy the first order condition, we must have $p + k = p + \tau$. This implies that the optimal tax rate is given by $\tau^* = k$. 
 
 Notice that in the above model, government is able to make a strict Pareto improvement when $k > 0$. That is, so long as pollution has a negative effect on the utilities of other agents, the government can intervene and make everyone better off. This is important because it demonstrates a key failing of the First Welfare Theorem, namely that a competitive equilibrium may not be Pareto efficient if externalities are present. 
+
+\subsection*{Maximizing Firm Profits with Externalities}
+To obtain some further intuition about externalities and government policy under externalities, we will examine a canonical model of pollution involving two firms. Firm $A$ will be a polluter, while firm $B$'s production is affected by $A$'s pollution. For simplicity, we will assume that the price of both firms' goods is $p$. 
+\begin{itemize}
+    \item Firm $A$ makes candy, producing pollution as a byproduct. The firm chooses the quantity of candy, which we will denote by $A$, to produce. Firm $A$'s cost function is given by
+    \begin{equation*}
+        \frac{1}{2} c_a A^2
+    \end{equation*}
+    Assume that firm $A$ does not care about the impact of their pollution. The firm maximizes profit, which is given by
+    \begin{equation*}
+        \pi_A = pA - \frac{1}{2} c_a A^2
+    \end{equation*}
+    Solving the first order conditions yields the optimal choice of production as, 
+    \begin{equation*}
+        A^* = \frac{p}{c_a}
+    \end{equation*}
+
+    \item Firm $B$ cleans laundry, and laundry is made more costly by pollution. $B$'s cost function is given by
+    \begin{equation*}
+        \frac{1}{2} c_b B^2 + x A \text{ for $x > 0$ }
+    \end{equation*}
+    Firm $B$'s profit is therefore:
+    \begin{equation*}
+        \pi_B = pB - \frac{1}{2}c_b B^2 - x A
+    \end{equation*}
+    Since $B$ cannot affect $A$'s pollution, pollution can be treated essentially as a fixed cost for $B$. The first order condition yields $B$'s optimal production as
+    \begin{equation*}
+        B^* = \frac{p}{c_b} 
+    \end{equation*}
+\end{itemize}
+The total profit when firms optimize individually is therefore given by:
+\begin{equation*}
+    \begin{split}
+        \pi_A^* + \pi_B^* &= \frac{p^2}{c_a} - \frac{p^2}{2 c_a} + \frac{p^2}{c_b}  - \frac{p^2}{2 c_b} - x \frac{p}{c_a} \\ 
+        &= \frac{p (p - 2x) }{2 c_a} + \frac{p^2}{2 c_b}
+    \end{split}
+\end{equation*}
+
+\subsubsection*{Joint Profit Optimization}
