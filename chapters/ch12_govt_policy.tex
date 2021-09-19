@@ -139,7 +139,7 @@ To obtain some further intuition about externalities and government policy under
         B^* = \frac{p}{c_b} 
     \end{equation*}
 \end{itemize}
-The total profit when firms optimize individually is therefore given by:
+Because we are dealing with two firms in this case, we can make sense of adding their profits to gain a measure of the total ``social'' profit. The total combined profit when firms optimize individually is therefore given by:
 \begin{equation*}
     \begin{split}
         \pi_A^* + \pi_B^* &= \frac{p^2}{c_a} - \frac{p^2}{2 c_a} + \frac{p^2}{c_b}  - \frac{p^2}{2 c_b} - x \frac{p}{c_a} \\ 
@@ -148,3 +148,24 @@ The total profit when firms optimize individually is therefore given by:
 \end{equation*}
 
 \subsubsection*{Joint Profit Optimization}
+We can next consider what would happen if firms $A$ and $B$ were to merge into one firm. The goal for the new owner would then be to choose production quantities $A$ and $B$ to maximize total profit.
+\begin{equation*}
+    \pi_{A + B} = pA - \frac{1}{2} c_a A^2 + pB - \frac{1}{2} c_b B^2 - xA
+\end{equation*}
+Solving for the optimal quantities yields,
+\begin{equation*}
+    A^{**} = \frac{p - x}{c_a} \text{ and } B^{**} = \frac{p}{c_b}
+\end{equation*}
+Notice that $A^{**} < A^*$. This is because the pollution externality is now being internalized by the joint firm. That is, the cost of pollution now affects the decision maker's profit rather than affecting another firm, which effectively increases the cost of producing $A$, hence reducing the quantity produced. Notice however that $B^{**} = B^*$, because in both cases, the cost of pollution is effectively a fixed cost from the perspective of choosing how much $B$ to produce, and hence the optimal quantities are the same. 
+
+Under joint optimization, the total profit becomes
+\begin{equation*}
+    \pi_{A + B}^{**} = \frac{(p - x)^2}{2 c_a} + \frac{p^2}{2 c_b}
+\end{equation*}
+First, even before doing any actual calculations, we know that the total profits under joint optimization must be at least the profits under separate optimization. This is by definition because we have chosen $A^{**}$ and $B^{**}$ to optimize the total profit. To determine the exact difference, we can simply subtract the two profit terms from each other to obtain,
+\begin{equation*}
+    \pi_{A + B}^{**} - (\pi_A^* + \pi_B^*) = \frac{x^2}{2c_a}
+\end{equation*}
+This is positive for any $x \neq 0$, which is precisely the case where there exists an externality from one firm to another. 
+
+If we treat the total firm profits as some measure of social welfare, this model suggests that total social welfare can be improved when the firms are combined than when they are separate in the case of externalities. If externalities between the two firms did not exist, then there should be no difference in total profit between jointly optimizing and separately optimizing firms. This suggests that if we could somehow enforce that the firms behave as if they were jointly optimizing, then we could improve total social welfare. We will discuss how government policymakers can try to achieve this optimal social welfare without forcing firms to jointly optimize in the next section. 
