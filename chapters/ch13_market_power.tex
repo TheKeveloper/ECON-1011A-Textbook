@@ -3,4 +3,47 @@ So far, we have focused on markets with \emph{perfect competition}. Recall that 
 
 Note however, that being in perfect competition does \emph{not} mean that the agents decisions do not have some effect on the market price, as in the case of general equilibrium analysis from \ref{ch:general_equilibrium}. In general equilibrium with a finite number of agents, every agent's choices have an effect on the market price. However, the key is that each agent \emph{behaves} as if the market price is fixed. That is, they do not take into the account the fact that their choices can change the price. This precludes, for example, producing less to restrict demand in order to raise the price per unit of a good sold. 
 
-In this chapter, we drop the assumption that all agents are price takers, and instead analyze the case where firms can affect and, importantly, \emph{behave} as if they can affect the market price based on their production decisions. In cases where agents make choices taking into account that their choices will affect the market price, we say that such agents have \vocab{market power}.
+In this chapter, we drop the assumption that all agents are price takers, and instead analyze the case where firms can affect and, importantly, \emph{behave} as if they can affect the market price based on their production decisions. 
+
+\begin{definition*}[Market Power]
+    We say an agent has \vocab{market power} if the agent makes decisions taking into account the fact that their choices will affect the market price. 
+\end{definition*}
+
+\section{Monopoly}
+In the simplest case of market power, there is a single agent on one side of the market. When there is only a single firm that produces goods, we say that firm is a \vocab{monopoly}. 
+
+Since there is only a single firm, the quantity of the good supplied in the market, $q$, is entirely determined by that single firm. Since the market price is determined by the total supply and demand of a good, then this implies that the market price is a function of the the monopolist's quantity produced: $p = p(q)$. 
+
+The price function, $p(q)$, is known as the \vocab{inverse demand function}, because instead of telling us how many goods are consumed for a given price, it tells us the price for a given number of goods consumed. The more supply there is, the lower a price the monopolist can charge and still sell all of the produced goods, so we assume 
+\begin{align*}
+    p'(q) < 0
+\end{align*} 
+That is, the greater the quantity produced, the lower the price faced by the monopolist
+
+The monopolist's goal is still to maximize profit. Given a cost function $C(q)$, the monopolist's problem is
+\begin{equation*}
+    \max_{q \geq 0} p(q) q - C(q)
+\end{equation*}
+
+\subsection*{Solving the monopolist's problem}
+As with the case of perfect competition, we solve the monopolist's problem by solving for the first order condition. We simply differentiate with respect to $q$ to obtain,
+\begin{align*}
+    p(q) + p'(q) q = C'(q)
+\end{align*}
+
+\begin{definition*} [Marginal Revenue]
+    The left hand side of the equation, $p(q) + p'(q) q$, is known as the \vocab{marginal revenue} of the firm. Notice that in the perfectly competitive case, $p'(q) = 0$, so the marginal revenue is a constant equal to the market price. However, in the monopolist's case, where $p'(q) < 0$, marginal revenue is a decreasing function of quantity. 
+\end{definition*}
+
+Assuming that there are increasing marginal costs, $C'(q) > 0$, then it is clear that the monopolist will produce less than the perfectly competitive firm. For any given $q$, $p(q) + p'(q) q < p(q)$. This implies that when the firm is optimizing, the value of $C'(q)^*$ must be lower in the monopolist case, and hence a lower value for $q^*$. This accords with our intuition that monopolies will restrict demand in order to charge a higher price. 
+
+We can gain an additional piece of insight by rearranging the left hand side of the FOC.
+
+\begin{align*}
+    p + \partials{p}{q} q &= p \left(1 + \partials{p}{q} \frac{p}{q}\right) \\ 
+    &= p \left(1 + \frac{1}{\varepsilon_D}\right) \\
+    &= p \left(1 - \frac{1}{|\varepsilon_D|}\right)
+\end{align*}
+Where $\varepsilon_D = \partials{q}{p}\frac{p}{q}$ is the elasticity of demand with respect to price. 
+
+By rewriting the left hand side of the FOC in terms of elasticity, we obtain two insights:
