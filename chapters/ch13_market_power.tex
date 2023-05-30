@@ -58,7 +58,34 @@ In the above model, we considered monopolists as choosing the quantity produced 
     \max_{p \geq 0} p q(p) - C(q(p)) \equiv \max_{q \geq 0} p(q) q - C(q)
 \end{align*}
 
-While a it is equivalent for a monopoly to choose either quantity or price, this is \emph{not the case with more than one firm}, as we will see in the next section. 
+While it is equivalent for a monopoly to choose either quantity or price, this is \emph{not the case with more than one firm}, as we will see in the next section. 
 
 If we think of monopolies as choosing price, the intuition about consumer elasticity becomes more clear. If consumers are price inelastic, the monopolist can raise prices by a lot while only reducing consumer demand by a small amount, so the profit maximizing monopolist will raise prices (equivalent to reducing production). Conversely, if consumers are price elastic, a small change increase in the price results in a large decrease in quantity demanded, which means that the monopoly is less able to raise prices without reducing their total revenue.
 
+
+\subsection*{Monopsony}
+So far we have mostly addressed the monopoly case, where we assume that there is a single seller of a good in the market and many buyers. However, there are often markets where the opposite is the case. We call markets with only a single buyer a \vocab{monopsony}. 
+
+Similar to a monopoly, a monopsony also wields market power. While a monopoly controls a market's supply, the monopsony controls the market's demand. 
+
+Perhaps the most commonly considered case of monopsony power is in the labor market. In the market for labor, individuals are the suppliers of labor and firms demand labor. Firms may have market power in the labor market if they are one of only employers for a particular industry, and the market power in the labor market is of particular relevance in minimum wage discussions.
+
+\subsubsection*{Modeling labor market monopsony}
+Constructing a model of monopsony is very similar to a model of monopoly, and we will do so here. In a monopoly model, firms may set the price or choose the quantity of goods produced. In a monopsony model for the labor market, firms choose either the quantity of labor demanded or the wage. For simplicity, we will assume that firms set a wage $w$ and that the resulting quantity of labor supplied/demanded is given as a function $L(w)$, where $L'(w) > 0$ since the higher the wage, the higher the supply of labor. 
+
+Assuming that labor is the only factor of production, the quantity of goods produced is given by $f(L(w))$.
+
+This means that firms face the following maximization problem:
+\begin{align*}
+    \max_{w \geq 0} pf(L(w)) - w L(w)
+\end{align*}
+
+The FOC is given by
+\begin{align*}
+    p f' \partials{L}{w} = w^* \partials{L}{w} +  L(w^*)
+\end{align*}
+Note that the RHS represents the marginal cost of a given unit increase in the wage. $L(w)$ represents the direct cost of increasing the wage by one unit, since we currently have $L(w)$ units of labor that will each be paid one unit more. $w \partials{L}{w}$ represents cost from increasing the quantity of labor in response to a rise in wage ($\partials{L}{w}$) multiplied by the cost of each additional unit ($w$) of labor. 
+
+We can repeat our analysis from the monopoly case to determine the monopsonist's choice of wage is higher or lower relative to the perfectly competitive case. The additional $w^* \partials{L}{w}$ term is clearly positive, which means that the value on the LHS must be greater than in the perfectly competitive case. Assuming that $f$ is concave, then a higher value of $f'$ must imply that there is less production, which means that less labor is hired, and hence the wage is lower than it would be in a perfectly competitive market.
+
+This has important implications for labor policy, especially the minimum wage. If there is a minimum wage $\bar{w}$ that is binding, $\bar{w} > w^*$, then the monopsonist treats the minimum wage as fixed. In particular, if the minimum wage is set at the wage of a perfectly competitive market, then the profit maxizing decision for the firm is to hire the same quantity of labor as in the perfectly competitive market. Thus, if a labor market has monospony power, a higher than equilibrium minimum wage may in fact result in \emph{greater} employment, in contrast to the perfectly competitive labor market case. Market power by firms in the labor market is therefore often cited as a rationale for imposing a binding minimum wage.
