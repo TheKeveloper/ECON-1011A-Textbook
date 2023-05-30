@@ -1,5 +1,8 @@
 name: Compile LaTeX
-on: [push]
+on: 
+  push:
+    branches:
+      - "*"
 jobs:
   build_latex:
     runs-on: ubuntu-latest
