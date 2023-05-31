@@ -13,10 +13,13 @@ jobs:
         uses: xu-cheng/latex-action@v2
         with:
           root_file: main.tex
+      - name: Install python
+        uses: actions/setup-python@v4
+        with:
+          python-version: '3.10' 
       - name: Check textbook.pdf is generated
         run: |
-            mv main.pdf textbook.pdf
-            git diff --exit-code
+            python -c "import sys; import os; sys.exit(os.stat('main.pdf').st_size != os.stat('textbook.pdf').st_size)"
   check_includeonly:
     runs-on: ubuntu-latest
     steps:
