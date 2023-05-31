@@ -13,6 +13,10 @@ jobs:
         uses: xu-cheng/latex-action@v2
         with:
           root_file: main.tex
+      - name: Check textbook.pdf is generated
+        run: |
+            mv main.pdf textbook.pdf
+            git diff --exit-code
   check_includeonly:
     runs-on: ubuntu-latest
     steps:
