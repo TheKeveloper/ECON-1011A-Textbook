@@ -19,7 +19,7 @@ jobs:
           python-version: '3.10' 
       - name: Check textbook.pdf is generated
         run: |
-            python -c "import sys; import os; sys.exit(os.stat('main.pdf').st_size != os.stat('textbook.pdf').st_size)"
+            python scripts/check-textbook.py
   check_includeonly:
     runs-on: ubuntu-latest
     steps:
