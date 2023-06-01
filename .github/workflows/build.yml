@@ -13,6 +13,13 @@ jobs:
         uses: xu-cheng/latex-action@v2
         with:
           root_file: main.tex
+      - name: Install python
+        uses: actions/setup-python@v4
+        with:
+          python-version: '3.10' 
+      - name: Check textbook.pdf is generated
+        run: |
+            python scripts/check-textbook.py
   check_includeonly:
     runs-on: ubuntu-latest
     steps:

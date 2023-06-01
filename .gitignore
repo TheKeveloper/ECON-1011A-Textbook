@@ -10,3 +10,4 @@ main.pdf
 *.toc
 ~$plots.pptx
 *.DS_Store
+*.synctex*
