@@ -10,4 +10,4 @@ print("main.pdf: ", main_size)
 
 diff_pct = abs(textbook_size - main_size) / textbook_size
 print("diff_pct: ", diff_pct)
-sys.exit(diff_pct > 2) 
+sys.exit(diff_pct > 0.02) 
