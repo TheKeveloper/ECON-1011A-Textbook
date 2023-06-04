@@ -121,8 +121,8 @@ In monopolies, choosing price and quantity are equivalent so long as the market 
 
 However, in an oligopoly, firms could choose the price or the quantity, and the structure of the competition differs in important ways, as we will see by analyzing each model of competition.
 
-\subsection*{Cournot Competition}
-The first case is where firms choose the quantity to produce and the price is determined by the intersection of demand and supply. This is known as \vocab{Cournot competition}, named after 19th century philosopher and mathematician Antoine Augustine Cournot. 
+\subsection{Cournot Competition}
+The first case is where firms choose the quantity to produce and the price is determined by the intersection of demand and supply. This is known as \vocab{Cournot competition}, named after 19th century philosopher and mathematician \emph{Antoine Augustine Cournot}. 
 
 \subsubsection*{Structure of Cournot Competition}
 The structure of our Cournot competition model is as follows:
@@ -188,4 +188,37 @@ Notice however, that we can generalize very easily to the case of $N$ firms by r
     \frac{p(Q) - C'(Q/N)}{p(Q)} = \frac{1}{N|\varepsilon_D|}
 \end{align*}
 
-In particular, this includes the monopoly case where $N = 1$ as a special case. Notice that as $N \to \infty$, the percent markup goes to 0, which is exactly what would be predicted in a perfectly competitive market where price equals marginal cost for each firm in equilibrium. 
+In particular, this includes the monopoly case where $N = 1$ as a special case. Notice that as $N \to \infty$, the percent markup goes to 0, which is exactly what would be predicted in a perfectly competitive market where price equals marginal cost for each firm in equilibrium.
+
+\subsection{Bertrand Competition}
+Instead of choosing the quantity produced, we could instead imagine firms picking the price that they will sell goods at, and the quantity demanding adjusting to clear the market. When firms in an oligopoly choose the price, this is known as \vocab{Bertrand competition}, named after the 19th century French mathematician \emph{Joseph Louis François Bertrand}. 
+
+\subsubsection*{Structure of Bertrand competition}
+The general setup of Bertrand competition is very similar to that of Cournot competition, except now firms choose price instead of quantity:
+\begin{itemize}
+    \item All firms simultaneously choose the price that they will sell goods at.
+    \item The market demand adjusts to match supply based on the price that the firm sets, and the firm produces enough quantity to satisfy the demand at a given price.
+\end{itemize}
+
+In the monopoly case, we saw that picking price or quantity was equivalent from the perspective of a single firm. However, this is not the case with two or more firms, and the equilibrium behavior of firms differs significantly from Cournot competition.
+
+\subsubsection*{Equilibrium in Bertrand competition}
+Like in Cournot competition, the relevant notion of equilibrium here is Nash equilibrium, where neither firm has any incentive to change the price that it charges.
+
+For simplicity, assume that we have two firms have identical linear cost functions, $C(q) = cq$ for some constant $c$, and the firms choose their respective prices, $p_1, p_2$. 
+
+Suppose we have $p_1 > p_2$. How much demand would firm 1 get? The answer is none! The reason is that every reasonably competent consumer would prefer to buy from firm 2 at the lower price, and in our model, firm 2 has ``committed'' to producing enough supply for anyone that wants to buy at price $p_2$.
+
+This suggests that in equilibrium, the two firms will have to set equal prices. 
+
+Now suppose that $p_1 > c$, so that firm 1 is earning positive profit per unit sold. We know that $p_2 > p_1$ cannot be a Nash equilibrium because then firm 1 would get all of the value, and firm 2 could increase profit by decreasing their price. 
+
+But now suppose that $p_2 = p_1 > c$. Is that a Nash equilibrium? No! To see why, consider what happens if firm 2 decreases their price very slightly such that $p_2 = p_1 - \varepsilon > c$ for some small $\varepsilon > 0$. Now, firm 2 is capturing \emph{all} of the market since its prices are lower than firm 1's, but its profit per unit is only a very small amount lower. Thus, firm 2 has managed to improve its profit from another action. So, we know that in equilibrium, neither firm can price above $c$.
+
+What about $p_1 < c$? Could that be an equilibrium? Clearly not! Because then firm 1 would be losing money per unit produced, and would be better off by not producing at all, or setting price $p_1 = c$ and earning zero profit. This applies symmetrically for firm 2.
+
+So the only remaining possibility for equilibrium is that $p_1 = p_2 = c$. Firms earn zero profit in this case because price is exactly equal to cost per unit. However, neither firm has an incentive to raise their prices individually, because they would still earn zero profit, as everyone would buy from their competitor. Both firms also have no incentive to lower their prices, because doing so would earn them negative profit. Thus, $p_1 = p_2 = c$ is a Nash equilibrium, and the above analysis shows it is a unique equilibrium.
+
+Notice that under Bertrand competition, the presence of just one additional firm moves us from the monopoly outcome to the perfectly competitive outcome! 
+
+
