@@ -120,3 +120,72 @@ The strategic considerations in markets with oligopoly imply that we need to exa
 In monopolies, choosing price and quantity are equivalent so long as the market clears. In a perfectly competitive market, the price is fixed so each individual firm only chooses the quanitity to produce.
 
 However, in an oligopoly, firms could choose the price or the quantity, and the structure of the competition differs in important ways, as we will see by analyzing each model of competition.
+
+\subsection*{Cournot Competition}
+The first case is where firms choose the quantity to produce and the price is determined by the intersection of demand and supply. This is known as \vocab{Cournot competition}, named after 19th century philosopher and mathematician Antoine Augustine Cournot. 
+
+\subsubsection*{Structure of Cournot Competition}
+The structure of our Cournot competition model is as follows:
+\begin{itemize}
+    \item All firms simultaneously choose the quantity that they will produce.
+    \item The market price adjusts to match supply and demand based on the total supply by all firms in the market. 
+\end{itemize}
+
+For simplicity, we will analyze the case with two identitcal firms.
+
+Let $q_1$ and $q_2$ be the quantities produced by each firm. The firm chooses each in their maximization problem. 
+
+Let $p(q)$ be the market price as a function of quantity. We assume that $p' < 0$ since greater quantity implies a lower price to make the market clear. The market price is therefore $p(q_1 + q_2)$, 
+
+Assume that each firm faces identitcal cost functions $C(q)$, with $C'(q) > 0$ and $C''(q) < 0$. 
+
+\subsubsection*{Maximization problem}
+To solve for the Nash equilibrium in this market, each firm chooses their own quantity to maximize profit taking the other firm's quantity of production as given.
+
+So firm 1 faces the following maximization problem
+\begin{align*}
+    \max_{q_1 \geq 0} p(q_1 + q_2)q_1 - C(q_1)
+\end{align*}
+
+Firm 2 faces a symmetric problem
+\begin{align*}
+    \max_{q_2 \geq 0} p(q_1 + q_2)q_2 - C(q_2)
+\end{align*}
+
+Now we take first order conditions for each firm to obtain the following: 
+\begin{align*}
+    \text{Firm 1 FOC: } &p'(q_1 + q_2)q_1 + p(q_1 + q_2) = C'(q_1) \\ 
+    \text{Firm 2 FOC: } &p'(q_1 + q_2)q_2 + p(q_1 + q_2) = C'(q_2)
+\end{align*}
+Each FOC defines an optimal quantity that depends on the quantity chosen by the other firm. So the optimal choice of $q_1$ is given by $q_1^*(q_2)$, and analogously the optimal choice of $q_2$ is given by $q_2^*(q_1)$.
+
+\subsubsection*{Solving for the equilibrium}
+In a Nash equilibrium, both firms must be responding optimally to the other firm. Another way to think about this is that each firm optimizes taking what the other firm will do as given, and in a Nash equilibrium, each firm must have an accurate assumption about what the other firm does, because otherwise they would have optimized differently.
+
+To solve for the optimal quantities, the FOCs define two equations that must hold in equilibrium, and each has two unknowns, so we could solve for both quantities. 
+
+However, in this case since both firms are identical, we know that their optimal quantities must also be the same, and we can that symmetry to set $q_1^* = q_2^* = q^*$, and solve the single FOC. 
+
+\begin{align*}
+    &p'(q^* + q^*)q^* + p(q^* + q^*) = C'(q^*) \\ 
+    \implies& p'(2q^*) + p(2q^*) = C'(q^*)
+\end{align*}
+
+For full generality, we can also express the above FOC in terms of the total supply of the market, $Q$. In this case, $Q = 2q^*$. However, by using the total supply of the market, we can generalize more easily to the case of $N$ firms. The FOC now becomes
+\begin{align*}
+    p'(Q)\frac{Q}{2} + p(Q) = C'(Q/2)
+\end{align*}
+
+One variable of interest is the percent markup over marginal cost, which for each firm is given by $\frac{p(Q) - C'(Q/2)}{p(Q)}$. In a perfectly competitive market, the markup is zero. However, for the oligopoly case, we can rearrange the FOC to obtain the percent markup in terms of the elasticity of demand,
+
+\begin{align*}
+    \frac{p(Q) - C'(Q/2)}{p(Q)} = -\frac{1}{2} \frac{Q}{p(Q)} \partials{p}{Q} = \frac{1}{2|\varepsilon_D|}
+\end{align*}
+
+Notice however, that we can generalize very easily to the case of $N$ firms by replacing every instance of $2$ with $N$:
+
+\begin{align*}
+    \frac{p(Q) - C'(Q/N)}{p(Q)} = \frac{1}{N|\varepsilon_D|}
+\end{align*}
+
+In particular, this includes the monopoly case where $N = 1$ as a special case. Notice that as $N \to \infty$, the percent markup goes to 0, which is exactly what would be predicted in a perfectly competitive market where price equals marginal cost for each firm in equilibrium. 
