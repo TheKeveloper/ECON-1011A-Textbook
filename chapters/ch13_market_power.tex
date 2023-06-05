@@ -1,0 +1,296 @@
+\chapter{Market Power}
+So far, we have focused on markets with \emph{perfect competition}. Recall that in section \ref{sec:single_firm_setup}, we defined markets as being perfectly competitive if no every agent is a \vocab{price-taker}. That is, every firm assumes that the price is fixed and that their choices do not affect the market price. This is typically the case where there are many buyers and sellers, so each agent's choices have negligible effect on the market price. 
+
+Note however, that being in perfect competition does \emph{not} mean that the agents decisions do not have some effect on the market price, as in the case of general equilibrium analysis from \ref{ch:general_equilibrium}. In general equilibrium with a finite number of agents, every agent's choices have an effect on the market price. However, the key is that each agent \emph{behaves} as if the market price is fixed. That is, they do not take into the account the fact that their choices can change the price. This precludes, for example, producing less to restrict demand in order to raise the price per unit of a good sold. 
+
+In this chapter, we drop the assumption that all agents are price takers, and instead analyze the case where firms can affect and, importantly, \emph{behave} as if they can affect the market price based on their production decisions. 
+
+\begin{definition*}[Market Power]
+    We say an agent has \vocab{market power} if the agent makes decisions taking into account the fact that their choices will affect the market price. 
+\end{definition*}
+
+\section{Monopoly}
+In the simplest case of market power, there is a single agent on one side of the market. When there is only a single firm that produces goods, we say that firm is a \vocab{monopoly}. 
+
+Since there is only a single firm, the quantity of the good supplied in the market, $q$, is entirely determined by that single firm. Since the market price is determined by the total supply and demand of a good, then this implies that the market price is a function of the the monopolist's quantity produced: $p = p(q)$. 
+
+The price function, $p(q)$, is known as the \vocab{inverse demand function}, because instead of telling us how many goods are consumed for a given price, it tells us the price for a given number of goods consumed. The more supply there is, the lower a price the monopolist can charge and still sell all of the produced goods, so we assume 
+\begin{align*}
+    p'(q) < 0
+\end{align*} 
+That is, the greater the quantity produced, the lower the price faced by the monopolist
+
+The monopolist's goal is still to maximize profit. Given a cost function $C(q)$, the monopolist's problem is
+\begin{equation*}
+    \max_{q \geq 0} p(q) q - C(q)
+\end{equation*}
+
+\subsection*{Solving the monopolist's problem}
+As with the case of perfect competition, we solve the monopolist's problem by solving for the first order condition. We simply differentiate with respect to $q$ to obtain,
+\begin{align*}
+    p(q) + p'(q) q = C'(q)
+\end{align*}
+
+\begin{definition*} [Marginal Revenue]
+    The left hand side of the equation, $p(q) + p'(q) q$, is known as the \vocab{marginal revenue} of the firm. Notice that in the perfectly competitive case, $p'(q) = 0$, so the marginal revenue is a constant equal to the market price. However, in the monopolist's case, where $p'(q) < 0$, marginal revenue is a decreasing function of quantity. 
+\end{definition*}
+
+Assuming that there are increasing marginal costs, $C'(q) > 0$, then it is clear that the monopolist will produce less than the perfectly competitive firm. For any given $q$, $p(q) + p'(q) q < p(q)$. This implies that when the firm is optimizing, the value of $C'(q)^*$ must be lower in the monopolist case, and hence a lower value for $q^*$. This accords with our intuition that monopolies will restrict demand in order to charge a higher price. 
+
+We can gain an additional piece of insight by rearranging the left hand side of the FOC.
+
+\begin{align*}
+    p + \partials{p}{q} q &= p \left(1 + \partials{p}{q} \frac{p}{q}\right) \\ 
+    &= p \left(1 + \frac{1}{\varepsilon_D}\right) \\
+    &= p \left(1 - \frac{1}{|\varepsilon_D|}\right)
+\end{align*}
+Where $\varepsilon_D = \partials{q}{p}\frac{p}{q}$ is the elasticity of demand with respect to price. 
+
+Recall that we can think of the elasticity of demand as (roughly), for a 1\% increase in price, by how many percentage points does quantity decrease? The inverse elasticity of demand, $1/|\varepsilon_D|$, therefore tells us how many percentage points the market price will decrease if the monopolist increases the quantity produced by 1\%. 
+
+It is clear then that the monopolist will never produce at quantities where the demand function is \emph{inelastic} ($|\varepsilon_D| < 1$), as this would result in negative marginal revenue. Intuitively, if consumers are inelastic, a small decrease in the quantity produced results in a large increase in the market price, which means that the monopolist could increase revenue by reducing the quantity produced. Thus the monopolist would continue reducing their quantity produced until the it reached the elastic portion of the demand curve.
+
+This also tells us that all else equal, \emph{monopolists produce less in cases where consumers are more inelastic}. 
+
+\subsection*{Choosing quantity or price}
+In the above model, we considered monopolists as choosing the quantity produced and the market price as a function of the quantity produced. However, we could also think of the monopolist as setting a price $p$, and then producing a quantity $q(p)$ in order to satisfy the demand for the good at price $p$.
+\begin{align*}
+    \max_{p \geq 0} p q(p) - C(q(p)) \equiv \max_{q \geq 0} p(q) q - C(q)
+\end{align*}
+
+While it is equivalent for a monopoly to choose either quantity or price, this is \emph{not the case with more than one firm}, as we will see in the next section. 
+
+If we think of monopolies as choosing price, the intuition about consumer elasticity becomes more clear. If consumers are price inelastic, the monopolist can raise prices by a lot while only reducing consumer demand by a small amount, so the profit maximizing monopolist will raise prices (equivalent to reducing production). Conversely, if consumers are price elastic, a small change increase in the price results in a large decrease in quantity demanded, which means that the monopoly is less able to raise prices without reducing their total revenue.
+
+
+\subsection*{Monopsony}
+So far we have mostly addressed the monopoly case, where we assume that there is a single seller of a good in the market and many buyers. However, there are often markets where the opposite is the case. We call markets with only a single buyer a \vocab{monopsony}. 
+
+Similar to a monopoly, a monopsony also wields market power. While a monopoly controls a market's supply, the monopsony controls the market's demand. 
+
+Perhaps the most commonly considered case of monopsony power is in the labor market. In the market for labor, individuals are the suppliers of labor and firms demand labor. Firms may have market power in the labor market if they are one of only employers for a particular industry, and the market power in the labor market is of particular relevance in minimum wage discussions.
+
+\subsubsection*{Modeling labor market monopsony}
+Constructing a model of monopsony is very similar to a model of monopoly, and we will do so here. In a monopoly model, firms may set the price or choose the quantity of goods produced. In a monopsony model for the labor market, firms choose either the quantity of labor demanded or the wage. For simplicity, we will assume that firms set a wage $w$ and that the resulting quantity of labor supplied/demanded is given as a function $L(w)$, where $L'(w) > 0$ since the higher the wage, the higher the supply of labor. 
+
+Assuming that labor is the only factor of production, the quantity of goods produced is given by $f(L(w))$.
+
+This means that firms face the following maximization problem:
+\begin{align*}
+    \max_{w \geq 0} pf(L(w)) - w L(w)
+\end{align*}
+
+The FOC is given by
+\begin{align*}
+    p f' \partials{L}{w} = w^* \partials{L}{w} +  L(w^*)
+\end{align*}
+Note that the RHS represents the marginal cost of a given unit increase in the wage. $L(w)$ represents the direct cost of increasing the wage by one unit, since we currently have $L(w)$ units of labor that will each be paid one unit more. $w \partials{L}{w}$ represents cost from increasing the quantity of labor in response to a rise in wage ($\partials{L}{w}$) multiplied by the cost of each additional unit ($w$) of labor. 
+
+We can repeat our analysis from the monopoly case to determine the monopsonist's choice of wage is higher or lower relative to the perfectly competitive case. The additional $w^* \partials{L}{w}$ term is clearly positive, which means that the value on the LHS must be greater than in the perfectly competitive case. Assuming that $f$ is concave, then a higher value of $f'$ must imply that there is less production, which means that less labor is hired, and hence the wage is lower than it would be in a perfectly competitive market.
+
+This has important implications for labor policy, especially the minimum wage. If there is a minimum wage $\bar{w}$ that is binding, $\bar{w} > w^*$, then the monopsonist treats the minimum wage as fixed. In particular, if the minimum wage is set at the wage of a perfectly competitive market, then the profit maxizing decision for the firm is to hire the same quantity of labor as in the perfectly competitive market. Thus, if a labor market has monospony power, a higher than equilibrium minimum wage may in fact result in \emph{greater} employment, in contrast to the perfectly competitive labor market case. Market power by firms in the labor market is therefore often cited as a rationale for imposing a binding minimum wage.
+
+\section{Oligopoly}
+A monopoly, as the term implies, exists when there is exactly one supplier in the market. We have contrasted this with a perfectly competitive market, where there are many suppliers and no individual supplier has any market power.
+
+In the real world, most markets are not a monopoly nor are they perfectly competitive, and instead fall somewhere in between. An \vocab{oligopoly} refers to a market where there is more than one supplier, but where each supplier has some market power. For example, a \vocab{duopoly} refers to the case where there are two suppliers in the market. Intuitively, it seems that in a market with two suppliers, each supplier has more market power than if there were fifty suppliers, but also less power than if there were only one supplier.
+
+In this section we will show how to rigorously analyze the behavior of oligopolies. The key difference in an oligoply is that each firm not only has to account for the affect that its own actions have on the market, but the effects that other firm actions will have on the market, and how firms will respond to each others actions.
+
+These strategic considerations by firms separate oligopolies from perfectly competitive markets and monopolies. In a perfectly competitive market, firms do not need to account for their own effect nor their competitors' effects since there are enough firms that each firm's effect is negligible. In a monopoly, there are no other firms, so the monopolist only has to consider its own effect.
+
+We can summarize the considerations of firms in the various market structures as follows:
+
+\begin{center}
+\begin{tabular}{c | c  | c}
+    Market & Considers own effect? & Considers other firms? \\
+    \hline
+    Perfectly Competitive & \textbf{No} & \textbf{No} \\
+    Monopoly & \textbf{Yes} & \textbf{No} \\
+    Oligopoly & \textbf{Yes} & \textbf{Yes}
+\end{tabular}
+\end{center}
+
+To model a market equilibrium when firms have strategic considerations, we will require some rudimentary \vocab{game theory}. The relevant equilibrium that we will focus on is known as a \vocab{Nash equilibrium}, which occurs when no firm can be better off by unilaterally changing its own actions when treating the other firm's actions as given. We will discuss Nash equilibria and a more thorough analysis of game theory in the next chapter. 
+
+
+\subsection*{Types of competition}
+The strategic considerations in markets with oligopoly imply that we need to examine specifically how firms are competing. In particular, do firms choose to set \emph{price} or do they choose the \emph{quantity} produced. 
+
+In monopolies, choosing price and quantity are equivalent so long as the market clears. In a perfectly competitive market, the price is fixed so each individual firm only chooses the quanitity to produce.
+
+However, in an oligopoly, firms could choose the price or the quantity, and the structure of the competition differs in important ways, as we will see by analyzing each model of competition.
+
+\subsection{Cournot Competition}
+The first case is where firms choose the quantity to produce and the price is determined by the intersection of demand and supply. This is known as \vocab{Cournot competition}, named after 19th century philosopher and mathematician \emph{Antoine Augustine Cournot}. 
+
+\subsubsection*{Structure of Cournot Competition}
+The structure of our Cournot competition model is as follows:
+\begin{itemize}
+    \item All firms simultaneously choose the quantity that they will produce.
+    \item The market price adjusts to match supply and demand based on the total supply by all firms in the market. 
+\end{itemize}
+
+For simplicity, we will analyze the case with two identitcal firms.
+
+Let $q_1$ and $q_2$ be the quantities produced by each firm. The firm chooses each in their maximization problem. 
+
+Let $p(q)$ be the market price as a function of quantity. We assume that $p' < 0$ since greater quantity implies a lower price to make the market clear. The market price is therefore $p(q_1 + q_2)$, 
+
+Assume that each firm faces identitcal cost functions $C(q)$, with $C'(q) > 0$ and $C''(q) < 0$. 
+
+\subsubsection*{Maximization problem}
+To solve for the Nash equilibrium in this market, each firm chooses their own quantity to maximize profit taking the other firm's quantity of production as given.
+
+So firm 1 faces the following maximization problem
+\begin{align*}
+    \max_{q_1 \geq 0} p(q_1 + q_2)q_1 - C(q_1)
+\end{align*}
+
+Firm 2 faces a symmetric problem
+\begin{align*}
+    \max_{q_2 \geq 0} p(q_1 + q_2)q_2 - C(q_2)
+\end{align*}
+
+Now we take first order conditions for each firm to obtain the following: 
+\begin{align*}
+    \text{Firm 1 FOC: } &p'(q_1 + q_2)q_1 + p(q_1 + q_2) = C'(q_1) \\ 
+    \text{Firm 2 FOC: } &p'(q_1 + q_2)q_2 + p(q_1 + q_2) = C'(q_2)
+\end{align*}
+Each FOC defines an optimal quantity that depends on the quantity chosen by the other firm. So the optimal choice of $q_1$ is given by $q_1^*(q_2)$, and analogously the optimal choice of $q_2$ is given by $q_2^*(q_1)$.
+
+\subsubsection*{Solving for the equilibrium}
+In a Nash equilibrium, both firms must be responding optimally to the other firm. Another way to think about this is that each firm optimizes taking what the other firm will do as given, and in a Nash equilibrium, each firm must have an accurate assumption about what the other firm does, because otherwise they would have optimized differently.
+
+To solve for the optimal quantities, the FOCs define two equations that must hold in equilibrium, and each has two unknowns, so we could solve for both quantities. 
+
+However, in this case since both firms are identical, we know that their optimal quantities must also be the same, and we can that symmetry to set $q_1^* = q_2^* = q^*$, and solve the single FOC. 
+
+\begin{align*}
+    &p'(q^* + q^*)q^* + p(q^* + q^*) = C'(q^*) \\ 
+    \implies& p'(2q^*) + p(2q^*) = C'(q^*)
+\end{align*}
+
+For full generality, we can also express the above FOC in terms of the total supply of the market, $Q$. In this case, $Q = 2q^*$. However, by using the total supply of the market, we can generalize more easily to the case of $N$ firms. The FOC now becomes
+\begin{align*}
+    p'(Q)\frac{Q}{2} + p(Q) = C'(Q/2)
+\end{align*}
+
+One variable of interest is the percent markup over marginal cost, which for each firm is given by $\frac{p(Q) - C'(Q/2)}{p(Q)}$. In a perfectly competitive market, the markup is zero. However, for the oligopoly case, we can rearrange the FOC to obtain the percent markup in terms of the elasticity of demand,
+
+\begin{align*}
+    \frac{p(Q) - C'(Q/2)}{p(Q)} = -\frac{1}{2} \frac{Q}{p(Q)} \partials{p}{Q} = \frac{1}{2|\varepsilon_D|}
+\end{align*}
+
+Notice however, that we can generalize very easily to the case of $N$ firms by replacing every instance of $2$ with $N$:
+
+\begin{align*}
+    \frac{p(Q) - C'(Q/N)}{p(Q)} = \frac{1}{N|\varepsilon_D|}
+\end{align*}
+
+In particular, this includes the monopoly case where $N = 1$ as a special case. Notice that as $N \to \infty$, the percent markup goes to 0, which is exactly what would be predicted in a perfectly competitive market where price equals marginal cost for each firm in equilibrium.
+
+\subsection{Bertrand Competition}
+Instead of choosing the quantity produced, we could instead imagine firms picking the price that they will sell goods at, and the quantity demanding adjusting to clear the market. When firms in an oligopoly choose the price, this is known as \vocab{Bertrand competition}, named after the 19th century French mathematician \emph{Joseph Louis François Bertrand}. 
+
+\subsubsection*{Structure of Bertrand competition}
+The general setup of Bertrand competition is very similar to that of Cournot competition, except now firms choose price instead of quantity:
+\begin{itemize}
+    \item All firms simultaneously choose the price that they will sell goods at.
+    \item The market demand adjusts to match supply based on the price that the firm sets, and the firm produces enough quantity to satisfy the demand at a given price.
+\end{itemize}
+
+In the monopoly case, we saw that picking price or quantity was equivalent from the perspective of a single firm. However, this is not the case with two or more firms, and the equilibrium behavior of firms differs significantly from Cournot competition.
+
+\subsubsection*{Equilibrium in Bertrand competition}
+Like in Cournot competition, the relevant notion of equilibrium here is Nash equilibrium, where neither firm has any incentive to change the price that it charges.
+
+For simplicity, assume that we have two firms have identical linear cost functions, $C(q) = cq$ for some constant $c$, and the firms choose their respective prices, $p_1, p_2$. 
+
+Suppose we have $p_1 > p_2$. How much demand would firm 1 get? The answer is none! The reason is that every reasonably competent consumer would prefer to buy from firm 2 at the lower price, and in our model, firm 2 has ``committed'' to producing enough supply for anyone that wants to buy at price $p_2$.
+
+This suggests that in equilibrium, the two firms will have to set equal prices. 
+
+Now suppose that $p_1 > c$, so that firm 1 is earning positive profit per unit sold. We know that $p_2 > p_1$ cannot be a Nash equilibrium because then firm 1 would get all of the value, and firm 2 could increase profit by decreasing their price. 
+
+But now suppose that $p_2 = p_1 > c$. Is that a Nash equilibrium? No! To see why, consider what happens if firm 2 decreases their price very slightly such that $p_2 = p_1 - \varepsilon > c$ for some small $\varepsilon > 0$. Now, firm 2 is capturing \emph{all} of the market since its prices are lower than firm 1's, but its profit per unit is only a very small amount lower. Thus, firm 2 has managed to improve its profit from another action. So, we know that in equilibrium, neither firm can price above $c$.
+
+What about $p_1 < c$? Could that be an equilibrium? Clearly not! Because then firm 1 would be losing money per unit produced, and would be better off by not producing at all, or setting price $p_1 = c$ and earning zero profit. This applies symmetrically for firm 2.
+
+So the only remaining possibility for equilibrium is that $p_1 = p_2 = c$. Firms earn zero profit in this case because price is exactly equal to cost per unit. However, neither firm has an incentive to raise their prices individually, because they would still earn zero profit, as everyone would buy from their competitor. Both firms also have no incentive to lower their prices, because doing so would earn them negative profit. Thus, $p_1 = p_2 = c$ is a Nash equilibrium, and the above analysis shows it is a unique equilibrium.
+
+Notice that under Bertrand competition, the presence of just one additional firm moves us from the monopoly outcome to the perfectly competitive outcome! 
+
+\subsection*{Cournot vs Bertrand}
+The Cournot and Bertrand models of oligopoly provide two plausible models, but it may not be obvious how this translates to modeling real world markets. The choice of Cournot or Bertrand competition can lead to drastically different modeling predictions, and so it seems important to make the right choice when modeling a market. How would we tell if a given oligopoly is operating under Cournot or Bertrand competition? 
+
+In general, we can model a market as facing Cournot competition when there is some constraint on the production of the good. For example, when manufacturing physical goods or extracting natural resources, there is a physical scarcity of the good being supplied. In this case, it makes sense that firms would first choose how much to produce, because if they chose price, there is no guarantee that they would be able to clear the markets at that price.
+
+However, there are other markets where firms can more plausibly set the price and guarantee that they will supply however much demand arises. One example that we have seen already is insurance markets. In an insurance market, the insurance firm sets the premium, and there is no physical limit to how much insurance can be sold. In this case it seems plausible that firms are setting the price and letting the market determine the quantity.
+
+\subsection{Stackelberg Competition}
+While the above two models of competition may seem all encompassing, there is a third model of competition that we will address here. The key in both Bertrand and Cournot competition is that firms make their decisions \emph{simultaneously}. However, in many markets firms do not in fact make decisions simultaneously, and the order of action can (and does) affect the strategic considerations by each firm.
+
+\vocab{Stackelberg competition}, named after German economist \emph{Heinrich Freiherr von Stackelberg}, examines the case where firms choose quantity, but they do not make their choices simultaneously. The assumption is that one firm can announce they will produce some quantity and credibly commit to producing that quantity, regardless of what other firms subsequently decide to do.
+
+\subsubsection*{Structure of Stackelberg competition}
+We will examine specifically the structure of Stackelberg competition with two firms, 1 and 2. 
+\begin{itemize}
+    \item Firm 1 chooses (and commits to) its quantity of production, $q_1$.
+    \item Firm 2 chooses its quantity of production, $q_2$, knowing the value of $q_1$. 
+    \item The market price is set to match supply and demand based on the total supply by all firms in the market. 
+\end{itemize}
+
+It is important in the above model that firm 1 commits to producing $q_1$ units of the good, and that firm 2 knows that no matter what it does, firm 1 will not be able to change its supply.
+
+\subsubsection*{The follower's maximization problem}
+When considering economic models where agents take actions sequentially, it is often useful to first examine the last moving agent, as doing so allows us to treat all other agents' actions as known.
+
+Firm 2 chooses second, and so faces the following maximization problem,
+\begin{align*}
+    \max_{q_2 \geq 0}  p(q_1 + q_2) q_2 - C(q_2)
+\end{align*}
+
+Note that firm 2 treats $q_1$ as given and fixed. Then firm 2's FOC is given by
+\begin{align*}
+    p'(q_1 + q_2)q_2 + p(q_1 + q_2) = C'(q_2)
+\end{align*}
+The above defines the optimal choice of quantity for firm 2 as a function of $q_1$: $q_2^*(q_1)$. This should look very familiar so far, as it is exactly the same as in Cournot competition. 
+
+\subsubsection*{The leader's maximization problem}
+Where things differ from Cournot competition is in the leader's maximization problem. Firm 1 \emph{knows} how firm 2 will respond to its choice of quantity, and takes that into account in its maximization problem. In other words, firm 1 maximizes knowing the function $q_2^*(q_1)$, and accounts for that in its choice of $q_1$.
+
+Firm 1's maximization problem is given by
+\begin{align*}
+    \max_{q_1 \geq 0} p(q_1 + q_2^*(q_1)) q_1 - C(q_1)
+\end{align*}
+This might seem at first very similar to the Cournot competition case. After all, don't we also require in Cournot competition that both firms are best responding? They key difference is that in Cournot competition, firm 1 maximizes treating $q_2$ as \emph{given}, whereas in Stackelberg competition firm 1 knows that firm 2 will be responding to $q_1$, and takes that into account when making the choice of $q_1$. 
+
+The key difference can be summarized as follows
+\begin{description}
+    \item[Cournot] Firm 1 maximizes taking into account firm 2's action, but not the effect that it's own choices can have one firm 2's choice.
+    \item[Stackelberg] Firm 1 not only takes firm 2's actions into account, but knows how firm 2 will \emph{respond} to firm 1's choice, and takes that into account.
+\end{description}
+
+Firm 1's FOC is therefore given by 
+\begin{align*}
+    p(q_1 + q_2^*(q_1)) + p'(q_1 + q_2^*(q_1))\left[1 + \partials{q_2^*}{q_1}(q_1)\right] q_1 = C'(q_1)
+\end{align*}
+
+Notice that Cournot competition can be modeled as the case where $\partials{q_2^*}{q_1} = 0$, because when both firms make their decisions simultaneously firm 2 cannot ``respond'' to firm 1's actions, hence there is no effect of $q_1$ on $q_2$. 
+
+And in the case of Stackelberg competition, there is no need to additionally solve for the equilibrium, because firm 2's choice is entirely determined by firm 1's choice, and firm 1's choice depends only on exogenous variables. So the above FOC defines $q_1^*$ in terms of the structure of the firm and the demand function, and $q_2^*(q_1^*)$ determines the quantity produced by firm 2. 
+
+\TODO{Add in the linear case as an example to give intuition for how this affects the quantity produced for each.}
+
+\section*{Recap}
+In this chapter we examined markets where one or more agents has market power. We showed that monopolies produce less and obtain higher profits compared to in perfectly competitive markets. We then considered markets with oligopolies, and considered three different forms of competition. 
+\begin{description}
+    \item[Cournot] Firms choose quantity simultaneously.
+    \item[Bertrand] Firms choose price simultaneously.
+    \item[Stackelberg] Firms choose quantity sequentially.   
+\end{description}
+
+However, in this chapter we only considered cases where firms are producing in a \emph{single} period. When oligopolies will compete against each other in multiple periods, the strategic considerations include an intertemporal component, and the analysis becomes more complex. For example, firms may find it beneficial to produce less in each period, and hence receive less profit in each period, but obtain higher long term profit than if they were to compete aggressively in each period. 
+
+Many markets in the real world do not resemble perfectly competitive markets. This chapter provides the tools to begin analyzing those markets, but much more complexity can be added to these markets and there is a substantial body of economic research dedicated to examining different market structures and competition models.
