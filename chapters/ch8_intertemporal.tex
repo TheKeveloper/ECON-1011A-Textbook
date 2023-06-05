@@ -75,7 +75,7 @@ However, so far we have only done a general setup for the comparative static $\f
 With this general setup in mind, we can now find some specific comparative statics. Throughout, we occasionally substitute in $c_2 = (1 + r) (Y - c_1)$. 
 
 \begin{description}
-    \item[Income] First, we will find the effet of a change in total net present value of income, so we can partially differentiate $U_{c_1}$ with respect to $Y$,
+    \item[Income] First, we will find the effect of a change in total net present value of income, so we can partially differentiate $U_{c_1}$ with respect to $Y$,
     \begin{align*}
         U_{c_1 Y} &= \partials{}{Y} \left(u'(c_1) - \beta (1 + r) u'((1 + r)(Y - c_1))\right) \\
         &= - \beta (1 + r)^2 u''((1 + r)(Y - c_1))  \\
@@ -320,7 +320,7 @@ To model this problem, we will simplify by assuming that there are $n = 3$ perio
     \begin{align*}
         c_1 + \frac{w}{1 + r} = Y
     \end{align*}
-    By plugging in the constraint, we get $c_1 = Y - \frac{w}{1 + r}$, yelding the following optimization problem:
+    By plugging in the constraint, we get $c_1 = Y - \frac{w}{1 + r}$, yielding the following optimization problem:
     \begin{align*}
         \max_{w \in [0, (1 + r) Y]} u\left(Y - \frac{w}{1 + r}\right) + \beta[\delta u(c_2(w)) + \delta^2 u(c_3(w))]
     \end{align*}
