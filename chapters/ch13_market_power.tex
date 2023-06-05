@@ -221,10 +221,67 @@ So the only remaining possibility for equilibrium is that $p_1 = p_2 = c$. Firms
 
 Notice that under Bertrand competition, the presence of just one additional firm moves us from the monopoly outcome to the perfectly competitive outcome! 
 
-\subsection{Cournot vs Bertrand}
+\subsection*{Cournot vs Bertrand}
 The Cournot and Bertrand models of oligopoly provide two plausible models, but it may not be obvious how this translates to modeling real world markets. The choice of Cournot or Bertrand competition can lead to drastically different modeling predictions, and so it seems important to make the right choice when modeling a market. How would we tell if a given oligopoly is operating under Cournot or Bertrand competition? 
 
 In general, we can model a market as facing Cournot competition when there is some constraint on the production of the good. For example, when manufacturing physical goods or extracting natural resources, there is a physical scarcity of the good being supplied. In this case, it makes sense that firms would first choose how much to produce, because if they chose price, there is no guarantee that they would be able to clear the markets at that price.
 
 However, there are other markets where firms can more plausibly set the price and guarantee that they will supply however much demand arises. One example that we have seen already is insurance markets. In an insurance market, the insurance firm sets the premium, and there is no physical limit to how much insurance can be sold. In this case it seems plausible that firms are setting the price and letting the market determine the quantity.
+
+\subsection{Stackelberg Competition}
+While the above two models of competition may seem all encompassing, there is a third model of competition that we will address here. The key in both Bertrand and Cournot competition is that firms make their decisions \emph{simultaneously}. However, in many markets firms do not in fact make decisions simultaneously, and the order of action can (and does) affect the strategic considerations by each firm.
+
+\vocab{Stackelberg competition}, named after German economist \emph{Heinrich Freiherr von Stackelberg}, examines the case where firms choose quantity, but they do not make their choices simultaneously. The assumption is that one firm can announce they will produce some quantity and credibly commit to producing that quantity, regardless of what other firms subsequently decide to do.
+
+\subsubsection*{Structure of Stackelberg competition}
+We will examine specifically the structure of Stackelberg competition with two firms, 1 and 2. 
+\begin{itemize}
+    \item Firm 1 chooses (and commits to) its quantity of production, $q_1$.
+    \item Firm 2 chooses its quantity of production, $q_2$, knowing the value of $q_1$. 
+    \item The market price is set to match supply and demand based on the total supply by all firms in the market. 
+\end{itemize}
+
+It is important in the above model that firm 1 commits to producing $q_1$ units of the good, and that firm 2 knows that no matter what it does, firm 1 will not be able to change its supply.
+
+\subsubsection*{The follower's maximization problem}
+When considering economic models where agents take actions sequentially, it is often useful to first examine the last moving agent, as doing so allows us to treat all other agents' actions as known.
+
+Firm 2 chooses second, and so faces the following maximization problem,
+\begin{align*}
+    \max_{q_2 \geq 0}  p(q_1 + q_2) q_2 - C(q_2)
+\end{align*}
+
+Note that firm 2 treats $q_1$ as given and fixed. Then firm 2's FOC is given by
+\begin{align*}
+    p'(q_1 + q_2)q_2 + p(q_1 + q_2) = C'(q_2)
+\end{align*}
+The above defines the optimal choice of quantity for firm 2 as a function of $q_1$: $q_2^*(q_1)$. This should look very familiar so far, as it is exactly the same as in Cournot competition. 
+
+\subsubsection*{The leader's maximization problem}
+Where things differ from Cournot competition is in the leader's maximization problem. Firm 1 \emph{knows} how firm 2 will respond to its choice of quantity, and takes that into account in its maximization problem. In other words, firm 1 maximizes knowing the function $q_2^*(q_1)$, and accounts for that in its choice of $q_1$.
+
+Firm 1's maximization problem is given by
+\begin{align*}
+    \max_{q_1 \geq 0} p(q_1 + q_2^*(q_1)) q_1 - C(q_1)
+\end{align*}
+This might seem at first very similar to the Cournot competition case. After all, don't we also require in Cournot competition that both firms are best responding? They key difference is that in Cournot competition, firm 1 maximizes treating $q_2$ as \emph{given}, whereas in Stackelberg competition firm 1 knows that firm 2 will be responding to $q_1$, and takes that into account when making the choice of $q_1$. 
+
+The key difference can be summarized as follows
+\begin{description}
+    \item[Cournot] Firm 1 maximizes taking into account firm 2's action, but not the effect that it's own choices can have one firm 2's choice.
+    \item[Stackelberg] Firm 1 not only takes firm 2's actions into account, but knows how firm 2 will \emph{respond} to firm 1's choice, and takes that into account.
+\end{description}
+
+Firm 1's FOC is therefore given by 
+\begin{align*}
+    p(q_1 + q_2^*(q_1)) + p'(q_1 + q_2^*(q_1))\left[1 + \partials{q_2^*}{q_1}(q_1)\right] q_1 = C'(q_1)
+\end{align*}
+
+Notice that Cournot competition can be modeled as the case where $\partials{q_2^*}{q_1} = 0$, because when both firms make their decisions simultaneously firm 2 cannot ``respond'' to firm 1's actions, hence there is no effect of $q_1$ on $q_2$. 
+
+And in the case of Stackelberg competition, there is no need to additionally solve for the equilibrium, because firm 2's choice is entirely determined by firm 1's choice, and firm 1's choice depends only on exogenous variables. So the above FOC defines $q_1^*$ in terms of the structure of the firm and the demand function, and $q_2^*(q_1^*)$ determines the quantity produced by firm 2. 
+
+\TODO{Add in the linear case as an example to give intuition for how this affects the quantity produced for each.}
+
+
 
